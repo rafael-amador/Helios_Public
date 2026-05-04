@@ -6,7 +6,8 @@ import Link from "next/link"
 import { useState, useEffect, useRef, useCallback } from "react"
 import { useRouter } from "next/navigation"
 import { Search, X, ChevronDown, ChevronRight, Link2, FileText, Upload, Sparkles } from "lucide-react"
-import { isLoggedIn, getAuthHeaders } from "@/lib/auth"
+import { hasAnthropicKey, getAiHeaders, getProviderCredentials } from "@/lib/byok"
+import { API_BASE } from "@/lib/apiBase"
 import { InfoBubble } from "@/app/components/InfoBubble"
 import yaml from "js-yaml"
 
@@ -191,30 +192,9 @@ export default function Create() {
   }, [])
 
   useEffect(() => {
-    if (!isLoggedIn()) { router.replace("/auth"); return }
-
-    // Hydrate from cache first so the Previous cards render on arrival
-    // (no pop-in after the page-transition completes).
-    try {
-      const cached = sessionStorage.getItem("helios_servers_cache")
-      if (cached) {
-        const parsed = JSON.parse(cached)
-        if (Array.isArray(parsed)) setServers(parsed)
-      }
-    } catch { }
-
-    fetch("http://localhost:8000/api/servers", { headers: getAuthHeaders() })
-      .then(res => {
-        if (res.status === 401) { router.replace("/auth"); return null }
-        return res.json()
-      })
-      .then(data => {
-        if (!data) return
-        const list = data.servers ?? []
-        setServers(list)
-        try { sessionStorage.setItem("helios_servers_cache", JSON.stringify(list)) } catch { }
-      })
-      .catch(() => { })
+    if (!hasAnthropicKey()) { router.replace("/"); return }
+    // Demo: no saved-server backend. Past-server reuse is disabled.
+    setServers([])
   }, [router])
 
   useEffect(() => {
@@ -252,9 +232,9 @@ export default function Create() {
     setPendingSource("custom"); setPendingApiName(name)
     let res: Response, data: ParseSpecResponse
     try {
-      res = await fetch("http://localhost:8000/api/spec/parse", {
+      res = await fetch(`${API_BASE}/api/spec/parse`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...payload, name }),
       })
       data = await res.json()
@@ -387,25 +367,9 @@ export default function Create() {
     })
   }
 
-  const handlePastServerClick = async (serverId: string) => {
-    setPopupLoading(true); setPopupOpen(true)
-    setPendingSource("past"); setPendingApiName(serverId); setPendingDraft(null)
-    const res = await fetch(`http://localhost:8000/api/servers/${serverId}/catalog`, { headers: getAuthHeaders() })
-    const data = await res.json()
-    if (!res.ok || data.error) { setPopupOpen(false); setPopupLoading(false); return }
-    const catalog: PopupTool[] = (data.catalog ?? []).filter((t: PopupTool) => t.enabled !== false)
-    setPendingDraft({
-      specId: serverId,
-      baseUrl: data.baseUrl ?? "",
-      toolCount: catalog.length,
-      catalog,
-      auth: data.auth,
-      groupMap: data.groupMap ?? null,
-      authMap: data.authMap ?? null,
-    })
-    setPopupTools(catalog)
-    setPopupSelected(new Set(catalog.map((t: PopupTool) => t.name)))
-    setPopupLoading(false)
+  // Past-server reuse disabled in the demo (no DB).
+  const handlePastServerClick = async (_serverId: string) => {
+    setPopupOpen(false); setPopupLoading(false)
   }
 
   const handlePremadeClick = async (api: PremadeAPI) => {
@@ -417,9 +381,9 @@ export default function Create() {
         // avoids colliding with any existing server the user has; real name is chosen
         // at save time in handlePopupConfirm's downstream flow.
         const throwawayName = `${api.slug}_${Date.now()}`
-        const res = await fetch("http://localhost:8000/api/spec/parse", {
+        const res = await fetch(`${API_BASE}/api/spec/parse`, {
           method: "POST",
-          headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ url: api.specUrl, name: throwawayName }),
         })
         const data: ParseSpecResponse = await res.json()
@@ -471,13 +435,14 @@ export default function Create() {
       console.log("[launchSandbox] tools.apiName ->", tools.map(t => t.apiName))
       console.log("[launchSandbox] groupMap ->", toolMap)
       console.log("[launchSandbox] authMap keys ->", Object.keys(authMap))
-      const res = await fetch("http://localhost:8000/api/sandbox/start", {
+      const res = await fetch(`${API_BASE}/api/sandbox/start`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           toolsRegistry: { baseUrl: "", tools: registryTools },
           groupMap: toolMap,
           authMap,
+          credentials: getProviderCredentials(),
         })
       })
       const data = await res.json()
@@ -546,9 +511,9 @@ export default function Create() {
 
     setIsSimplifying(true)
     try {
-      const simplifyRes = await fetch("http://localhost:8000/api/spec/simplify", {
+      const simplifyRes = await fetch(`${API_BASE}/api/spec/simplify`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+        headers: { "Content-Type": "application/json", ...getAiHeaders() },
         body: JSON.stringify({ catalog: registryTools, userIntent: intent.trim() }),
       })
       if (simplifyRes.ok) {

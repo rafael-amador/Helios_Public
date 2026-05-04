@@ -3,12 +3,12 @@ import { Suspense, useState, useEffect, useLayoutEffect, useRef } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { Send, User, Bot, ChevronDown, ChevronRight } from "lucide-react"
 import Link from "next/link"
-import { isLoggedIn, getAuthHeaders } from "@/lib/auth"
+import { hasAnthropicKey, getAiHeaders, getProviderCredentials, setProviderCredential, deleteProviderCredential } from "@/lib/byok"
+import { API_BASE } from "@/lib/apiBase"
 import { InfoBubble } from "@/app/components/InfoBubble"
 import { lookupProviderKeyUrl, lookupBasicAuthLabels } from "@/lib/providerKeys"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
-import rehypeRaw from "rehype-raw"
 
 const cn = (...classes: (string | undefined | null | false)[]) => classes.filter(Boolean).join(" ")
 
@@ -71,7 +71,7 @@ function SandboxContent() {
 
 
   useEffect(() => {
-    if (!isLoggedIn()) { router.replace("/auth"); return }
+    if (!hasAnthropicKey()) { router.replace("/"); return }
 
     if (compositeId) {
       const raw = sessionStorage.getItem(`helios_session_${compositeId}`)
@@ -107,10 +107,10 @@ function SandboxContent() {
         } catch { }
       }
 
-      fetch("http://localhost:8000/api/sandbox/start", {
+      fetch(`${API_BASE}/api/sandbox/start`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-        body: JSON.stringify({ toolsRegistry: { baseUrl: "", tools: registryTools }, groupMap: localGroupMap, authMap: localAuthMap })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ toolsRegistry: { baseUrl: "", tools: registryTools }, groupMap: localGroupMap, authMap: localAuthMap, credentials: getProviderCredentials() })
       })
         .then(res => res.json())
         .then(data => {
@@ -129,10 +129,10 @@ function SandboxContent() {
     const draft = specId ? sessionStorage.getItem(`helios_draft_${specId}`) : null
     const draftData = draft ? JSON.parse(draft) : null
 
-    fetch("http://localhost:8000/api/sandbox/start", {
+    fetch(`${API_BASE}/api/sandbox/start`, {
       method: "POST",
-      headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-      body: JSON.stringify({ specId, spec: draftData?.spec ?? undefined, baseUrl: draftData?.baseUrl ?? undefined })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ spec: draftData?.spec ?? undefined, baseUrl: draftData?.baseUrl ?? undefined, integrationId: specId, credentials: getProviderCredentials() })
     })
       .then(res => res.json())
       .then(data => {
@@ -218,42 +218,39 @@ function SandboxContent() {
   }
 
   const handleNavigateToVerify = () => {
-    if (compositeId) {
-      // Persist current toggle state so verify reflects sandbox deselections.
-      // Source of truth = allTools (what the user just saw in the panel) merged with
-      // any other fields from storage (sessionId, etc).
-      const raw = sessionStorage.getItem(`helios_session_${compositeId}`)
-      const sessionRest = raw ? JSON.parse(raw) : { sessionId }
-      const updatedTools = allTools.map((t: Tool) => {
-        const name = t.function.name
-        const isEnabled = name in toolToggles ? toolToggles[name] === true : (t.enabled !== false)
-        return { ...t, enabled: isEnabled }
-      })
-      sessionStorage.setItem(
-        `helios_session_${compositeId}`,
-        JSON.stringify({ ...sessionRest, tools: updatedTools })
-      )
-      const url = specId
-        ? `/verify?compositeId=${compositeId}&specId=${encodeURIComponent(specId)}`
-        : `/verify?compositeId=${compositeId}`
-      router.push(url)
-      return
-    }
-    if (specId) {
+    // Demo flow: skip the old /verify naming step. Build the registry from
+    // current toggles + group/auth maps and stash it in sessionStorage so the
+    // /download page can POST it to the stateless server-zip endpoint.
+    const targetId = compositeId || specId || "helios-server"
+    const enabledTools = allTools
+      .filter(t => toolToggles[t.function.name] !== false)
+      .map(t => ({
+        name: t.function.name,
+        description: t.function.description,
+        input_schema: t.function.parameters ?? { type: "object", properties: {} },
+        handler: {
+          method: t.handler?.method ?? "GET",
+          path: t.handler?.path ?? "",
+          headers: {},
+          query_params: t.handler?.query_params ?? [],
+          fixed_query_params: (t.handler as any)?.fixed_query_params,
+          param_name_map: (t.handler as any)?.param_name_map,
+          body_format: (t.handler as any)?.body_format,
+          auto_path_params: (t.handler as any)?.auto_path_params,
+        },
+        enrichment: (t as any).enrichment,
+        enabled: true,
+      }))
+
+    let baseUrl = ""
+    if (specId && !compositeId) {
       const draft = sessionStorage.getItem(`helios_draft_${specId}`)
-      if (draft) {
-        const draftData = JSON.parse(draft)
-        if (Array.isArray(draftData.catalog)) {
-          const updatedCatalog = draftData.catalog.map((item: { name: string; enabled?: boolean }) => ({
-            ...item, enabled: toolToggles[item.name] ?? item.enabled ?? true
-          }))
-          sessionStorage.setItem(`helios_draft_${specId}`, JSON.stringify({ ...draftData, catalog: updatedCatalog }))
-        }
-      } else {
-        sessionStorage.setItem(`helios_toggles_${specId}`, JSON.stringify(toolToggles))
-      }
-      router.push(`/verify?specId=${specId}`)
+      if (draft) { try { baseUrl = JSON.parse(draft).baseUrl ?? "" } catch {} }
     }
+
+    const registry = { schema_version: 2, baseUrl, tools: enabledTools, auth: [] as any[] }
+    sessionStorage.setItem(`helios_registry_${targetId}`, JSON.stringify(registry))
+    router.push(`/download?specId=${encodeURIComponent(targetId)}`)
   }
 
   const handleEdit = () => {
@@ -316,9 +313,9 @@ function SandboxContent() {
       .filter(m => m.role === "user" || m.role === "assistant")
       .map(m => ({ role: m.role as "user" | "assistant", content: m.content }))
 
-    fetch("http://localhost:8000/api/sandbox/chat", {
+    fetch(`${API_BASE}/api/sandbox/chat`, {
       method: "POST",
-      headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+      headers: { "Content-Type": "application/json", ...getAiHeaders() },
       body: JSON.stringify({
         sessionId,
         tools: activeTools,
@@ -441,29 +438,18 @@ function SandboxContent() {
       ? [...new Set(Object.values(toolGroupMap))] as string[]
       : specId ? [specId] : []
     if (groups.length === 0) return
-    Promise.all(
-      groups.map(async g => {
-        try {
-          const res = await fetch(`http://localhost:8000/api/keys/${encodeURIComponent(g)}/status`, { headers: getAuthHeaders() })
-          const data = await res.json()
-          return [g, data.exists ?? false] as [string, boolean]
-        } catch { return [g, false] as [string, boolean] }
-      })
-    ).then(entries => setSavedKeyStatus(Object.fromEntries(entries)))
-  }, [panelOpen, panelTab])
+    // BYOK demo: credentials live in sessionStorage, not on the server.
+    const all = getProviderCredentials()
+    setSavedKeyStatus(Object.fromEntries(groups.map(g => [g, !!all[g]])))
+  }, [panelOpen, panelTab, toolGroupMap, specId])
 
   const handleSaveKey = async (groupName: string) => {
     const key = apiKeys[groupName]
     if (!key?.trim()) return
     setIsSavingKey(groupName)
-    try {
-      const res = await fetch(`http://localhost:8000/api/keys/${encodeURIComponent(groupName)}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-        body: JSON.stringify({ key: key.trim() })
-      })
-      if (res.ok) { setSavedKeyStatus(prev => ({ ...prev, [groupName]: true })); setApiKeys(prev => ({ ...prev, [groupName]: "" })) }
-    } catch { }
+    setProviderCredential(groupName, key.trim())
+    setSavedKeyStatus(prev => ({ ...prev, [groupName]: true }))
+    setApiKeys(prev => ({ ...prev, [groupName]: "" }))
     setIsSavingKey(null)
   }
 
@@ -471,42 +457,21 @@ function SandboxContent() {
     const fields = basicAuthFields[groupName]
     if (!fields?.user?.trim() || !fields?.pass?.trim()) return
     setIsSavingKey(groupName)
-    try {
-      const res = await fetch(`http://localhost:8000/api/keys/${encodeURIComponent(groupName)}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-        body: JSON.stringify({ key: `${fields.user.trim()}:${fields.pass.trim()}` })
-      })
-      if (res.ok) {
-        setSavedKeyStatus(prev => ({ ...prev, [groupName]: true }))
-        setBasicAuthFields(prev => ({ ...prev, [groupName]: { user: "", pass: "" } }))
-      }
-    } catch { }
+    setProviderCredential(groupName, `${fields.user.trim()}:${fields.pass.trim()}`)
+    setSavedKeyStatus(prev => ({ ...prev, [groupName]: true }))
+    setBasicAuthFields(prev => ({ ...prev, [groupName]: { user: "", pass: "" } }))
     setIsSavingKey(null)
   }
 
-  const handleOAuth2Connect = async (groupName: string, tokenUrl: string) => {
-    const fields = oauth2Fields[groupName]
-    if (!fields?.clientId?.trim() || !fields?.clientSecret?.trim()) return
-    setIsConnecting(groupName)
-    try {
-      const res = await fetch("http://localhost:8000/api/keys/oauth2/connect", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-        body: JSON.stringify({ groupName, tokenUrl, clientId: fields.clientId.trim(), clientSecret: fields.clientSecret.trim() })
-      })
-      const data = await res.json()
-      if (res.ok) {
-        setOauth2ConnectStatus(prev => ({ ...prev, [groupName]: { ok: true, msg: "Connected" } }))
-        setSavedKeyStatus(prev => ({ ...prev, [groupName]: true }))
-        setOauth2Fields(prev => ({ ...prev, [groupName]: { clientId: "", clientSecret: "" } }))
-      } else {
-        setOauth2ConnectStatus(prev => ({ ...prev, [groupName]: { ok: false, msg: data.error ?? "Connection failed" } }))
-      }
-    } catch {
-      setOauth2ConnectStatus(prev => ({ ...prev, [groupName]: { ok: false, msg: "Request failed" } }))
-    }
-    setIsConnecting(null)
+  // OAuth2 popup flow disabled in the demo — user pastes their own access_token
+  // into the API Key field once they obtain it from the provider.
+  const handleOAuth2Connect = async (groupName: string, _tokenUrl: string) => {
+    setOauth2ConnectStatus(prev => ({ ...prev, [groupName]: { ok: false, msg: "OAuth popup is disabled in the demo. Get a token from your provider's console and paste it as an API key above." } }))
+  }
+
+  const handleDeleteKey = (groupName: string) => {
+    deleteProviderCredential(groupName)
+    setSavedKeyStatus(prev => ({ ...prev, [groupName]: false }))
   }
 
   const toolGroups: { name: string; tools: Tool[] }[] = (() => {
@@ -553,9 +518,7 @@ function SandboxContent() {
             />
           </span>
           <span className="step-divider text-[10px]">✦</span>
-          <span onClick={handleNavigateToVerify} className="step-inactive cursor-pointer hover:text-white/60 transition-colors">Verify</span>
-          <span className="step-divider text-[10px]">✦</span>
-          <span className="step-inactive">Download</span>
+          <span onClick={handleNavigateToVerify} className="step-inactive cursor-pointer hover:text-white/60 transition-colors">Download</span>
         </div>
         <div className="flex-1 flex items-center justify-end gap-2.5">
           {specId ? (
@@ -684,7 +647,6 @@ function SandboxContent() {
                         <div className="font-[family-name:--font-cormorant] text-[17px] leading-relaxed prose-sandbox">
                           <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
-                            rehypePlugins={[rehypeRaw]}
                             components={{
                               p: ({ children }) => <p className="mb-2 last:mb-0 leading-relaxed">{children}</p>,
                               h1: ({ children }) => <h1 className="font-[family-name:--font-cinzel] text-[18px] tracking-wider text-white/95 mb-3 mt-1">{children}</h1>,

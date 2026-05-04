@@ -2,7 +2,6 @@
 import Link from "next/link"
 import { Suspense, useState, useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
-import { isLoggedIn, logout } from "@/lib/auth"
 import {
   BookOpen, Cpu, Sparkles, FileJson2, KeyRound, Beaker, Server, Lock,
   ArrowUp, ArrowRight, ExternalLink, ChevronRight
@@ -496,24 +495,10 @@ function InfoContent() {
             Info
             <span className="absolute bottom-1 left-5 right-5 h-[1px] bg-white/70" />
           </span>
-          <Link href="/keys" className="group relative font-[family-name:--font-cinzel] text-[15px] tracking-[0.15em] px-5 py-2.5 text-white/60 hover:text-white transition-all duration-200 cursor-pointer hover:-translate-y-[1px]">
-            Keys
+          <Link href="/" className="group relative font-[family-name:--font-cinzel] text-[15px] tracking-[0.15em] px-5 py-2.5 text-white/60 hover:text-white transition-all duration-200 cursor-pointer hover:-translate-y-[1px]">
+            Home
             <span className="absolute bottom-1 left-5 right-5 h-[1px] bg-white/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
           </Link>
-          {isLoggedIn() ? (
-            <button
-              onClick={() => { logout(); router.refresh(); router.push("/auth") }}
-              className="group relative font-[family-name:--font-cinzel] text-[15px] tracking-[0.15em] px-5 py-2.5 text-white/60 hover:text-white transition-all duration-200 cursor-pointer hover:-translate-y-[1px]"
-            >
-              Sign Out
-              <span className="absolute bottom-1 left-5 right-5 h-[1px] bg-white/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
-            </button>
-          ) : (
-            <Link href="/auth" className="group relative font-[family-name:--font-cinzel] text-[15px] tracking-[0.15em] px-5 py-2.5 text-white/60 hover:text-white transition-all duration-200 cursor-pointer hover:-translate-y-[1px]">
-              Sign In
-              <span className="absolute bottom-1 left-5 right-5 h-[1px] bg-white/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
-            </Link>
-          )}
         </div>
       </div>
       )}

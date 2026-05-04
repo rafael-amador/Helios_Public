@@ -4,7 +4,8 @@ import { createPortal } from "react-dom"
 import { useSearchParams, useRouter } from "next/navigation"
 import { Send, User, ChevronDown, ChevronRight } from "lucide-react"
 import Link from "next/link"
-import { isLoggedIn, getAuthHeaders } from "@/lib/auth"
+import { hasAnthropicKey, getAiHeaders, getProviderCredentials, setProviderCredential, deleteProviderCredential } from "@/lib/byok"
+import { API_BASE } from "@/lib/apiBase"
 import { InfoBubble } from "@/app/components/InfoBubble"
 import { MotionStarsBackground } from "@/app/components/MotionStars"
 import RandomPlanet from "@/components/ui/random-planet"
@@ -12,7 +13,6 @@ import { getServerStarColor } from "@/lib/serverStars"
 import { lookupProviderKeyUrl, lookupBasicAuthLabels } from "@/lib/providerKeys"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
-import rehypeRaw from "rehype-raw"
 
 // ── Utilities ──────────────────────────────────────────────────────────────────
 const cn = (...classes: (string | undefined | null | false)[]) => classes.filter(Boolean).join(" ")
@@ -233,7 +233,7 @@ function TryContent() {
 
   // Auth guard
   useEffect(() => {
-    if (!isLoggedIn()) { router.replace("/auth"); return }
+    if (!hasAnthropicKey()) { router.replace("/"); return }
   }, [router])
 
   // Start session (try mode — unrestricted, every method executes live)
@@ -261,10 +261,19 @@ function TryContent() {
       } catch { /* fall through to fresh start */ }
     }
 
-    fetch("http://localhost:8000/api/try/start", {
+    // Demo: no DB. The registry must already be in sessionStorage (placed there
+    // by /create or /sandbox before navigating here).
+    const registryRaw = specId ? sessionStorage.getItem(`helios_registry_${specId}`) : null
+    if (!registryRaw) {
+      setMessages([{ id: Date.now().toString(), role: "assistant", content: "No server registry found. Build it first via the Create page.", timestamp: new Date() }])
+      return
+    }
+    const registry = JSON.parse(registryRaw)
+
+    fetch(`${API_BASE}/api/try/start`, {
       method: "POST",
-      headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-      body: JSON.stringify({ specId }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ toolsRegistry: registry, credentials: getProviderCredentials() }),
     })
       .then(res => res.json())
       .then(data => {
@@ -287,17 +296,42 @@ function TryContent() {
       })
   }, [specId])
 
-  // Integrations fetch when keys panel opens — matches the /keys page so saves land under the correct integrationId
+  // BYOK demo: integrations come from the in-memory registry (which we already
+  // loaded from sessionStorage above) — no backend call needed.
   const loadIntegrations = () => {
     if (!specId) return
-    fetch(`http://localhost:8000/api/servers/${encodeURIComponent(specId)}/keys`, { headers: getAuthHeaders() })
-      .then(res => res.json())
-      .then(data => {
-        const list: Integration[] = data.integrations ?? []
-        setIntegrations(list)
-        setSavedKeyStatus(Object.fromEntries(list.map(i => [i.integrationId, i.keyPresent && !i.tokenExpired])))
-      })
-      .catch(() => { })
+    const registryRaw = sessionStorage.getItem(`helios_registry_${specId}`)
+    if (!registryRaw) return
+    try {
+      const registry = JSON.parse(registryRaw)
+      const seen = new Set<string>()
+      const list: Integration[] = []
+      for (const tool of registry.tools ?? []) {
+        const auth = tool.enrichment?.auth
+        if (!auth || !auth.template || auth.template === "none") continue
+        const id = auth.integration_id || specId
+        if (seen.has(id)) continue
+        seen.add(id)
+        const tpl = auth.template as string
+        const authType: Integration["authType"] = tpl.includes("oauth2") ? "oauth2"
+          : tpl.includes("api_key") ? "apiKey"
+          : tpl === "basic_auth" ? "basic_auth"
+          : "bearer_token"
+        list.push({
+          integrationId: id,
+          authType,
+          oauthFlow: tpl === "oauth2_client_creds" ? "client_credentials" : tpl === "oauth2_auth_code" ? "authorization_code" : undefined,
+          tokenUrl: auth.token_url,
+          authorizationUrl: auth.authorization_url,
+          keyPresent: false,
+          tokenExpired: false,
+        })
+      }
+      const creds = getProviderCredentials()
+      for (const i of list) i.keyPresent = !!creds[i.integrationId]
+      setIntegrations(list)
+      setSavedKeyStatus(Object.fromEntries(list.map(i => [i.integrationId, i.keyPresent])))
+    } catch { }
   }
   useEffect(() => {
     if (!panelOpen || panelTab !== "keys" || !specId) return
@@ -385,10 +419,13 @@ function TryContent() {
 
   const startTrySession = async (): Promise<{ sessionId: string; tools: Tool[] } | null> => {
     try {
-      const res = await fetch("http://localhost:8000/api/try/start", {
+      const registryRaw = specId ? sessionStorage.getItem(`helios_registry_${specId}`) : null
+      if (!registryRaw) return null
+      const registry = JSON.parse(registryRaw)
+      const res = await fetch(`${API_BASE}/api/try/start`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-        body: JSON.stringify({ specId }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ toolsRegistry: registry, credentials: getProviderCredentials() }),
       })
       const data = await res.json()
       if (data.error) return null
@@ -408,9 +445,9 @@ function TryContent() {
   }
 
   const sendChatRequest = async (sid: string, tools: Tool[], cleanHistory: Array<{ role: "user" | "assistant"; content: string }>, messageText: string, signal: AbortSignal) => {
-    return fetch("http://localhost:8000/api/try/chat", {
+    return fetch(`${API_BASE}/api/try/chat`, {
       method: "POST",
-      headers: { "Content-Type": "application/json", ...getAuthHeaders() },
+      headers: { "Content-Type": "application/json", ...getAiHeaders() },
       body: JSON.stringify({ sessionId: sid, tools, history: cleanHistory, message: messageText, authContext }),
       signal,
     })
@@ -496,18 +533,10 @@ function TryContent() {
     const key = apiKeys[integrationId]
     if (!key?.trim()) return
     setIsSavingKey(integrationId)
-    try {
-      const res = await fetch(`http://localhost:8000/api/keys/${encodeURIComponent(integrationId)}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-        body: JSON.stringify({ key: key.trim() }),
-      })
-      if (res.ok) {
-        setSavedKeyStatus(prev => ({ ...prev, [integrationId]: true }))
-        setApiKeys(prev => ({ ...prev, [integrationId]: "" }))
-        loadIntegrations()
-      }
-    } catch { /* ignore */ }
+    setProviderCredential(integrationId, key.trim())
+    setSavedKeyStatus(prev => ({ ...prev, [integrationId]: true }))
+    setApiKeys(prev => ({ ...prev, [integrationId]: "" }))
+    loadIntegrations()
     setIsSavingKey(null)
   }
 
@@ -515,73 +544,24 @@ function TryContent() {
     const fields = basicAuthFields[integrationId]
     if (!fields?.user?.trim() || !fields?.pass?.trim()) return
     setIsSavingKey(integrationId)
-    try {
-      const res = await fetch(`http://localhost:8000/api/keys/${encodeURIComponent(integrationId)}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-        body: JSON.stringify({ key: `${fields.user.trim()}:${fields.pass.trim()}` }),
-      })
-      if (res.ok) {
-        setSavedKeyStatus(prev => ({ ...prev, [integrationId]: true }))
-        setBasicAuthFields(prev => ({ ...prev, [integrationId]: { user: "", pass: "" } }))
-        loadIntegrations()
-      }
-    } catch { /* ignore */ }
+    setProviderCredential(integrationId, `${fields.user.trim()}:${fields.pass.trim()}`)
+    setSavedKeyStatus(prev => ({ ...prev, [integrationId]: true }))
+    setBasicAuthFields(prev => ({ ...prev, [integrationId]: { user: "", pass: "" } }))
+    loadIntegrations()
     setIsSavingKey(null)
   }
 
+  // OAuth2 popup is disabled in the demo. Users obtain a token themselves and
+  // paste it into the API Key field.
   const handleOAuth2Connect = async (integration: Integration) => {
-    const { integrationId, oauthFlow, tokenUrl, authorizationUrl, scopes } = integration
-    const fields = oauth2Fields[integrationId]
-    if (!fields?.clientId?.trim() || !fields?.clientSecret?.trim()) return
-    setIsConnecting(integrationId)
-    setOauth2ConnectStatus(prev => ({ ...prev, [integrationId]: { ok: false, msg: "" } }))
-    try {
-      if (oauthFlow === "client_credentials") {
-        const res = await fetch("http://localhost:8000/api/oauth2/client-credentials", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-          body: JSON.stringify({ integrationId, clientId: fields.clientId.trim(), clientSecret: fields.clientSecret.trim(), tokenUrl }),
-        })
-        const data = await res.json()
-        if (!res.ok) throw new Error(data.error ?? "Connection failed")
-      } else {
-        // Authorization Code popup
-        const res = await fetch("http://localhost:8000/api/oauth2/authorize", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", ...getAuthHeaders() },
-          body: JSON.stringify({ integrationId, clientId: fields.clientId.trim(), clientSecret: fields.clientSecret.trim(), authorizationUrl, tokenUrl, scopes }),
-        })
-        const data = await res.json()
-        if (!res.ok) throw new Error(data.error ?? "Failed to build auth URL")
-        const popup = window.open(data.url, "helios_oauth", "width=520,height=640,scrollbars=yes")
-        if (!popup) throw new Error("Popup blocked — allow popups and retry.")
-        await new Promise<void>((resolve, reject) => {
-          const handler = (event: MessageEvent) => {
-            if (!event.data?.heliosOAuth) return
-            window.removeEventListener("message", handler)
-            clearInterval(pollClosed)
-            if (event.data.ok) resolve()
-            else reject(new Error(event.data.message ?? "Authorization failed"))
-          }
-          window.addEventListener("message", handler)
-          const pollClosed = setInterval(() => {
-            if (popup.closed) {
-              window.removeEventListener("message", handler)
-              clearInterval(pollClosed)
-              reject(new Error("Window closed before authorization completed"))
-            }
-          }, 500)
-        })
-      }
-      setOauth2ConnectStatus(prev => ({ ...prev, [integrationId]: { ok: true, msg: "Connected" } }))
-      setSavedKeyStatus(prev => ({ ...prev, [integrationId]: true }))
-      setOauth2Fields(prev => ({ ...prev, [integrationId]: { clientId: "", clientSecret: "" } }))
-      loadIntegrations()
-    } catch (err: any) {
-      setOauth2ConnectStatus(prev => ({ ...prev, [integrationId]: { ok: false, msg: err?.message ?? "Request failed" } }))
-    }
-    setIsConnecting(null)
+    const { integrationId } = integration
+    setOauth2ConnectStatus(prev => ({ ...prev, [integrationId]: { ok: false, msg: "OAuth popup is disabled in the demo. Get an access token from your provider's console and paste it into the API Key field above." } }))
+  }
+
+  const handleDeleteKey = (integrationId: string) => {
+    deleteProviderCredential(integrationId)
+    setSavedKeyStatus(prev => ({ ...prev, [integrationId]: false }))
+    loadIntegrations()
   }
 
   if (!specId) {
@@ -832,7 +812,6 @@ function TryContent() {
                           <div className="font-[family-name:--font-cormorant] text-[17px] leading-relaxed prose-sandbox">
                             <ReactMarkdown
                               remarkPlugins={[remarkGfm]}
-                              rehypePlugins={[rehypeRaw]}
                               components={{
                                 p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
                                 h1: ({ children }) => <h1 className="font-[family-name:--font-cinzel] text-[18px] tracking-wider text-white/95 mb-3 mt-1">{children}</h1>,
