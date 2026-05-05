@@ -5,6 +5,7 @@ import { Send, User, Bot, ChevronDown, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { hasAnthropicKey, getAiHeaders, getProviderCredentials, setProviderCredential, deleteProviderCredential } from "@/lib/byok"
 import { API_BASE } from "@/lib/apiBase"
+import { addSavedServer } from "@/lib/savedServers"
 import { InfoBubble } from "@/app/components/InfoBubble"
 import { lookupProviderKeyUrl, lookupBasicAuthLabels } from "@/lib/providerKeys"
 import ReactMarkdown from "react-markdown"
@@ -126,13 +127,29 @@ function SandboxContent() {
       return
     }
 
+    // Three load sources, in priority order:
+    //   1. helios_registry_${specId}  — server saved to dashboard (clicked from home)
+    //   2. helios_draft_${specId}     — in-progress build coming from /create
+    //   3. neither — show error
+    const savedRegistryRaw = specId ? sessionStorage.getItem(`helios_registry_${specId}`) : null
     const draft = specId ? sessionStorage.getItem(`helios_draft_${specId}`) : null
     const draftData = draft ? JSON.parse(draft) : null
+
+    let body: Record<string, any>
+    if (savedRegistryRaw) {
+      body = { toolsRegistry: JSON.parse(savedRegistryRaw), credentials: getProviderCredentials() }
+    } else if (draftData) {
+      body = { spec: draftData.spec, baseUrl: draftData.baseUrl, integrationId: specId, credentials: getProviderCredentials() }
+    } else {
+      setMessages([{ id: Date.now().toString(), role: "assistant", content: "No server data found. Build one from the home page first.", timestamp: new Date() }])
+      setAllTools([])
+      return
+    }
 
     fetch(`${API_BASE}/api/sandbox/start`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ spec: draftData?.spec ?? undefined, baseUrl: draftData?.baseUrl ?? undefined, integrationId: specId, credentials: getProviderCredentials() })
+      body: JSON.stringify(body)
     })
       .then(res => res.json())
       .then(data => {
@@ -250,6 +267,8 @@ function SandboxContent() {
 
     const registry = { schema_version: 2, baseUrl, tools: enabledTools, auth: [] as any[] }
     sessionStorage.setItem(`helios_registry_${targetId}`, JSON.stringify(registry))
+    // Save to dashboard so this server appears on the home page next visit
+    addSavedServer({ id: targetId, baseUrl, toolCount: enabledTools.length })
     router.push(`/download?specId=${encodeURIComponent(targetId)}`)
   }
 
