@@ -118,6 +118,12 @@ function toOpenAITool(tool: any, enabled = true) {
             body_format: tool.handler.body_format,
             auto_path_params: tool.handler.auto_path_params,
         },
+        // Enrichment carries the auth template + integration_id. Without it the
+        // round-trip through frontend → sandbox → verify → download loses the
+        // auth metadata, so the downloaded server's .env.example claims no
+        // credentials are needed and the /try Keys panel has no integrations
+        // to surface.
+        enrichment: tool.enrichment,
         enabled
     }
 }

@@ -37,6 +37,10 @@ interface ToolItem {
   compositeParent?: string
   input_schema?: object
   handler?: { method: string; path: string; query_params?: string[] }
+  // Auth template + integration_id. Must round-trip end-to-end so the
+  // downloaded server's .env.example knows what credentials to ask for and
+  // /try can show the Keys panel.
+  enrichment?: any
 }
 
 interface PopupTool {
@@ -45,6 +49,7 @@ interface PopupTool {
   enabled?: boolean
   handler?: { method: string; path: string; query_params?: string[] }
   input_schema?: object
+  enrichment?: any
 }
 
 interface AuthConfig {
@@ -316,6 +321,9 @@ export default function Create() {
       compositeParent: isCompositeImport ? pendingApiName : undefined,
       input_schema: t.input_schema,
       handler: t.handler,
+      // Carry enrichment so the auth template + integration_id survive the
+      // round-trip to the dispatcher / downloaded server.
+      enrichment: t.enrichment,
     }))
     setTools(prev => {
       const existingNames = new Set(prev.map(t => t.name))
@@ -405,6 +413,10 @@ export default function Create() {
             enabled: t.enabled ?? true,
             handler: (t as any).handler,
             input_schema: (t as any).input_schema,
+            // Carry enrichment from the premade JSON — without it the auth
+            // template is unknown downstream and OAuth premades (Google
+            // Calendar, Slack, Asana, etc.) lose their credential requirement.
+            enrichment: (t as any).enrichment,
           }))
         setPendingDraft({ baseUrl: data.baseUrl ?? "", auth: data.auth })
         setPopupTools(catalog)
@@ -419,6 +431,7 @@ export default function Create() {
   const launchSandbox = async (registryTools: Array<{
     name: string; description: string; input_schema: object;
     handler: { method: string; path: string; headers: object; query_params: string[]; fixed_query_params?: any }
+    enrichment?: any
   }>) => {
     try {
       const toolMap: Record<string, string> = {}
@@ -491,7 +504,12 @@ export default function Create() {
         body_format: (t.handler as any)?.body_format,
         // Path params auto-filled from saved credentials (e.g. Twilio's {AccountSid}).
         auto_path_params: (t.handler as any)?.auto_path_params,
-      }
+      },
+      // Carry enrichment forward so /verify, /try, and /download all know what
+      // auth template + integration this tool requires. Without this the
+      // downloaded server's .env.example says "no credentials needed" even for
+      // OAuth APIs like Google Calendar, and /try has no integrations to show.
+      enrichment: (t as any).enrichment,
     }))
 
     if (simplifyPreview) {

@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { createPortal } from "react-dom"
 import { useRouter } from "next/navigation"
 import { Trash2, ChevronRight, Eye, EyeOff, Check, ExternalLink, Sparkles } from "lucide-react"
@@ -37,6 +37,10 @@ export default function Home() {
    *  settle (~4.5s). Used to delay the first-star tour bubble until the star
    *  is in its final spot. */
   const [firstStarTourReady, setFirstStarTourReady] = useState(false)
+  /** "initial" while constellation lines are being drawn for the first time;
+   *  flips to "steady" once they're all painted so subsequent re-renders
+   *  don't restart the draw animation. */
+  const [animateMode, setAnimateMode] = useState<"initial" | "steady">("initial")
 
   useEffect(() => {
     document.fonts.ready.then(() => requestAnimationFrame(() => setPageReady(true)))
@@ -129,6 +133,102 @@ export default function Home() {
     withKey(() => router.push(`/try?specId=${encodeURIComponent(serverId)}`))
   }
 
+  // ── Constellation edges ──────────────────────────────────────────────────
+  // Each star gets 1-3 connections (hash-seeded max degree per star), greedy
+  // shortest-pair-first assignment. Every star is guaranteed at least one
+  // connection. Draw delays are computed via BFS from the rightmost star so
+  // the constellation appears to "light up" from one end.
+  const constellationEdges = useMemo(() => {
+    const valid = servers.filter(s => s.starX != null && s.starY != null)
+    if (valid.length < 2) return []
+
+    const maxDeg = (s: SavedServer) => (hashStr(s.id + "deg") % 3) + 1
+    const degree = new Map<string, number>()
+    valid.forEach(s => degree.set(s.id, 0))
+
+    const pairs: Array<{ a: SavedServer; b: SavedServer; dist: number }> = []
+    for (let i = 0; i < valid.length; i++) {
+      for (let j = i + 1; j < valid.length; j++) {
+        const a = valid[i], b = valid[j]
+        const dx = a.starX - b.starX
+        const dy = a.starY - b.starY
+        pairs.push({ a, b, dist: Math.sqrt(dx * dx + dy * dy) })
+      }
+    }
+    pairs.sort((x, y) => x.dist - y.dist)
+
+    const seen = new Set<string>()
+    const edges: Array<[SavedServer, SavedServer]> = []
+
+    const tryAdd = (a: SavedServer, b: SavedServer): boolean => {
+      const key = [a.id, b.id].sort().join("|")
+      if (seen.has(key)) return false
+      if (degree.get(a.id)! >= maxDeg(a)) return false
+      if (degree.get(b.id)! >= maxDeg(b)) return false
+      seen.add(key)
+      edges.push([a, b])
+      degree.set(a.id, degree.get(a.id)! + 1)
+      degree.set(b.id, degree.get(b.id)! + 1)
+      return true
+    }
+    for (const p of pairs) tryAdd(p.a, p.b)
+
+    // Guarantee: any orphan star force-connects to its nearest partner.
+    for (const s of valid) {
+      if (degree.get(s.id)! > 0) continue
+      for (const { a, b } of pairs) {
+        const other = a.id === s.id ? b : b.id === s.id ? a : null
+        if (!other || degree.get(other.id)! >= 3) continue
+        const key = [s.id, other.id].sort().join("|")
+        if (seen.has(key)) continue
+        seen.add(key)
+        edges.push([s, other])
+        degree.set(s.id, degree.get(s.id)! + 1)
+        degree.set(other.id, degree.get(other.id)! + 1)
+        break
+      }
+    }
+
+    // BFS from rightmost star — each line's start delay = depth × draw duration.
+    const DRAW_DUR = 1.4
+    const adj = new Map<string, string[]>()
+    valid.forEach(s => adj.set(s.id, []))
+    edges.forEach(([a, b]) => {
+      adj.get(a.id)!.push(b.id)
+      adj.get(b.id)!.push(a.id)
+    })
+    const startNode = valid.reduce((best, s) => (s.starX > best.starX ? s : best), valid[0])
+    const activationTime = new Map<string, number>()
+    activationTime.set(startNode.id, 0)
+    const queue = [startNode.id]
+    while (queue.length > 0) {
+      const curr = queue.shift()!
+      const t = activationTime.get(curr)!
+      for (const nbr of adj.get(curr) ?? []) {
+        if (!activationTime.has(nbr)) {
+          activationTime.set(nbr, t + DRAW_DUR)
+          queue.push(nbr)
+        }
+      }
+    }
+
+    return edges.map(([a, b]) => {
+      const tA = activationTime.get(a.id) ?? 0
+      const tB = activationTime.get(b.id) ?? 0
+      const [source, target] = tA <= tB ? [a, b] : [b, a]
+      return { source, target, delay: Math.min(tA, tB) }
+    })
+  }, [servers])
+
+  // Once the initial draw finishes, switch to steady so future re-renders
+  // don't restart the draw animation.
+  useEffect(() => {
+    if (animateMode !== "initial" || constellationEdges.length === 0) return
+    const maxDelay = constellationEdges.reduce((m, e) => Math.max(m, e.delay), 0)
+    const t = setTimeout(() => setAnimateMode("steady"), (maxDelay + 1.4) * 1000 + 200)
+    return () => clearTimeout(t)
+  }, [constellationEdges, animateMode])
+
   function handleDeleteConfirm() {
     if (!confirmDelete) return
     const id = confirmDelete
@@ -139,6 +239,59 @@ export default function Home() {
 
   return (
     <div className={cn("min-h-screen transition-opacity duration-500", pageReady ? "opacity-100" : "opacity-0")}>
+      {/* ── Constellation lines — between background and stars ──────── */}
+      {constellationEdges.length > 0 && (
+        <svg
+          className="fixed inset-0 pointer-events-none"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          style={{ zIndex: 2, width: "100vw", height: "100vh" }}
+        >
+          <defs>
+            <linearGradient id="line-fade" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stopColor="rgba(255,255,255,0.0)" />
+              <stop offset="12%"  stopColor="rgba(255,255,255,0.55)" />
+              <stop offset="88%"  stopColor="rgba(255,255,255,0.55)" />
+              <stop offset="100%" stopColor="rgba(255,255,255,0.0)" />
+            </linearGradient>
+          </defs>
+          {constellationEdges.map(({ source, target, delay }) => {
+            const touchesNew = source.id === newStarId || target.id === newStarId
+            // Steady mode: render fully drawn, no animation. Otherwise apply
+            // the BFS-staggered draw (with extra delay for edges touching the
+            // new star, so the line waits for the shooting-star arrival to
+            // settle before connecting).
+            if (animateMode === "steady" && !touchesNew) {
+              return (
+                <line
+                  key={`${source.id}-${target.id}`}
+                  x1={source.starX} y1={source.starY}
+                  x2={target.starX} y2={target.starY}
+                  stroke="url(#line-fade)"
+                  strokeWidth="0.18"
+                  strokeLinecap="round"
+                  pathLength={1}
+                  style={{ strokeDasharray: 1, strokeDashoffset: 0, opacity: 1 }}
+                />
+              )
+            }
+            const startDelay = touchesNew ? 4.2 : delay
+            return (
+              <line
+                key={`${source.id}-${target.id}`}
+                x1={source.starX} y1={source.starY}
+                x2={target.starX} y2={target.starY}
+                stroke="url(#line-fade)"
+                strokeWidth="0.18"
+                strokeLinecap="round"
+                pathLength={1}
+                style={{ animation: `constellation-draw 1.4s ease-out ${startDelay}s both` }}
+              />
+            )
+          })}
+        </svg>
+      )}
+
       {/* ── Star constellation layer ──────────────────────────────────
           Restored from the original Helios. Each star uses .star-wrapper
           (positioning + 44px hit area) and .star-dot (4-pointed clip-path
