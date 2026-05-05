@@ -84,31 +84,24 @@ export const CREATE_TOUR: TourStep[] = [
   {
     centered: true,
     title: "Build a Tool Catalog",
-    body: "This page is where you tell Helios what API you want to wrap. Three ways to do it — quick tour.",
+    body: "This page is where you tell Helios what API you want to wrap. Two ways to do it on this screen — then a final step appears once you've added your tools.",
   },
   {
     target: '[data-tour-id="create-premade"]',
-    placement: "bottom",
+    placement: "top",
     title: "Premade APIs",
-    body: "The fastest path. Pick a popular API like GitHub, Spotify, or Twilio and Helios already knows its endpoints.",
+    body: "The fastest path. Pick a popular API like GitHub, Spotify, or Twilio — Helios already knows its endpoints. Just click an icon, choose which tools to include, and it's added to your working set.",
   },
   {
     target: '[data-tour-id="create-custom"]',
-    placement: "bottom",
+    placement: "top",
     title: "Or Bring Your Own",
-    body: "Paste an OpenAPI spec URL or upload a JSON/YAML file. Helios parses every endpoint and turns each one into a tool your AI can call.",
+    body: "Type a name, paste an OpenAPI spec URL, or drop in a JSON/YAML file. Helios parses every endpoint and turns each one into a tool your AI can call.",
   },
   {
-    target: '[data-tour-id="create-intent"]',
-    placement: "top",
-    title: "Optional — Tell It Your Intent",
-    body: "Describe what you want to do (e.g. \"send SMS messages to customers\"). Helios uses Claude to filter the catalog down to only the relevant tools.",
-  },
-  {
-    target: '[data-tour-id="create-generate"]',
-    placement: "top",
-    title: "Generate",
-    body: "Builds the catalog and drops you straight into the sandbox to chat with your new server.",
+    centered: true,
+    title: "After You've Added Tools",
+    body: "Once tools are in your working set, a new screen appears with a free-text \"intent\" box (where you describe what you want to do — Helios uses Claude to filter the catalog down) and a Generate button that drops you straight into the sandbox to chat with your new server.",
   },
 ]
 

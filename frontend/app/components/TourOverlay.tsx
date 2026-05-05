@@ -1,70 +1,203 @@
 "use client"
-import { useEffect, useState, useCallback, useLayoutEffect, useRef } from "react"
+import { useEffect, useState, useCallback, useLayoutEffect, useMemo, useRef } from "react"
 import { createPortal } from "react-dom"
 import { ChevronLeft, ChevronRight, X } from "lucide-react"
 import { isTourSeen, markTourSeen, type TourStep, type Placement } from "@/lib/tour"
 
-const cn = (...c: (string | undefined | null | false)[]) => c.filter(Boolean).join(" ")
+const SPOTLIGHT_PADDING = 12
+const BUBBLE_GAP = 18
+const BUBBLE_WIDTH = 380
+// Conservative height for placement-fit check. Real bubbles are 240–340 tall;
+// using 320 as the worst case keeps bubbles from being placed where they'd clip.
+const BUBBLE_HEIGHT_ESTIMATE = 320
+const VIEWPORT_MARGIN = 16
+const ARROW_SIZE = 10
+// Give a target this long to appear in the DOM before we give up and skip the step.
+// Some targets render after a state transition (e.g. the intent textarea on /create
+// only appears once tools have been added).
+const TARGET_TIMEOUT_MS = 800
 
-const SPOTLIGHT_PADDING = 10  // px around the target
-const BUBBLE_GAP = 16         // px between target rect and bubble
-const BUBBLE_WIDTH = 360
-const BUBBLE_MARGIN = 16      // keep bubble at least this far from viewport edges
+const OPPOSITE: Record<Placement, Placement> = {
+  top: "bottom",
+  bottom: "top",
+  left: "right",
+  right: "left",
+  center: "center",
+}
+
+interface PositionResult {
+  placement: Placement
+  style: React.CSSProperties
+  /** Where on the bubble the arrow sits, and how far from the start of that edge. */
+  arrow?: { side: "top" | "bottom" | "left" | "right"; offsetPx: number }
+}
+
+interface SpotlightRect { top: number; left: number; width: number; height: number }
+interface Viewport { width: number; height: number }
+
+function fitsInViewport(top: number, left: number, w: number, h: number, vp: Viewport): boolean {
+  return top >= VIEWPORT_MARGIN
+      && left >= VIEWPORT_MARGIN
+      && top + h <= vp.height - VIEWPORT_MARGIN
+      && left + w <= vp.width - VIEWPORT_MARGIN
+}
+
+function tryPlacement(spotlight: SpotlightRect, placement: Placement, vp: Viewport): { top: number; left: number; arrowSide: "top" | "bottom" | "left" | "right" } | null {
+  const w = BUBBLE_WIDTH
+  const h = BUBBLE_HEIGHT_ESTIMATE
+  const sCx = spotlight.left + spotlight.width / 2
+  const sCy = spotlight.top + spotlight.height / 2
+
+  if (placement === "bottom") {
+    return { top: spotlight.top + spotlight.height + BUBBLE_GAP, left: sCx - w / 2, arrowSide: "top" }
+  }
+  if (placement === "top") {
+    return { top: spotlight.top - BUBBLE_GAP - h, left: sCx - w / 2, arrowSide: "bottom" }
+  }
+  if (placement === "right") {
+    return { top: sCy - h / 2, left: spotlight.left + spotlight.width + BUBBLE_GAP, arrowSide: "left" }
+  }
+  if (placement === "left") {
+    return { top: sCy - h / 2, left: spotlight.left - BUBBLE_GAP - w, arrowSide: "right" }
+  }
+  return null
+}
+
+function computeBubblePosition(
+  spotlight: SpotlightRect | null,
+  preferred: Placement,
+  vp: Viewport
+): PositionResult {
+  const w = BUBBLE_WIDTH
+
+  // Centered modal step — no spotlight, just dead center.
+  if (!spotlight || preferred === "center") {
+    return {
+      placement: "center",
+      style: { top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: w },
+    }
+  }
+
+  const sCx = spotlight.left + spotlight.width / 2
+  const sCy = spotlight.top + spotlight.height / 2
+
+  // Preferred → opposite → perpendiculars. First one that fits wins.
+  const order: Placement[] = preferred === "top" || preferred === "bottom"
+    ? [preferred, OPPOSITE[preferred], "right", "left"]
+    : [preferred, OPPOSITE[preferred], "bottom", "top"]
+
+  for (const placement of order) {
+    const r = tryPlacement(spotlight, placement, vp)
+    if (!r) continue
+    if (fitsInViewport(r.top, r.left, w, BUBBLE_HEIGHT_ESTIMATE, vp)) {
+      return finalize(r.top, r.left, placement, r.arrowSide, sCx, sCy, vp)
+    }
+  }
+
+  // Nothing fit cleanly — clamp the preferred placement so the bubble at least
+  // stays inside the viewport, even if it overlaps the spotlight a bit.
+  const r = tryPlacement(spotlight, preferred, vp)
+  if (r) {
+    const clampedTop = Math.max(VIEWPORT_MARGIN, Math.min(vp.height - BUBBLE_HEIGHT_ESTIMATE - VIEWPORT_MARGIN, r.top))
+    const clampedLeft = Math.max(VIEWPORT_MARGIN, Math.min(vp.width - w - VIEWPORT_MARGIN, r.left))
+    return finalize(clampedTop, clampedLeft, preferred, r.arrowSide, sCx, sCy, vp)
+  }
+
+  // Final fallback: dead center, no arrow.
+  return {
+    placement: "center",
+    style: { top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: w },
+  }
+}
+
+function finalize(top: number, left: number, placement: Placement, arrowSide: "top" | "bottom" | "left" | "right", sCx: number, sCy: number, vp: Viewport): PositionResult {
+  const w = BUBBLE_WIDTH
+
+  // Re-clamp horizontally for top/bottom placements so an off-center spotlight
+  // doesn't push the bubble off the edge.
+  let clampedLeft = left
+  let clampedTop = top
+  if (arrowSide === "top" || arrowSide === "bottom") {
+    clampedLeft = Math.max(VIEWPORT_MARGIN, Math.min(vp.width - w - VIEWPORT_MARGIN, left))
+  }
+  if (arrowSide === "left" || arrowSide === "right") {
+    clampedTop = Math.max(VIEWPORT_MARGIN, Math.min(vp.height - BUBBLE_HEIGHT_ESTIMATE - VIEWPORT_MARGIN, top))
+  }
+
+  // Arrow offset from the bubble's leading edge so the arrow visually points at
+  // the spotlight center, even after horizontal clamping.
+  let arrowOffsetPx = ARROW_SIZE * 2
+  if (arrowSide === "top" || arrowSide === "bottom") {
+    arrowOffsetPx = Math.max(ARROW_SIZE * 2, Math.min(w - ARROW_SIZE * 2, sCx - clampedLeft))
+  } else {
+    arrowOffsetPx = Math.max(ARROW_SIZE * 2, Math.min(BUBBLE_HEIGHT_ESTIMATE - ARROW_SIZE * 2, sCy - clampedTop))
+  }
+
+  return {
+    placement,
+    style: { top: clampedTop, left: clampedLeft, width: w },
+    arrow: { side: arrowSide, offsetPx: arrowOffsetPx },
+  }
+}
 
 interface TourOverlayProps {
   tourId: string
   steps: TourStep[]
-  /** If true, force-show the tour even if it's been seen. Used by a "replay tour" button. */
   forceShow?: boolean
 }
 
-/**
- * Self-contained guided tour. Drop into a page once; it auto-checks localStorage,
- * waits for the target elements to mount, and renders a spotlight + bubble.
- *
- * Click handling: only the bubble itself captures clicks (Next/Prev/Skip/X).
- * The dim overlay is pointer-events:none so the user can interact with the
- * underlying page if they want to. The spotlight is purely visual.
- */
 export function TourOverlay({ tourId, steps, forceShow = false }: TourOverlayProps) {
   const [active, setActive] = useState(false)
   const [stepIdx, setStepIdx] = useState(0)
-  const [targetRect, setTargetRect] = useState<DOMRect | null>(null)
+  const [targetRect, setTargetRect] = useState<SpotlightRect | null>(null)
   const [mounted, setMounted] = useState(false)
+  const [viewport, setViewport] = useState<Viewport>({ width: 1920, height: 1080 })
   const rafRef = useRef<number | null>(null)
 
   // Mount + decide whether to start the tour
   useEffect(() => {
     setMounted(true)
+    setViewport({ width: window.innerWidth, height: window.innerHeight })
     if (forceShow || !isTourSeen(tourId)) {
-      // Wait one tick so target elements are in the DOM (page mounted, fonts ready)
-      const t = setTimeout(() => setActive(true), 350)
+      // Wait one tick so the page has finished its entrance animation
+      const t = setTimeout(() => setActive(true), 400)
       return () => clearTimeout(t)
     }
   }, [tourId, forceShow])
 
+  // Track viewport size for placement math
+  useEffect(() => {
+    if (!active) return
+    const onResize = () => setViewport({ width: window.innerWidth, height: window.innerHeight })
+    window.addEventListener("resize", onResize)
+    return () => window.removeEventListener("resize", onResize)
+  }, [active])
+
   const step = active ? steps[stepIdx] : null
 
-  // Track the target element's bounding rect; update on resize / scroll / step change.
+  // Locate the target element. Re-measure on scroll/resize/step-change.
+  // If it can't be found within TARGET_TIMEOUT_MS, auto-advance to next step.
   useLayoutEffect(() => {
-    if (!step || step.centered || !step.target) {
+    if (!step) return
+    if (step.centered || !step.target) {
       setTargetRect(null)
       return
     }
 
     let cancelled = false
+    let attempts = 0
+    const maxAttempts = Math.ceil(TARGET_TIMEOUT_MS / 50)
 
-    const measure = () => {
+    const measure = (): SpotlightRect | null => {
       const el = document.querySelector(step.target!) as HTMLElement | null
       if (!el) return null
       const rect = el.getBoundingClientRect()
-      // Bring target into view if off-screen
-      if (rect.top < 0 || rect.bottom > window.innerHeight) {
+      // If the target is offscreen, scroll it into view (one-shot per try).
+      if (rect.height === 0 || rect.bottom < 0 || rect.top > window.innerHeight) {
         el.scrollIntoView({ behavior: "smooth", block: "center" })
-        // Re-measure after scroll settles
-        return null
+        return null  // re-measure next tick
       }
-      return rect
+      return { top: rect.top, left: rect.left, width: rect.width, height: rect.height }
     }
 
     const tick = () => {
@@ -72,27 +205,38 @@ export function TourOverlay({ tourId, steps, forceShow = false }: TourOverlayPro
       const rect = measure()
       if (rect) {
         setTargetRect(rect)
-      } else {
-        // Target not yet rendered or just scrolled — re-check next frame
-        rafRef.current = requestAnimationFrame(tick)
+        return
       }
+      attempts++
+      if (attempts >= maxAttempts) {
+        // Give up — skip this step instead of leaving the bubble in limbo
+        if (stepIdx < steps.length - 1) {
+          setStepIdx(i => i + 1)
+        } else {
+          markTourSeen(tourId)
+          setActive(false)
+          setStepIdx(0)
+        }
+        return
+      }
+      rafRef.current = window.setTimeout(tick, 50) as unknown as number
     }
     tick()
 
-    const onResize = () => {
+    const onScroll = () => {
       const rect = measure()
       if (rect) setTargetRect(rect)
     }
-    window.addEventListener("resize", onResize)
-    window.addEventListener("scroll", onResize, true)
+    window.addEventListener("resize", onScroll)
+    window.addEventListener("scroll", onScroll, true)
 
     return () => {
       cancelled = true
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
-      window.removeEventListener("resize", onResize)
-      window.removeEventListener("scroll", onResize, true)
+      if (rafRef.current) clearTimeout(rafRef.current)
+      window.removeEventListener("resize", onScroll)
+      window.removeEventListener("scroll", onScroll, true)
     }
-  }, [step, stepIdx])
+  }, [step, stepIdx, steps.length, tourId])
 
   const close = useCallback(() => {
     markTourSeen(tourId)
@@ -121,72 +265,27 @@ export function TourOverlay({ tourId, steps, forceShow = false }: TourOverlayPro
     return () => window.removeEventListener("keydown", onKey)
   }, [active, next, prev, close])
 
-  if (!mounted || !active || !step) return null
-
-  // Compute spotlight box. For centered steps, no spotlight — just dim.
-  const spotlight = step.centered || !targetRect ? null : {
-    top: targetRect.top - SPOTLIGHT_PADDING,
-    left: targetRect.left - SPOTLIGHT_PADDING,
-    width: targetRect.width + SPOTLIGHT_PADDING * 2,
-    height: targetRect.height + SPOTLIGHT_PADDING * 2,
-  }
-
-  // Compute bubble position. For centered steps, dead center. Otherwise relative
-  // to the spotlight + step.placement, with viewport-edge clamping.
-  const placement: Placement = step.centered ? "center" : (step.placement ?? "bottom")
-  let bubbleStyle: React.CSSProperties = {}
-
-  if (placement === "center" || !spotlight) {
-    bubbleStyle = {
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      width: BUBBLE_WIDTH,
+  const spotlight = useMemo<SpotlightRect | null>(() => {
+    if (!step || step.centered || !targetRect) return null
+    return {
+      top: targetRect.top - SPOTLIGHT_PADDING,
+      left: targetRect.left - SPOTLIGHT_PADDING,
+      width: targetRect.width + SPOTLIGHT_PADDING * 2,
+      height: targetRect.height + SPOTLIGHT_PADDING * 2,
     }
-  } else {
-    const cx = spotlight.left + spotlight.width / 2
-    const cy = spotlight.top + spotlight.height / 2
+  }, [step, targetRect])
 
-    if (placement === "bottom") {
-      bubbleStyle = {
-        top: spotlight.top + spotlight.height + BUBBLE_GAP,
-        left: cx,
-        transform: "translateX(-50%)",
-        width: BUBBLE_WIDTH,
-      }
-    } else if (placement === "top") {
-      bubbleStyle = {
-        bottom: window.innerHeight - spotlight.top + BUBBLE_GAP,
-        left: cx,
-        transform: "translateX(-50%)",
-        width: BUBBLE_WIDTH,
-      }
-    } else if (placement === "right") {
-      bubbleStyle = {
-        top: cy,
-        left: spotlight.left + spotlight.width + BUBBLE_GAP,
-        transform: "translateY(-50%)",
-        width: BUBBLE_WIDTH,
-      }
-    } else if (placement === "left") {
-      bubbleStyle = {
-        top: cy,
-        right: window.innerWidth - spotlight.left + BUBBLE_GAP,
-        transform: "translateY(-50%)",
-        width: BUBBLE_WIDTH,
-      }
-    }
+  const position = useMemo<PositionResult | null>(() => {
+    if (!step) return null
+    const preferred: Placement = step.centered ? "center" : (step.placement ?? "bottom")
+    return computeBubblePosition(spotlight, preferred, viewport)
+  }, [step, spotlight, viewport])
 
-    // Clamp horizontally so the bubble never spills off-screen on small viewports.
-    if (placement === "top" || placement === "bottom") {
-      const halfWidth = BUBBLE_WIDTH / 2
-      const clampedLeft = Math.max(BUBBLE_MARGIN + halfWidth, Math.min(window.innerWidth - BUBBLE_MARGIN - halfWidth, cx))
-      bubbleStyle.left = clampedLeft
-    }
-  }
+  if (!mounted || !active || !step || !position) return null
 
   const isFirst = stepIdx === 0
   const isLast = stepIdx === steps.length - 1
+  const arrow = position.arrow
 
   return createPortal(
     <div
@@ -194,8 +293,14 @@ export function TourOverlay({ tourId, steps, forceShow = false }: TourOverlayPro
       style={{ zIndex: 100 }}
       aria-live="polite"
     >
-      {/* ── Dim layer with spotlight cutout (box-shadow trick) ─── */}
-      {spotlight ? (
+      {/* ── Dim layer (full-screen) — pointer-events:none so the user can still
+          interact with the page if they want to. ─── */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(0,0,0,0.55)" }} />
+
+      {/* ── Spotlight cutout. Layered ABOVE the dim with a giant inverse
+          box-shadow that re-darkens everything outside its bounds. The plain
+          dim above is a safety net for the brief moment between target loads. ─── */}
+      {spotlight && (
         <div
           className="absolute rounded-2xl pointer-events-none transition-all duration-300 ease-out"
           style={{
@@ -203,44 +308,92 @@ export function TourOverlay({ tourId, steps, forceShow = false }: TourOverlayPro
             left: spotlight.left,
             width: spotlight.width,
             height: spotlight.height,
-            boxShadow: "0 0 0 9999px rgba(0,0,0,0.65), 0 0 0 2px rgba(201,168,76,0.45), 0 0 30px rgba(201,168,76,0.20)",
+            // The huge box-shadow paints over the dim layer with the same color, so
+            // visually only the inner area appears illuminated.
+            boxShadow: "0 0 0 9999px rgba(0,0,0,0.55), 0 0 0 2px rgba(201,168,76,0.55), 0 0 24px 4px rgba(201,168,76,0.30)",
           }}
         />
-      ) : (
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(0,0,0,0.55)" }} />
       )}
 
       {/* ── Bubble ──────────────────────────────────────────────── */}
       <div
         className="absolute pointer-events-auto animate-fade-up"
-        style={bubbleStyle}
+        style={position.style}
       >
+        {/* Arrow pointing at the spotlight. CSS triangle via borders. */}
+        {arrow && (
+          <div
+            aria-hidden="true"
+            className="absolute"
+            style={{
+              ...(arrow.side === "top" && {
+                top: -ARROW_SIZE,
+                left: arrow.offsetPx - ARROW_SIZE,
+                width: 0, height: 0,
+                borderLeft: `${ARROW_SIZE}px solid transparent`,
+                borderRight: `${ARROW_SIZE}px solid transparent`,
+                borderBottom: `${ARROW_SIZE}px solid rgba(10,10,10,0.93)`,
+              }),
+              ...(arrow.side === "bottom" && {
+                bottom: -ARROW_SIZE,
+                left: arrow.offsetPx - ARROW_SIZE,
+                width: 0, height: 0,
+                borderLeft: `${ARROW_SIZE}px solid transparent`,
+                borderRight: `${ARROW_SIZE}px solid transparent`,
+                borderTop: `${ARROW_SIZE}px solid rgba(10,10,10,0.93)`,
+              }),
+              ...(arrow.side === "left" && {
+                left: -ARROW_SIZE,
+                top: arrow.offsetPx - ARROW_SIZE,
+                width: 0, height: 0,
+                borderTop: `${ARROW_SIZE}px solid transparent`,
+                borderBottom: `${ARROW_SIZE}px solid transparent`,
+                borderRight: `${ARROW_SIZE}px solid rgba(10,10,10,0.93)`,
+              }),
+              ...(arrow.side === "right" && {
+                right: -ARROW_SIZE,
+                top: arrow.offsetPx - ARROW_SIZE,
+                width: 0, height: 0,
+                borderTop: `${ARROW_SIZE}px solid transparent`,
+                borderBottom: `${ARROW_SIZE}px solid transparent`,
+                borderLeft: `${ARROW_SIZE}px solid rgba(10,10,10,0.93)`,
+              }),
+            }}
+          />
+        )}
+
         <div
-          className="glass-mid rounded-2xl px-6 py-5 flex flex-col gap-4
-            shadow-[0_24px_60px_rgba(0,0,0,0.55)] border-[#C9A84C]/30"
-          style={{ borderWidth: 1 }}
+          className="rounded-2xl px-6 py-5 flex flex-col gap-4
+            shadow-[0_24px_60px_rgba(0,0,0,0.7),0_0_0_1px_rgba(201,168,76,0.18)]
+            backdrop-blur-xl"
+          style={{
+            background: "rgba(10,10,10,0.93)",
+            borderColor: "rgba(201,168,76,0.45)",
+            borderWidth: 1,
+            borderStyle: "solid",
+          }}
         >
           {/* Top row — counter + close */}
           <div className="flex items-center justify-between">
-            <span className="font-[family-name:--font-cinzel] text-[11px] tracking-[0.22em] text-[#C9A84C] uppercase">
+            <span className="font-[family-name:--font-cinzel] text-[11px] tracking-[0.22em] text-[#E8C46A] uppercase">
               Step {stepIdx + 1} of {steps.length}
             </span>
             <button
               onClick={close}
               aria-label="Close tour"
-              className="text-white/40 hover:text-white/85 transition-colors p-1 -m-1"
+              className="text-white/55 hover:text-white transition-colors p-1 -m-1"
             >
               <X size={16} />
             </button>
           </div>
 
           {/* Title */}
-          <h3 className="font-[family-name:--font-cinzel] text-[17px] tracking-[0.06em] text-white/95 leading-snug">
+          <h3 className="font-[family-name:--font-cinzel] text-[18px] tracking-[0.04em] text-white leading-snug">
             {step.title}
           </h3>
 
           {/* Body */}
-          <p className="font-[family-name:--font-cormorant] text-[15px] italic text-white/75 leading-relaxed">
+          <p className="font-[family-name:--font-cormorant] text-[16px] italic text-white/88 leading-relaxed">
             {step.body}
           </p>
 
@@ -255,7 +408,7 @@ export function TourOverlay({ tourId, steps, forceShow = false }: TourOverlayPro
           <div className="flex items-center justify-between mt-1">
             <button
               onClick={close}
-              className="font-[family-name:--font-cinzel] text-[11px] tracking-[0.18em] text-white/40 hover:text-white/85 transition-colors uppercase"
+              className="font-[family-name:--font-cinzel] text-[11px] tracking-[0.18em] text-white/55 hover:text-white transition-colors uppercase"
             >
               Skip
             </button>
@@ -265,7 +418,7 @@ export function TourOverlay({ tourId, steps, forceShow = false }: TourOverlayPro
                 <button
                   onClick={prev}
                   aria-label="Previous step"
-                  className="rounded-lg p-2 text-white/55 hover:text-white hover:bg-white/[0.06] transition-all"
+                  className="rounded-lg p-2 text-white/65 hover:text-white hover:bg-white/[0.08] transition-all"
                 >
                   <ChevronLeft size={16} />
                 </button>
