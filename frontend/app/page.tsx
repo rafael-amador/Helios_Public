@@ -5,6 +5,7 @@ import { createPortal } from "react-dom"
 import { useRouter } from "next/navigation"
 import { Trash2, ChevronRight, Eye, EyeOff, Check, ExternalLink, Sparkles } from "lucide-react"
 import {
+  getAnthropicKey,
   setAnthropicKey,
   hasAnthropicKey,
   looksLikeAnthropicKey,
@@ -25,15 +26,20 @@ export default function Home() {
   const [keyInput, setKeyInput] = useState("")
   const [showKey, setShowKey] = useState(false)
   const [keyError, setKeyError] = useState<string | null>(null)
+  const [currentKey, setCurrentKey] = useState<string | null>(null)
 
   useEffect(() => {
     document.fonts.ready.then(() => requestAnimationFrame(() => setPageReady(true)))
     setServers(getSavedServers())
+    setCurrentKey(getAnthropicKey())
   }, [])
 
   // Re-read on focus — handles building a server in another tab
   useEffect(() => {
-    const onFocus = () => setServers(getSavedServers())
+    const onFocus = () => {
+      setServers(getSavedServers())
+      setCurrentKey(getAnthropicKey())
+    }
     window.addEventListener("focus", onFocus)
     return () => window.removeEventListener("focus", onFocus)
   }, [])
@@ -63,6 +69,7 @@ export default function Home() {
       return
     }
     setAnthropicKey(trimmed)
+    setCurrentKey(trimmed)
     setKeyError(null)
     setKeyModalOpen(false)
     // Run the queued action now that the key exists
@@ -76,6 +83,15 @@ export default function Home() {
 
   function handleBuildClick() {
     withKey(() => router.push("/create"))
+  }
+
+  // Open the modal as a settings dialog — no pending action to run after save.
+  function handleOpenKeyModal() {
+    setPendingAction(null)
+    setKeyInput("")
+    setKeyError(null)
+    setShowKey(false)
+    setKeyModalOpen(true)
   }
 
   function handleServerClick(serverId: string) {
@@ -134,6 +150,13 @@ export default function Home() {
             Info
             <span className="absolute bottom-1 left-5 right-5 h-[1px] bg-white/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
           </Link>
+          <button
+            onClick={handleOpenKeyModal}
+            className="group relative font-[family-name:--font-cinzel] text-[15px] tracking-[0.15em] px-5 py-2.5 text-white/60 hover:text-white transition-all duration-200 cursor-pointer hover:-translate-y-[1px]"
+          >
+            Key
+            <span className="absolute bottom-1 left-5 right-5 h-[1px] bg-white/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+          </button>
         </div>
       </div>
 
@@ -257,6 +280,19 @@ export default function Home() {
               <p className="font-[family-name:--font-cormorant] text-[14px] italic text-white/55">
                 Stored only in this tab&apos;s session storage. Never persisted server-side. Cleared when you close the tab.
               </p>
+              {currentKey && (
+                <div className="mt-1 px-3 py-2 rounded-lg bg-white/[0.04] border border-white/[0.08]">
+                  <div className="font-[family-name:--font-cinzel] text-[10px] tracking-[0.18em] text-white/45 uppercase mb-1">
+                    Currently set
+                  </div>
+                  <code className="font-[family-name:--font-geist-mono] text-[12px] text-white/70 tracking-wider">
+                    {currentKey.slice(0, 12)}••••••••{currentKey.slice(-4)}
+                  </code>
+                  <div className="font-[family-name:--font-cormorant] text-[12px] italic text-white/40 mt-1">
+                    Paste a new key below to replace it.
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="relative">
@@ -293,7 +329,7 @@ export default function Home() {
                 onClick={handleSaveKey}
                 className="btn-gold cursor-pointer rounded-xl py-3.5 font-[family-name:--font-cinzel] text-[14px] tracking-[0.15em]"
               >
-                Save & Continue
+                {pendingAction ? "Save & Continue" : currentKey ? "Replace Key" : "Save Key"}
               </button>
               <a
                 href="https://console.anthropic.com/settings/keys"
