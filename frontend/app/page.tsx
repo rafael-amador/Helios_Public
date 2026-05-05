@@ -5,9 +5,7 @@ import { createPortal } from "react-dom"
 import { useRouter } from "next/navigation"
 import { Trash2, ChevronRight, Eye, EyeOff, Check, ExternalLink, Sparkles } from "lucide-react"
 import {
-  getAnthropicKey,
   setAnthropicKey,
-  clearAnthropicKey,
   hasAnthropicKey,
   looksLikeAnthropicKey,
 } from "@/lib/byok"
@@ -27,20 +25,15 @@ export default function Home() {
   const [keyInput, setKeyInput] = useState("")
   const [showKey, setShowKey] = useState(false)
   const [keyError, setKeyError] = useState<string | null>(null)
-  const [savedKeyState, setSavedKeyState] = useState<string | null>(null)
 
   useEffect(() => {
     document.fonts.ready.then(() => requestAnimationFrame(() => setPageReady(true)))
     setServers(getSavedServers())
-    setSavedKeyState(getAnthropicKey())
   }, [])
 
   // Re-read on focus — handles building a server in another tab
   useEffect(() => {
-    const onFocus = () => {
-      setServers(getSavedServers())
-      setSavedKeyState(getAnthropicKey())
-    }
+    const onFocus = () => setServers(getSavedServers())
     window.addEventListener("focus", onFocus)
     return () => window.removeEventListener("focus", onFocus)
   }, [])
@@ -70,7 +63,6 @@ export default function Home() {
       return
     }
     setAnthropicKey(trimmed)
-    setSavedKeyState(trimmed)
     setKeyError(null)
     setKeyModalOpen(false)
     // Run the queued action now that the key exists
@@ -80,11 +72,6 @@ export default function Home() {
       // Defer to next tick so the modal close animation isn't fighting navigation
       setTimeout(fn, 0)
     }
-  }
-
-  function handleClearKey() {
-    clearAnthropicKey()
-    setSavedKeyState(null)
   }
 
   function handleBuildClick() {
@@ -102,10 +89,6 @@ export default function Home() {
     deleteSavedServer(id)
     setServers(getSavedServers())
   }
-
-  const maskedKey = savedKeyState
-    ? `${savedKeyState.slice(0, 10)}••••••••${savedKeyState.slice(-4)}`
-    : null
 
   return (
     <div className={cn("min-h-screen transition-opacity duration-500", pageReady ? "opacity-100" : "opacity-0")}>
@@ -151,16 +134,6 @@ export default function Home() {
             Info
             <span className="absolute bottom-1 left-5 right-5 h-[1px] bg-white/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
           </Link>
-          {savedKeyState && (
-            <button
-              onClick={handleClearKey}
-              title={`Key: ${maskedKey} — click to clear`}
-              className="group relative font-[family-name:--font-cinzel] text-[15px] tracking-[0.15em] px-5 py-2.5 text-white/60 hover:text-white transition-all duration-200 cursor-pointer hover:-translate-y-[1px]"
-            >
-              Sign Out
-              <span className="absolute bottom-1 left-5 right-5 h-[1px] bg-white/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
-            </button>
-          )}
         </div>
       </div>
 
