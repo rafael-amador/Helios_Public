@@ -12,7 +12,7 @@ import {
 } from "@/lib/byok"
 import { getSavedServers, deleteSavedServer, type SavedServer } from "@/lib/savedServers"
 import { TourOverlay } from "@/app/components/TourOverlay"
-import { DASHBOARD_TOUR } from "@/lib/tourSteps"
+import { DASHBOARD_TOUR, FIRST_STAR_TOUR } from "@/lib/tourSteps"
 import { API_BASE } from "@/lib/apiBase"
 import { SERVER_STAR_COLORS, hashStr } from "@/lib/serverStars"
 
@@ -33,6 +33,10 @@ export default function Home() {
   const [currentKey, setCurrentKey] = useState<string | null>(null)
   /** ID of the server that was just created — gets a one-time entrance animation. */
   const [newStarId, setNewStarId] = useState<string | null>(null)
+  /** Becomes true after the shooting-star arrival animation has had time to
+   *  settle (~4.5s). Used to delay the first-star tour bubble until the star
+   *  is in its final spot. */
+  const [firstStarTourReady, setFirstStarTourReady] = useState(false)
 
   useEffect(() => {
     document.fonts.ready.then(() => requestAnimationFrame(() => setPageReady(true)))
@@ -44,8 +48,13 @@ export default function Home() {
     if (justCreated) {
       setNewStarId(justCreated)
       sessionStorage.removeItem("helios_new_server")
-      // Drop the highlight after the animation finishes.
-      setTimeout(() => setNewStarId(null), 2400)
+      // The shooting entry runs for 2.5s after a 1.5s delay = 4s total.
+      // Wait for it to settle, then enable the first-star tour mount.
+      // We deliberately keep newStarId set after this — the .is-new class
+      // becomes visually neutral once the animation finishes (CSS uses `both`
+      // so the end state is the same as default), and we need the data-tour-id
+      // to stay on the star for as long as the tour is open.
+      setTimeout(() => setFirstStarTourReady(true), 4200)
     }
     // Wake the Render free-tier container while the user is reading the
     // dashboard. Cold start is ~30-50s; doing this here means the sandbox/try
@@ -114,7 +123,10 @@ export default function Home() {
   }
 
   function handleServerClick(serverId: string) {
-    withKey(() => router.push(`/sandbox?specId=${encodeURIComponent(serverId)}`))
+    // Stars open the LIVE Try mode — that's where users actually exercise the
+    // server they built. Sandbox (simulation mode) is only relevant during the
+    // build flow and is reachable via the in-app nav from /try.
+    withKey(() => router.push(`/try?specId=${encodeURIComponent(serverId)}`))
   }
 
   function handleDeleteConfirm() {
@@ -147,6 +159,10 @@ export default function Home() {
               <div
                 key={`star-${server.id}`}
                 className={cn("star-wrapper", isNew ? "is-new" : "is-existing")}
+                // Tag the most-recently-arrived star so the FIRST_STAR_TOUR
+                // can target it. Stable for the lifetime of the dashboard
+                // mount so the bubble doesn't lose its target mid-tour.
+                data-tour-id={isNew ? "dashboard-first-star" : undefined}
                 style={{
                   left: `${server.starX}%`,
                   top: `${server.starY}vh`,
@@ -421,6 +437,14 @@ export default function Home() {
 
       {/* ── First-visit guided tour ───────────────────────────────── */}
       <TourOverlay tourId="dashboard" steps={DASHBOARD_TOUR} />
+      {/* ── First-star tour: fires AFTER a new star arrives, only the very
+          first time the user creates a server. Waits until the shooting-star
+          arrival animation has settled (firstStarTourReady is set on a
+          ~4.2s timer above), and only mounts when there's actually a star
+          tagged data-tour-id="dashboard-first-star" to point at. */}
+      {firstStarTourReady && newStarId && (
+        <TourOverlay tourId="first-star" steps={FIRST_STAR_TOUR} />
+      )}
     </div>
   )
 }

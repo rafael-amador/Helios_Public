@@ -38,6 +38,17 @@ function DemoStar() {
 // Dashboard / home page
 // ──────────────────────────────────────────────────────────────────────────────
 
+// Fires once, after the user creates their first server and the shooting-star
+// arrival animation has settled. Mounted conditionally on the dashboard.
+export const FIRST_STAR_TOUR: TourStep[] = [
+  {
+    target: '[data-tour-id="dashboard-first-star"]',
+    placement: "bottom",
+    title: "There It Is — Your Server",
+    body: "That star is your new MCP server. Click it to open Live mode and chat with it for real — every tool call hits the actual API. Build more and they'll all live up here as a constellation.",
+  },
+]
+
 export const DASHBOARD_TOUR: TourStep[] = [
   {
     centered: true,
@@ -150,10 +161,11 @@ export const SANDBOX_TOUR: TourStep[] = [
     placement: "top",
     title: "Talk to It",
     body: "Type a request like \"list my last 5 issues\" or \"send a test SMS to +1...\". Claude picks the right tool and runs it. The toolbar above this input lets you toggle tools on/off and paste API credentials.",
-    // Pull the highlight up to include the Tools+Reset toolbar above the input.
-    // Don't extend to viewport bottom — keep it tight around the actual chat
-    // composer so the user can clearly see what they're being shown.
-    inflate: { top: 64, bottom: 8 },
+    // Pull the highlight up to include the Tools+Reset toolbar above the input,
+    // and extend right by ~56px to include the Send button (sibling of textarea
+    // inside the same flex row). Don't extend to viewport bottom — keep it
+    // tight around the actual chat composer.
+    inflate: { top: 64, bottom: 8, right: 56 },
   },
   {
     target: '[data-tour-id="sandbox-download"]',
@@ -184,7 +196,7 @@ export const TRY_TOUR: TourStep[] = [
     placement: "top",
     title: "Talk to It",
     body: "Same chat interface as the sandbox, except every call lands in the real API. Try simple GETs first to confirm everything's wired up.",
-    inflate: { top: 64, bottom: 8 },
+    inflate: { top: 64, bottom: 8, right: 56 },
   },
 ]
 
