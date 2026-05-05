@@ -24,6 +24,13 @@ import { assertSafeUrl } from "./ssrfGuard.ts"
 
 const app = express()
 
+// Trust the single hop in front of us (Render LB, Vercel proxy, etc.) so
+// express-rate-limit can read the real client IP from X-Forwarded-For instead
+// of throwing ERR_ERL_UNEXPECTED_X_FORWARDED_FOR. "1" means trust exactly one
+// hop — safer than `true` (which trusts any number, allowing IP spoofing if
+// the platform ever changes its hop count).
+app.set("trust proxy", 1)
+
 // ─── Security middleware ───────────────────────────────────────────────────────
 
 app.use(helmet({
