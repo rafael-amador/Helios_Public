@@ -560,6 +560,12 @@ app.post("/api/sandbox/chat", aiLimiter, requireAnthropicKey, async (req: ByokRe
         }
     } catch (err: any) {
         history.splice(historyBaseLen)
+        // Log so Render's runtime logs show what actually broke. err.status comes
+        // from the Anthropic SDK; err.message is the most useful field on any
+        // node Error. Stack last so it's easy to grep around.
+        console.error(`[sandbox/chat] failed (status=${err?.status ?? "n/a"}): ${err?.message ?? err}`)
+        if (err?.stack) console.error(err.stack)
+
         const is429 = err?.status === 429 || String(err?.message ?? "").includes("rate_limit")
         if (is429) {
             return res.status(429).json({
@@ -567,7 +573,6 @@ app.post("/api/sandbox/chat", aiLimiter, requireAnthropicKey, async (req: ByokRe
                 retryAfterMs: 30_000
             })
         }
-        // Surface invalid-key errors clearly so the user knows to fix their BYOK key
         const status = err?.status
         if (status === 401 || status === 403) {
             return res.status(401).json({ error: "Your Anthropic API key was rejected. Update it in the Keys panel." })
@@ -705,6 +710,9 @@ app.post("/api/try/chat", aiLimiter, requireAnthropicKey, async (req: ByokReques
         }
     } catch (err: any) {
         history.splice(historyBaseLen)
+        console.error(`[try/chat] failed (status=${err?.status ?? "n/a"}): ${err?.message ?? err}`)
+        if (err?.stack) console.error(err.stack)
+
         const is429 = err?.status === 429 || String(err?.message ?? "").includes("rate_limit")
         if (is429) {
             return res.status(429).json({
