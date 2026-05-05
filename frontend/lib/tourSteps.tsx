@@ -87,24 +87,42 @@ export const CREATE_TOUR: TourStep[] = [
   {
     centered: true,
     title: "Build a Tool Catalog",
-    body: "This page is where you tell Helios what API you want to wrap. Two ways to do it on this screen — then a final step appears once you've added your tools.",
+    body: "This page is where you tell Helios what API you want to wrap. Two ways to do it — quick walk-through.",
   },
   {
     target: '[data-tour-id="create-premade"]',
-    placement: "top",
+    placement: "right",
     title: "Premade APIs",
-    body: "The fastest path. Pick a popular API like GitHub, Spotify, or Twilio — Helios already knows its endpoints. Just click an icon, choose which tools to include, and it's added to your working set.",
+    body: "The fastest path. Pick a popular API like GitHub, Spotify, or Twilio — Helios already knows its endpoints. Just click an icon, choose which tools to include, and it's added to your working set. Watch the grid scroll to see what's available.",
+    autoScroll: { speed: 60 },
   },
   {
     target: '[data-tour-id="create-custom"]',
-    placement: "top",
+    placement: "left",
     title: "Or Bring Your Own",
     body: "Type a name, paste an OpenAPI spec URL, or drop in a JSON/YAML file. Helios parses every endpoint and turns each one into a tool your AI can call.",
   },
+]
+
+// Fires when the user has added tools and reached the intent screen
+// (page === 1 inside create/page.tsx). Mounted conditionally there.
+export const CREATE_INTENT_TOUR: TourStep[] = [
   {
     centered: true,
-    title: "After You've Added Tools",
-    body: "Once tools are in your working set, a new screen appears with a free-text \"intent\" box (where you describe what you want to do — Helios uses Claude to filter the catalog down) and a Generate button that drops you straight into the sandbox to chat with your new server.",
+    title: "One Last Step",
+    body: "You've added tools to your working set. Now tell Helios what you want to do, then generate.",
+  },
+  {
+    target: '[data-tour-id="create-intent"]',
+    placement: "top",
+    title: "Describe Your Intent (Optional)",
+    body: "If you have many tools, describe what you want to do (e.g. \"send SMS messages to customers\"). Helios uses Claude to filter the catalog down to only the tools you'll actually need. Leave it blank to keep all tools.",
+  },
+  {
+    target: '[data-tour-id="create-generate"]',
+    placement: "top",
+    title: "Generate",
+    body: "Builds your MCP server and drops you straight into the sandbox to chat with it.",
   },
 ]
 
@@ -128,13 +146,18 @@ export const SANDBOX_TOUR: TourStep[] = [
     target: '[data-tour-id="sandbox-input"]',
     placement: "top",
     title: "Talk to It",
-    body: "Type a request like \"list my last 5 issues\" or \"send a test SMS to +1...\". Claude picks the right tool and runs it.",
+    body: "Type a request like \"list my last 5 issues\" or \"send a test SMS to +1...\". Claude picks the right tool and runs it. The toolbar above this input lets you toggle tools on/off and paste API credentials.",
+    // Pull the highlight up to include the Tools+Reset toolbar above the input,
+    // and stretch it down to nearly the viewport bottom so the bottom panel
+    // reads as one focal area.
+    inflate: { top: 64 },
+    extendToBottom: 12,
   },
   {
     target: '[data-tour-id="sandbox-download"]',
     placement: "bottom",
     title: "Happy with It?",
-    body: "Click Download to grab a standalone MCP server zip. Plug it into Claude Desktop, Cursor, or any MCP client.",
+    body: "Click Verify next — you'll name your server, it gets saved to your dashboard, and you'll be able to download a standalone MCP server zip to plug into Claude Desktop, Cursor, or any MCP client.",
   },
 ]
 
@@ -159,6 +182,8 @@ export const TRY_TOUR: TourStep[] = [
     placement: "top",
     title: "Talk to It",
     body: "Same chat interface as the sandbox, except every call lands in the real API. Try simple GETs first to confirm everything's wired up.",
+    inflate: { top: 64 },
+    extendToBottom: 12,
   },
 ]
 

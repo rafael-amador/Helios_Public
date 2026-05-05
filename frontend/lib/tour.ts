@@ -24,6 +24,18 @@ export interface TourStep {
    *  viewport bottom. Use when the target's natural height is small but you
    *  want the highlight to cover the area below it (e.g. an empty state). */
   extendToBottom?: number
+  /** Grow the spotlight rect by this many px on each side. Use when the target
+   *  is smaller than the visual area you want to highlight (e.g. a textarea
+   *  whose toolbar should also be in the highlight). */
+  inflate?: { top?: number; right?: number; bottom?: number; left?: number }
+  /** While this step is active, animate the closest scrollable ancestor of the
+   *  target down at the given rate. On step change, scroll back to the top.
+   *  Useful for showing additional content the user can't see at rest (e.g.
+   *  a long premade-API grid that scrolls within its container). */
+  autoScroll?: {
+    /** px per second. Defaults to 60 ("medium"). */
+    speed?: number
+  }
 }
 
 const STORAGE_PREFIX = "helios_tour_seen_"

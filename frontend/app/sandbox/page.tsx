@@ -268,10 +268,11 @@ function SandboxContent() {
     }
 
     const registry = { schema_version: 2, baseUrl, tools: enabledTools, auth: [] as any[] }
-    sessionStorage.setItem(`helios_registry_${targetId}`, JSON.stringify(registry))
-    // Save to dashboard so this server appears on the home page next visit
-    addSavedServer({ id: targetId, baseUrl, toolCount: enabledTools.length })
-    router.push(`/download?specId=${encodeURIComponent(targetId)}`)
+    // Stage the registry under a temp key. /verify will rename it under the
+    // user-chosen name and only THEN call addSavedServer.
+    const pendingId = `pending_${Date.now()}`
+    sessionStorage.setItem(`helios_registry_${pendingId}`, JSON.stringify(registry))
+    router.push(`/verify?pending=${encodeURIComponent(pendingId)}`)
   }
 
   const handleEdit = () => {
@@ -539,7 +540,9 @@ function SandboxContent() {
             />
           </span>
           <span className="step-divider text-[10px]">✦</span>
-          <span data-tour-id="sandbox-download" onClick={handleNavigateToVerify} className="step-inactive cursor-pointer hover:text-white/60 transition-colors">Download</span>
+          <span data-tour-id="sandbox-download" onClick={handleNavigateToVerify} className="step-inactive cursor-pointer hover:text-white/60 transition-colors">Verify</span>
+          <span className="step-divider text-[10px]">✦</span>
+          <span className="step-inactive">Download</span>
         </div>
         <div className="flex-1 flex items-center justify-end gap-2.5">
           {specId ? (

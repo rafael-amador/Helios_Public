@@ -9,7 +9,7 @@ import { Search, X, ChevronDown, ChevronRight, Link2, FileText, Upload, Sparkles
 import { hasAnthropicKey, getAiHeaders, getProviderCredentials } from "@/lib/byok"
 import { API_BASE } from "@/lib/apiBase"
 import { TourOverlay } from "@/app/components/TourOverlay"
-import { CREATE_TOUR } from "@/lib/tourSteps"
+import { CREATE_TOUR, CREATE_INTENT_TOUR } from "@/lib/tourSteps"
 import { InfoBubble } from "@/app/components/InfoBubble"
 import yaml from "js-yaml"
 
@@ -1296,8 +1296,13 @@ export default function Create() {
         </div>
       )}
 
-      {/* ── First-visit guided tour ───────────────────────────────── */}
-      <TourOverlay tourId="create" steps={CREATE_TOUR} />
+      {/* ── First-visit guided tours ──────────────────────────────── */}
+      {/* Picker tour fires on initial page state (page === 0) */}
+      {page === 0 && <TourOverlay tourId="create" steps={CREATE_TOUR} />}
+      {/* Intent-screen tour fires only after the user has added tools and
+          advanced to page 1 — that's when the intent textarea + generate
+          button are actually in the DOM. */}
+      {page === 1 && <TourOverlay tourId="create-intent" steps={CREATE_INTENT_TOUR} />}
     </div>
   )
 }

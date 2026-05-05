@@ -13,6 +13,7 @@ import {
 import { getSavedServers, deleteSavedServer, type SavedServer } from "@/lib/savedServers"
 import { TourOverlay } from "@/app/components/TourOverlay"
 import { DASHBOARD_TOUR } from "@/lib/tourSteps"
+import { API_BASE } from "@/lib/apiBase"
 
 const cn = (...classes: (string | undefined | null | false)[]) => classes.filter(Boolean).join(" ")
 
@@ -29,11 +30,26 @@ export default function Home() {
   const [showKey, setShowKey] = useState(false)
   const [keyError, setKeyError] = useState<string | null>(null)
   const [currentKey, setCurrentKey] = useState<string | null>(null)
+  /** ID of the server that was just created — gets a one-time entrance animation. */
+  const [newStarId, setNewStarId] = useState<string | null>(null)
 
   useEffect(() => {
     document.fonts.ready.then(() => requestAnimationFrame(() => setPageReady(true)))
     setServers(getSavedServers())
     setCurrentKey(getAnthropicKey())
+    // Pull (and consume) the new-server flag so we can play an entrance
+    // animation on that star exactly once.
+    const justCreated = sessionStorage.getItem("helios_new_server")
+    if (justCreated) {
+      setNewStarId(justCreated)
+      sessionStorage.removeItem("helios_new_server")
+      // Drop the highlight after the animation finishes.
+      setTimeout(() => setNewStarId(null), 2400)
+    }
+    // Wake the Render free-tier container while the user is reading the
+    // dashboard. Cold start is ~30-50s; doing this here means the sandbox/try
+    // pages don't get a long stall on the first real request. Fire-and-forget.
+    fetch(`${API_BASE}/api/health`).catch(() => {})
   }, [])
 
   // Re-read on focus — handles building a server in another tab
@@ -113,29 +129,61 @@ export default function Home() {
       {/* ── Star constellation layer (decorative) ─────────────────────── */}
       {servers.length > 0 && (
         <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 2 }}>
-          {servers.map(server => (
-            <div
-              key={`star-${server.id}`}
-              className="absolute"
-              style={{
-                left: `${server.starX}%`,
-                top: `${server.starY}vh`,
-                transform: "translate(-50%, -50%)",
-              }}
-            >
+          {servers.map(server => {
+            const isNew = server.id === newStarId
+            return (
               <div
-                className="rounded-full"
+                key={`star-${server.id}`}
+                className="absolute"
                 style={{
-                  width: 18,
-                  height: 18,
-                  background: "radial-gradient(circle, rgba(255,220,140,0.95) 0%, rgba(255,180,80,0.55) 40%, rgba(255,140,40,0) 75%)",
-                  filter: "blur(0.4px)",
+                  left: `${server.starX}%`,
+                  top: `${server.starY}vh`,
+                  transform: "translate(-50%, -50%)",
                 }}
-              />
-            </div>
-          ))}
+              >
+                <div
+                  className="rounded-full"
+                  style={{
+                    width: isNew ? 28 : 18,
+                    height: isNew ? 28 : 18,
+                    background: "radial-gradient(circle, rgba(255,220,140,0.95) 0%, rgba(255,180,80,0.55) 40%, rgba(255,140,40,0) 75%)",
+                    filter: "blur(0.4px)",
+                    animation: isNew ? "star-arrive 2.2s ease-out both" : undefined,
+                    transition: "width 600ms ease-out, height 600ms ease-out",
+                  }}
+                />
+                {/* Outer glow ring during arrival — fades away */}
+                {isNew && (
+                  <div
+                    aria-hidden="true"
+                    className="absolute rounded-full pointer-events-none"
+                    style={{
+                      top: "50%", left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: 18, height: 18,
+                      animation: "star-arrive-glow 2.2s ease-out both",
+                    }}
+                  />
+                )}
+              </div>
+            )
+          })}
         </div>
       )}
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes star-arrive {
+          0% { opacity: 0; transform: scale(0.2); filter: blur(2px) brightness(2); }
+          25% { opacity: 1; transform: scale(1.6); filter: blur(0.4px) brightness(1.6); }
+          70% { transform: scale(1.1); filter: blur(0.4px) brightness(1.2); }
+          100% { transform: scale(1); filter: blur(0.4px) brightness(1); }
+        }
+        @keyframes star-arrive-glow {
+          0% { opacity: 0; box-shadow: 0 0 0 0 rgba(255,210,120,0.0); }
+          25% { opacity: 1; box-shadow: 0 0 60px 24px rgba(255,210,120,0.6); }
+          100% { opacity: 0; box-shadow: 0 0 0 0 rgba(255,210,120,0.0); }
+        }
+      `}} />
 
       {/* ── Sticky nav ───────────────────────────────────────────────── */}
       <div className="sticky top-0 z-30 flex items-center px-8 h-[80px]">

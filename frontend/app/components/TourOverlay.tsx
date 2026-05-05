@@ -251,18 +251,94 @@ export function TourOverlay({ tourId, steps, forceShow = false }: TourOverlayPro
     if (!step || step.centered || !targetRect) {
       return { top: viewport.height / 2, left: viewport.width / 2, width: 0, height: 0 }
     }
-    const top = targetRect.top - SPOTLIGHT_PADDING
-    const left = targetRect.left - SPOTLIGHT_PADDING
-    const width = targetRect.width + SPOTLIGHT_PADDING * 2
-    let height = targetRect.height + SPOTLIGHT_PADDING * 2
-    // Optional: stretch the spotlight bottom down to viewport.height - margin.
+    const inf = step.inflate ?? {}
+    const infTop = inf.top ?? 0
+    const infRight = inf.right ?? 0
+    const infBottom = inf.bottom ?? 0
+    const infLeft = inf.left ?? 0
+
+    let top = targetRect.top - SPOTLIGHT_PADDING - infTop
+    let left = targetRect.left - SPOTLIGHT_PADDING - infLeft
+    let width = targetRect.width + SPOTLIGHT_PADDING * 2 + infLeft + infRight
+    let bottom = targetRect.top + targetRect.height + SPOTLIGHT_PADDING + infBottom
+
+    // extendToBottom overrides the bottom edge (relative to viewport)
     if (typeof step.extendToBottom === "number") {
-      const desiredBottom = viewport.height - step.extendToBottom
-      const desiredHeight = desiredBottom - top
-      if (desiredHeight > height) height = desiredHeight
+      const desired = viewport.height - step.extendToBottom
+      if (desired > bottom) bottom = desired
     }
+
+    // Clip to viewport so spotlights don't extend off-screen, especially for
+    // tall containers (e.g. a long scrollable grid). The CLIP keeps the
+    // visual highlight bounded to what the user can actually see.
+    const VIEWPORT_CLIP_MARGIN = 8
+    top = Math.max(VIEWPORT_CLIP_MARGIN, top)
+    bottom = Math.min(viewport.height - VIEWPORT_CLIP_MARGIN, bottom)
+    left = Math.max(VIEWPORT_CLIP_MARGIN, left)
+    const right = Math.min(viewport.width - VIEWPORT_CLIP_MARGIN, left + width)
+    width = right - left
+    const height = Math.max(0, bottom - top)
+
     return { top, left, width, height }
   }, [step, targetRect, viewport])
+
+  // Auto-scroll the closest scrollable ancestor while this step is active.
+  useEffect(() => {
+    if (!step?.autoScroll || !step.target || step.centered) return
+
+    const el = document.querySelector(step.target) as HTMLElement | null
+    if (!el) return
+
+    // Walk up to find the nearest scrollable ancestor.
+    const findScrollable = (node: HTMLElement | null): HTMLElement | null => {
+      let n: HTMLElement | null = node
+      while (n && n !== document.body) {
+        const s = window.getComputedStyle(n)
+        const oy = s.overflowY
+        if ((oy === "auto" || oy === "scroll") && n.scrollHeight > n.clientHeight + 2) return n
+        n = n.parentElement
+      }
+      return null
+    }
+
+    const scrollable = findScrollable(el.parentElement)
+    if (!scrollable) return
+
+    const speed = step.autoScroll.speed ?? 60  // px/sec
+    const startScrollTop = scrollable.scrollTop
+    const maxScroll = scrollable.scrollHeight - scrollable.clientHeight
+    const startedAt = performance.now()
+
+    let raf = 0
+    const tick = () => {
+      const elapsed = (performance.now() - startedAt) / 1000  // seconds
+      // Triangle wave: scroll down then back up over the available range
+      const cycleSeconds = (maxScroll * 2) / speed
+      const phase = (elapsed % cycleSeconds) / cycleSeconds
+      const scrollAmount = phase < 0.5
+        ? phase * 2 * maxScroll
+        : (1 - phase) * 2 * maxScroll
+      scrollable.scrollTop = startScrollTop + scrollAmount - startScrollTop
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+
+    return () => {
+      cancelAnimationFrame(raf)
+      // Smoothly reset to the original position so the next step lands on a
+      // predictable view.
+      const resetStart = scrollable.scrollTop
+      const resetStartedAt = performance.now()
+      const resetDuration = 350
+      const resetTick = () => {
+        const t = Math.min(1, (performance.now() - resetStartedAt) / resetDuration)
+        const ease = 1 - Math.pow(1 - t, 3)
+        scrollable.scrollTop = resetStart + (startScrollTop - resetStart) * ease
+        if (t < 1) requestAnimationFrame(resetTick)
+      }
+      resetTick()
+    }
+  }, [step])
 
   const hasTarget = !!step && !step.centered && !!targetRect
 
