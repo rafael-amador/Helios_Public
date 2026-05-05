@@ -188,8 +188,8 @@ export default function Home() {
         </div>
 
         {/* ── Your Servers ─────────────────────────────────────────── */}
-        <section data-tour-id="dashboard-servers" className="px-16 pb-16">
-          <div className="max-w-5xl mx-auto">
+        <section className="px-16 pb-16">
+          <div data-tour-id="dashboard-servers" className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-6 w-full">
               <div className="flex-1 h-[2px] bg-white/[0.30]" />
               <h2 className="font-[family-name:--font-cinzel] text-[18px] tracking-[0.3em] text-white/65 uppercase">

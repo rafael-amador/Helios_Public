@@ -68,6 +68,9 @@ export const DASHBOARD_TOUR: TourStep[] = [
     title: "Your Servers",
     body: "Servers you build appear here as cards. Click any card to reopen its sandbox.",
     extra: <DemoStar />,
+    // Empty state is just a single line of text, but we want the highlight to
+    // visually claim the rest of the page below it — stops 40px from the bottom.
+    extendToBottom: 40,
   },
   {
     centered: true,

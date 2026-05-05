@@ -20,6 +20,10 @@ export interface TourStep {
   extra?: ReactNode
   /** If true, the spotlight + bubble float in screen center (no target needed). */
   centered?: boolean
+  /** Stretch the spotlight DOWN so its bottom edge sits this many px from the
+   *  viewport bottom. Use when the target's natural height is small but you
+   *  want the highlight to cover the area below it (e.g. an empty state). */
+  extendToBottom?: number
 }
 
 const STORAGE_PREFIX = "helios_tour_seen_"

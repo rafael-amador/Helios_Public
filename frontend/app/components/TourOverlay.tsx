@@ -251,12 +251,17 @@ export function TourOverlay({ tourId, steps, forceShow = false }: TourOverlayPro
     if (!step || step.centered || !targetRect) {
       return { top: viewport.height / 2, left: viewport.width / 2, width: 0, height: 0 }
     }
-    return {
-      top: targetRect.top - SPOTLIGHT_PADDING,
-      left: targetRect.left - SPOTLIGHT_PADDING,
-      width: targetRect.width + SPOTLIGHT_PADDING * 2,
-      height: targetRect.height + SPOTLIGHT_PADDING * 2,
+    const top = targetRect.top - SPOTLIGHT_PADDING
+    const left = targetRect.left - SPOTLIGHT_PADDING
+    const width = targetRect.width + SPOTLIGHT_PADDING * 2
+    let height = targetRect.height + SPOTLIGHT_PADDING * 2
+    // Optional: stretch the spotlight bottom down to viewport.height - margin.
+    if (typeof step.extendToBottom === "number") {
+      const desiredBottom = viewport.height - step.extendToBottom
+      const desiredHeight = desiredBottom - top
+      if (desiredHeight > height) height = desiredHeight
     }
+    return { top, left, width, height }
   }, [step, targetRect, viewport])
 
   const hasTarget = !!step && !step.centered && !!targetRect
