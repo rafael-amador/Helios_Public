@@ -5,6 +5,8 @@ import { useSearchParams, useRouter } from "next/navigation"
 import { Send, User, ChevronDown, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { hasAnthropicKey, getAiHeaders, getProviderCredentials, setProviderCredential, deleteProviderCredential } from "@/lib/byok"
+import { TourOverlay } from "@/app/components/TourOverlay"
+import { TRY_TOUR } from "@/lib/tourSteps"
 import { API_BASE } from "@/lib/apiBase"
 import { InfoBubble } from "@/app/components/InfoBubble"
 import { MotionStarsBackground } from "@/app/components/MotionStars"
@@ -903,6 +905,7 @@ function TryContent() {
                 <div className="relative">
                   <button
                     ref={toolsButtonRef}
+                    data-tour-id="try-tools"
                     onClick={() => setPanelOpen(prev => !prev)}
                     className={cn(
                       "font-[family-name:--font-cinzel] text-[11px] tracking-[0.14em] px-4 py-2 rounded-xl border transition-all duration-200 cursor-pointer",
@@ -1174,6 +1177,7 @@ function TryContent() {
               )}>
                 <textarea
                   ref={textareaRef}
+                  data-tour-id="try-input"
                   value={input}
                   onChange={e => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -1200,6 +1204,9 @@ function TryContent() {
           </div>
         </div>
       </div>
+
+      {/* ── First-visit guided tour ───────────────────────────────── */}
+      <TourOverlay tourId="try" steps={TRY_TOUR} />
     </div>
   )
 }

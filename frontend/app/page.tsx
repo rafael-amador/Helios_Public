@@ -11,6 +11,8 @@ import {
   looksLikeAnthropicKey,
 } from "@/lib/byok"
 import { getSavedServers, deleteSavedServer, type SavedServer } from "@/lib/savedServers"
+import { TourOverlay } from "@/app/components/TourOverlay"
+import { DASHBOARD_TOUR } from "@/lib/tourSteps"
 
 const cn = (...classes: (string | undefined | null | false)[]) => classes.filter(Boolean).join(" ")
 
@@ -146,11 +148,12 @@ export default function Home() {
           </span>
         </div>
         <div className="flex items-center justify-end gap-1">
-          <Link href="/info" className="group relative font-[family-name:--font-cinzel] text-[15px] tracking-[0.15em] px-5 py-2.5 text-white/60 hover:text-white transition-all duration-200 cursor-pointer hover:-translate-y-[1px]">
+          <Link data-tour-id="dashboard-info" href="/info" className="group relative font-[family-name:--font-cinzel] text-[15px] tracking-[0.15em] px-5 py-2.5 text-white/60 hover:text-white transition-all duration-200 cursor-pointer hover:-translate-y-[1px]">
             Info
             <span className="absolute bottom-1 left-5 right-5 h-[1px] bg-white/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
           </Link>
           <button
+            data-tour-id="dashboard-key"
             onClick={handleOpenKeyModal}
             className="group relative font-[family-name:--font-cinzel] text-[15px] tracking-[0.15em] px-5 py-2.5 text-white/60 hover:text-white transition-all duration-200 cursor-pointer hover:-translate-y-[1px]"
           >
@@ -169,6 +172,7 @@ export default function Home() {
               MCP Server Generator
             </p>
             <button
+              data-tour-id="dashboard-build"
               onClick={handleBuildClick}
               className="btn-gold font-[family-name:--font-cinzel] cursor-pointer px-20 py-7 text-[28px] tracking-[0.18em] rounded-2xl animate-gold-pulse"
             >
@@ -184,7 +188,7 @@ export default function Home() {
         </div>
 
         {/* ── Your Servers ─────────────────────────────────────────── */}
-        <section className="px-16 pb-16">
+        <section data-tour-id="dashboard-servers" className="px-16 pb-16">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-6 w-full">
               <div className="flex-1 h-[2px] bg-white/[0.30]" />
@@ -379,6 +383,9 @@ export default function Home() {
         </div>,
         document.body
       )}
+
+      {/* ── First-visit guided tour ───────────────────────────────── */}
+      <TourOverlay tourId="dashboard" steps={DASHBOARD_TOUR} />
     </div>
   )
 }

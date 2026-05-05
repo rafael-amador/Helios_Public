@@ -4,6 +4,8 @@ import { useSearchParams, useRouter } from "next/navigation"
 import Link from "next/link"
 import { Download, Check, Sparkles } from "lucide-react"
 import { API_BASE } from "@/lib/apiBase"
+import { TourOverlay } from "@/app/components/TourOverlay"
+import { DOWNLOAD_TOUR } from "@/lib/tourSteps"
 
 function DownloadContent() {
   const params = useSearchParams()
@@ -100,6 +102,7 @@ function DownloadContent() {
 
           <div className="w-full flex flex-col gap-3">
             <button
+              data-tour-id="download-zip"
               onClick={handleDownload}
               disabled={downloading}
               className="btn-gold cursor-pointer rounded-xl py-3.5 flex items-center justify-center gap-2.5
@@ -110,6 +113,7 @@ function DownloadContent() {
             </button>
 
             <button
+              data-tour-id="download-try"
               onClick={() => router.push(`/try?specId=${encodeURIComponent(specId)}`)}
               className="cursor-pointer rounded-xl py-3.5 flex items-center justify-center gap-2.5 w-full
                 font-[family-name:--font-cinzel] text-[13px] tracking-[0.12em] text-white/75
@@ -135,6 +139,9 @@ function DownloadContent() {
           </Link>
         </div>
       </main>
+
+      {/* ── First-visit guided tour ───────────────────────────────── */}
+      <TourOverlay tourId="download" steps={DOWNLOAD_TOUR} />
     </div>
   )
 }

@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation"
 import { Search, X, ChevronDown, ChevronRight, Link2, FileText, Upload, Sparkles } from "lucide-react"
 import { hasAnthropicKey, getAiHeaders, getProviderCredentials } from "@/lib/byok"
 import { API_BASE } from "@/lib/apiBase"
+import { TourOverlay } from "@/app/components/TourOverlay"
+import { CREATE_TOUR } from "@/lib/tourSteps"
 import { InfoBubble } from "@/app/components/InfoBubble"
 import yaml from "js-yaml"
 
@@ -668,7 +670,7 @@ export default function Create() {
                                 quick="Reference links for every pre-made MCP server Helios ships — official, archived, and community sources."
                               />
                             </p>
-                            <div className="grid grid-cols-3 gap-2.5">
+                            <div data-tour-id="create-premade" className="grid grid-cols-3 gap-2.5">
                               {filteredApis.map(api => (
                                 <button
                                   key={api.slug}
@@ -937,7 +939,7 @@ export default function Create() {
                         </div>
 
                         {/* Unified Add button — handles both URL and staged file */}
-                        <div className="relative mt-4 group/addbtn">
+                        <div data-tour-id="create-custom" className="relative mt-4 group/addbtn">
                           <button
                             type="button"
                             onClick={handleCreateTool}
@@ -1015,6 +1017,7 @@ export default function Create() {
                       </p>
 
                       <textarea
+                        data-tour-id="create-intent"
                         placeholder="e.g. I want to retrieve user profiles and send email notifications when their subscription expires..."
                         value={intent}
                         onChange={e => setIntent(e.target.value)}
@@ -1146,6 +1149,7 @@ export default function Create() {
                     </span>
 
                     <button
+                      data-tour-id="create-generate"
                       type="button"
                       onClick={handleGenerate}
                       disabled={isGenerating || isSimplifying}
@@ -1292,6 +1296,8 @@ export default function Create() {
         </div>
       )}
 
+      {/* ── First-visit guided tour ───────────────────────────────── */}
+      <TourOverlay tourId="create" steps={CREATE_TOUR} />
     </div>
   )
 }

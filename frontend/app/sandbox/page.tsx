@@ -6,6 +6,8 @@ import Link from "next/link"
 import { hasAnthropicKey, getAiHeaders, getProviderCredentials, setProviderCredential, deleteProviderCredential } from "@/lib/byok"
 import { API_BASE } from "@/lib/apiBase"
 import { addSavedServer } from "@/lib/savedServers"
+import { TourOverlay } from "@/app/components/TourOverlay"
+import { SANDBOX_TOUR } from "@/lib/tourSteps"
 import { InfoBubble } from "@/app/components/InfoBubble"
 import { lookupProviderKeyUrl, lookupBasicAuthLabels } from "@/lib/providerKeys"
 import ReactMarkdown from "react-markdown"
@@ -537,7 +539,7 @@ function SandboxContent() {
             />
           </span>
           <span className="step-divider text-[10px]">✦</span>
-          <span onClick={handleNavigateToVerify} className="step-inactive cursor-pointer hover:text-white/60 transition-colors">Download</span>
+          <span data-tour-id="sandbox-download" onClick={handleNavigateToVerify} className="step-inactive cursor-pointer hover:text-white/60 transition-colors">Download</span>
         </div>
         <div className="flex-1 flex items-center justify-end gap-2.5">
           {specId ? (
@@ -756,6 +758,7 @@ function SandboxContent() {
                 <div className="relative">
                   <button
                     ref={toolsButtonRef}
+                    data-tour-id="sandbox-tools"
                     onClick={() => setPanelOpen(prev => !prev)}
                     className={cn(
                       "font-[family-name:--font-cinzel] text-[11px] tracking-[0.14em] px-4 py-2 rounded-xl border transition-all duration-200 cursor-pointer",
@@ -1128,6 +1131,7 @@ function SandboxContent() {
               )}>
                 <textarea
                   ref={textareaRef}
+                  data-tour-id="sandbox-input"
                   value={input}
                   onChange={e => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -1157,6 +1161,9 @@ function SandboxContent() {
           </div>{/* end input area */}
         </div>
       </div>
+
+      {/* ── First-visit guided tour ───────────────────────────────── */}
+      <TourOverlay tourId="sandbox" steps={SANDBOX_TOUR} />
     </div>
   )
 }
