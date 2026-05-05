@@ -14,6 +14,7 @@ import { getSavedServers, deleteSavedServer, type SavedServer } from "@/lib/save
 import { TourOverlay } from "@/app/components/TourOverlay"
 import { DASHBOARD_TOUR } from "@/lib/tourSteps"
 import { API_BASE } from "@/lib/apiBase"
+import { SERVER_STAR_COLORS, hashStr } from "@/lib/serverStars"
 
 const cn = (...classes: (string | undefined | null | false)[]) => classes.filter(Boolean).join(" ")
 
@@ -126,64 +127,50 @@ export default function Home() {
 
   return (
     <div className={cn("min-h-screen transition-opacity duration-500", pageReady ? "opacity-100" : "opacity-0")}>
-      {/* ── Star constellation layer (decorative) ─────────────────────── */}
+      {/* ── Star constellation layer ──────────────────────────────────
+          Restored from the original Helios. Each star uses .star-wrapper
+          (positioning + 44px hit area) and .star-dot (4-pointed clip-path
+          with per-server --star-color, --rotate-dur, --twinkle-dur,
+          --twinkle-delay CSS vars). New stars get .is-new which triggers
+          the shootingEntry animation + trail streak (CSS in globals.css). */}
       {servers.length > 0 && (
-        <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 2 }}>
+        <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 10 }}>
           {servers.map(server => {
+            const h = hashStr(server.id)
+            const size = 18 + (h % 3) * 4
+            const twinkleDur = 2.5 + (h % 30) / 10
+            const twinkleDelay = (h % 20) / 10
+            const rotateDur = 20 + (h % 25)
+            const starColor = SERVER_STAR_COLORS[h % SERVER_STAR_COLORS.length]
             const isNew = server.id === newStarId
             return (
               <div
                 key={`star-${server.id}`}
-                className="absolute"
+                className={cn("star-wrapper", isNew ? "is-new" : "is-existing")}
                 style={{
                   left: `${server.starX}%`,
                   top: `${server.starY}vh`,
                   transform: "translate(-50%, -50%)",
                 }}
+                onClick={() => handleServerClick(server.id)}
               >
                 <div
-                  className="rounded-full"
+                  className={cn("star-dot", isNew ? "is-new" : "is-existing")}
                   style={{
-                    width: isNew ? 28 : 18,
-                    height: isNew ? 28 : 18,
-                    background: "radial-gradient(circle, rgba(255,220,140,0.95) 0%, rgba(255,180,80,0.55) 40%, rgba(255,140,40,0) 75%)",
-                    filter: "blur(0.4px)",
-                    animation: isNew ? "star-arrive 2.2s ease-out both" : undefined,
-                    transition: "width 600ms ease-out, height 600ms ease-out",
+                    width: size,
+                    height: size,
+                    ["--twinkle-dur" as string]: `${twinkleDur}s`,
+                    ["--twinkle-delay" as string]: `${twinkleDelay}s`,
+                    ["--rotate-dur" as string]: `${rotateDur}s`,
+                    ["--star-color" as string]: starColor,
                   }}
                 />
-                {/* Outer glow ring during arrival — fades away */}
-                {isNew && (
-                  <div
-                    aria-hidden="true"
-                    className="absolute rounded-full pointer-events-none"
-                    style={{
-                      top: "50%", left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      width: 18, height: 18,
-                      animation: "star-arrive-glow 2.2s ease-out both",
-                    }}
-                  />
-                )}
+                <span className="star-label">{server.id}</span>
               </div>
             )
           })}
         </div>
       )}
-
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes star-arrive {
-          0% { opacity: 0; transform: scale(0.2); filter: blur(2px) brightness(2); }
-          25% { opacity: 1; transform: scale(1.6); filter: blur(0.4px) brightness(1.6); }
-          70% { transform: scale(1.1); filter: blur(0.4px) brightness(1.2); }
-          100% { transform: scale(1); filter: blur(0.4px) brightness(1); }
-        }
-        @keyframes star-arrive-glow {
-          0% { opacity: 0; box-shadow: 0 0 0 0 rgba(255,210,120,0.0); }
-          25% { opacity: 1; box-shadow: 0 0 60px 24px rgba(255,210,120,0.6); }
-          100% { opacity: 0; box-shadow: 0 0 0 0 rgba(255,210,120,0.0); }
-        }
-      `}} />
 
       {/* ── Sticky nav ───────────────────────────────────────────────── */}
       <div className="sticky top-0 z-30 flex items-center px-8 h-[80px]">

@@ -150,11 +150,10 @@ export const SANDBOX_TOUR: TourStep[] = [
     placement: "top",
     title: "Talk to It",
     body: "Type a request like \"list my last 5 issues\" or \"send a test SMS to +1...\". Claude picks the right tool and runs it. The toolbar above this input lets you toggle tools on/off and paste API credentials.",
-    // Pull the highlight up to include the Tools+Reset toolbar above the input,
-    // and stretch it down to nearly the viewport bottom so the bottom panel
-    // reads as one focal area.
-    inflate: { top: 64 },
-    extendToBottom: 12,
+    // Pull the highlight up to include the Tools+Reset toolbar above the input.
+    // Don't extend to viewport bottom — keep it tight around the actual chat
+    // composer so the user can clearly see what they're being shown.
+    inflate: { top: 64, bottom: 8 },
   },
   {
     target: '[data-tour-id="sandbox-download"]',
@@ -185,8 +184,7 @@ export const TRY_TOUR: TourStep[] = [
     placement: "top",
     title: "Talk to It",
     body: "Same chat interface as the sandbox, except every call lands in the real API. Try simple GETs first to confirm everything's wired up.",
-    inflate: { top: 64 },
-    extendToBottom: 12,
+    inflate: { top: 64, bottom: 8 },
   },
 ]
 
