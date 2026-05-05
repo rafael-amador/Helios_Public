@@ -130,6 +130,76 @@ function toAnthropicTool(tool: any) {
     }
 }
 
+// Anthropic rejects any input_schema property key that doesn't match
+// ^[a-zA-Z0-9_.-]{1,64}$. Some catalogs (e.g. specs with `page[number]` params)
+// pass through with brackets intact, killing the whole chat call.
+//
+// We rewrite invalid keys to safe ones, build a per-tool reverse map, and
+// re-rename Claude's tool_use args back to the originals before they hit
+// the dispatcher. Required[] is updated to match.
+const VALID_KEY_RE = /^[a-zA-Z0-9_.-]{1,64}$/
+function sanitizeKey(key: string): string {
+    let safe = key.replace(/[^a-zA-Z0-9_.-]/g, "_")
+    if (safe.length === 0) safe = "_"
+    if (safe.length > 64) safe = safe.slice(0, 64)
+    return safe
+}
+
+interface SanitizedTool {
+    tool: any                              // the Anthropic-shaped tool with safe keys
+    paramMap?: Record<string, string>      // safe → original (only present when renames happened)
+}
+
+function sanitizeAnthropicTool(tool: any): SanitizedTool {
+    const schema = tool.input_schema
+    if (!schema || !schema.properties || typeof schema.properties !== "object") return { tool }
+
+    const renames: Array<[string, string]> = []  // [original, safe]
+    const used = new Set<string>()
+    for (const k of Object.keys(schema.properties)) {
+        if (VALID_KEY_RE.test(k)) { used.add(k); continue }
+        let safe = sanitizeKey(k)
+        // Avoid colliding with an already-used key (sanitized or not)
+        let n = 1
+        const base = safe
+        while (used.has(safe)) safe = `${base.slice(0, 60)}_${n++}`
+        used.add(safe)
+        renames.push([k, safe])
+    }
+
+    if (renames.length === 0) return { tool }
+
+    const newProps: Record<string, any> = {}
+    const paramMap: Record<string, string> = {}
+    const renameMap = new Map(renames)
+    for (const [k, v] of Object.entries(schema.properties)) {
+        const safe = renameMap.get(k) ?? k
+        newProps[safe] = v
+        if (renameMap.has(k)) paramMap[safe] = k
+    }
+    const newRequired = Array.isArray(schema.required)
+        ? schema.required.map((k: string) => renameMap.get(k) ?? k)
+        : schema.required
+
+    return {
+        tool: {
+            ...tool,
+            input_schema: { ...schema, properties: newProps, required: newRequired },
+        },
+        paramMap,
+    }
+}
+
+// Reverse-rename Claude's tool_use args back to the original property names
+// so the dispatcher (which knows nothing about our sanitization) gets the
+// names the underlying API expects.
+function applyParamMap(args: Record<string, any>, paramMap?: Record<string, string>): Record<string, any> {
+    if (!paramMap) return args
+    const out: Record<string, any> = {}
+    for (const [k, v] of Object.entries(args)) out[paramMap[k] ?? k] = v
+    return out
+}
+
 function aggregateAuthMap(authMap: Record<string, AuthConfig[]>): AuthConfig[] {
     const out: AuthConfig[] = []
     for (const configs of Object.values(authMap ?? {})) {
@@ -439,9 +509,14 @@ app.post("/api/sandbox/chat", aiLimiter, requireAnthropicKey, async (req: ByokRe
     const historyBaseLen = history.length
     history.push({ role: "user", content: req.body.message })
 
-    const anthropicTools = (req.body.tools ?? [])
+    const rawTools = (req.body.tools ?? [])
         .filter((t: any) => t.function?.name)
         .map(toAnthropicTool)
+    const sanitized = rawTools.map(sanitizeAnthropicTool)
+    const anthropicTools = sanitized.map((s: SanitizedTool) => s.tool)
+    // tool name → reverse-rename map for tool_use args
+    const paramMapByTool: Record<string, Record<string, string> | undefined> = {}
+    sanitized.forEach((s: SanitizedTool) => { paramMapByTool[s.tool.name] = s.paramMap })
 
     const sanitizePromptField = (s: string) => s.replace(/[\n\r`]/g, " ").slice(0, 300)
 
@@ -488,7 +563,7 @@ app.post("/api/sandbox/chat", aiLimiter, requireAnthropicKey, async (req: ByokRe
 
             const toolResults = await Promise.allSettled(
                 toolUseBlocks.map(async (block: any) => {
-                    const args = block.input
+                    const args = applyParamMap(block.input, paramMapByTool[block.name])
                     try {
                         const toolResponse = await callTool(sessionId, block.name, args)
                         const limited = Array.isArray(toolResponse) && toolResponse.length > 100
@@ -627,9 +702,13 @@ app.post("/api/try/chat", aiLimiter, requireAnthropicKey, async (req: ByokReques
     const historyBaseLen = history.length
     history.push({ role: "user", content: req.body.message })
 
-    const anthropicTools = (req.body.tools ?? [])
+    const rawTools = (req.body.tools ?? [])
         .filter((t: any) => t.function?.name)
         .map(toAnthropicTool)
+    const sanitized = rawTools.map(sanitizeAnthropicTool)
+    const anthropicTools = sanitized.map((s: SanitizedTool) => s.tool)
+    const paramMapByTool: Record<string, Record<string, string> | undefined> = {}
+    sanitized.forEach((s: SanitizedTool) => { paramMapByTool[s.tool.name] = s.paramMap })
 
     const sanitizePromptField = (s: string) => s.replace(/[\n\r`]/g, " ").slice(0, 300)
 
@@ -674,7 +753,7 @@ app.post("/api/try/chat", aiLimiter, requireAnthropicKey, async (req: ByokReques
             const toolResults = await Promise.allSettled(
                 toolUseBlocks.map(async (block: any) => {
                     try {
-                        const toolResponse = await callTool(sessionId, block.name, block.input)
+                        const toolResponse = await callTool(sessionId, block.name, applyParamMap(block.input, paramMapByTool[block.name]))
                         const limited = Array.isArray(toolResponse) && toolResponse.length > 100
                             ? toolResponse.slice(0, 100)
                             : toolResponse
