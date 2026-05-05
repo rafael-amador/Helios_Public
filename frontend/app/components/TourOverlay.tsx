@@ -184,7 +184,31 @@ export function TourOverlay({ tourId, steps, forceShow = false }: TourOverlayPro
         el.scrollIntoView({ behavior: "smooth", block: "center" })
         return null
       }
-      return { top: rect.top, left: rect.left, width: rect.width, height: rect.height }
+      // Clip to the closest scrollable ancestor's visible bounds. The ancestor's
+      // rect doesn't move when its content scrolls inside, so the spotlight stays
+      // anchored even during auto-scroll. Without this clip, a tall grid that
+      // overflows its container produces a rect spanning far past the visible
+      // area, which then snaps to the viewport — covering everything.
+      let top = rect.top, left = rect.left, right = rect.right, bottom = rect.bottom
+      let parent: HTMLElement | null = el.parentElement
+      while (parent && parent !== document.body) {
+        const s = window.getComputedStyle(parent)
+        const isScrollable =
+          ((s.overflowY === "auto" || s.overflowY === "scroll") && parent.scrollHeight > parent.clientHeight + 2) ||
+          ((s.overflowX === "auto" || s.overflowX === "scroll") && parent.scrollWidth > parent.clientWidth + 2)
+        if (isScrollable) {
+          const pr = parent.getBoundingClientRect()
+          top = Math.max(top, pr.top)
+          left = Math.max(left, pr.left)
+          right = Math.min(right, pr.right)
+          bottom = Math.min(bottom, pr.bottom)
+        }
+        parent = parent.parentElement
+      }
+      const w = Math.max(0, right - left)
+      const h = Math.max(0, bottom - top)
+      if (w === 0 || h === 0) return null
+      return { top, left, width: w, height: h }
     }
 
     const tick = () => {
@@ -277,7 +301,12 @@ export function TourOverlay({ tourId, steps, forceShow = false }: TourOverlayPro
     left = Math.max(VIEWPORT_CLIP_MARGIN, left)
     const right = Math.min(viewport.width - VIEWPORT_CLIP_MARGIN, left + width)
     width = right - left
-    const height = Math.max(0, bottom - top)
+    let height = Math.max(0, bottom - top)
+
+    // Cap explicitly if the step requested a maxHeight.
+    if (typeof step.maxHeight === "number" && height > step.maxHeight) {
+      height = step.maxHeight
+    }
 
     return { top, left, width, height }
   }, [step, targetRect, viewport])

@@ -95,6 +95,9 @@ export const CREATE_TOUR: TourStep[] = [
     title: "Premade APIs",
     body: "The fastest path. Pick a popular API like GitHub, Spotify, or Twilio — Helios already knows its endpoints. Just click an icon, choose which tools to include, and it's added to your working set. Watch the grid scroll to see what's available.",
     autoScroll: { speed: 60 },
+    // Pull the highlight up so the search bar above the grid is included in
+    // the same focal area (matches the visible "browse" region the user sees).
+    inflate: { top: 70 },
   },
   {
     target: '[data-tour-id="create-custom"]',

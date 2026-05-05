@@ -36,6 +36,8 @@ export interface TourStep {
     /** px per second. Defaults to 60 ("medium"). */
     speed?: number
   }
+  /** Cap the spotlight height (in px). Applied AFTER inflate/extendToBottom. */
+  maxHeight?: number
 }
 
 const STORAGE_PREFIX = "helios_tour_seen_"
