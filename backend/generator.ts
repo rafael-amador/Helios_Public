@@ -1,91 +1,94 @@
 // generator.ts — Generates a standalone MCP server ZIP from a ToolsFile.
-// The generated server reads credentials from .env, supports all HTTP methods,
-// and has no dependency on Helios's backend or MongoDB.
+//
+// The generated server is a faithful port of backend/server.ts (the internal
+// MCP dispatcher used by /try). Both must stay behaviorally aligned — when
+// you change one, mirror the change in the other.
+//
+// Includes: auto_path_params, param_name_map, body_format dispatch, HTML
+// entity decode + XML wrapper stripping for markup params, content/URL
+// deduplication, SSRF guard, manual-redirect handling, URL redaction in logs,
+// per-tool runtime auth injection.
 
 import JSZip from "jszip"
-import type { ToolsFile, ToolAuthEnrichment } from "./generate_tool_registry.ts"
+import type { ToolsFile, ToolAuthEnrichment, EndpointDefinition } from "./generate_tool_registry.ts"
+
+// ─── Auth Template Discovery ───────────────────────────────────────────────────
+
+/** Every distinct auth template that appears in the registry. */
+function collectAuthTemplates(registry: ToolsFile): Set<string> {
+  const out = new Set<string>()
+  for (const t of registry.tools) {
+    const tpl = (t as EndpointDefinition).enrichment?.auth?.template
+    if (tpl) out.add(tpl)
+  }
+  return out
+}
+
+/** Strip anything that isn't a safe header/param name char. Belt-and-suspenders
+ *  to prevent backtick / ${} injection through the registry into the template. */
+function safeIdent(s: string | undefined, fallback: string): string {
+  if (!s) return fallback
+  const cleaned = String(s).replace(/[^a-zA-Z0-9_-]/g, "")
+  return cleaned.length > 0 ? cleaned : fallback
+}
 
 // ─── Env Var Names ─────────────────────────────────────────────────────────────
 
-/**
- * Maps an auth enrichment to the env var name(s) the generated server will use.
- * These become the keys in .env.example and the process.env lookups in server.ts.
- */
-function getEnvVars(auth: ToolAuthEnrichment | null): Record<string, string> {
-  if (!auth) return {}
-  switch (auth.template) {
+interface EnvVar { name: string; placeholder: string; comment?: string }
+
+/** Returns the env vars needed for a single auth template. */
+function envVarsFor(template: string): EnvVar[] {
+  switch (template) {
     case "bearer_token":
-      return { BEARER_TOKEN: "your_bearer_token_here" }
+      return [{ name: "BEARER_TOKEN", placeholder: "your_bearer_token_here" }]
     case "api_key_header":
-      return { API_KEY: "your_api_key_here" }
+      return [{ name: "API_KEY", placeholder: "your_api_key_here" }]
     case "api_key_query":
-      return { API_KEY: "your_api_key_here" }
+      return [{ name: "API_KEY", placeholder: "your_api_key_here" }]
     case "oauth2_client_creds":
-      return {
-        CLIENT_ID: "your_client_id_here",
-        CLIENT_SECRET: "your_client_secret_here",
-      }
+      // Generated server expects a pre-obtained ACCESS_TOKEN. Users exchange
+      // their CLIENT_ID + CLIENT_SECRET at the API's token endpoint manually
+      // and paste the resulting token here. Real client_credentials flow with
+      // automatic refresh would require knowing token_url at runtime — kept
+      // simple for now; documented in README.
+      return [{
+        name: "ACCESS_TOKEN",
+        placeholder: "your_oauth_access_token_here",
+        comment: "Obtain by POST'ing client_id + client_secret to your provider's token endpoint",
+      }]
     case "oauth2_auth_code":
-      return { ACCESS_TOKEN: "your_access_token_here" }
+      return [{ name: "ACCESS_TOKEN", placeholder: "your_access_token_here" }]
     case "basic_auth":
-      return { API_CREDENTIALS: "username:password" }
+      return [{ name: "API_CREDENTIALS", placeholder: "username:password" }]
     default:
-      return {}
+      return []
   }
 }
 
-// ─── Auth Injection Code ────────────────────────────────────────────────────────
-
-/**
- * Returns the inline TypeScript snippet that injects auth into headers/params
- * for the generated server. Reads from process.env instead of MongoDB.
- */
-function getAuthInjectionCode(auth: ToolAuthEnrichment | null): string {
-  if (!auth) return ""
-  switch (auth.template) {
-    case "bearer_token":
-      return `
-      const token = process.env.BEARER_TOKEN
-      if (token) headers["Authorization"] = \`Bearer \${token}\``
-
-    case "api_key_header":
-      return `
-      const apiKey = process.env.API_KEY
-      if (apiKey) headers["${auth.header_name || "X-API-Key"}"] = apiKey`
-
-    case "api_key_query":
-      return `
-      const apiKey = process.env.API_KEY
-      if (apiKey) params.set("${auth.param_name || "api_key"}", apiKey)`
-
-    case "oauth2_client_creds":
-      return `
-      const token = process.env.ACCESS_TOKEN
-      if (token) headers["Authorization"] = \`Bearer \${token}\``
-
-    case "oauth2_auth_code":
-      return `
-      const token = process.env.ACCESS_TOKEN
-      if (token) headers["Authorization"] = \`Bearer \${token}\``
-
-    case "basic_auth":
-      return `
-      const creds = process.env.API_CREDENTIALS
-      if (creds) headers["Authorization"] = \`Basic \${Buffer.from(creds).toString("base64")}\``
-
-    default:
-      return ""
+/** Union of env vars for all auth templates present in the registry. */
+function allEnvVars(registry: ToolsFile): EnvVar[] {
+  const seen = new Set<string>()
+  const out: EnvVar[] = []
+  for (const tpl of collectAuthTemplates(registry)) {
+    for (const v of envVarsFor(tpl)) {
+      if (seen.has(v.name)) continue
+      seen.add(v.name)
+      out.push(v)
+    }
   }
+  return out
 }
 
 // ─── Generated server.ts ───────────────────────────────────────────────────────
 
-function generateServerTs(registry: ToolsFile): string {
-  const firstAuth = registry.tools.find(t => t.enrichment?.auth)?.enrichment?.auth ?? null
-  const authInjection = getAuthInjectionCode(firstAuth)
+function generateServerTs(_registry: ToolsFile): string {
+  // Note: we used to pre-compute `firstAuth` and template a single auth
+  // injection block. That broke composite catalogs (different tools using
+  // different auth templates). Auth is now selected at runtime per-tool from
+  // the tool's own enrichment.
 
   return `// Generated by Helios — do not edit manually.
-// Start: npx tsx server.ts
+// Start:  npm install  &&  npm start  (or: npx tsx server.ts)
 import "dotenv/config"
 import { readFileSync } from "fs"
 import { randomUUID } from "node:crypto"
@@ -97,6 +100,85 @@ import { z } from "zod"
 
 const toolsFile = JSON.parse(readFileSync("tools.json", "utf8"))
 const BASE_URL = toolsFile.baseUrl
+
+// Allowlist of supported auto_path_params source sentinels — rejects malicious
+// catalog values that could otherwise be acted on at dispatch time.
+const VALID_AUTO_PATH_SOURCES = new Set(["auth_username"])
+
+// ─── SSRF guard ─────────────────────────────────────────────────────────────
+// Always-block: loopback (127.x, ::1), link-local (169.254.x.x — covers AWS
+// metadata service), IPv6 link-local + ULA, IPv4-mapped IPv6, decimal/hex IP
+// encodings, non-http(s) protocols. RFC1918 (10/172.16-31/192.168) is NOT
+// blocked because the user is running this locally and may legitimately want
+// to hit private-network APIs.
+function assertSafeUrl(url) {
+  let parsed
+  try { parsed = new URL(url) } catch { throw new Error(\`Invalid URL "\${url}"\`) }
+  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
+    throw new Error(\`URL must use http or https (got "\${parsed.protocol}")\`)
+  }
+  const host = parsed.hostname.toLowerCase()
+  const bare = host.replace(/^\\[|\\]$/g, "")
+  if (host === "::1" || host === "[::1]" || host === "0.0.0.0") {
+    throw new Error(\`URL must not target loopback "\${host}"\`)
+  }
+  if (/^fe[89ab]/i.test(bare)) throw new Error(\`URL must not target IPv6 link-local "\${host}"\`)
+  if (/^f[cd]/i.test(bare))    throw new Error(\`URL must not target IPv6 unique-local "\${host}"\`)
+  const v4mapped = bare.match(/^::ffff:(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})$/i)
+  if (v4mapped) {
+    assertSafeUrl(\`\${parsed.protocol}//\` + v4mapped[1])
+    return
+  }
+  if (/^\\d+$/.test(bare) || /^0x[0-9a-f]+$/i.test(bare)) {
+    throw new Error(\`URL uses a numeric/hex IP encoding "\${bare}"\`)
+  }
+  const v4 = host.match(/^(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})$/)
+  if (v4) {
+    const a = Number(v4[1]), b = Number(v4[2])
+    if (a === 127) throw new Error("URL must not target loopback (127.x.x.x)")
+    if (a === 169 && b === 254) throw new Error("URL must not target link-local (169.254.x.x)")
+  }
+}
+
+// Replace every query string value with <redacted> before logging. Keys stay,
+// values vanish — safe for diagnostics, no key/token leakage.
+function redactUrl(url) {
+  try {
+    const u = new URL(url)
+    const safe = new URLSearchParams()
+    for (const k of u.searchParams.keys()) safe.set(k, "<redacted>")
+    u.search = safe.toString() ? "?" + safe.toString() : ""
+    return u.toString()
+  } catch {
+    return url.replace(/\\?.*$/, "?<redacted>")
+  }
+}
+
+// ─── Per-tool runtime auth injection ────────────────────────────────────────
+// Reads from process.env based on the tool's own enrichment.auth.template.
+// Mutates headers / params in place.
+function injectAuth(headers, params, auth) {
+  if (!auth || !auth.template) return
+  const tpl = auth.template
+  if (tpl === "bearer_token") {
+    const tok = process.env.BEARER_TOKEN
+    if (tok) headers["Authorization"] = "Bearer " + tok
+  } else if (tpl === "api_key_header") {
+    const key = process.env.API_KEY
+    if (key) headers[auth.header_name || "X-API-Key"] = key
+  } else if (tpl === "api_key_query") {
+    const key = process.env.API_KEY
+    if (key) params.set(auth.param_name || "api_key", key)
+  } else if (tpl === "oauth2_client_creds" || tpl === "oauth2_auth_code") {
+    const tok = process.env.ACCESS_TOKEN
+    if (tok) headers["Authorization"] = "Bearer " + tok
+  } else if (tpl === "basic_auth") {
+    const creds = process.env.API_CREDENTIALS
+    if (creds) headers["Authorization"] = "Basic " + Buffer.from(creds).toString("base64")
+  }
+}
+
+// ─── Tool registration ──────────────────────────────────────────────────────
 
 function registerTool(server, endpoint) {
   const schema = {}
@@ -116,6 +198,7 @@ function registerTool(server, endpoint) {
       const items = p.items
       if (items?.type === "object") field = z.array(z.record(z.string(), z.any())).describe(p.description || "")
       else if (items?.type === "number" || items?.type === "integer") field = z.array(z.number()).describe(p.description || "")
+      else if (items?.type === "boolean") field = z.array(z.boolean()).describe(p.description || "")
       else field = z.array(z.string()).describe(p.description || "")
     } else if (Array.isArray(p.enum) && p.enum.length > 0) {
       const [first, ...rest] = p.enum
@@ -126,19 +209,130 @@ function registerTool(server, endpoint) {
     schema[paramName] = isRequired ? field : field.optional()
   }
 
+  const auth = endpoint.enrichment?.auth ?? null
+
   server.registerTool(
     endpoint.name,
     { description: endpoint.description, inputSchema: Object.keys(schema).length > 0 ? schema : undefined },
-    async (args) => {
-      // ── Path params ──────────────────────────────────────────────────────────
-      let url = BASE_URL + endpoint.handler.path
-      for (const paramName in endpoint.input_schema.properties) {
-        if (endpoint.handler.path.includes(\`{\${paramName}}\`) && args[paramName] !== undefined) {
-          url = url.replace(\`{\${paramName}}\`, String(args[paramName]))
+    async (rawArgs) => {
+      let args = { ...(rawArgs || {}) }
+      const props = endpoint.input_schema.properties || {}
+
+      // ── 0a. Decode HTML entities in markup-format params ─────────
+      // Claude defensively HTML-encodes special chars in TwiML/XML/HTML even
+      // when the schema says raw. Decode them so the receiving parser sees
+      // valid markup. Only touches params whose schema format is twiml/xml/html.
+      for (const k in args) {
+        const v = args[k]
+        if (typeof v !== "string") continue
+        const fmt = String(props[k]?.format || "").toLowerCase()
+        if (fmt !== "twiml" && fmt !== "xml" && fmt !== "html") continue
+        if (v.includes("&lt;") || v.includes("&gt;") || v.includes("&quot;") || v.includes("&#34;") || v.includes("&apos;") || v.includes("&#39;")) {
+          args[k] = v
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&quot;/g, '"')
+            .replace(/&#34;/g, '"')
+            .replace(/&apos;/g, "'")
+            .replace(/&#39;/g, "'")
         }
       }
 
-      // ── Query params ─────────────────────────────────────────────────────────
+      // ── 0b. Strip XML wrappers + tool-call leakage ────────────────
+      // Claude likes to wrap markup in <?xml ?>, CDATA, or trail extra closing
+      // tags after the root closes. Each is fatal to receivers like Twilio.
+      for (const k in args) {
+        const v = args[k]
+        if (typeof v !== "string") continue
+        const fmt = String(props[k]?.format || "").toLowerCase()
+        if (fmt !== "twiml" && fmt !== "xml" && fmt !== "html") continue
+        let cleaned = v.trim()
+        cleaned = cleaned.replace(/^\\s*<\\?xml[^?]*\\?>\\s*/i, "")
+        const cdata = cleaned.match(/^\\s*<!\\[CDATA\\[([\\s\\S]*)\\]\\]>\\s*$/)
+        if (cdata) cleaned = cdata[1].trim()
+        cleaned = cleaned.replace(/^\\s*<\\?xml[^?]*\\?>\\s*/i, "")
+        const root = cleaned.match(/^<\\s*([a-zA-Z][\\w-]*)/)
+        if (root) {
+          const closeRe = new RegExp("</\\\\s*" + root[1] + "\\\\s*>", "i")
+          const closeMatch = cleaned.match(closeRe)
+          if (closeMatch && closeMatch.index !== undefined) {
+            cleaned = cleaned.slice(0, closeMatch.index + closeMatch[0].length)
+          }
+        }
+        if (cleaned !== v) args[k] = cleaned
+      }
+
+      // ── 0c. Drop URL fields when sibling content field is populated
+      // Tools that expose both a content field (Twiml/body/message) and a
+      // URL/webhook field — Claude tries to fill both, the receiving API
+      // prefers the URL, and the user's intended content gets silently
+      // overridden. Detect via spec format and strip URL fields.
+      const hasMarkup = Object.entries(args).some(([k, v]) => {
+        if (typeof v !== "string" || v.trim() === "") return false
+        const fmt = String(props[k]?.format || "").toLowerCase()
+        return fmt === "twiml" || fmt === "xml" || fmt === "html"
+      })
+      if (hasMarkup) {
+        for (const k of Object.keys(args)) {
+          const v = args[k]
+          if (typeof v !== "string" || v.trim() === "") continue
+          const fmt = String(props[k]?.format || "").toLowerCase()
+          if (fmt === "uri") delete args[k]
+        }
+      }
+
+      // ── 0d. Restore original param names ─────────────────────────
+      // Anthropic rejects schema keys that don't match ^[a-zA-Z0-9_.-]{1,64}$.
+      // The parser may rename fields and store the reverse map in
+      // handler.param_name_map (sanitized → original). The AI calls us with
+      // the sanitized name; the target API expects the original.
+      const paramNameMap = endpoint.handler.param_name_map
+      if (paramNameMap) {
+        const restored = {}
+        for (const k in args) restored[paramNameMap[k] ?? k] = args[k]
+        args = restored
+      }
+
+      // ── 1a. Auto-fill path params from credential ────────────────
+      // For tools with handler.auto_path_params (e.g., Twilio's {AccountSid}
+      // path segment), we derive the value from the saved credential rather
+      // than asking the AI. Only "auth_username" source is supported, and
+      // only with basic_auth credentials (the username half of API_CREDENTIALS).
+      let url = BASE_URL + endpoint.handler.path
+      const autoPathParams = endpoint.handler.auto_path_params
+      if (autoPathParams && Object.keys(autoPathParams).length > 0) {
+        for (const [paramName, source] of Object.entries(autoPathParams)) {
+          if (!VALID_AUTO_PATH_SOURCES.has(source)) {
+            return { content: [{ type: "text", text: \`Configuration error: unsupported auto_path_params source "\${source}".\` }] }
+          }
+        }
+        const cred = process.env.API_CREDENTIALS || ""
+        if (!cred) {
+          return { content: [{ type: "text", text: "Missing credential — auto-filled path params need API_CREDENTIALS in .env (basic_auth: username:password)." }] }
+        }
+        const colonIdx = cred.indexOf(":")
+        const authUser = colonIdx >= 0 ? cred.slice(0, colonIdx) : cred
+        for (const [paramName, source] of Object.entries(autoPathParams)) {
+          if (source === "auth_username" && authUser) {
+            url = url.replace("{" + paramName + "}", encodeURIComponent(authUser))
+          }
+        }
+      }
+
+      // ── 1b. Substitute remaining path params from AI args ────────
+      for (const paramName in args) {
+        if (url.includes("{" + paramName + "}") && args[paramName] !== undefined) {
+          url = url.replace("{" + paramName + "}", encodeURIComponent(String(args[paramName])))
+        }
+      }
+
+      // ── 1c. Reject if any {placeholder} remains unsubstituted ────
+      const unresolved = url.match(/\\{[^}]+\\}/)
+      if (unresolved) {
+        return { content: [{ type: "text", text: \`Missing required path parameter: \${unresolved[0]}. Provide the value and try again.\` }] }
+      }
+
+      // ── 2. Build query params from AI args ───────────────────────
       const params = new URLSearchParams()
       for (const paramName of (endpoint.handler.query_params || [])) {
         const val = args[paramName]
@@ -146,60 +340,91 @@ function registerTool(server, endpoint) {
           params.append(paramName, String(val))
         }
       }
-
-      // ── Fixed query params ───────────────────────────────────────────────────
+      // Fixed query params (always-injected, hidden from AI)
       for (const [k, v] of Object.entries(endpoint.handler.fixed_query_params || {})) {
-        params.set(k, v)
+        params.set(k, String(v))
       }
 
-      // ── Headers ──────────────────────────────────────────────────────────────
+      // ── 3. Headers + per-tool auth injection ──────────────────────
       const headers = { ...(endpoint.handler.headers || {}) }
+      injectAuth(headers, params, auth)
 
-      // ── Auth injection from .env ──────────────────────────────────────────────${authInjection}
-
-      // ── Finalize URL ─────────────────────────────────────────────────────────
+      // ── 4. Finalize URL ──────────────────────────────────────────
       if (params.toString()) url += "?" + params.toString()
+
+      // ── 5. SSRF guard on the final URL ───────────────────────────
+      try { assertSafeUrl(url) } catch (err) {
+        return { content: [{ type: "text", text: \`Refused to dispatch: \${err.message}\` }] }
+      }
 
       const method = endpoint.handler.method.toUpperCase()
 
-      // ── Build request body for non-GET methods ────────────────────────────────
-      let body = undefined
+      // ── 6. Build body for non-GET — body_format dispatch ─────────
+      const fetchInit = { method, headers, redirect: "manual" }
       if (method !== "GET" && method !== "HEAD") {
         const qp = endpoint.handler.query_params || []
         const bodyParams = {}
         for (const key in args) {
-          if (!endpoint.handler.path.includes(\`{\${key}}\`) && !qp.includes(key) && args[key] !== undefined) {
+          if (!endpoint.handler.path.includes("{" + key + "}") && !qp.includes(key) && args[key] !== undefined) {
             bodyParams[key] = args[key]
           }
         }
         if (Object.keys(bodyParams).length > 0) {
-          headers["Content-Type"] = "application/json"
-          body = JSON.stringify(bodyParams)
+          if (endpoint.handler.body_format === "form") {
+            headers["Content-Type"] = headers["Content-Type"] || "application/x-www-form-urlencoded"
+            const formBody = new URLSearchParams()
+            for (const [k, v] of Object.entries(bodyParams)) {
+              if (v === undefined || v === null) continue
+              formBody.append(k, typeof v === "object" ? JSON.stringify(v) : String(v))
+            }
+            fetchInit.body = formBody.toString()
+          } else if (endpoint.handler.body_format === "multipart") {
+            // Let fetch fill the boundary itself — pre-set Content-Type breaks it.
+            for (const k of Object.keys(headers)) {
+              if (k.toLowerCase() === "content-type") delete headers[k]
+            }
+            const form = new FormData()
+            for (const [k, v] of Object.entries(bodyParams)) {
+              if (v === undefined || v === null) continue
+              form.append(k, typeof v === "object" ? JSON.stringify(v) : String(v))
+            }
+            fetchInit.body = form
+          } else {
+            headers["Content-Type"] = headers["Content-Type"] || "application/json"
+            fetchInit.body = JSON.stringify(bodyParams)
+          }
         }
       }
 
-      // ── Execute request ───────────────────────────────────────────────────────
+      // ── 7. Execute with timeout ──────────────────────────────────
+      console.log(\`[tool:\${endpoint.name}] \${method} \${redactUrl(url)}\`)
       const controller = new AbortController()
       const timer = setTimeout(() => controller.abort(), 10_000)
       let response
       try {
-        response = await fetch(url, { method, headers, body, signal: controller.signal })
+        response = await fetch(url, { ...fetchInit, signal: controller.signal })
       } catch (err) {
         clearTimeout(timer)
         const msg = err.name === "AbortError"
-          ? \`Request timed out after 10 seconds\`
+          ? \`Request to \${redactUrl(url)} timed out after 10 seconds\`
           : \`Network error: \${err.message}\`
         return { content: [{ type: "text", text: msg }] }
       }
       clearTimeout(timer)
 
+      // Reject 3xx — redirect: "manual" surfaces them rather than following.
+      // Without this, an API can 302 to an internal address and bypass the
+      // SSRF guard above (open-redirect chain).
+      if (response.status >= 300 && response.status < 400) {
+        return { content: [{ type: "text", text: \`Request refused: API returned a redirect (HTTP \${response.status}) which is not followed for security reasons.\` }] }
+      }
+
       const text = await response.text()
       if (!response.ok) {
-        const reason = response.status === 401
-          ? \`Unauthorized (401) — check your credentials in .env\`
-          : response.status === 429
-          ? \`Rate limit hit (429) — wait and retry\`
-          : \`API error \${response.status}: \${text.slice(0, 500)}\`
+        const reason =
+          response.status === 401 ? \`Unauthorized (401) — check your credentials in .env\` :
+          response.status === 429 ? \`Rate limit hit (429) — wait and retry. Body: \${text.slice(0, 200)}\` :
+          \`API error \${response.status}: \${text.slice(0, 500)}\`
         return { content: [{ type: "text", text: reason }] }
       }
 
@@ -221,14 +446,17 @@ const servers = new Map()
 const timers = new Map()
 const SESSION_TTL = 30 * 60 * 1000
 
+function evictSession(sessionId) {
+  transports.delete(sessionId)
+  servers.delete(sessionId)
+  const t = timers.get(sessionId)
+  if (t) { clearTimeout(t); timers.delete(sessionId) }
+}
+
 function refreshTimer(sessionId) {
   const existing = timers.get(sessionId)
   if (existing) clearTimeout(existing)
-  timers.set(sessionId, setTimeout(() => {
-    transports.delete(sessionId)
-    servers.delete(sessionId)
-    timers.delete(sessionId)
-  }, SESSION_TTL))
+  timers.set(sessionId, setTimeout(() => evictSession(sessionId), SESSION_TTL))
 }
 
 app.post("/mcp", async (req, res) => {
@@ -251,12 +479,7 @@ app.post("/mcp", async (req, res) => {
       }
     })
     transport.onclose = () => {
-      if (transport.sessionId) {
-        transports.delete(transport.sessionId)
-        servers.delete(transport.sessionId)
-        const t = timers.get(transport.sessionId)
-        if (t) { clearTimeout(t); timers.delete(transport.sessionId) }
-      }
+      if (transport.sessionId) evictSession(transport.sessionId)
     }
     for (const tool of toolsFile.tools) registerTool(server, tool)
     await server.connect(transport)
@@ -311,46 +534,57 @@ function generatePackageJson(specName: string): string {
 // ─── Generated .env.example ────────────────────────────────────────────────────
 
 function generateEnvExample(registry: ToolsFile): string {
-  const firstAuth = registry.tools.find(t => t.enrichment?.auth)?.enrichment?.auth ?? null
-  const envVars = getEnvVars(firstAuth)
+  const vars = allEnvVars(registry)
+  if (vars.length === 0) return "# This API requires no authentication.\n"
 
-  if (Object.keys(envVars).length === 0) {
-    return "# This API requires no authentication\n"
+  const lines: string[] = [
+    "# Fill in your credentials below, then rename this file to .env",
+    "",
+  ]
+  for (const v of vars) {
+    if (v.comment) lines.push(`# ${v.comment}`)
+    lines.push(`${v.name}=${v.placeholder}`)
+    lines.push("")
   }
-
-  const lines = ["# Fill in your credentials below, then rename this file to .env", ""]
-  for (const [key, placeholder] of Object.entries(envVars)) {
-    lines.push(`${key}=${placeholder}`)
-  }
-  lines.push("")
-  lines.push("# Optional: change the port the MCP server runs on")
-  lines.push("# PORT=3000")
-
+  lines.push("# Optional: change the port the MCP server runs on (default: 3333)")
+  lines.push("# PORT=3333")
   return lines.join("\n")
 }
 
 // ─── Generated README.md ───────────────────────────────────────────────────────
 
 function generateReadme(specName: string, registry: ToolsFile): string {
-  const firstAuth = registry.tools.find(t => t.enrichment?.auth)?.enrichment?.auth ?? null
-  const envVars = getEnvVars(firstAuth)
+  const vars = allEnvVars(registry)
+  const templates = collectAuthTemplates(registry)
   const toolCount = registry.tools.length
   const safeName = specName.toLowerCase().replace(/[^a-z0-9-]/g, "-")
 
-  const credSteps = Object.keys(envVars).length > 0
+  const credSteps = vars.length > 0
     ? `3. Copy \`.env.example\` to \`.env\` and fill in your credentials:
 \`\`\`bash
 cp .env.example .env
 \`\`\`
 Then open \`.env\` and replace the placeholder values:
 \`\`\`
-${Object.keys(envVars).map(k => `${k}=your_value`).join("\n")}
+${vars.map(v => `${v.name}=your_value`).join("\n")}
 \`\`\``
     : `3. No credentials needed — this API is public. Skip this step.`
 
+  const oauth2Note = templates.has("oauth2_client_creds")
+    ? `
+
+> **OAuth 2.0 Client Credentials note:** This API uses the client_credentials flow. The generated server expects a pre-obtained \`ACCESS_TOKEN\` rather than handling token exchange itself. To obtain one, POST your client_id + client_secret to the API's token endpoint (check the provider's docs) and paste the resulting access token into \`.env\`. Tokens have an expiry — re-run the exchange when you get 401s.`
+    : ""
+
+  const multiAuthNote = templates.size > 1
+    ? `
+
+> **Multiple auth schemes:** This catalog mixes ${templates.size} auth schemes (${[...templates].join(", ")}). All credentials are read from a single shared \`.env\` namespace, so providers that use the same auth template share env vars. If two providers both use \`api_key_header\`, only one \`API_KEY\` value can be set — split your catalog or rebuild from a single API.`
+    : ""
+
   return `# ${specName} MCP Server
 
-Generated by [Helios](https://github.com/acm-projects/Helios) — ${toolCount} tools available.
+Generated by [Helios](https://github.com/rafael-amador/Helios_Public) — ${toolCount} tools available.
 
 ## Prerequisites
 
@@ -373,15 +607,16 @@ ${credSteps}
 npm start
 \`\`\`
 
-You should see: \`MCP server running on port 3000\`
+You should see: \`MCP server running on port 3333\`
 
 5. Verify it's working:
 \`\`\`bash
 curl -X POST http://localhost:3333/mcp \\
   -H "Content-Type: application/json" \\
+  -H "Accept: application/json, text/event-stream" \\
   -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1.0.0"}}}'
 \`\`\`
-You should get a JSON response with \`"result"\` — the server is ready.
+You should get a JSON response with \`"result"\` — the server is ready.${oauth2Note}${multiAuthNote}
 
 ---
 
@@ -461,11 +696,26 @@ export async function generateServerZip(specName: string, registry: ToolsFile): 
   const zip = new JSZip()
   const folder = zip.folder(specName)!
 
-  folder.file("server.ts", generateServerTs(registry))
+  // Sanitize header_name / param_name across the whole registry before it
+  // ships in tools.json — these values are read at runtime by the auth
+  // injector, and any unexpected character could break header construction.
+  const safeRegistry: ToolsFile = {
+    ...registry,
+    tools: registry.tools.map(t => {
+      const auth = (t as EndpointDefinition).enrichment?.auth
+      if (!auth) return t
+      const cleaned: ToolAuthEnrichment = { ...auth }
+      if (auth.header_name) cleaned.header_name = safeIdent(auth.header_name, "X-API-Key")
+      if (auth.param_name) cleaned.param_name = safeIdent(auth.param_name, "api_key")
+      return { ...t, enrichment: { ...(t as EndpointDefinition).enrichment, auth: cleaned } }
+    }),
+  }
+
+  folder.file("server.ts", generateServerTs(safeRegistry))
   folder.file("package.json", generatePackageJson(specName))
-  folder.file("tools.json", JSON.stringify(registry, null, 2))
-  folder.file(".env.example", generateEnvExample(registry))
-  folder.file("README.md", generateReadme(specName, registry))
+  folder.file("tools.json", JSON.stringify(safeRegistry, null, 2))
+  folder.file(".env.example", generateEnvExample(safeRegistry))
+  folder.file("README.md", generateReadme(specName, safeRegistry))
   folder.file("tsconfig.json", JSON.stringify({
     compilerOptions: {
       target: "ES2020",
@@ -473,7 +723,8 @@ export async function generateServerZip(specName: string, registry: ToolsFile): 
       moduleResolution: "bundler",
       types: ["node"],
       strict: false,
-      skipLibCheck: true
+      skipLibCheck: true,
+      allowImportingTsExtensions: false,
     }
   }, null, 2))
 
