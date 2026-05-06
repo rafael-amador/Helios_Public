@@ -272,7 +272,13 @@ function SandboxContent() {
     // user-chosen name and only THEN call addSavedServer.
     const pendingId = `pending_${Date.now()}`
     sessionStorage.setItem(`helios_registry_${pendingId}`, JSON.stringify(registry))
-    router.push(`/verify?pending=${encodeURIComponent(pendingId)}`)
+    // Carry the source identifiers so /verify's Back button can return to the
+    // exact same sandbox session (not a blank /sandbox). compositeId is the
+    // common path for the build flow; specId for the edit-existing-server flow.
+    const params = new URLSearchParams({ pending: pendingId })
+    if (compositeId) params.set("from_composite", compositeId)
+    if (specId) params.set("from_spec", specId)
+    router.push(`/verify?${params.toString()}`)
   }
 
   const handleEdit = () => {

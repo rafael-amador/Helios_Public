@@ -50,6 +50,8 @@ function VerifyContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const pendingId = searchParams.get("pending")
+  const fromComposite = searchParams.get("from_composite")
+  const fromSpec = searchParams.get("from_spec")
 
   const [pageReady, setPageReady] = useState(false)
   useEffect(() => {
@@ -154,6 +156,22 @@ function VerifyContent() {
     })
     sessionStorage.setItem("helios_new_server", trimmedName)
 
+    // ── Build-flow cleanup ─────────────────────────────────────────
+    // The user has committed. Drop the working set + spec drafts from /create
+    // and the compositeId-keyed sandbox session blobs that fed this build.
+    // These are scratch space, not history; clearing them here means the next
+    // /create visit starts blank instead of rehydrating stale tools.
+    sessionStorage.removeItem("helios_create_tools")
+    sessionStorage.removeItem("helios_create_form")
+    if (fromComposite) {
+      sessionStorage.removeItem(`helios_session_${fromComposite}`)
+      sessionStorage.removeItem(`helios_groups_${fromComposite}`)
+    }
+    for (let i = sessionStorage.length - 1; i >= 0; i--) {
+      const k = sessionStorage.key(i)
+      if (k && k.startsWith("helios_draft_")) sessionStorage.removeItem(k)
+    }
+
     router.push(`/download?specId=${encodeURIComponent(trimmedName)}`)
   }
 
@@ -167,7 +185,13 @@ function VerifyContent() {
     persistAndGo(true)
   }
 
-  const backHref = pendingId ? "/sandbox" : "/"
+  // Back to the exact same sandbox session, not a blank /sandbox. Whichever
+  // path got us here (composite or spec) determines the URL shape.
+  const backHref = fromComposite
+    ? `/sandbox?compositeId=${encodeURIComponent(fromComposite)}${fromSpec ? `&specId=${encodeURIComponent(fromSpec)}` : ""}`
+    : fromSpec
+    ? `/sandbox?specId=${encodeURIComponent(fromSpec)}`
+    : "/"
 
   return (
     <div className={cn("flex flex-col h-screen w-full relative overflow-hidden", pageReady ? "animate-page-enter" : "opacity-0")}>

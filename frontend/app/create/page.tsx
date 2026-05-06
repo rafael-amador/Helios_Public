@@ -465,14 +465,11 @@ export default function Create() {
       const syntheticId = `_composite_${Date.now()}`
       sessionStorage.setItem(`helios_session_${syntheticId}`, JSON.stringify({ sessionId: data.sessionId, tools: data.tools }))
       sessionStorage.setItem(`helios_groups_${syntheticId}`, JSON.stringify({ toolMap, authMap }))
-      // Handoff to sandbox: drop the create-page working set so a later visit
-      // doesn't rehydrate stale tools. Edit flow re-seeds these from sandbox.
-      sessionStorage.removeItem("helios_create_tools")
-      sessionStorage.removeItem("helios_create_form")
-      for (let i = sessionStorage.length - 1; i >= 0; i--) {
-        const k = sessionStorage.key(i)
-        if (k && k.startsWith("helios_draft_")) sessionStorage.removeItem(k)
-      }
+      // Note: we deliberately KEEP helios_create_tools / helios_create_form /
+      // helios_draft_* here. The user may navigate back to /create from the
+      // sandbox to add or remove tools — wiping the working set on every
+      // forward step makes the back button useless. The actual cleanup of
+      // build-flow scratch data happens on /verify save (the real commit point).
       const editSource = sessionStorage.getItem("helios_edit_source") ?? ""
       if (editSource) sessionStorage.removeItem("helios_edit_source")
       const sandboxUrl = editSource
