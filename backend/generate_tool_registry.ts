@@ -555,7 +555,8 @@ function buildFromOpenApiParams(
   parameters: any[] = [],
   requestBody?: any,
   rootSpec?: any,
-  fixedParamNames: Set<string> = new Set()
+  fixedParamNames: Set<string> = new Set(),
+  path: string = ""
 ): {
   input_schema: EndpointDefinition["input_schema"];
   query_params: string[];
@@ -622,6 +623,26 @@ function buildFromOpenApiParams(
           if (!required.includes(req)) required.push(req);
         }
       }
+    }
+  }
+
+  // Backstop: any `{x}` placeholder in the path that the spec failed to declare
+  // as a parameter (rampant in GitHub, MongoDB, PagerDuty, Cloudflare, Discord
+  // specs) gets auto-promoted to a required string property. Without this the
+  // dispatcher would send a literal `{accountId}` to the upstream API and 404
+  // every call. Skip placeholders covered by auto_path_params — those are
+  // intentionally hidden from the AI and filled from saved auth credentials.
+  if (path) {
+    const pathPlaceholders = path.match(/\{([^}]+)\}/g) || [];
+    for (const ph of pathPlaceholders) {
+      const phName = ph.slice(1, -1);
+      if (fixedParamNames.has(phName)) continue;
+      if (properties[phName] !== undefined) continue;
+      properties[phName] = {
+        type: "string",
+        description: `Path parameter \`${phName}\` (auto-injected; not declared in spec).`,
+      };
+      if (!required.includes(phName)) required.push(phName);
     }
   }
 
@@ -862,7 +883,7 @@ export function parseOpenApiSpec(spec: any): ToolsFile {
       }
 
       const { input_schema, query_params, param_name_map, body_format } = buildFromOpenApiParams(
-        parameters, requestBody, spec, fixedParamNames
+        parameters, requestBody, spec, fixedParamNames, path
       )
 
       const rawName = operation.operationId

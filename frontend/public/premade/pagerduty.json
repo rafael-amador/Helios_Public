@@ -30,9 +30,20 @@
               "type": "object"
             },
             "description": "Array of tag references to remove from the entity."
+          },
+          "entity_type": {
+            "type": "string",
+            "description": "Path parameter `entity_type` (auto-injected; not declared in spec)."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "entity_type",
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -58,9 +69,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "entity_type": {
+            "type": "string",
+            "description": "Path parameter `entity_type` (auto-injected; not declared in spec)."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "entity_type",
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -114,9 +136,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -224,9 +252,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -276,10 +310,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "addon"
+          "addon",
+          "id"
         ]
       },
       "handler": {
@@ -306,9 +345,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -454,9 +499,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -544,10 +595,15 @@
               }
             },
             "description": "Defines how alerts will be automatically grouped into incidents based on the configurations defined. Note that the Alert Grouping Setting features are available only on certain plans.\n"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "alert_grouping_setting"
+          "alert_grouping_setting",
+          "id"
         ]
       },
       "handler": {
@@ -574,9 +630,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -1910,9 +1972,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1956,9 +2024,15 @@
           "time_zone": {
             "type": "string",
             "description": "The time zone to use for the results."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2067,9 +2141,15 @@
           "time_zone": {
             "type": "string",
             "description": "The time zone to use for the results."
+          },
+          "responder_id": {
+            "type": "string",
+            "description": "Path parameter `responder_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "responder_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -2326,9 +2406,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2394,10 +2480,15 @@
                 "default": false
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "action"
+          "action",
+          "id"
         ]
       },
       "handler": {
@@ -2424,9 +2515,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2468,10 +2565,15 @@
                 }
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "invocation"
+          "invocation",
+          "id"
         ]
       },
       "handler": {
@@ -2498,9 +2600,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2550,10 +2658,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "service"
+          "service",
+          "id"
         ]
       },
       "handler": {
@@ -2580,9 +2693,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "service_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2608,9 +2732,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "service_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2636,9 +2771,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2688,10 +2829,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "team"
+          "team",
+          "id"
         ]
       },
       "handler": {
@@ -2718,9 +2864,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "team_id": {
+            "type": "string",
+            "description": "Path parameter `team_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "team_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2746,9 +2903,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "team_id": {
+            "type": "string",
+            "description": "Path parameter `team_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "team_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2802,9 +2970,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2910,9 +3084,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2949,10 +3129,15 @@
                 "type": "string"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "runner"
+          "runner",
+          "id"
         ]
       },
       "handler": {
@@ -2979,9 +3164,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3007,9 +3198,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3059,10 +3256,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "team"
+          "team",
+          "id"
         ]
       },
       "handler": {
@@ -3089,9 +3291,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "team_id": {
+            "type": "string",
+            "description": "Path parameter `team_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "team_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3117,9 +3330,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "team_id": {
+            "type": "string",
+            "description": "Path parameter `team_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "team_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3229,9 +3453,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3285,9 +3515,15 @@
               }
             },
             "description": "The Business Service to be created"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -3313,9 +3549,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3341,9 +3583,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -3369,9 +3617,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3397,9 +3651,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3431,10 +3691,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "subscribers"
+          "subscribers",
+          "id"
         ]
       },
       "handler": {
@@ -3461,9 +3726,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3495,10 +3766,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "subscribers"
+          "subscribers",
+          "id"
         ]
       },
       "handler": {
@@ -3734,9 +4010,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3786,10 +4068,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "change_event"
+          "change_event",
+          "id"
         ]
       },
       "handler": {
@@ -3898,9 +4185,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3950,10 +4243,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "escalation_policy"
+          "escalation_policy",
+          "id"
         ]
       },
       "handler": {
@@ -3980,9 +4278,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -4008,9 +4312,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4188,9 +4498,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4310,10 +4626,15 @@
                 "description": "Version of the Orchestration."
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "orchestration"
+          "orchestration",
+          "id"
         ]
       },
       "handler": {
@@ -4340,9 +4661,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -4368,9 +4695,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4405,10 +4738,15 @@
                 "description": "Name of the Integration."
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "integration"
+          "integration",
+          "id"
         ]
       },
       "handler": {
@@ -4435,9 +4773,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "integration_id": {
+            "type": "string",
+            "description": "Path parameter `integration_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "integration_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4472,10 +4821,20 @@
                 "description": "Name of the Integration."
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "integration_id": {
+            "type": "string",
+            "description": "Path parameter `integration_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "integration"
+          "integration",
+          "id",
+          "integration_id"
         ]
       },
       "handler": {
@@ -4502,9 +4861,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "integration_id": {
+            "type": "string",
+            "description": "Path parameter `integration_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "integration_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -4542,12 +4912,17 @@
           "integration_id": {
             "type": "string",
             "description": "The ID of the Integration you'll be moving"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "source_id",
           "source_type",
-          "integration_id"
+          "integration_id",
+          "id"
         ]
       },
       "handler": {
@@ -4574,9 +4949,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4691,10 +5072,15 @@
                 "description": "Version of these Orchestration Rules"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "orchestration_path"
+          "orchestration_path",
+          "id"
         ]
       },
       "handler": {
@@ -4721,9 +5107,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4838,10 +5230,15 @@
                 "description": "Version of these Orchestration Rules"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "orchestration_path"
+          "orchestration_path",
+          "id"
         ]
       },
       "handler": {
@@ -4868,9 +5265,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4985,10 +5388,15 @@
                 "description": "Version of these Orchestration Rules"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "orchestration_path"
+          "orchestration_path",
+          "id"
         ]
       },
       "handler": {
@@ -5015,9 +5423,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "service_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5132,10 +5546,15 @@
                 "description": "Version of these Orchestration Rules"
               }
             }
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "orchestration_path"
+          "orchestration_path",
+          "service_id"
         ]
       },
       "handler": {
@@ -5162,9 +5581,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "service_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5190,9 +5615,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "service_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -5218,9 +5649,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5246,9 +5683,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -5274,9 +5717,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5302,9 +5756,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -5330,9 +5795,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -5358,9 +5834,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5386,9 +5873,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -5414,9 +5912,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -5442,9 +5951,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "service_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5470,9 +5985,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "service_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -5498,9 +6019,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "service_id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5526,9 +6058,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "service_id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -5554,9 +6097,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "service_id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -5582,9 +6136,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "service_id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5610,9 +6175,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "service_id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -5638,9 +6214,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
+          },
+          "cache_variable_id": {
+            "type": "string",
+            "description": "Path parameter `cache_variable_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "service_id",
+          "cache_variable_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -5666,9 +6253,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5718,10 +6311,20 @@
                 "description": "An array of warnings related to this feature enablement. Only present if warning conditions are met."
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "feature_name": {
+            "type": "string",
+            "description": "Path parameter `feature_name` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "enablement"
+          "enablement",
+          "id",
+          "feature_name"
         ]
       },
       "handler": {
@@ -5776,9 +6379,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5886,9 +6495,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5938,10 +6553,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "extension"
+          "extension",
+          "id"
         ]
       },
       "handler": {
@@ -5968,9 +6588,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -5996,9 +6622,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -6106,9 +6738,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -6158,10 +6796,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "incident_workflow"
+          "incident_workflow",
+          "id"
         ]
       },
       "handler": {
@@ -6188,9 +6831,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -6236,10 +6885,15 @@
                 }
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "incident_workflow_instance"
+          "incident_workflow_instance",
+          "id"
         ]
       },
       "handler": {
@@ -6294,9 +6948,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -6404,9 +7064,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -6456,10 +7122,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "trigger"
+          "trigger",
+          "id"
         ]
       },
       "handler": {
@@ -6486,9 +7157,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -6522,10 +7199,15 @@
                 "type": "string"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "service"
+          "service",
+          "id"
         ]
       },
       "handler": {
@@ -6552,9 +7234,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "trigger_id": {
+            "type": "string",
+            "description": "Path parameter `trigger_id` (auto-injected; not declared in spec)."
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "trigger_id",
+          "service_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -6809,9 +7502,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -6954,10 +7653,15 @@
               }
             },
             "description": "The parameters of the incident to update."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "incident"
+          "incident",
+          "id"
         ]
       },
       "handler": {
@@ -6984,9 +7688,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7019,10 +7729,15 @@
               "type": "object"
             },
             "description": "An array of alerts, including the parameters to update for each alert."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "alerts"
+          "alerts",
+          "id"
         ]
       },
       "handler": {
@@ -7049,9 +7764,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "alert_id": {
+            "type": "string",
+            "description": "Path parameter `alert_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "alert_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7096,10 +7822,20 @@
                 }
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "alert_id": {
+            "type": "string",
+            "description": "Path parameter `alert_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "alert"
+          "alert",
+          "id",
+          "alert_id"
         ]
       },
       "handler": {
@@ -7129,10 +7865,20 @@
           },
           "relation": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "business_service_id": {
+            "type": "string",
+            "description": "Path parameter `business_service_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "relation"
+          "relation",
+          "id",
+          "business_service_id"
         ]
       },
       "handler": {
@@ -7159,9 +7905,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7187,9 +7939,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7221,10 +7979,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "custom_fields"
+          "custom_fields",
+          "id"
         ]
       },
       "handler": {
@@ -7251,9 +8014,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7286,10 +8055,15 @@
               "type": "object"
             },
             "description": "The source incidents that will be merged into the target incident and resolved."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "source_incidents"
+          "source_incidents",
+          "id"
         ]
       },
       "handler": {
@@ -7316,9 +8090,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7353,10 +8133,15 @@
                 "description": "The note content"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "note"
+          "note",
+          "id"
         ]
       },
       "handler": {
@@ -7392,10 +8177,20 @@
                 "description": "The note content"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "note_id": {
+            "type": "string",
+            "description": "Path parameter `note_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "note"
+          "note",
+          "id",
+          "note_id"
         ]
       },
       "handler": {
@@ -7422,9 +8217,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "note_id": {
+            "type": "string",
+            "description": "Path parameter `note_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "note_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -7450,9 +8256,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7478,9 +8290,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7506,9 +8324,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7534,9 +8358,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7574,12 +8404,17 @@
           "responder_request_targets": {
             "type": "string",
             "description": "The array of targets the responder request is sent to."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "requester_id",
           "message",
-          "responder_request_targets"
+          "responder_request_targets",
+          "id"
         ]
       },
       "handler": {
@@ -7617,11 +8452,16 @@
               "type": "object"
             },
             "description": "The array of targets to cancel."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "requester_id",
-          "responder_request_targets"
+          "responder_request_targets",
+          "id"
         ]
       },
       "handler": {
@@ -7654,10 +8494,15 @@
             "description": "The number of seconds to snooze the incident for. After this number of seconds has elapsed, the incident will return to the \"triggered\" state.",
             "minimum": 1,
             "maximum": 604800
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "duration"
+          "duration",
+          "id"
         ]
       },
       "handler": {
@@ -7696,10 +8541,15 @@
           "html_message": {
             "type": "string",
             "description": "The html content to be sent for the custom html email status update. Required if sending custom html email."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "message"
+          "message",
+          "id"
         ]
       },
       "handler": {
@@ -7726,9 +8576,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7760,10 +8616,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "subscribers"
+          "subscribers",
+          "id"
         ]
       },
       "handler": {
@@ -7796,10 +8657,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "subscribers"
+          "subscribers",
+          "id"
         ]
       },
       "handler": {
@@ -7910,9 +8776,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "type_id_or_name"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7956,10 +8828,15 @@
               }
             },
             "description": "Details of the incident type to be created."
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "incident_type"
+          "incident_type",
+          "type_id_or_name"
         ]
       },
       "handler": {
@@ -7986,9 +8863,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "type_id_or_name"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -8055,10 +8938,15 @@
               }
             },
             "description": "Details of the custom field to be created."
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "field"
+          "field",
+          "type_id_or_name"
         ]
       },
       "handler": {
@@ -8085,9 +8973,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "type_id_or_name",
+          "field_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -8142,10 +9041,20 @@
               }
             },
             "description": "Details of the custom field to be updated."
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "field"
+          "field",
+          "type_id_or_name",
+          "field_id"
         ]
       },
       "handler": {
@@ -8172,9 +9081,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "type_id_or_name",
+          "field_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -8200,9 +9120,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "type_id_or_name",
+          "field_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -8247,10 +9178,20 @@
               }
             },
             "description": "Details of the field option to be created."
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "field_option"
+          "field_option",
+          "type_id_or_name",
+          "field_id"
         ]
       },
       "handler": {
@@ -8277,9 +9218,25 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
+          },
+          "field_option_id": {
+            "type": "string",
+            "description": "Path parameter `field_option_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "type_id_or_name",
+          "field_id",
+          "field_option_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -8324,10 +9281,25 @@
               }
             },
             "description": "Details of the field option on a custom field to be updated."
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
+          },
+          "field_option_id": {
+            "type": "string",
+            "description": "Path parameter `field_option_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "field_option"
+          "field_option",
+          "type_id_or_name",
+          "field_id",
+          "field_option_id"
         ]
       },
       "handler": {
@@ -8354,9 +9326,25 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "type_id_or_name": {
+            "type": "string",
+            "description": "Path parameter `type_id_or_name` (auto-injected; not declared in spec)."
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
+          },
+          "field_option_id": {
+            "type": "string",
+            "description": "Path parameter `field_option_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "type_id_or_name",
+          "field_id",
+          "field_option_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -8500,9 +9488,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "field_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -8553,10 +9547,15 @@
                 "description": "Whether the field is enabled."
               }
             }
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "field"
+          "field",
+          "field_id"
         ]
       },
       "handler": {
@@ -8583,9 +9582,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "field_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -8611,9 +9616,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "field_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -8671,10 +9682,15 @@
                 "description": "The date/time the object was created at."
               }
             }
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "field_option"
+          "field_option",
+          "field_id"
         ]
       },
       "handler": {
@@ -8733,10 +9749,20 @@
                 "description": "The date/time the object was created at."
               }
             }
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
+          },
+          "field_option_id": {
+            "type": "string",
+            "description": "Path parameter `field_option_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "field_option"
+          "field_option",
+          "field_id",
+          "field_option_id"
         ]
       },
       "handler": {
@@ -8763,9 +9789,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
+          },
+          "field_option_id": {
+            "type": "string",
+            "description": "Path parameter `field_option_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "field_id",
+          "field_option_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -8875,9 +9912,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -8917,10 +9960,15 @@
               }
             },
             "description": "The parameters to update."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "channel"
+          "channel",
+          "id"
         ]
       },
       "handler": {
@@ -9029,9 +10077,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -9081,10 +10135,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "maintenance_window"
+          "maintenance_window",
+          "id"
         ]
       },
       "handler": {
@@ -9111,9 +10170,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -9479,9 +10544,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -9593,10 +10664,15 @@
                 "description": "Reference to the team that owns the Ruleset. If none is specified, only admins have access."
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "ruleset"
+          "ruleset",
+          "id"
         ]
       },
       "handler": {
@@ -9623,9 +10699,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -9651,9 +10733,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -9765,10 +10853,15 @@
                 "description": "[Early Access] Populate variables from event payloads and use those variables in other event actions."
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "rule"
+          "rule",
+          "id"
         ]
       },
       "handler": {
@@ -9795,9 +10888,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Path parameter `rule_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "rule_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -9913,10 +11017,15 @@
           "rule_id": {
             "type": "string",
             "description": "The id of the Event Rule to update."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "rule_id"
+          "rule_id",
+          "id"
         ]
       },
       "handler": {
@@ -9943,9 +11052,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Path parameter `rule_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "rule_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -10053,9 +11173,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -10105,10 +11231,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "schedule"
+          "schedule",
+          "id"
         ]
       },
       "handler": {
@@ -10135,9 +11266,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -10163,9 +11300,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -10191,9 +11334,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -10225,9 +11374,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -10253,9 +11408,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "override_id": {
+            "type": "string",
+            "description": "Path parameter `override_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "override_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -10281,9 +11447,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -10398,9 +11570,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -10461,9 +11639,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -10571,9 +11755,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -10623,10 +11813,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "service"
+          "service",
+          "id"
         ]
       },
       "handler": {
@@ -10653,9 +11848,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -10681,9 +11882,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -10709,9 +11916,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -10761,10 +11974,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "integration"
+          "integration",
+          "id"
         ]
       },
       "handler": {
@@ -10791,9 +12009,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "integration_id": {
+            "type": "string",
+            "description": "Path parameter `integration_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "integration_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -10843,10 +12072,20 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "integration_id": {
+            "type": "string",
+            "description": "Path parameter `integration_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "integration"
+          "integration",
+          "id",
+          "integration_id"
         ]
       },
       "handler": {
@@ -10873,9 +12112,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -10987,10 +12232,15 @@
                 "description": "[Early Access] Populate variables from event payloads and use those variables in other event actions."
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "rule"
+          "rule",
+          "id"
         ]
       },
       "handler": {
@@ -11017,9 +12267,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -11045,9 +12301,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Path parameter `rule_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "rule_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -11163,10 +12430,15 @@
           "rule_id": {
             "type": "string",
             "description": "The id of the Event Rule to update on the Service."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "rule_id"
+          "rule_id",
+          "id"
         ]
       },
       "handler": {
@@ -11193,9 +12465,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Path parameter `rule_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "rule_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -11315,9 +12598,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "field_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -11368,10 +12657,15 @@
               }
             },
             "description": "Details of the custom field to be updated."
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "field"
+          "field",
+          "field_id"
         ]
       },
       "handler": {
@@ -11398,9 +12692,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "field_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -11426,9 +12726,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "field_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -11474,10 +12780,15 @@
               }
             },
             "description": "An option for a custom field. Can only be applied to fields with a `field_type` of `single_value_fixed` or `multi_value_fixed`."
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "field_option"
+          "field_option",
+          "field_id"
         ]
       },
       "handler": {
@@ -11504,9 +12815,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
+          },
+          "field_option_id": {
+            "type": "string",
+            "description": "Path parameter `field_option_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "field_id",
+          "field_option_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -11552,10 +12874,20 @@
               }
             },
             "description": "An option for a custom field. Can only be applied to fields with a `field_type` of `single_value_fixed` or `multi_value_fixed`."
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
+          },
+          "field_option_id": {
+            "type": "string",
+            "description": "Path parameter `field_option_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "field_option"
+          "field_option",
+          "field_id",
+          "field_option_id"
         ]
       },
       "handler": {
@@ -11582,9 +12914,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "field_id": {
+            "type": "string",
+            "description": "Path parameter `field_id` (auto-injected; not declared in spec)."
+          },
+          "field_option_id": {
+            "type": "string",
+            "description": "Path parameter `field_option_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "field_id",
+          "field_option_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -11610,9 +12953,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -11644,10 +12993,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "custom_fields"
+          "custom_fields",
+          "id"
         ]
       },
       "handler": {
@@ -11674,9 +13028,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -11726,10 +13086,20 @@
                 "description": "An array of warnings related to this feature enablement. Only present if warning conditions are met."
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "feature_name": {
+            "type": "string",
+            "description": "Path parameter `feature_name` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "enablement"
+          "enablement",
+          "id",
+          "feature_name"
         ]
       },
       "handler": {
@@ -11913,9 +13283,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -11941,9 +13317,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "resource_type": {
+            "type": "string",
+            "description": "Path parameter `resource_type` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "resource_type"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -11969,9 +13351,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "resource_type": {
+            "type": "string",
+            "description": "Path parameter `resource_type` (auto-injected; not declared in spec)."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "resource_type",
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12025,9 +13418,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12053,9 +13452,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12081,9 +13486,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "url_slug": {
+            "type": "string",
+            "description": "Path parameter `url_slug` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "url_slug"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12109,9 +13520,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "url_slug": {
+            "type": "string",
+            "description": "Path parameter `url_slug` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "url_slug"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12165,9 +13582,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12193,9 +13616,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "impact_id": {
+            "type": "string",
+            "description": "Path parameter `impact_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "impact_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12221,9 +13655,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12249,9 +13689,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "service_id": {
+            "type": "string",
+            "description": "Path parameter `service_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "service_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12277,9 +13728,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12305,9 +13762,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "severity_id": {
+            "type": "string",
+            "description": "Path parameter `severity_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "severity_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12333,9 +13801,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12361,9 +13835,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "status_id": {
+            "type": "string",
+            "description": "Path parameter `status_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "status_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12389,9 +13874,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12464,10 +13955,15 @@
               }
             },
             "description": "Request schema for creating/updating a given Status Page Post resource."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "post"
+          "post",
+          "id"
         ]
       },
       "handler": {
@@ -12494,9 +13990,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "post_id": {
+            "type": "string",
+            "description": "Path parameter `post_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "post_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12562,10 +14069,20 @@
               }
             },
             "description": "Request schema for creating a given Status Page Post resource."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "post_id": {
+            "type": "string",
+            "description": "Path parameter `post_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "post"
+          "post",
+          "id",
+          "post_id"
         ]
       },
       "handler": {
@@ -12592,9 +14109,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "post_id": {
+            "type": "string",
+            "description": "Path parameter `post_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "post_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -12620,9 +14148,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "post_id": {
+            "type": "string",
+            "description": "Path parameter `post_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "post_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12727,10 +14266,20 @@
               }
             },
             "description": "Attributes for Post Update creation/update"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "post_id": {
+            "type": "string",
+            "description": "Path parameter `post_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "post_update"
+          "post_update",
+          "id",
+          "post_id"
         ]
       },
       "handler": {
@@ -12757,9 +14306,25 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "post_id": {
+            "type": "string",
+            "description": "Path parameter `post_id` (auto-injected; not declared in spec)."
+          },
+          "post_update_id": {
+            "type": "string",
+            "description": "Path parameter `post_update_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "post_id",
+          "post_update_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12864,10 +14429,25 @@
               }
             },
             "description": "Attributes for Post Update creation/update"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "post_id": {
+            "type": "string",
+            "description": "Path parameter `post_id` (auto-injected; not declared in spec)."
+          },
+          "post_update_id": {
+            "type": "string",
+            "description": "Path parameter `post_update_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "post_update"
+          "post_update",
+          "id",
+          "post_id",
+          "post_update_id"
         ]
       },
       "handler": {
@@ -12894,9 +14474,25 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "post_id": {
+            "type": "string",
+            "description": "Path parameter `post_id` (auto-injected; not declared in spec)."
+          },
+          "post_update_id": {
+            "type": "string",
+            "description": "Path parameter `post_update_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "post_id",
+          "post_update_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -12922,9 +14518,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "post_id": {
+            "type": "string",
+            "description": "Path parameter `post_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "post_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -12983,10 +14590,20 @@
               }
             },
             "description": "Request to create/update a given Postmortem resource."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "post_id": {
+            "type": "string",
+            "description": "Path parameter `post_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "postmortem"
+          "postmortem",
+          "id",
+          "post_id"
         ]
       },
       "handler": {
@@ -13013,9 +14630,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "post_id": {
+            "type": "string",
+            "description": "Path parameter `post_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "post_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -13041,9 +14669,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -13115,10 +14749,15 @@
               }
             },
             "description": "Request schema for creating a StatusPageSubscription."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "subscription"
+          "subscription",
+          "id"
         ]
       },
       "handler": {
@@ -13145,9 +14784,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "subscription_id": {
+            "type": "string",
+            "description": "Path parameter `subscription_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "subscription_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -13173,9 +14823,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "subscription_id": {
+            "type": "string",
+            "description": "Path parameter `subscription_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "subscription_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -13238,10 +14899,15 @@
                 "description": "The content of the SRE memory."
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "memory"
+          "memory",
+          "id"
         ]
       },
       "handler": {
@@ -13268,9 +14934,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -13378,9 +15050,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -13406,9 +15084,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -13434,9 +15118,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "entity_type": {
+            "type": "string",
+            "description": "Path parameter `entity_type` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "entity_type"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -13544,9 +15239,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -13596,10 +15297,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "team"
+          "team",
+          "id"
         ]
       },
       "handler": {
@@ -13626,9 +15332,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -13654,9 +15366,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -13682,9 +15400,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "escalation_policy_id": {
+            "type": "string",
+            "description": "Path parameter `escalation_policy_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "escalation_policy_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -13710,9 +15439,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "escalation_policy_id": {
+            "type": "string",
+            "description": "Path parameter `escalation_policy_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "escalation_policy_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -13738,9 +15478,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -13766,9 +15512,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -13800,10 +15552,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "subscribables"
+          "subscribables",
+          "id"
         ]
       },
       "handler": {
@@ -13836,10 +15593,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "subscribables"
+          "subscribables",
+          "id"
         ]
       },
       "handler": {
@@ -13870,9 +15632,20 @@
           "role": {
             "type": "string",
             "description": "The role of the user on the team."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -13898,9 +15671,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -14015,9 +15799,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -14077,10 +15867,15 @@
                 }
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "template"
+          "template",
+          "id"
         ]
       },
       "handler": {
@@ -14107,9 +15902,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -14152,9 +15953,15 @@
           "external": {
             "type": "string",
             "description": "An optional object collection that can be referenced in the template."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -14290,9 +16097,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -14342,10 +16155,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "user"
+          "user",
+          "id"
         ]
       },
       "handler": {
@@ -14372,9 +16190,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -14400,9 +16224,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -14428,9 +16258,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -14480,10 +16316,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "contact_method"
+          "contact_method",
+          "id"
         ]
       },
       "handler": {
@@ -14510,9 +16351,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "contact_method_id": {
+            "type": "string",
+            "description": "Path parameter `contact_method_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "contact_method_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -14562,10 +16414,20 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "contact_method_id": {
+            "type": "string",
+            "description": "Path parameter `contact_method_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "contact_method"
+          "contact_method",
+          "id",
+          "contact_method_id"
         ]
       },
       "handler": {
@@ -14592,9 +16454,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "contact_method_id": {
+            "type": "string",
+            "description": "Path parameter `contact_method_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "contact_method_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -14620,9 +16493,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -14648,9 +16527,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "delegation_id": {
+            "type": "string",
+            "description": "Path parameter `delegation_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "delegation_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -14676,9 +16566,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -14704,9 +16600,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -14756,10 +16658,15 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "notification_rule"
+          "notification_rule",
+          "id"
         ]
       },
       "handler": {
@@ -14786,9 +16693,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "notification_rule_id": {
+            "type": "string",
+            "description": "Path parameter `notification_rule_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "notification_rule_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -14838,10 +16756,20 @@
                 "description": "a URL at which the entity is uniquely displayed in the Web app"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "notification_rule_id": {
+            "type": "string",
+            "description": "Path parameter `notification_rule_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "notification_rule"
+          "notification_rule",
+          "id",
+          "notification_rule_id"
         ]
       },
       "handler": {
@@ -14868,9 +16796,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "notification_rule_id": {
+            "type": "string",
+            "description": "Path parameter `notification_rule_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "notification_rule_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -14896,9 +16835,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -14930,10 +16875,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "subscribables"
+          "subscribables",
+          "id"
         ]
       },
       "handler": {
@@ -14966,10 +16916,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "subscribables"
+          "subscribables",
+          "id"
         ]
       },
       "handler": {
@@ -14996,9 +16951,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -15067,10 +17028,15 @@
               }
             },
             "description": "A rule for contacting the user for Handoff Notifications."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "oncall_handoff_notification_rule"
+          "oncall_handoff_notification_rule",
+          "id"
         ]
       },
       "handler": {
@@ -15097,9 +17063,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "oncall_handoff_notification_rule_id": {
+            "type": "string",
+            "description": "Path parameter `oncall_handoff_notification_rule_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "oncall_handoff_notification_rule_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -15168,10 +17145,20 @@
               }
             },
             "description": "A rule for contacting the user for Handoff Notifications."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "oncall_handoff_notification_rule_id": {
+            "type": "string",
+            "description": "Path parameter `oncall_handoff_notification_rule_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "oncall_handoff_notification_rule"
+          "oncall_handoff_notification_rule",
+          "id",
+          "oncall_handoff_notification_rule_id"
         ]
       },
       "handler": {
@@ -15198,9 +17185,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "oncall_handoff_notification_rule_id": {
+            "type": "string",
+            "description": "Path parameter `oncall_handoff_notification_rule_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "oncall_handoff_notification_rule_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -15226,9 +17224,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -15254,9 +17258,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -15282,9 +17292,25 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "type": {
+            "type": "string",
+            "description": "Path parameter `type` (auto-injected; not declared in spec)."
+          },
+          "session_id": {
+            "type": "string",
+            "description": "Path parameter `session_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "type",
+          "session_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -15310,9 +17336,25 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "type": {
+            "type": "string",
+            "description": "Path parameter `type` (auto-injected; not declared in spec)."
+          },
+          "session_id": {
+            "type": "string",
+            "description": "Path parameter `session_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "type",
+          "session_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -15338,9 +17380,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -15396,10 +17444,15 @@
               }
             },
             "description": "A rule for contacting the user for Incident Status Updates."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "status_update_notification_rule"
+          "status_update_notification_rule",
+          "id"
         ]
       },
       "handler": {
@@ -15426,9 +17479,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "status_update_notification_rule_id": {
+            "type": "string",
+            "description": "Path parameter `status_update_notification_rule_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "status_update_notification_rule_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -15484,10 +17548,20 @@
               }
             },
             "description": "A rule for contacting the user for Incident Status Updates."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "status_update_notification_rule_id": {
+            "type": "string",
+            "description": "Path parameter `status_update_notification_rule_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "status_update_notification_rule"
+          "status_update_notification_rule",
+          "id",
+          "status_update_notification_rule_id"
         ]
       },
       "handler": {
@@ -15514,9 +17588,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "status_update_notification_rule_id": {
+            "type": "string",
+            "description": "Path parameter `status_update_notification_rule_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "status_update_notification_rule_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -15678,9 +17763,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -15720,10 +17811,15 @@
                 "type": "string"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "schedule"
+          "schedule",
+          "id"
         ]
       },
       "handler": {
@@ -15750,9 +17846,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -15778,9 +17880,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -15812,10 +17920,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "custom_shifts"
+          "custom_shifts",
+          "id"
         ]
       },
       "handler": {
@@ -15842,9 +17955,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "custom_shift_id": {
+            "type": "string",
+            "description": "Path parameter `custom_shift_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "custom_shift_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -15888,10 +18012,20 @@
               }
             },
             "description": "If the shift has already started,\nonly `end_time` can be modified.\n"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "custom_shift_id": {
+            "type": "string",
+            "description": "Path parameter `custom_shift_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "custom_shift"
+          "custom_shift",
+          "id",
+          "custom_shift_id"
         ]
       },
       "handler": {
@@ -15918,9 +18052,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "custom_shift_id": {
+            "type": "string",
+            "description": "Path parameter `custom_shift_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "custom_shift_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -15946,9 +18091,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -15980,10 +18131,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "overrides"
+          "overrides",
+          "id"
         ]
       },
       "handler": {
@@ -16010,9 +18166,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "override_id": {
+            "type": "string",
+            "description": "Path parameter `override_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "override_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -16063,10 +18230,20 @@
                 "description": "A member (user) assigned to a shift or rotation slot"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "override_id": {
+            "type": "string",
+            "description": "Path parameter `override_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "override"
+          "override",
+          "id",
+          "override_id"
         ]
       },
       "handler": {
@@ -16093,9 +18270,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "override_id": {
+            "type": "string",
+            "description": "Path parameter `override_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "override_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -16121,9 +18309,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -16149,9 +18343,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -16177,9 +18377,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "rotation_id": {
+            "type": "string",
+            "description": "Path parameter `rotation_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "rotation_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -16205,9 +18416,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "rotation_id": {
+            "type": "string",
+            "description": "Path parameter `rotation_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "rotation_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -16233,9 +18455,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "rotation_id": {
+            "type": "string",
+            "description": "Path parameter `rotation_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "rotation_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -16332,10 +18565,20 @@
                 "description": "Defines how users are assigned on-call within an event's time window.\n\n- `rotating_member_assignment_strategy`: users rotate in sequence.\n  `shifts_per_member` controls how many consecutive shift periods each\n  member covers before rotating.\n- `every_member_assignment_strategy`: all listed members are on-call\n  simultaneously for every occurrence.\n"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "rotation_id": {
+            "type": "string",
+            "description": "Path parameter `rotation_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "event"
+          "event",
+          "id",
+          "rotation_id"
         ]
       },
       "handler": {
@@ -16362,9 +18605,25 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "rotation_id": {
+            "type": "string",
+            "description": "Path parameter `rotation_id` (auto-injected; not declared in spec)."
+          },
+          "event_id": {
+            "type": "string",
+            "description": "Path parameter `event_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "rotation_id",
+          "event_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -16458,10 +18717,25 @@
                 "description": "Defines how users are assigned on-call within an event's time window.\n\n- `rotating_member_assignment_strategy`: users rotate in sequence.\n  `shifts_per_member` controls how many consecutive shift periods each\n  member covers before rotating.\n- `every_member_assignment_strategy`: all listed members are on-call\n  simultaneously for every occurrence.\n"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "rotation_id": {
+            "type": "string",
+            "description": "Path parameter `rotation_id` (auto-injected; not declared in spec)."
+          },
+          "event_id": {
+            "type": "string",
+            "description": "Path parameter `event_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "event"
+          "event",
+          "id",
+          "rotation_id",
+          "event_id"
         ]
       },
       "handler": {
@@ -16488,9 +18762,25 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
+          },
+          "rotation_id": {
+            "type": "string",
+            "description": "Path parameter `rotation_id` (auto-injected; not declared in spec)."
+          },
+          "event_id": {
+            "type": "string",
+            "description": "Path parameter `event_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "rotation_id",
+          "event_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -16516,9 +18806,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -16695,9 +18991,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -16760,9 +19062,15 @@
                 "description": "The ID of the OAuth client to use for authenticating webhook requests. Optional field."
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -16788,9 +19096,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -16816,9 +19130,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -16844,9 +19164,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -16959,9 +19285,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -17016,10 +19348,15 @@
                 "description": "The OAuth grant type (currently only client_credentials is supported)"
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "oauth_client"
+          "oauth_client",
+          "id"
         ]
       },
       "handler": {
@@ -17046,9 +19383,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -17102,9 +19445,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -17158,9 +19507,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "integration_id": {
+            "type": "string",
+            "description": "Path parameter `integration_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "integration_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -17186,9 +19541,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "integration_id": {
+            "type": "string",
+            "description": "Path parameter `integration_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "integration_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -17214,9 +19575,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "integration_id": {
+            "type": "string",
+            "description": "Path parameter `integration_id` (auto-injected; not declared in spec)."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "integration_id",
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -17242,9 +19614,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "integration_id": {
+            "type": "string",
+            "description": "Path parameter `integration_id` (auto-injected; not declared in spec)."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "integration_id",
+          "id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -17270,9 +19653,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "integration_id": {
+            "type": "string",
+            "description": "Path parameter `integration_id` (auto-injected; not declared in spec)."
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "integration_id",
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",

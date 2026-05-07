@@ -156,8 +156,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -234,9 +241,15 @@
           },
           "integration_types_config": {
             "type": "object"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -259,8 +272,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "instance_id": {
+            "type": "string",
+            "description": "Path parameter `instance_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "instance_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -283,8 +308,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -310,9 +342,15 @@
         "properties": {
           "with_localizations": {
             "type": "boolean"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -381,10 +419,15 @@
           },
           "type": {
             "type": "string"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "name"
+          "name",
+          "application_id"
         ]
       },
       "handler": {
@@ -408,8 +451,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -432,8 +482,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Path parameter `command_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "command_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -497,9 +559,20 @@
           },
           "handler": {
             "type": "string"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Path parameter `command_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "application_id",
+          "command_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -522,8 +595,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Path parameter `command_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "command_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -546,8 +631,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -576,11 +668,16 @@
           },
           "image": {
             "type": "string"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
-          "image"
+          "image",
+          "application_id"
         ]
       },
       "handler": {
@@ -604,8 +701,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "emoji_id": {
+            "type": "string",
+            "description": "Path parameter `emoji_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "emoji_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -631,9 +740,20 @@
         "properties": {
           "name": {
             "type": "string"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "emoji_id": {
+            "type": "string",
+            "description": "Path parameter `emoji_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "application_id",
+          "emoji_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -656,8 +776,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "emoji_id": {
+            "type": "string",
+            "description": "Path parameter `emoji_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "emoji_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -709,9 +841,15 @@
           },
           "only_active": {
             "type": "boolean"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -753,12 +891,17 @@
           },
           "owner_type": {
             "type": "integer"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "sku_id",
           "owner_id",
-          "owner_type"
+          "owner_type",
+          "application_id"
         ]
       },
       "handler": {
@@ -782,8 +925,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "entitlement_id": {
+            "type": "string",
+            "description": "Path parameter `entitlement_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "entitlement_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -806,8 +961,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "entitlement_id": {
+            "type": "string",
+            "description": "Path parameter `entitlement_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "entitlement_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -830,8 +997,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "entitlement_id": {
+            "type": "string",
+            "description": "Path parameter `entitlement_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "entitlement_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -857,9 +1036,20 @@
         "properties": {
           "with_localizations": {
             "type": "boolean"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "application_id",
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -928,10 +1118,20 @@
           },
           "type": {
             "type": "string"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "name"
+          "name",
+          "application_id",
+          "guild_id"
         ]
       },
       "handler": {
@@ -955,8 +1155,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -979,8 +1191,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1003,8 +1227,25 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Path parameter `command_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "guild_id",
+          "command_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1068,9 +1309,25 @@
           },
           "handler": {
             "type": "string"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Path parameter `command_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "application_id",
+          "guild_id",
+          "command_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -1093,8 +1350,25 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Path parameter `command_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "guild_id",
+          "command_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -1117,8 +1391,25 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Path parameter `command_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id",
+          "guild_id",
+          "command_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1147,9 +1438,25 @@
             "items": {
               "type": "object"
             }
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "command_id": {
+            "type": "string",
+            "description": "Path parameter `command_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "application_id",
+          "guild_id",
+          "command_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -1172,8 +1479,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1196,8 +1510,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -1220,8 +1541,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1247,9 +1575,15 @@
         "properties": {
           "name": {
             "type": "string"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -1272,8 +1606,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -1299,10 +1640,15 @@
         "properties": {
           "webhook_channel_id": {
             "type": "string"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "webhook_channel_id"
+          "webhook_channel_id",
+          "channel_id"
         ]
       },
       "handler": {
@@ -1326,8 +1672,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1355,9 +1708,15 @@
             "type": "integer",
             "minimum": 1,
             "maximum": 604800
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -1394,9 +1753,15 @@
             "type": "integer",
             "minimum": 1,
             "maximum": 100
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1477,9 +1842,15 @@
           },
           "tts": {
             "type": "boolean"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -1508,10 +1879,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "messages"
+          "messages",
+          "channel_id"
         ]
       },
       "handler": {
@@ -1543,9 +1919,15 @@
             "type": "integer",
             "minimum": 1,
             "maximum": 50
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1571,8 +1953,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -1595,8 +1989,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -1619,8 +2025,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1676,9 +2094,20 @@
             "items": {
               "type": "object"
             }
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -1701,8 +2130,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -1725,8 +2166,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -1749,8 +2202,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -1785,9 +2250,25 @@
           "type": {
             "type": "string",
             "description": "Normal reaction type"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          },
+          "emoji_name": {
+            "type": "string",
+            "description": "Path parameter `emoji_name` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id",
+          "message_id",
+          "emoji_name"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1814,8 +2295,25 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          },
+          "emoji_name": {
+            "type": "string",
+            "description": "Path parameter `emoji_name` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id",
+          "emoji_name"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -1838,8 +2336,25 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          },
+          "emoji_name": {
+            "type": "string",
+            "description": "Path parameter `emoji_name` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id",
+          "emoji_name"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -1862,8 +2377,25 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          },
+          "emoji_name": {
+            "type": "string",
+            "description": "Path parameter `emoji_name` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id",
+          "emoji_name"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -1886,8 +2418,30 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          },
+          "emoji_name": {
+            "type": "string",
+            "description": "Path parameter `emoji_name` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id",
+          "emoji_name",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -1921,10 +2475,20 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 21600
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "name"
+          "name",
+          "channel_id",
+          "message_id"
         ]
       },
       "handler": {
@@ -1957,9 +2521,20 @@
           },
           "deny": {
             "type": "integer"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "overwrite_id": {
+            "type": "string",
+            "description": "Path parameter `overwrite_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id",
+          "overwrite_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -1982,8 +2557,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "overwrite_id": {
+            "type": "string",
+            "description": "Path parameter `overwrite_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "overwrite_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2006,8 +2593,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2030,8 +2624,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -2054,8 +2660,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2086,9 +2704,25 @@
             "type": "integer",
             "minimum": 1,
             "maximum": 100
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          },
+          "answer_id": {
+            "type": "string",
+            "description": "Path parameter `answer_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id",
+          "message_id",
+          "answer_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2114,8 +2748,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -2144,9 +2790,20 @@
           },
           "nick": {
             "type": "string"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -2169,8 +2826,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2199,10 +2868,15 @@
           },
           "source_guild_id": {
             "type": "string"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "sound_id"
+          "sound_id",
+          "channel_id"
         ]
       },
       "handler": {
@@ -2237,9 +2911,15 @@
           },
           "after": {
             "type": "string"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2266,8 +2946,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -2290,8 +2977,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2317,9 +3011,20 @@
         "properties": {
           "with_member": {
             "type": "boolean"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2344,8 +3049,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -2368,8 +3085,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2453,11 +3182,16 @@
                 "type": "string"
               }
             }
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
-          "message"
+          "message",
+          "channel_id"
         ]
       },
       "handler": {
@@ -2489,9 +3223,15 @@
             "type": "integer",
             "minimum": 2,
             "maximum": 100
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2525,9 +3265,15 @@
             "type": "integer",
             "minimum": 2,
             "maximum": 100
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2593,9 +3339,15 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 9975
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2630,8 +3382,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -2662,9 +3421,15 @@
             "type": "integer",
             "minimum": 2,
             "maximum": 100
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2690,8 +3455,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2720,10 +3492,15 @@
           },
           "avatar": {
             "type": "string"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "name"
+          "name",
+          "channel_id"
         ]
       },
       "handler": {
@@ -2795,8 +3572,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Path parameter `code` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "code"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2822,9 +3606,15 @@
         "properties": {
           "with_counts": {
             "type": "boolean"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2915,9 +3705,15 @@
           },
           "premium_progress_bar_enabled": {
             "type": "boolean"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -2960,9 +3756,15 @@
             "type": "integer",
             "minimum": 1,
             "maximum": 100
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2992,8 +3794,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3065,13 +3874,18 @@
                 }
               }
             }
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
           "event_type",
           "trigger_type",
-          "trigger_metadata"
+          "trigger_metadata",
+          "guild_id"
         ]
       },
       "handler": {
@@ -3095,8 +3909,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Path parameter `rule_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "rule_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3168,9 +3994,20 @@
                 }
               }
             }
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Path parameter `rule_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "rule_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -3193,8 +4030,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Path parameter `rule_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "rule_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3228,9 +4077,15 @@
           },
           "after": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3257,8 +4112,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3291,9 +4158,20 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 7
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -3316,8 +4194,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3351,10 +4241,15 @@
             "type": "integer",
             "minimum": 0,
             "maximum": 604800
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "user_ids"
+          "user_ids",
+          "guild_id"
         ]
       },
       "handler": {
@@ -3378,8 +4273,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3472,10 +4374,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "name"
+          "name",
+          "guild_id"
         ]
       },
       "handler": {
@@ -3499,8 +4406,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -3523,8 +4437,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3559,11 +4480,16 @@
             "items": {
               "type": "string"
             }
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
-          "image"
+          "image",
+          "guild_id"
         ]
       },
       "handler": {
@@ -3587,8 +4513,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "emoji_id": {
+            "type": "string",
+            "description": "Path parameter `emoji_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "emoji_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3620,9 +4558,20 @@
             "items": {
               "type": "string"
             }
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "emoji_id": {
+            "type": "string",
+            "description": "Path parameter `emoji_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "emoji_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -3645,8 +4594,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "emoji_id": {
+            "type": "string",
+            "description": "Path parameter `emoji_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "emoji_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3669,8 +4630,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3693,8 +4661,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "integration_id": {
+            "type": "string",
+            "description": "Path parameter `integration_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "integration_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3717,8 +4697,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3750,9 +4737,15 @@
           "after": {
             "type": "integer",
             "minimum": 0
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3790,9 +4783,15 @@
           },
           "banner": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -3823,10 +4822,15 @@
           },
           "query": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "query"
+          "query",
+          "guild_id"
         ]
       },
       "handler": {
@@ -3853,8 +4857,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3898,10 +4914,20 @@
           },
           "flags": {
             "type": "integer"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "access_token"
+          "access_token",
+          "guild_id",
+          "user_id"
         ]
       },
       "handler": {
@@ -3949,9 +4975,20 @@
           },
           "flags": {
             "type": "integer"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -3974,8 +5011,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3998,8 +5047,25 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          },
+          "role_id": {
+            "type": "string",
+            "description": "Path parameter `role_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "user_id",
+          "role_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -4022,8 +5088,25 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          },
+          "role_id": {
+            "type": "string",
+            "description": "Path parameter `role_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "user_id",
+          "role_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -4163,9 +5246,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4213,8 +5302,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4237,8 +5333,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4279,9 +5382,15 @@
           },
           "mode": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -4304,8 +5413,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4336,9 +5452,15 @@
           },
           "include_roles": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4375,9 +5497,15 @@
           },
           "include_roles": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -4400,8 +5528,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4424,8 +5559,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4474,9 +5616,15 @@
           },
           "unicode_emoji": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -4499,8 +5647,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -4523,8 +5678,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4547,8 +5709,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "role_id": {
+            "type": "string",
+            "description": "Path parameter `role_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "role_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4597,9 +5771,20 @@
           },
           "unicode_emoji": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "role_id": {
+            "type": "string",
+            "description": "Path parameter `role_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "role_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -4622,8 +5807,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "role_id": {
+            "type": "string",
+            "description": "Path parameter `role_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "role_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -4649,9 +5846,15 @@
         "properties": {
           "with_user_count": {
             "type": "boolean"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4709,6 +5912,10 @@
                 "type": "string"
               }
             }
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
@@ -4716,7 +5923,8 @@
           "scheduled_start_time",
           "privacy_level",
           "entity_type",
-          "entity_metadata"
+          "entity_metadata",
+          "guild_id"
         ]
       },
       "handler": {
@@ -4743,9 +5951,20 @@
         "properties": {
           "with_user_count": {
             "type": "boolean"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "guild_scheduled_event_id": {
+            "type": "string",
+            "description": "Path parameter `guild_scheduled_event_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "guild_scheduled_event_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4806,9 +6025,20 @@
                 "type": "string"
               }
             }
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "guild_scheduled_event_id": {
+            "type": "string",
+            "description": "Path parameter `guild_scheduled_event_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "guild_scheduled_event_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -4831,8 +6061,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "guild_scheduled_event_id": {
+            "type": "string",
+            "description": "Path parameter `guild_scheduled_event_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "guild_scheduled_event_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -4869,9 +6111,20 @@
           },
           "after": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "guild_scheduled_event_id": {
+            "type": "string",
+            "description": "Path parameter `guild_scheduled_event_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "guild_scheduled_event_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4899,8 +6152,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4940,11 +6200,16 @@
           },
           "sound": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
-          "sound"
+          "sound",
+          "guild_id"
         ]
       },
       "handler": {
@@ -4968,8 +6233,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "sound_id": {
+            "type": "string",
+            "description": "Path parameter `sound_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "sound_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5006,9 +6283,20 @@
           },
           "emoji_name": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "sound_id": {
+            "type": "string",
+            "description": "Path parameter `sound_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "sound_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -5031,8 +6319,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "sound_id": {
+            "type": "string",
+            "description": "Path parameter `sound_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "sound_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -5055,8 +6355,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5079,8 +6386,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -5103,8 +6417,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "sticker_id": {
+            "type": "string",
+            "description": "Path parameter `sticker_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "sticker_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5136,9 +6462,20 @@
           },
           "description": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "sticker_id": {
+            "type": "string",
+            "description": "Path parameter `sticker_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "sticker_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -5161,8 +6498,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "sticker_id": {
+            "type": "string",
+            "description": "Path parameter `sticker_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "sticker_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -5185,8 +6534,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5215,10 +6571,15 @@
           },
           "description": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "name"
+          "name",
+          "guild_id"
         ]
       },
       "handler": {
@@ -5242,8 +6603,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "code": {
+            "type": "string",
+            "description": "Path parameter `code` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "code"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -5272,9 +6645,20 @@
           },
           "description": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "code": {
+            "type": "string",
+            "description": "Path parameter `code` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "code"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -5297,8 +6681,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "code": {
+            "type": "string",
+            "description": "Path parameter `code` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "code"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -5321,8 +6717,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5345,8 +6748,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5369,8 +6779,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5402,9 +6819,15 @@
           },
           "channel_id": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -5427,8 +6850,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5457,9 +6892,20 @@
           },
           "channel_id": {
             "type": "string"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -5482,8 +6928,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5506,8 +6959,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5542,9 +7002,15 @@
           },
           "enabled": {
             "type": "boolean"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -5567,8 +7033,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5597,9 +7070,15 @@
           },
           "enabled": {
             "type": "boolean"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -5622,8 +7101,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5650,9 +7136,15 @@
           "style": {
             "type": "string",
             "description": "shield style widget with Discord icon and guild members online count"
+          },
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5694,11 +7186,21 @@
                 }
               }
             }
+          },
+          "interaction_id": {
+            "type": "string",
+            "description": "Path parameter `interaction_id` (auto-injected; not declared in spec)."
+          },
+          "interaction_token": {
+            "type": "string",
+            "description": "Path parameter `interaction_token` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "type",
-          "data"
+          "data",
+          "interaction_id",
+          "interaction_token"
         ]
       },
       "handler": {
@@ -5730,9 +7232,15 @@
           },
           "guild_scheduled_event_id": {
             "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "description": "Path parameter `code` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "code"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5758,8 +7266,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Path parameter `code` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "code"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -5782,8 +7297,15 @@
       "description": "Get the target users for an invite.",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Path parameter `code` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "code"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5806,8 +7328,15 @@
       "description": "Update the target users for an existing invite.",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Path parameter `code` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "code"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -5830,8 +7359,15 @@
       "description": "Get the target users job status for an invite.",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Path parameter `code` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "code"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5943,8 +7479,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "lobby_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5987,9 +7530,15 @@
           },
           "override_event_webhooks_url": {
             "type": "string"
+          },
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "lobby_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -6015,9 +7564,15 @@
         "properties": {
           "channel_id": {
             "type": "string"
+          },
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "lobby_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -6040,8 +7595,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "lobby_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -6064,8 +7626,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "lobby_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -6088,8 +7657,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "lobby_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -6118,9 +7694,20 @@
           },
           "flags": {
             "type": "string"
+          },
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "lobby_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -6143,8 +7730,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "lobby_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -6167,8 +7766,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "lobby_id",
+          "user_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -6196,9 +7807,15 @@
             "type": "integer",
             "minimum": 1,
             "maximum": 200
+          },
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "lobby_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -6276,9 +7893,15 @@
           },
           "tts": {
             "type": "boolean"
+          },
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "lobby_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -6301,8 +7924,20 @@
       "description": "Update the external moderation metadata for a lobby message.",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "lobby_id": {
+            "type": "string",
+            "description": "Path parameter `lobby_id` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "lobby_id",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -6421,8 +8056,25 @@
       "description": "Update the external moderation metadata for a user message (DM).",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "user_id_1": {
+            "type": "string",
+            "description": "Path parameter `user_id_1` (auto-injected; not declared in spec)."
+          },
+          "user_id_2": {
+            "type": "string",
+            "description": "Path parameter `user_id_2` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "user_id_1",
+          "user_id_2",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -6657,8 +8309,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -6688,9 +8347,15 @@
           "privacy_level": {
             "type": "string",
             "description": "The Stage instance is visible publicly. (deprecated)"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -6713,8 +8378,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Path parameter `channel_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "channel_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -6761,8 +8433,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "pack_id": {
+            "type": "string",
+            "description": "Path parameter `pack_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "pack_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -6785,8 +8464,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "sticker_id": {
+            "type": "string",
+            "description": "Path parameter `sticker_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "sticker_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -6875,9 +8561,15 @@
           },
           "exclude_consumed": {
             "type": "boolean"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -6903,8 +8595,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -6936,9 +8635,15 @@
           },
           "metadata": {
             "type": "object"
+          },
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -6961,8 +8666,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "application_id": {
+            "type": "string",
+            "description": "Path parameter `application_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "application_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -7090,8 +8802,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -7114,8 +8833,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "guild_id": {
+            "type": "string",
+            "description": "Path parameter `guild_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "guild_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7138,8 +8864,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "user_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7186,8 +8919,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "webhook_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7219,9 +8959,15 @@
           },
           "channel_id": {
             "type": "string"
+          },
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "webhook_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -7244,8 +8990,15 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "webhook_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -7268,8 +9021,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "webhook_id",
+          "webhook_token"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7349,9 +9114,20 @@
             "items": {
               "type": "string"
             }
+          },
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "webhook_id",
+          "webhook_token"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -7384,9 +9160,20 @@
           },
           "avatar": {
             "type": "string"
+          },
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "webhook_id",
+          "webhook_token"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -7409,8 +9196,20 @@
       "description": "",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "webhook_id",
+          "webhook_token"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -7516,10 +9315,20 @@
           },
           "answer": {
             "type": "string"
+          },
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "sender"
+          "sender",
+          "webhook_id",
+          "webhook_token"
         ]
       },
       "handler": {
@@ -7549,9 +9358,20 @@
         "properties": {
           "thread_id": {
             "type": "string"
+          },
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "webhook_id",
+          "webhook_token"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7612,9 +9432,20 @@
           },
           "flags": {
             "type": "integer"
+          },
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "webhook_id",
+          "webhook_token"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -7643,9 +9474,20 @@
         "properties": {
           "thread_id": {
             "type": "string"
+          },
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "webhook_id",
+          "webhook_token"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -7673,9 +9515,25 @@
         "properties": {
           "thread_id": {
             "type": "string"
+          },
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "webhook_id",
+          "webhook_token",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -7736,9 +9594,25 @@
           },
           "flags": {
             "type": "integer"
+          },
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "webhook_id",
+          "webhook_token",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -7767,9 +9641,25 @@
         "properties": {
           "thread_id": {
             "type": "string"
+          },
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "webhook_id",
+          "webhook_token",
+          "message_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -7815,9 +9705,20 @@
             "items": {
               "type": "object"
             }
+          },
+          "webhook_id": {
+            "type": "string",
+            "description": "Path parameter `webhook_id` (auto-injected; not declared in spec)."
+          },
+          "webhook_token": {
+            "type": "string",
+            "description": "Path parameter `webhook_token` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "webhook_id",
+          "webhook_token"
+        ]
       },
       "handler": {
         "method": "POST",

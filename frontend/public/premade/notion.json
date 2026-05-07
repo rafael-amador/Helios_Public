@@ -14,9 +14,15 @@
         "properties": {
           "Notion-Version": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -49,9 +55,15 @@
                 }
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -73,9 +85,15 @@
         "properties": {
           "Notion-Version": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -100,9 +118,15 @@
           },
           "Notion-Version": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -132,9 +156,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -189,9 +219,15 @@
         "properties": {
           "Notion-Version": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -233,9 +269,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -273,9 +315,15 @@
                 }
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -300,9 +348,15 @@
           },
           "": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -342,9 +396,15 @@
                 }
               }
             }
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -363,8 +423,20 @@
       "description": "Retrieve a Page Property Item",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "page_id": {
+            "type": "string",
+            "description": "Path parameter `page_id` (auto-injected; not declared in spec)."
+          },
+          "property_id": {
+            "type": "string",
+            "description": "Path parameter `property_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "page_id",
+          "property_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -386,9 +458,15 @@
         "properties": {
           "Notion-Version": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",

@@ -330,9 +330,15 @@
           "to": {
             "type": "string",
             "description": "End date for the invoice query in `yyyy-mm-dd` format"
+          },
+          "accountId": {
+            "type": "string",
+            "description": "Path parameter `accountId` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "accountId"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -358,8 +364,20 @@
       "description": "Get invoice details",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Path parameter `accountId` (auto-injected; not declared in spec)."
+          },
+          "invoiceId": {
+            "type": "string",
+            "description": "Path parameter `invoiceId` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "accountId",
+          "invoiceId"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1086,9 +1104,15 @@
           "type": {
             "type": "string",
             "description": "Plan [type](https://marketplace.zoom.us/docs/api-reference/other-references/plans)."
+          },
+          "accountId": {
+            "type": "string",
+            "description": "Path parameter `accountId` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "accountId"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -1195,8 +1219,15 @@
       "description": "Get plan usage",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "description": "Path parameter `accountId` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "accountId"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2152,9 +2183,15 @@
           "file_ids": {
             "type": "string",
             "description": "Provide the id of the file that is to be deleted. To delete multiple files, provide comma separated values for this field."
+          },
+          "accountId": {
+            "type": "string",
+            "description": "Path parameter `accountId` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "accountId"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2487,9 +2524,15 @@
           "show_zoom_provided_numbers": {
             "type": "integer",
             "description": "If the value of this option is set to `0`, the numbers provided by Zoom will be displayed in the account's list of available call-out and call-in numbers in the Zoom Web Portal and Zoom Client. \n\nIf the value of this option is set to `1`, the Zoom provided numbers will be shown in the Zoom Web Portal but will not be used unless specified by the user.<br> \n\nIf the value of this option is set to `2`, all Zoom provided numbers will be deleted and only internal numbers (provided by carrier partners) will be used."
+          },
+          "accountId": {
+            "type": "string",
+            "description": "Path parameter `accountId` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "accountId"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -2655,11 +2698,16 @@
           "account_id": {
             "type": "string",
             "description": "The Account ID of the account to which you would like move the user to."
+          },
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "accountId",
-          "account_id"
+          "account_id",
+          "userId"
         ]
       },
       "handler": {
@@ -2683,8 +2731,15 @@
       "description": "Download an invoice file",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "invoiceId": {
+            "type": "string",
+            "description": "Path parameter `invoiceId` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "invoiceId"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3199,10 +3254,15 @@
           "channelId": {
             "type": "string",
             "description": "Channel ID: Unique Identifier of a channel."
+          },
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "channelId"
+          "channelId",
+          "userId"
         ]
       },
       "handler": {
@@ -3385,9 +3445,15 @@
           "include_deleted_and_edited_message": {
             "type": "string",
             "description": "**Optional** <br>\nSet the value of this field to `true` to include edited and deleted messages in the response."
+          },
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "userId"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3436,10 +3502,15 @@
           "to_contact": {
             "type": "string",
             "description": "The email address of the contact to whom you would like to send the message."
+          },
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "message"
+          "message",
+          "userId"
         ]
       },
       "handler": {
@@ -3479,10 +3550,15 @@
           "to_contact": {
             "type": "string",
             "description": "The email address of the contact to whom the message was sent.<br>\nYou must provide either `to_contact` or `to_channel` parameter in the API request."
+          },
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "messageId"
+          "messageId",
+          "userId"
         ]
       },
       "handler": {
@@ -3518,10 +3594,15 @@
           "to_channel": {
             "type": "string",
             "description": "The channel Id of the channel where you would like to send the message.\n\nYou must provide either `to_contact` or `to_channel` as a query parameter to delete a message that was previously sent to either an individual or a chat channel "
+          },
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "messageId"
+          "messageId",
+          "userId"
         ]
       },
       "handler": {
@@ -4286,9 +4367,15 @@
           "option": {
             "type": "string",
             "description": "`meeting_authentication`: Use this query parameter to view [meeting authentication configuration](https://support.zoom.us/hc/en-us/articles/360037117472-Authentication-Profiles-for-Meetings-and-Webinars) applied on the group.<br>`recording_authentication`: Use this query parameter to view [recording authentication configuration](https://support.zoom.us/hc/en-us/articles/360037756671-Authentication-Profiles-for-Cloud-Recordings) applied on the group.<br>\n`meeting_security`: Use this query parameter to view meeting security settings applied on the group.<br>"
+          },
+          "groupId": {
+            "type": "string",
+            "description": "Path parameter `groupId` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "groupId"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -5115,11 +5202,16 @@
           "user_jid": {
             "type": "string",
             "description": "The UserJID of the user on whose behalf the message is being sent. Used to prevent members of a channel from getting notifications that were set up by a user who has left the channel."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "Path parameter `message_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "robot_jid",
-          "account_id"
+          "account_id",
+          "message_id"
         ]
       },
       "handler": {
@@ -8792,8 +8884,15 @@
       "description": "Unassign all phone numbers",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "autoReceptionistId": {
+            "type": "string",
+            "description": "Path parameter `autoReceptionistId` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "autoReceptionistId"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -9860,9 +9959,15 @@
           "site_id": {
             "type": "string",
             "description": "Unique identifier of the [site](https://support.zoom.us/hc/en-us/articles/360020809672-Managing-Multiple-Sites) to which the common area desk phone is assigned."
+          },
+          "commonAreaPhoneId": {
+            "type": "string",
+            "description": "Path parameter `commonAreaPhoneId` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "commonAreaPhoneId"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -11610,9 +11715,15 @@
           "site_id": {
             "type": "string",
             "description": "Unique identifier of the [site](https://support.zoom.us/hc/en-us/articles/360020809672) where the user should be moved or assigned. "
+          },
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "userId"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -11748,9 +11859,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "userId"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -11777,10 +11894,15 @@
           "type": {
             "type": "string",
             "description": "The [type](https://marketplace.zoom.us/docs/api-reference/other-references/plans#zoom-phone-calling-plans) of the calling plan that was assigned to user. (e.g: The value of type would be \"200\" for Unlimited US/Canada calling plan.)\n"
+          },
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "type"
+          "type",
+          "userId"
         ]
       },
       "handler": {
@@ -11810,9 +11932,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "userId"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -16210,9 +16338,15 @@
           "status": {
             "type": "string",
             "description": "Presence status of the user. The value can be set to one of the following:<br>\n* `Away`\n* `Do_Not_Disturb`\n* `Available`\n\nUsers who are on Zoom Client with a version **lower than 5.3.0** can update the status from:\n* `Away` to `Do_Not_Disturb` \n* `Available` to `Do-Not_Disturb`\n\nUsers who are on **Zoom Client 5.3.0** or higher can update the status from:\n* `Do_Not_Disturb` to `Away`\n* `Do_Not_Disturb` to `Available`\n* `Available` to `Away`\n* `Away` to `Available`"
+          },
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "userId"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -17446,8 +17580,15 @@
       "description": "List webinar templates",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Path parameter `userId` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "userId"
+        ]
       },
       "handler": {
         "method": "GET",

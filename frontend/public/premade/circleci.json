@@ -2342,9 +2342,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "orgID": {
+            "type": "string",
+            "description": "Path parameter `orgID` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "orgID"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2379,9 +2385,15 @@
           },
           "ttl": {
             "type": "string"
+          },
+          "orgID": {
+            "type": "string",
+            "description": "Path parameter `orgID` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "orgID"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -2407,9 +2419,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "orgID": {
+            "type": "string",
+            "description": "Path parameter `orgID` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "orgID"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2435,9 +2453,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "orgID": {
+            "type": "string",
+            "description": "Path parameter `orgID` (auto-injected; not declared in spec)."
+          },
+          "projectID": {
+            "type": "string",
+            "description": "Path parameter `projectID` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "orgID",
+          "projectID"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2472,9 +2501,20 @@
           },
           "ttl": {
             "type": "string"
+          },
+          "orgID": {
+            "type": "string",
+            "description": "Path parameter `orgID` (auto-injected; not declared in spec)."
+          },
+          "projectID": {
+            "type": "string",
+            "description": "Path parameter `projectID` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "orgID",
+          "projectID"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -2500,9 +2540,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "orgID": {
+            "type": "string",
+            "description": "Path parameter `orgID` (auto-injected; not declared in spec)."
+          },
+          "projectID": {
+            "type": "string",
+            "description": "Path parameter `projectID` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "orgID",
+          "projectID"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2556,9 +2607,20 @@
           "offset": {
             "type": "integer",
             "description": "Sets the offset when retrieving the decisions, for paging."
+          },
+          "ownerID": {
+            "type": "string",
+            "description": "Path parameter `ownerID` (auto-injected; not declared in spec)."
+          },
+          "context": {
+            "type": "string",
+            "description": "Path parameter `context` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "ownerID",
+          "context"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2598,10 +2660,20 @@
           },
           "metadata": {
             "type": "object"
+          },
+          "ownerID": {
+            "type": "string",
+            "description": "Path parameter `ownerID` (auto-injected; not declared in spec)."
+          },
+          "context": {
+            "type": "string",
+            "description": "Path parameter `context` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "input"
+          "input",
+          "ownerID",
+          "context"
         ]
       },
       "handler": {
@@ -2628,9 +2700,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "ownerID": {
+            "type": "string",
+            "description": "Path parameter `ownerID` (auto-injected; not declared in spec)."
+          },
+          "context": {
+            "type": "string",
+            "description": "Path parameter `context` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "ownerID",
+          "context"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2659,9 +2742,20 @@
           },
           "enabled": {
             "type": "boolean"
+          },
+          "ownerID": {
+            "type": "string",
+            "description": "Path parameter `ownerID` (auto-injected; not declared in spec)."
+          },
+          "context": {
+            "type": "string",
+            "description": "Path parameter `context` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "ownerID",
+          "context"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -2687,9 +2781,25 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "ownerID": {
+            "type": "string",
+            "description": "Path parameter `ownerID` (auto-injected; not declared in spec)."
+          },
+          "context": {
+            "type": "string",
+            "description": "Path parameter `context` (auto-injected; not declared in spec)."
+          },
+          "decisionID": {
+            "type": "string",
+            "description": "Path parameter `decisionID` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "ownerID",
+          "context",
+          "decisionID"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2715,9 +2825,25 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "ownerID": {
+            "type": "string",
+            "description": "Path parameter `ownerID` (auto-injected; not declared in spec)."
+          },
+          "context": {
+            "type": "string",
+            "description": "Path parameter `context` (auto-injected; not declared in spec)."
+          },
+          "decisionID": {
+            "type": "string",
+            "description": "Path parameter `decisionID` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "ownerID",
+          "context",
+          "decisionID"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2743,9 +2869,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "ownerID": {
+            "type": "string",
+            "description": "Path parameter `ownerID` (auto-injected; not declared in spec)."
+          },
+          "context": {
+            "type": "string",
+            "description": "Path parameter `context` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "ownerID",
+          "context"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2777,9 +2914,20 @@
           },
           "policies": {
             "type": "object"
+          },
+          "ownerID": {
+            "type": "string",
+            "description": "Path parameter `ownerID` (auto-injected; not declared in spec)."
+          },
+          "context": {
+            "type": "string",
+            "description": "Path parameter `context` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "ownerID",
+          "context"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -2804,8 +2952,25 @@
       "description": "Retrieves a policy document",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "ownerID": {
+            "type": "string",
+            "description": "Path parameter `ownerID` (auto-injected; not declared in spec)."
+          },
+          "context": {
+            "type": "string",
+            "description": "Path parameter `context` (auto-injected; not declared in spec)."
+          },
+          "policyName": {
+            "type": "string",
+            "description": "Path parameter `policyName` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "ownerID",
+          "context",
+          "policyName"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2904,9 +3069,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "context_id": {
+            "type": "string",
+            "description": "Path parameter `context_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "context_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2932,9 +3103,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "context_id": {
+            "type": "string",
+            "description": "Path parameter `context_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "context_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2960,9 +3137,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "context_id": {
+            "type": "string",
+            "description": "Path parameter `context_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "context_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2992,10 +3175,20 @@
           "value": {
             "type": "string",
             "description": "The value of the environment variable"
+          },
+          "context_id": {
+            "type": "string",
+            "description": "Path parameter `context_id` (auto-injected; not declared in spec)."
+          },
+          "env_var_name": {
+            "type": "string",
+            "description": "Path parameter `env_var_name` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "value"
+          "value",
+          "context_id",
+          "env_var_name"
         ]
       },
       "handler": {
@@ -3022,9 +3215,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "context_id": {
+            "type": "string",
+            "description": "Path parameter `context_id` (auto-injected; not declared in spec)."
+          },
+          "env_var_name": {
+            "type": "string",
+            "description": "Path parameter `env_var_name` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "context_id",
+          "env_var_name"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3047,8 +3251,15 @@
       "description": "Get context restrictions",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "context_id": {
+            "type": "string",
+            "description": "Path parameter `context_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "context_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3079,9 +3290,15 @@
           "restriction_value": {
             "type": "string",
             "description": "Value used to evaluate the restriction. If the `restriction_type`\nis `project`, this will be the project UUID. If the `restriction_type`\nis `expression`, this will be the expression rule.\n"
+          },
+          "context_id": {
+            "type": "string",
+            "description": "Path parameter `context_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "context_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -3104,8 +3321,20 @@
       "description": "Delete context restriction",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "context_id": {
+            "type": "string",
+            "description": "Path parameter `context_id` (auto-injected; not declared in spec)."
+          },
+          "restriction_id": {
+            "type": "string",
+            "description": "Path parameter `restriction_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "context_id",
+          "restriction_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3128,8 +3357,25 @@
       "description": "Get project settings",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "Path parameter `provider` (auto-injected; not declared in spec)."
+          },
+          "organization": {
+            "type": "string",
+            "description": "Path parameter `organization` (auto-injected; not declared in spec)."
+          },
+          "project": {
+            "type": "string",
+            "description": "Path parameter `project` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "provider",
+          "organization",
+          "project"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3200,9 +3446,25 @@
                 "description": "This field is used in conjunction with the `build_prs_only`, it allows you to specify a list of branches that will always triger a build. The value passed will overwrite the existing value."
               }
             }
+          },
+          "provider": {
+            "type": "string",
+            "description": "Path parameter `provider` (auto-injected; not declared in spec)."
+          },
+          "organization": {
+            "type": "string",
+            "description": "Path parameter `organization` (auto-injected; not declared in spec)."
+          },
+          "project": {
+            "type": "string",
+            "description": "Path parameter `project` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "provider",
+          "organization",
+          "project"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -3228,9 +3490,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "org_id": {
+            "type": "string",
+            "description": "Path parameter `org_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "org_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3261,10 +3529,15 @@
           "description": {
             "type": "string",
             "description": "Description to describe the group"
+          },
+          "org_id": {
+            "type": "string",
+            "description": "Path parameter `org_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "name"
+          "name",
+          "org_id"
         ]
       },
       "handler": {
@@ -3288,8 +3561,20 @@
       "description": "A group in an organization",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "org_id": {
+            "type": "string",
+            "description": "Path parameter `org_id` (auto-injected; not declared in spec)."
+          },
+          "group_id": {
+            "type": "string",
+            "description": "Path parameter `group_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "org_id",
+          "group_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3312,8 +3597,20 @@
       "description": "Delete a group",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "org_id": {
+            "type": "string",
+            "description": "Path parameter `org_id` (auto-injected; not declared in spec)."
+          },
+          "group_id": {
+            "type": "string",
+            "description": "Path parameter `group_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "org_id",
+          "group_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3350,11 +3647,16 @@
             "items": {
               "type": "string"
             }
+          },
+          "org_id": {
+            "type": "string",
+            "description": "Path parameter `org_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "start",
-          "end"
+          "end",
+          "org_id"
         ]
       },
       "handler": {
@@ -3378,8 +3680,20 @@
       "description": "Get a usage export",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "org_id": {
+            "type": "string",
+            "description": "Path parameter `org_id` (auto-injected; not declared in spec)."
+          },
+          "usage_export_job_id": {
+            "type": "string",
+            "description": "Path parameter `usage_export_job_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "org_id",
+          "usage_export_job_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3439,9 +3753,25 @@
           "parameters": {
             "type": "object",
             "description": "An object containing pipeline parameters and their values.\nPipeline parameters have the following size limits: 100 max entries, 128 maximum key length, 512 maximum value length.\n"
+          },
+          "provider": {
+            "type": "string",
+            "description": "Path parameter `provider` (auto-injected; not declared in spec)."
+          },
+          "organization": {
+            "type": "string",
+            "description": "Path parameter `organization` (auto-injected; not declared in spec)."
+          },
+          "project": {
+            "type": "string",
+            "description": "Path parameter `project` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "provider",
+          "organization",
+          "project"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -3467,9 +3797,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Path parameter `project_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "project_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3545,12 +3881,17 @@
               }
             },
             "description": "The resource to be used when running the `checkout` command."
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Path parameter `project_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
           "config_source",
-          "checkout_source"
+          "checkout_source",
+          "project_id"
         ]
       },
       "handler": {
@@ -3577,9 +3918,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Path parameter `project_id` (auto-injected; not declared in spec)."
+          },
+          "pipeline_definition_id": {
+            "type": "string",
+            "description": "Path parameter `pipeline_definition_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "project_id",
+          "pipeline_definition_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3642,9 +3994,20 @@
               }
             },
             "description": "The resource to be used when running the `checkout` command."
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Path parameter `project_id` (auto-injected; not declared in spec)."
+          },
+          "pipeline_definition_id": {
+            "type": "string",
+            "description": "Path parameter `pipeline_definition_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "project_id",
+          "pipeline_definition_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -3670,9 +4033,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Path parameter `project_id` (auto-injected; not declared in spec)."
+          },
+          "pipeline_definition_id": {
+            "type": "string",
+            "description": "Path parameter `pipeline_definition_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "project_id",
+          "pipeline_definition_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3698,9 +4072,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Path parameter `project_id` (auto-injected; not declared in spec)."
+          },
+          "pipeline_definition_id": {
+            "type": "string",
+            "description": "Path parameter `pipeline_definition_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "project_id",
+          "pipeline_definition_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3794,10 +4179,20 @@
           "parameters": {
             "type": "object",
             "description": "Pipeline parameters to pass when running pipelines from this trigger. Currently only supported for triggers where `event_source.provider` is `schedule`."
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Path parameter `project_id` (auto-injected; not declared in spec)."
+          },
+          "pipeline_definition_id": {
+            "type": "string",
+            "description": "Path parameter `pipeline_definition_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "event_source"
+          "event_source",
+          "project_id",
+          "pipeline_definition_id"
         ]
       },
       "handler": {
@@ -3824,9 +4219,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Path parameter `project_id` (auto-injected; not declared in spec)."
+          },
+          "trigger_id": {
+            "type": "string",
+            "description": "Path parameter `trigger_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "project_id",
+          "trigger_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -3904,9 +4310,20 @@
           "parameters": {
             "type": "object",
             "description": "Pipeline parameters to pass when running pipelines from this trigger. Currently only supported for triggers where `event_source.provider` is `schedule`."
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Path parameter `project_id` (auto-injected; not declared in spec)."
+          },
+          "trigger_id": {
+            "type": "string",
+            "description": "Path parameter `trigger_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "project_id",
+          "trigger_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -3932,9 +4349,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Path parameter `project_id` (auto-injected; not declared in spec)."
+          },
+          "trigger_id": {
+            "type": "string",
+            "description": "Path parameter `trigger_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "project_id",
+          "trigger_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -3988,13 +4416,18 @@
           "target_version": {
             "type": "string",
             "description": "The target version"
+          },
+          "project_id": {
+            "type": "string",
+            "description": "Path parameter `project_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "environment_name",
           "component_name",
           "current_version",
-          "target_version"
+          "target_version",
+          "project_id"
         ]
       },
       "handler": {
@@ -4049,9 +4482,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "environment_id": {
+            "type": "string",
+            "description": "Path parameter `environment_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "environment_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4105,9 +4544,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "component_id": {
+            "type": "string",
+            "description": "Path parameter `component_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "component_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4133,9 +4578,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "component_id": {
+            "type": "string",
+            "description": "Path parameter `component_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "component_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4238,9 +4689,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "otel_exporter_id": {
+            "type": "string",
+            "description": "Path parameter `otel_exporter_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "otel_exporter_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -4263,8 +4720,15 @@
       "description": "Get pipeline values for a pipeline",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "pipeline_id": {
+            "type": "string",
+            "description": "Path parameter `pipeline_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "pipeline_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4290,9 +4754,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -4315,8 +4785,15 @@
       "description": "Get a job",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "job_id": {
+            "type": "string",
+            "description": "Path parameter `job_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "job_id"
+        ]
       },
       "handler": {
         "method": "GET",

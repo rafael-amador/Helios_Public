@@ -37,9 +37,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -95,9 +101,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -124,9 +136,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -194,9 +212,15 @@
             "default": 5,
             "minimum": 0,
             "maximum": 10
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -225,9 +249,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -254,9 +284,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -283,9 +319,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -341,9 +383,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -442,9 +490,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -500,9 +554,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -645,9 +705,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "description": "Path parameter `id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -871,9 +937,15 @@
           "fields": {
             "type": "string",
             "description": "Filters for the query: a comma-separated list of the\nfields to return. If omitted, all fields are returned. For example, to get\njust the playlist''s description and URI: `fields=description,uri`. A dot\nseparator can be used to specify non-reoccurring fields, while parentheses\ncan be used to specify reoccurring fields within objects. For example, to\nget just the added date and user ID of the adder: `fields=tracks.items(added_at,added_by.id)`.\nUse multiple parentheses to drill down into nested objects, for example: `fields=tracks.items(track(name,href,album(name,href)))`.\nFields can be excluded by prefixing them with an exclamation mark, for example:\n`fields=tracks.items(track(name,href,album(!name,href)))`\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -918,9 +990,15 @@
           "description": {
             "type": "string",
             "description": "Value for playlist description as displayed in Spotify Clients and in the Web API.\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -951,9 +1029,15 @@
           "fields": {
             "type": "string",
             "description": "Filters for the query: a comma-separated list of the\nfields to return. If omitted, all fields are returned. For example, to get\njust the total number of items and the request limit:<br/>`fields=total,limit`<br/>A\ndot separator can be used to specify non-reoccurring fields, while parentheses\ncan be used to specify reoccurring fields within objects. For example, to\nget just the added date and user ID of the adder:<br/>`fields=items(added_at,added_by.id)`<br/>Use\nmultiple parentheses to drill down into nested objects, for example:<br/>`fields=items(track(name,href,album(name,href)))`<br/>Fields\ncan be excluded by prefixing them with an exclamation mark, for example:<br/>`fields=items.track.album(!external_urls,images)`\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -993,9 +1077,15 @@
               "type": "string"
             },
             "description": "A JSON array of the [Spotify URIs](/documentation/web-api/concepts/spotify-uris-ids) to add. For example: `{\"uris\": [\"spotify:track:4iV5W9uYEdYUVa79Axb7Rh\",\"spotify:track:1301WleyT98MSxVHPZCA6M\", \"spotify:episode:512ojhOuo1ktJprKbVcKyQ\"]}`<br/>A maximum of 100 items can be added in one request. _**Note**: if the `uris` parameter is present in the query string, any URIs listed here in the body will be ignored._\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -1047,9 +1137,15 @@
           "snapshot_id": {
             "type": "string",
             "description": "The playlist's snapshot ID against which you want to make the changes.\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -1089,10 +1185,15 @@
           "snapshot_id": {
             "type": "string",
             "description": "The playlist's snapshot ID against which you want to make the changes.\nThe API will validate that the specified items exist and in the specified positions and make the changes,\neven if more recent changes have been made to the playlist.\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "tracks"
+          "tracks",
+          "playlist_id"
         ]
       },
       "handler": {
@@ -1124,9 +1225,15 @@
           "fields": {
             "type": "string",
             "description": "Filters for the query: a comma-separated list of the\nfields to return. If omitted, all fields are returned. For example, to get\njust the total number of items and the request limit:<br/>`fields=total,limit`<br/>A\ndot separator can be used to specify non-reoccurring fields, while parentheses\ncan be used to specify reoccurring fields within objects. For example, to\nget just the added date and user ID of the adder:<br/>`fields=items(added_at,added_by.id)`<br/>Use\nmultiple parentheses to drill down into nested objects, for example:<br/>`fields=items(track(name,href,album(name,href)))`<br/>Fields\ncan be excluded by prefixing them with an exclamation mark, for example:<br/>`fields=items.track.album(!external_urls,images)`\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -1166,9 +1273,15 @@
               "type": "string"
             },
             "description": "A JSON array of the [Spotify URIs](/documentation/web-api/concepts/spotify-uris-ids) to add. For example: `{\"uris\": [\"spotify:track:4iV5W9uYEdYUVa79Axb7Rh\",\"spotify:track:1301WleyT98MSxVHPZCA6M\", \"spotify:episode:512ojhOuo1ktJprKbVcKyQ\"]}`<br/>A maximum of 100 items can be added in one request. _**Note**: if the `uris` parameter is present in the query string, any URIs listed here in the body will be ignored._\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -1220,9 +1333,15 @@
           "snapshot_id": {
             "type": "string",
             "description": "The playlist's snapshot ID against which you want to make the changes.\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -1262,10 +1381,15 @@
           "snapshot_id": {
             "type": "string",
             "description": "The playlist's snapshot ID against which you want to make the changes.\nThe API will validate that the specified items exist and in the specified positions and make the changes,\neven if more recent changes have been made to the playlist.\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "items"
+          "items",
+          "playlist_id"
         ]
       },
       "handler": {
@@ -2036,9 +2160,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "user_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2070,9 +2200,15 @@
             "type": "integer",
             "description": "The index of the first playlist to return. Default:\n0 (the first object). Maximum offset: 100.000\\. Use with `limit` to get the\nnext set of playlists.\n",
             "default": 0
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "user_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2117,10 +2253,15 @@
           "description": {
             "type": "string",
             "description": "value for playlist description as displayed in Spotify Clients and in the Web API.\n"
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Path parameter `user_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "name"
+          "name",
+          "user_id"
         ]
       },
       "handler": {
@@ -2152,9 +2293,15 @@
           "public": {
             "type": "boolean",
             "description": "Defaults to `true`. If `true` the playlist will be included in user's public playlists (added to profile), if `false` it will remain private. For more about public/private status, see [Working with Playlists](/documentation/web-api/concepts/playlists)\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -2181,9 +2328,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -2353,9 +2506,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -2382,9 +2541,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -2617,9 +2782,15 @@
           "ids": {
             "type": "string",
             "description": "**Deprecated** A single item list containing current user's [Spotify Username](/documentation/web-api/concepts/spotify-uris-ids). Maximum: 1 id.\n"
+          },
+          "playlist_id": {
+            "type": "string",
+            "description": "Path parameter `playlist_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "playlist_id"
+        ]
       },
       "handler": {
         "method": "GET",

@@ -7497,9 +7497,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25189,9 +25195,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25355,8 +25367,15 @@
       "description": "Read all alerts on submitted domains",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25379,8 +25398,15 @@
       "description": "Update alerts on submitted domains by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -25403,8 +25429,15 @@
       "description": "Update verification statuses of tracked URLs to awaiting by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -25427,8 +25460,15 @@
       "description": "Update verification statuses of tracked URLs to disproven by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -25451,8 +25491,15 @@
       "description": "Update verification statuses of tracked URLs to confirmed by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -25475,8 +25522,15 @@
       "description": "Read all brands",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25499,8 +25553,15 @@
       "description": "Create new brands",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -25523,8 +25584,15 @@
       "description": "Delete brands by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -25547,8 +25615,15 @@
       "description": "Read patterns for brands by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25571,8 +25646,15 @@
       "description": "Create new patterns for brands by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -25595,8 +25677,15 @@
       "description": "Delete patterns for brands by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -25619,8 +25708,15 @@
       "description": "Update verification statuses of submitted URLs to awaiting by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -25643,8 +25739,15 @@
       "description": "Read submitted domains by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25679,9 +25782,15 @@
           },
           "limit": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25720,9 +25829,15 @@
           },
           "limit": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25749,8 +25864,15 @@
       "description": "Read all saved logo queries",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25785,9 +25907,15 @@
           },
           "image": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -25814,8 +25942,20 @@
       "description": "Read saved logo queries by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "logo_id": {
+            "type": "string",
+            "description": "Path parameter `logo_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "logo_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25838,8 +25978,20 @@
       "description": "Delete saved logo queries by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "logo_id": {
+            "type": "string",
+            "description": "Path parameter `logo_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "logo_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -25874,9 +26026,15 @@
           },
           "include_domain_id": {
             "type": "boolean"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25916,9 +26074,15 @@
           },
           "include_domain_id": {
             "type": "boolean"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25946,8 +26110,15 @@
       "description": "Read string queries by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -25988,9 +26159,15 @@
           },
           "string_matches": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -26036,9 +26213,15 @@
           "tag": {
             "type": "string",
             "description": "Query tag. Required as identifier when updating string_matches."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -26070,9 +26253,15 @@
           },
           "scan": {
             "type": "boolean"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -26105,9 +26294,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -26130,8 +26325,15 @@
       "description": "Read recent URL submissions",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -26154,8 +26356,15 @@
       "description": "Update verification statuses of submitted URLs to disproven by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -26178,8 +26387,15 @@
       "description": "Create new logo queries from image files",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -26202,8 +26418,15 @@
       "description": "Create new logo queries from URLs",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -26226,8 +26449,15 @@
       "description": "Create new string queries",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -26250,8 +26480,15 @@
       "description": "Read URL submissions by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -26274,8 +26511,15 @@
       "description": "Create new URL submissions",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -26298,8 +26542,15 @@
       "description": "Read the total number of saved string queries",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -26322,8 +26573,15 @@
       "description": "Read submitted domains by pattern",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -26346,8 +26604,15 @@
       "description": "Read submitted URLs by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -26370,8 +26635,15 @@
       "description": "Update verification statuses of submitted URLs to confirmed by ID",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -29233,9 +29505,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -29265,10 +29543,15 @@
           "version_ids": {
             "type": "string",
             "description": "Comma-separated list of version UUIDs (max 20)."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "version_ids"
+          "version_ids",
+          "account_id"
         ]
       },
       "handler": {
@@ -29297,9 +29580,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "build_uuid": {
+            "type": "string",
+            "description": "Path parameter `build_uuid` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "build_uuid"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -29325,9 +29619,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "build_uuid": {
+            "type": "string",
+            "description": "Path parameter `build_uuid` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "build_uuid"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -29357,9 +29662,20 @@
           "cursor": {
             "type": "string",
             "description": "Pagination cursor for log retrieval."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "build_uuid": {
+            "type": "string",
+            "description": "Path parameter `build_uuid` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "build_uuid"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -29391,10 +29707,15 @@
           "external_script_ids": {
             "type": "string",
             "description": "Comma-separated list of external script IDs (max 20)."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "external_script_ids"
+          "external_script_ids",
+          "account_id"
         ]
       },
       "handler": {
@@ -29443,13 +29764,18 @@
           "root_directory": {
             "type": "string",
             "description": "Root directory path."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "provider_type",
           "provider_account_id",
           "repo_id",
-          "branch"
+          "branch",
+          "account_id"
         ]
       },
       "handler": {
@@ -29496,6 +29822,10 @@
           },
           "repo_name": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
@@ -29503,7 +29833,8 @@
           "repo_name",
           "provider_type",
           "provider_account_id",
-          "provider_account_name"
+          "provider_account_name",
+          "account_id"
         ]
       },
       "handler": {
@@ -29530,9 +29861,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "repo_connection_uuid": {
+            "type": "string",
+            "description": "Path parameter `repo_connection_uuid` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "repo_connection_uuid"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -29558,9 +29900,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -29595,12 +29943,17 @@
           },
           "cloudflare_token_id": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "build_token_name",
           "build_token_secret",
-          "cloudflare_token_id"
+          "cloudflare_token_id",
+          "account_id"
         ]
       },
       "handler": {
@@ -29631,10 +29984,15 @@
           "build_token_uuid": {
             "type": "string",
             "description": "Build token UUID."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "build_token_uuid"
+          "build_token_uuid",
+          "account_id"
         ]
       },
       "handler": {
@@ -29715,6 +30073,10 @@
           },
           "trigger_name": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
@@ -29728,7 +30090,8 @@
           "branch_excludes",
           "path_includes",
           "path_excludes",
-          "repo_connection_uuid"
+          "repo_connection_uuid",
+          "account_id"
         ]
       },
       "handler": {
@@ -29801,9 +30164,20 @@
           },
           "trigger_name": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "trigger_uuid": {
+            "type": "string",
+            "description": "Path parameter `trigger_uuid` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "trigger_uuid"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -29829,9 +30203,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "trigger_uuid": {
+            "type": "string",
+            "description": "Path parameter `trigger_uuid` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "trigger_uuid"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -29857,9 +30242,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "trigger_uuid": {
+            "type": "string",
+            "description": "Path parameter `trigger_uuid` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "trigger_uuid"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -29885,9 +30281,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "trigger_uuid": {
+            "type": "string",
+            "description": "Path parameter `trigger_uuid` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "trigger_uuid"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -29913,9 +30320,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "trigger_uuid": {
+            "type": "string",
+            "description": "Path parameter `trigger_uuid` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "trigger_uuid"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -29945,10 +30363,20 @@
           "environment_variable_key": {
             "type": "string",
             "description": "Environment variable key."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "trigger_uuid": {
+            "type": "string",
+            "description": "Path parameter `trigger_uuid` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "environment_variable_key"
+          "environment_variable_key",
+          "account_id",
+          "trigger_uuid"
         ]
       },
       "handler": {
@@ -29975,9 +30403,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "trigger_uuid": {
+            "type": "string",
+            "description": "Path parameter `trigger_uuid` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "trigger_uuid"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -30007,10 +30446,15 @@
           "external_script_id": {
             "type": "string",
             "description": "External script identifier."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "external_script_id"
+          "external_script_id",
+          "account_id"
         ]
       },
       "handler": {
@@ -30041,10 +30485,15 @@
           "external_script_id": {
             "type": "string",
             "description": "External script identifier."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "external_script_id"
+          "external_script_id",
+          "account_id"
         ]
       },
       "handler": {
@@ -31050,8 +31499,15 @@
       "description": "List Turnstile Widgets",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -31109,12 +31565,17 @@
             "type": "string",
             "description": "Region where this widget can be used. This cannot be changed after creation.\n",
             "default": "world"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
           "mode",
-          "domains"
+          "domains",
+          "account_id"
         ]
       },
       "handler": {
@@ -31138,8 +31599,20 @@
       "description": "Turnstile Widget Details",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "sitekey": {
+            "type": "string",
+            "description": "Path parameter `sitekey` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "sitekey"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -31197,12 +31670,22 @@
             "type": "string",
             "description": "Region where this widget can be used. This cannot be changed after creation.\n",
             "default": "world"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "sitekey": {
+            "type": "string",
+            "description": "Path parameter `sitekey` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
           "mode",
-          "domains"
+          "domains",
+          "account_id",
+          "sitekey"
         ]
       },
       "handler": {
@@ -31226,8 +31709,20 @@
       "description": "Delete a Turnstile Widget",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "sitekey": {
+            "type": "string",
+            "description": "Path parameter `sitekey` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "sitekey"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -31255,9 +31750,20 @@
             "type": "boolean",
             "description": "If `invalidate_immediately` is set to `false`, the previous secret will\nremain valid for two hours. Otherwise, the secret is immediately\ninvalidated, and requests using it will be rejected.\n",
             "default": false
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "sitekey": {
+            "type": "string",
+            "description": "Path parameter `sitekey` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "sitekey"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -36327,9 +36833,15 @@
             "type": "number",
             "default": 0,
             "minimum": 0
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -36394,12 +36906,17 @@
             "items": {
               "type": "string"
             }
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
           "namespaces",
-          "content"
+          "content",
+          "account_id"
         ]
       },
       "handler": {
@@ -36426,9 +36943,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -36458,10 +36981,15 @@
           "id": {
             "type": "string",
             "description": "The unique identifier for the rule."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "id"
+          "id",
+          "account_id"
         ]
       },
       "handler": {
@@ -36516,10 +37044,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "id"
+          "id",
+          "account_id"
         ]
       },
       "handler": {
@@ -36550,10 +37083,15 @@
           "id": {
             "type": "string",
             "description": "The unique identifier for the rule."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "id"
+          "id",
+          "account_id"
         ]
       },
       "handler": {
@@ -36580,9 +37118,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -36608,9 +37152,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -36651,12 +37201,17 @@
             "items": {
               "type": "string"
             }
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
           "namespaces",
-          "content"
+          "content",
+          "account_id"
         ]
       },
       "handler": {
@@ -38275,9 +38830,15 @@
           "image": {
             "type": "string",
             "description": "Filter containers by image"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -38317,12 +38878,17 @@
             "items": {
               "type": "string"
             }
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "domain",
           "permissions",
-          "expiration_minutes"
+          "expiration_minutes",
+          "account_id"
         ]
       },
       "handler": {
@@ -61022,9 +61588,15 @@
           "include_zones": {
             "type": "boolean",
             "description": "Set to true to include zone-scoped datasets belonging to this account."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -61060,10 +61632,15 @@
               "type": "object"
             },
             "description": "Controls which fields the API ingests. Defaults to all available\nfields when absent.\n"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "dataset"
+          "dataset",
+          "account_id"
         ]
       },
       "handler": {
@@ -61087,8 +61664,20 @@
       "description": "Get an account dataset",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Path parameter `dataset_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "dataset_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -61122,10 +61711,20 @@
               "type": "object"
             },
             "description": "Controls which fields the API ingests after the update. Defaults\nto all available fields when absent.\n"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Path parameter `dataset_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "enabled"
+          "enabled",
+          "account_id",
+          "dataset_id"
         ]
       },
       "handler": {
@@ -61149,8 +61748,15 @@
       "description": "List available account datasets",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -61173,8 +61779,15 @@
       "description": "Run a log query",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -69824,9 +70437,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -69856,10 +70475,15 @@
           "name": {
             "type": "string",
             "description": "Human-readable name for the relay."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "name"
+          "name",
+          "account_id"
         ]
       },
       "handler": {
@@ -69886,9 +70510,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "relay_id": {
+            "type": "string",
+            "description": "Path parameter `relay_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "relay_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -69956,9 +70591,20 @@
           },
           "name": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "relay_id": {
+            "type": "string",
+            "description": "Path parameter `relay_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "relay_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -69984,9 +70630,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "relay_id": {
+            "type": "string",
+            "description": "Path parameter `relay_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "relay_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -70016,10 +70673,20 @@
           "type": {
             "type": "string",
             "description": "Which token type to rotate."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "relay_id": {
+            "type": "string",
+            "description": "Path parameter `relay_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "type"
+          "type",
+          "account_id",
+          "relay_id"
         ]
       },
       "handler": {
@@ -76392,9 +77059,20 @@
           "sort_order": {
             "type": "string",
             "description": "Specifies the sorting order for the results."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "app_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -76429,9 +77107,20 @@
           "name": {
             "type": "string",
             "description": "Name of the livestream"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "app_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -76667,10 +77356,20 @@
           "meeting_id": {
             "type": "string",
             "description": "ID of the meeting. Fetch the meeting ID using the create a meeting API."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "meeting_id"
+          "meeting_id",
+          "account_id",
+          "app_id"
         ]
       },
       "handler": {
@@ -76700,10 +77399,20 @@
           "meeting_id": {
             "type": "string",
             "description": "ID of the meeting. Fetch the meeting ID using the create a meeting API."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "meeting_id"
+          "meeting_id",
+          "account_id",
+          "app_id"
         ]
       },
       "handler": {
@@ -76731,10 +77440,20 @@
           "meeting_id": {
             "type": "string",
             "description": "ID of the meeting. Fetch the meeting ID using the create a meeting API."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "meeting_id"
+          "meeting_id",
+          "account_id",
+          "app_id"
         ]
       },
       "handler": {
@@ -76762,10 +77481,20 @@
           "meeting_id": {
             "type": "string",
             "description": "ID of the meeting"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "meeting_id"
+          "meeting_id",
+          "account_id",
+          "app_id"
         ]
       },
       "handler": {
@@ -76793,10 +77522,20 @@
           "meeting_id": {
             "type": "string",
             "description": "ID of the meeting"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "meeting_id"
+          "meeting_id",
+          "account_id",
+          "app_id"
         ]
       },
       "handler": {
@@ -76823,9 +77562,25 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
+          },
+          "meeting_id": {
+            "type": "string",
+            "description": "Path parameter `meeting_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "app_id",
+          "meeting_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -76859,11 +77614,16 @@
           },
           "undefined": {
             "type": "string"
+          },
+          "meeting_id": {
+            "type": "string",
+            "description": "Path parameter `meeting_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "account_id",
-          "app_id"
+          "app_id",
+          "meeting_id"
         ]
       },
       "handler": {
@@ -76898,11 +77658,16 @@
           },
           "undefined": {
             "type": "string"
+          },
+          "meeting_id": {
+            "type": "string",
+            "description": "Path parameter `meeting_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "account_id",
-          "app_id"
+          "app_id",
+          "meeting_id"
         ]
       },
       "handler": {
@@ -76937,11 +77702,16 @@
           },
           "undefined": {
             "type": "string"
+          },
+          "meeting_id": {
+            "type": "string",
+            "description": "Path parameter `meeting_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "account_id",
-          "app_id"
+          "app_id",
+          "meeting_id"
         ]
       },
       "handler": {
@@ -76976,11 +77746,16 @@
           },
           "undefined": {
             "type": "string"
+          },
+          "meeting_id": {
+            "type": "string",
+            "description": "Path parameter `meeting_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "account_id",
-          "app_id"
+          "app_id",
+          "meeting_id"
         ]
       },
       "handler": {
@@ -77015,11 +77790,16 @@
           },
           "undefined": {
             "type": "string"
+          },
+          "meeting_id": {
+            "type": "string",
+            "description": "Path parameter `meeting_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "account_id",
-          "app_id"
+          "app_id",
+          "meeting_id"
         ]
       },
       "handler": {
@@ -77055,10 +77835,20 @@
           "meeting_id": {
             "type": "string",
             "description": "ID of the meeting"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "meeting_id"
+          "meeting_id",
+          "account_id",
+          "app_id"
         ]
       },
       "handler": {
@@ -77105,10 +77895,20 @@
                 "description": "Width of the livestreaming video in pixels"
               }
             }
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "meeting_id"
+          "meeting_id",
+          "account_id",
+          "app_id"
         ]
       },
       "handler": {
@@ -77225,11 +78025,21 @@
           "participant_id": {
             "type": "string",
             "description": "ID of the participant. You can fetch the participant ID using the add a participant API."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "meeting_id",
-          "participant_id"
+          "participant_id",
+          "account_id",
+          "app_id"
         ]
       },
       "handler": {
@@ -77261,11 +78071,21 @@
           "participant_id": {
             "type": "string",
             "description": "ID of the participant. You can fetch the participant ID using the add a participant API."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "meeting_id",
-          "participant_id"
+          "participant_id",
+          "account_id",
+          "app_id"
         ]
       },
       "handler": {
@@ -77297,11 +78117,21 @@
           "participant_id": {
             "type": "string",
             "description": "ID of the participant. You can fetch the participant ID using the add a participant API."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "Path parameter `app_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "meeting_id",
-          "participant_id"
+          "participant_id",
+          "account_id",
+          "app_id"
         ]
       },
       "handler": {
@@ -78623,8 +79453,15 @@
       "description": "Create App",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -90622,9 +91459,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -90651,10 +91494,15 @@
           "name": {
             "type": "string",
             "description": "Human-readable name."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "name"
+          "name",
+          "account_id"
         ]
       },
       "handler": {
@@ -90678,8 +91526,20 @@
       "description": "Get Credential Set",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "credential_set_id": {
+            "type": "string",
+            "description": "Path parameter `credential_set_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "credential_set_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -90706,10 +91566,20 @@
           "name": {
             "type": "string",
             "description": "Human-readable name."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "credential_set_id": {
+            "type": "string",
+            "description": "Path parameter `credential_set_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "name"
+          "name",
+          "account_id",
+          "credential_set_id"
         ]
       },
       "handler": {
@@ -90737,9 +91607,20 @@
           "name": {
             "type": "string",
             "description": "Human-readable name."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "credential_set_id": {
+            "type": "string",
+            "description": "Path parameter `credential_set_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "credential_set_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -90762,8 +91643,20 @@
       "description": "Delete Credential Set",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "credential_set_id": {
+            "type": "string",
+            "description": "Path parameter `credential_set_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "credential_set_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -90789,9 +91682,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "credential_set_id": {
+            "type": "string",
+            "description": "Path parameter `credential_set_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "credential_set_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -90830,13 +91734,23 @@
           "value": {
             "type": "string",
             "description": "The credential value (e.g. API key, session token). Write-only.\nNever returned in responses.\n"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "credential_set_id": {
+            "type": "string",
+            "description": "Path parameter `credential_set_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
           "location",
           "location_name",
-          "value"
+          "value",
+          "account_id",
+          "credential_set_id"
         ]
       },
       "handler": {
@@ -90860,8 +91774,25 @@
       "description": "Get Credential",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "credential_set_id": {
+            "type": "string",
+            "description": "Path parameter `credential_set_id` (auto-injected; not declared in spec)."
+          },
+          "credential_id": {
+            "type": "string",
+            "description": "Path parameter `credential_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "credential_set_id",
+          "credential_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -90900,13 +91831,28 @@
           "value": {
             "type": "string",
             "description": "The credential value. Write-only. Never returned in responses.\n"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "credential_set_id": {
+            "type": "string",
+            "description": "Path parameter `credential_set_id` (auto-injected; not declared in spec)."
+          },
+          "credential_id": {
+            "type": "string",
+            "description": "Path parameter `credential_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
           "location",
           "location_name",
-          "value"
+          "value",
+          "account_id",
+          "credential_set_id",
+          "credential_id"
         ]
       },
       "handler": {
@@ -90946,9 +91892,25 @@
           "value": {
             "type": "string",
             "description": "The credential value. Write-only. Never returned in responses.\n"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "credential_set_id": {
+            "type": "string",
+            "description": "Path parameter `credential_set_id` (auto-injected; not declared in spec)."
+          },
+          "credential_id": {
+            "type": "string",
+            "description": "Path parameter `credential_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "credential_set_id",
+          "credential_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -90971,8 +91933,25 @@
       "description": "Delete Credential",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "credential_set_id": {
+            "type": "string",
+            "description": "Path parameter `credential_set_id` (auto-injected; not declared in spec)."
+          },
+          "credential_id": {
+            "type": "string",
+            "description": "Path parameter `credential_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "credential_set_id",
+          "credential_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -90998,9 +91977,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -91048,13 +92033,18 @@
           "target_environment_id": {
             "type": "string",
             "description": "The target environment to scan."
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "target_environment_id",
           "scan_type",
           "open_api",
-          "credential_sets"
+          "credential_sets",
+          "account_id"
         ]
       },
       "handler": {
@@ -91078,8 +92068,20 @@
       "description": "Get Scan",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "scan_id": {
+            "type": "string",
+            "description": "Path parameter `scan_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "scan_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -91105,9 +92107,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -91150,11 +92158,16 @@
                 "description": "Cloudflare zone tag. The zone must belong to the account.\n"
               }
             }
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
-          "target"
+          "target",
+          "account_id"
         ]
       },
       "handler": {
@@ -91178,8 +92191,20 @@
       "description": "Get Target Environment",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "target_environment_id": {
+            "type": "string",
+            "description": "Path parameter `target_environment_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "target_environment_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -91222,11 +92247,21 @@
                 "description": "Cloudflare zone tag. The zone must belong to the account.\n"
               }
             }
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "target_environment_id": {
+            "type": "string",
+            "description": "Path parameter `target_environment_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
-          "target"
+          "target",
+          "account_id",
+          "target_environment_id"
         ]
       },
       "handler": {
@@ -91270,9 +92305,20 @@
                 "description": "Cloudflare zone tag. The zone must belong to the account.\n"
               }
             }
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "target_environment_id": {
+            "type": "string",
+            "description": "Path parameter `target_environment_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id",
+          "target_environment_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -91295,8 +92341,20 @@
       "description": "Delete Target Environment",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
+          },
+          "target_environment_id": {
+            "type": "string",
+            "description": "Path parameter `target_environment_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "account_id",
+          "target_environment_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -93252,9 +94310,15 @@
           "orderBy": {
             "type": "string",
             "default": "updated"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -93308,12 +94372,17 @@
           },
           "skipPreflightCheck": {
             "type": "boolean"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
           "enabled",
-          "configuration"
+          "configuration",
+          "account_id"
         ]
       },
       "handler": {
@@ -93357,12 +94426,17 @@
           },
           "enabled": {
             "type": "boolean"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "slug",
           "enabled",
-          "configuration"
+          "configuration",
+          "account_id"
         ]
       },
       "handler": {
@@ -93389,10 +94463,15 @@
         "properties": {
           "slug": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "slug"
+          "slug",
+          "account_id"
         ]
       },
       "handler": {
@@ -93435,9 +94514,15 @@
           "orderBy": {
             "type": "string",
             "default": "updated"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -93551,12 +94636,17 @@
                 "description": "Configure the order of the results returned by the query."
               }
             }
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "description",
           "name",
-          "parameters"
+          "parameters",
+          "account_id"
         ]
       },
       "handler": {
@@ -93583,10 +94673,15 @@
         "properties": {
           "queryId": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "queryId"
+          "queryId",
+          "account_id"
         ]
       },
       "handler": {
@@ -93699,13 +94794,18 @@
                 "description": "Configure the order of the results returned by the query."
               }
             }
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "queryId",
           "description",
           "name",
-          "parameters"
+          "parameters",
+          "account_id"
         ]
       },
       "handler": {
@@ -93732,10 +94832,15 @@
         "properties": {
           "queryId": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "queryId"
+          "queryId",
+          "account_id"
         ]
       },
       "handler": {
@@ -93815,9 +94920,15 @@
           },
           "to": {
             "type": "number"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -93983,11 +95094,16 @@
             "type": "string",
             "description": "Examples by view type. Events: show errors for a worker in the last 30 minutes. Calculations: p99 of wall time or count by status code. Invocations: find a specific request that resulted in a 500.",
             "default": "calculations"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "queryId",
-          "timeframe"
+          "timeframe",
+          "account_id"
         ]
       },
       "handler": {
@@ -94062,13 +95178,18 @@
           },
           "type": {
             "type": "string"
+          },
+          "account_id": {
+            "type": "string",
+            "description": "Path parameter `account_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "timeframe",
           "key",
           "type",
-          "datasets"
+          "datasets",
+          "account_id"
         ]
       },
       "handler": {
@@ -130396,9 +131517,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "account_tag": {
+            "type": "string",
+            "description": "Path parameter `account_tag` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "account_tag"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -130432,11 +131559,16 @@
           "name": {
             "type": "string",
             "description": "The name of the store"
+          },
+          "account_tag": {
+            "type": "string",
+            "description": "Path parameter `account_tag` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "name",
-          "account_id"
+          "account_id",
+          "account_tag"
         ]
       },
       "handler": {
@@ -130467,10 +131599,15 @@
           "store_id": {
             "type": "string",
             "description": "Store Identifier"
+          },
+          "account_tag": {
+            "type": "string",
+            "description": "Path parameter `account_tag` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "store_id"
+          "store_id",
+          "account_tag"
         ]
       },
       "handler": {
@@ -130501,10 +131638,15 @@
           "store_id": {
             "type": "string",
             "description": "Store Identifier"
+          },
+          "account_tag": {
+            "type": "string",
+            "description": "Path parameter `account_tag` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "store_id"
+          "store_id",
+          "account_tag"
         ]
       },
       "handler": {
@@ -130535,10 +131677,15 @@
           "store_id": {
             "type": "string",
             "description": "Store Identifier"
+          },
+          "account_tag": {
+            "type": "string",
+            "description": "Path parameter `account_tag` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "store_id"
+          "store_id",
+          "account_tag"
         ]
       },
       "handler": {
@@ -130569,10 +131716,15 @@
           "store_id": {
             "type": "string",
             "description": "Store Identifier"
+          },
+          "account_tag": {
+            "type": "string",
+            "description": "Path parameter `account_tag` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "store_id"
+          "store_id",
+          "account_tag"
         ]
       },
       "handler": {
@@ -130610,11 +131762,16 @@
               "type": "string"
             },
             "description": "List of secret identifier tags to delete."
+          },
+          "account_tag": {
+            "type": "string",
+            "description": "Path parameter `account_tag` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "store_id",
-          "ids"
+          "ids",
+          "account_tag"
         ]
       },
       "handler": {
@@ -130649,11 +131806,16 @@
           "secret_id": {
             "type": "string",
             "description": "Secret identifier tag."
+          },
+          "account_tag": {
+            "type": "string",
+            "description": "Path parameter `account_tag` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "store_id",
-          "secret_id"
+          "secret_id",
+          "account_tag"
         ]
       },
       "handler": {
@@ -130703,11 +131865,16 @@
           "value": {
             "type": "string",
             "description": "The value of the secret. Note that this is 'write only' - no API reponse will provide this value, it is only used to create/modify secrets."
+          },
+          "account_tag": {
+            "type": "string",
+            "description": "Path parameter `account_tag` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "store_id",
-          "secret_id"
+          "secret_id",
+          "account_tag"
         ]
       },
       "handler": {
@@ -130742,11 +131909,16 @@
           "secret_id": {
             "type": "string",
             "description": "Secret identifier tag."
+          },
+          "account_tag": {
+            "type": "string",
+            "description": "Path parameter `account_tag` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "store_id",
-          "secret_id"
+          "secret_id",
+          "account_tag"
         ]
       },
       "handler": {
@@ -130796,13 +131968,18 @@
               "type": "string"
             },
             "description": "The list of services that can use this secret."
+          },
+          "account_tag": {
+            "type": "string",
+            "description": "Path parameter `account_tag` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "store_id",
           "secret_id",
           "name",
-          "scopes"
+          "scopes",
+          "account_tag"
         ]
       },
       "handler": {
@@ -136176,9 +137353,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -136217,11 +137400,16 @@
             "type": "string",
             "description": "Configure which routing method to use for the regional hostname",
             "default": "dns"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "hostname",
-          "region_key"
+          "region_key",
+          "zone_id"
         ]
       },
       "handler": {
@@ -136248,9 +137436,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "hostname": {
+            "type": "string",
+            "description": "Path parameter `hostname` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "hostname"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -136280,10 +137479,20 @@
           "region_key": {
             "type": "string",
             "description": "Identifying key for the region"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "hostname": {
+            "type": "string",
+            "description": "Path parameter `hostname` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "region_key"
+          "region_key",
+          "zone_id",
+          "hostname"
         ]
       },
       "handler": {
@@ -136310,9 +137519,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "hostname": {
+            "type": "string",
+            "description": "Path parameter `hostname` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "hostname"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -136402,8 +137622,15 @@
       "description": "Retrieve information about specific configuration properties",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -136426,8 +137653,15 @@
       "description": "Update configuration properties",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -136450,8 +137684,15 @@
       "description": "Retrieve discovered operations on a zone rendered as OpenAPI schemas",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -136477,9 +137718,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -136502,8 +137749,15 @@
       "description": "Patch discovered operations",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -136530,9 +137784,20 @@
           "state": {
             "type": "string",
             "description": "Mark state of operation in API Discovery\n  * `review` - Mark operation as for review\n  * `ignored` - Mark operation as ignored\n"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "operation_id": {
+            "type": "string",
+            "description": "Path parameter `operation_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "operation_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -136562,10 +137827,15 @@
               "type": "string"
             },
             "description": "List of hosts to be targeted in the expression"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "hosts"
+          "hosts",
+          "zone_id"
         ]
       },
       "handler": {
@@ -136592,9 +137862,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -136620,9 +137896,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "name": {
+            "type": "string",
+            "description": "Path parameter `name` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "name"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -136662,10 +137949,20 @@
               }
             },
             "description": "Operation IDs selector"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "name": {
+            "type": "string",
+            "description": "Path parameter `name` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "selector"
+          "selector",
+          "zone_id",
+          "name"
         ]
       },
       "handler": {
@@ -136689,8 +137986,15 @@
       "description": "Create user labels",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -136713,8 +138017,15 @@
       "description": "Delete user labels",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -136740,9 +138051,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "name": {
+            "type": "string",
+            "description": "Path parameter `name` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "name"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -136773,9 +138095,20 @@
           "metadata": {
             "type": "object",
             "description": "Metadata for the label"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "name": {
+            "type": "string",
+            "description": "Path parameter `name` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "name"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -136806,9 +138139,20 @@
           "metadata": {
             "type": "object",
             "description": "Metadata for the label"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "name": {
+            "type": "string",
+            "description": "Path parameter `name` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "name"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -136831,8 +138175,20 @@
       "description": "Delete user label",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "name": {
+            "type": "string",
+            "description": "Path parameter `name` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "name"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -136872,10 +138228,20 @@
               }
             },
             "description": "Operation IDs selector"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "name": {
+            "type": "string",
+            "description": "Path parameter `name` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "selector"
+          "selector",
+          "zone_id",
+          "name"
         ]
       },
       "handler": {
@@ -136906,9 +138272,15 @@
           "order": {
             "type": "string",
             "description": "Field to order by. When requesting a feature, the feature keys are available for ordering as well, e.g., `thresholds.suggested_threshold`."
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -136933,8 +138305,15 @@
       "description": "Add operations to a zone",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -136957,8 +138336,15 @@
       "description": "Delete multiple operations",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -136984,9 +138370,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "operation_id": {
+            "type": "string",
+            "description": "Path parameter `operation_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "operation_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -137009,8 +138406,20 @@
       "description": "Delete an operation",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "operation_id": {
+            "type": "string",
+            "description": "Path parameter `operation_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "operation_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -137047,9 +138456,20 @@
               "type": "string"
             },
             "description": "List of user label names."
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "operation_id": {
+            "type": "string",
+            "description": "Path parameter `operation_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "operation_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -137086,9 +138506,20 @@
               "type": "string"
             },
             "description": "List of user label names. Omitting this property or passing an empty array will result in all user labels being removed from the operation"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "operation_id": {
+            "type": "string",
+            "description": "Path parameter `operation_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "operation_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -137125,9 +138556,20 @@
               "type": "string"
             },
             "description": "List of user label names."
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "operation_id": {
+            "type": "string",
+            "description": "Path parameter `operation_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "operation_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -137150,8 +138592,20 @@
       "description": "Retrieve operation-level schema validation settings",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "operation_id": {
+            "type": "string",
+            "description": "Path parameter `operation_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "operation_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -137178,9 +138632,20 @@
           "mitigation_action": {
             "type": "string",
             "description": "When set, this applies a mitigation action to this operation\n\n  - `log` log request when request does not conform to schema for this operation\n  - `block` deny access to the site when request does not conform to schema for this operation\n  - `none` will skip mitigation for this operation\n  - `null` indicates that no operation level mitigation is in place, see Zone Level Schema Validation Settings for mitigation action that will be applied\n"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "operation_id": {
+            "type": "string",
+            "description": "Path parameter `operation_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "operation_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -137215,12 +138680,17 @@
           "method": {
             "type": "string",
             "description": "The HTTP method used to access the endpoint."
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "method",
           "host",
-          "endpoint"
+          "endpoint",
+          "zone_id"
         ]
       },
       "handler": {
@@ -137285,10 +138755,15 @@
                 "description": "List of user label names."
               }
             }
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "selector"
+          "selector",
+          "zone_id"
         ]
       },
       "handler": {
@@ -137355,12 +138830,17 @@
               }
             },
             "description": "User labels to replace for all affected operations"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
           "selector",
           "user",
-          "managed"
+          "managed",
+          "zone_id"
         ]
       },
       "handler": {
@@ -137425,10 +138905,15 @@
                 "description": "List of user label names."
               }
             }
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "selector"
+          "selector",
+          "zone_id"
         ]
       },
       "handler": {
@@ -137452,8 +138937,15 @@
       "description": "Update multiple operation-level schema validation settings",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -137486,9 +138978,15 @@
           },
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -137513,8 +139011,15 @@
       "description": "Retrieve zone level schema validation settings",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -137545,10 +139050,15 @@
           "validation_override_mitigation_action": {
             "type": "string",
             "description": "When set, this overrides both zone level and operation level mitigation actions.\n\n  - `none` will skip running schema validation entirely for the request\n  - `null` indicates that no override is in place\n\nTo clear any override, use the special value `disable_override` or `null`\n"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "validation_default_mitigation_action"
+          "validation_default_mitigation_action",
+          "zone_id"
         ]
       },
       "handler": {
@@ -137580,9 +139090,15 @@
           "validation_override_mitigation_action": {
             "type": "string",
             "description": "When set, this overrides both zone level and operation level mitigation actions.\n\n  - `none` will skip running schema validation entirely for the request\n\nTo clear any override, use the special value `disable_override`\n\n`null` will have no effect.\n"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -137612,9 +139128,15 @@
           "validation_enabled": {
             "type": "boolean",
             "description": "Flag whether schema is enabled for validation."
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -137639,8 +139161,15 @@
       "description": "Upload a schema to a zone",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -137666,9 +139195,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "schema_id": {
+            "type": "string",
+            "description": "Path parameter `schema_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "schema_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -137695,9 +139235,20 @@
           "validation_enabled": {
             "type": "boolean",
             "description": "Flag whether schema is enabled for validation."
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "schema_id": {
+            "type": "string",
+            "description": "Path parameter `schema_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "schema_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -137720,8 +139271,20 @@
       "description": "Delete a schema",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "schema_id": {
+            "type": "string",
+            "description": "Path parameter `schema_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "schema_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -137751,9 +139314,20 @@
           "operation_status": {
             "type": "string",
             "description": "Filter results by whether operations exist in API Shield Endpoint Management or not. `new` will just return operations from the schema that do not exist in API Shield Endpoint Management. `existing` will just return operations from the schema that already exist in API Shield Endpoint Management."
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "schema_id": {
+            "type": "string",
+            "description": "Path parameter `schema_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "schema_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -137778,8 +139352,15 @@
       "description": "Retrieve schema hosts in a zone",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -142773,8 +144354,15 @@
       "description": "List zone environments",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -142803,10 +144391,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "environments"
+          "environments",
+          "zone_id"
         ]
       },
       "handler": {
@@ -142836,10 +144429,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "environments"
+          "environments",
+          "zone_id"
         ]
       },
       "handler": {
@@ -142869,10 +144467,15 @@
             "items": {
               "type": "object"
             }
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "environments"
+          "environments",
+          "zone_id"
         ]
       },
       "handler": {
@@ -142896,8 +144499,20 @@
       "description": "Delete zone environment",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "environment_id": {
+            "type": "string",
+            "description": "Path parameter `environment_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "environment_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -142920,8 +144535,20 @@
       "description": "Roll back zone environment",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "environment_id": {
+            "type": "string",
+            "description": "Path parameter `environment_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "environment_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -148455,8 +150082,15 @@
       "description": "List zone datasets",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -148490,10 +150124,15 @@
               "type": "object"
             },
             "description": "Controls which fields the API ingests. Defaults to all available\nfields when absent.\n"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "dataset"
+          "dataset",
+          "zone_id"
         ]
       },
       "handler": {
@@ -148517,8 +150156,20 @@
       "description": "Get a zone dataset",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Path parameter `dataset_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "dataset_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -148552,10 +150203,20 @@
               "type": "object"
             },
             "description": "Controls which fields the API ingests after the update. Defaults\nto all available fields when absent.\n"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "dataset_id": {
+            "type": "string",
+            "description": "Path parameter `dataset_id` (auto-injected; not declared in spec)."
           }
         },
         "required": [
-          "enabled"
+          "enabled",
+          "zone_id",
+          "dataset_id"
         ]
       },
       "handler": {
@@ -148579,8 +150240,15 @@
       "description": "List available zone datasets",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -148603,8 +150271,15 @@
       "description": "Run a log query",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -151488,9 +153163,15 @@
           "validation_enabled": {
             "type": "boolean",
             "description": "Flag whether schema is enabled for validation."
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -151515,8 +153196,15 @@
       "description": "Upload a schema",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -151542,9 +153230,20 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "schema_id": {
+            "type": "string",
+            "description": "Path parameter `schema_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "schema_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -151567,8 +153266,20 @@
       "description": "Edit details of a schema to enable validation",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "schema_id": {
+            "type": "string",
+            "description": "Path parameter `schema_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "schema_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -151591,8 +153302,20 @@
       "description": "Delete a schema",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "schema_id": {
+            "type": "string",
+            "description": "Path parameter `schema_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "schema_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -151622,9 +153345,20 @@
           "operation_status": {
             "type": "string",
             "description": "Filter results by whether operations exist in Web Asset Management or not. `new` will just return operations from the schema that do not exist otherwise. `existing` will just return operations from the schema that already exist."
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "schema_id": {
+            "type": "string",
+            "description": "Path parameter `schema_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id",
+          "schema_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -151652,9 +153386,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -151677,8 +153417,15 @@
       "description": "Get global schema validation settings",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -151701,8 +153448,15 @@
       "description": "Update global schema validation settings",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -151725,8 +153479,15 @@
       "description": "Edit global schema validation settings",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -151752,9 +153513,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -151777,8 +153544,15 @@
       "description": "Bulk edit per-operation schema validation settings",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -151801,8 +153575,20 @@
       "description": "Get per-operation schema validation setting",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "operation_id": {
+            "type": "string",
+            "description": "Path parameter `operation_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "operation_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -151825,8 +153611,20 @@
       "description": "Update per-operation schema validation setting",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "operation_id": {
+            "type": "string",
+            "description": "Path parameter `operation_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "operation_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -151849,8 +153647,20 @@
       "description": "Delete per-operation schema validation setting",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "operation_id": {
+            "type": "string",
+            "description": "Path parameter `operation_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "operation_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -156886,9 +158696,15 @@
         "properties": {
           "undefined": {
             "type": "string"
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -156911,8 +158727,15 @@
       "description": "Create a new Token Validation configuration",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -156935,8 +158758,20 @@
       "description": "Get a single Token Configuration",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "config_id": {
+            "type": "string",
+            "description": "Path parameter `config_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "config_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -156959,8 +158794,20 @@
       "description": "Edit an existing Token Configuration",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "config_id": {
+            "type": "string",
+            "description": "Path parameter `config_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "config_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -156983,8 +158830,20 @@
       "description": "Delete Token Configuration",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "config_id": {
+            "type": "string",
+            "description": "Path parameter `config_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "config_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -157007,8 +158866,20 @@
       "description": "Update Token Configuration credentials",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "config_id": {
+            "type": "string",
+            "description": "Path parameter `config_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "config_id"
+        ]
       },
       "handler": {
         "method": "PUT",
@@ -157065,9 +158936,15 @@
           "hostname": {
             "type": "string",
             "description": "RFC3986-compliant host."
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -157098,8 +158975,15 @@
       "description": "Create a token validation rule",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -157122,8 +159006,20 @@
       "description": "Get a zone token validation rule",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Path parameter `rule_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "rule_id"
+        ]
       },
       "handler": {
         "method": "GET",
@@ -157146,8 +159042,20 @@
       "description": "Edit a zone token validation rule",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Path parameter `rule_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "rule_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -157170,8 +159078,20 @@
       "description": "Delete a zone token validation rule",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Path parameter `rule_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id",
+          "rule_id"
+        ]
       },
       "handler": {
         "method": "DELETE",
@@ -157194,8 +159114,15 @@
       "description": "Bulk create token validation rules",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -157218,8 +159145,15 @@
       "description": "Bulk edit token validation rules",
       "input_schema": {
         "type": "object",
-        "properties": {},
-        "required": []
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
+          }
+        },
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "PATCH",
@@ -157279,9 +159213,15 @@
               "type": "string"
             },
             "description": "Filter operations by endpoint. Allows substring matching."
+          },
+          "zone_id": {
+            "type": "string",
+            "description": "Path parameter `zone_id` (auto-injected; not declared in spec)."
           }
         },
-        "required": []
+        "required": [
+          "zone_id"
+        ]
       },
       "handler": {
         "method": "POST",
