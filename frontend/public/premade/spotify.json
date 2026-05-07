@@ -1771,9 +1771,7 @@
             "description": "A JSON array of objects containing track IDs with their corresponding timestamps. Each object must include a track ID and an `added_at` timestamp. This allows you to specify when tracks were added to maintain a specific chronological order in the user's library.<br/>A maximum of 50 items can be specified in one request. _**Note**: if the `timestamped_ids` is present in the body, any IDs listed in the query parameters (deprecated) or the `ids` field in the body will be ignored._\n"
           }
         },
-        "required": [
-          "uris"
-        ]
+        "required": []
       },
       "handler": {
         "method": "PUT",
@@ -1901,8 +1899,7 @@
           }
         },
         "required": [
-          "ids",
-          "uris"
+          "ids"
         ]
       },
       "handler": {

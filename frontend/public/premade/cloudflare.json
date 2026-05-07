@@ -53715,8 +53715,7 @@
         },
         "required": [
           "account_id",
-          "name",
-          "ips"
+          "name"
         ]
       },
       "handler": {
@@ -155736,7 +155735,6 @@
         },
         "required": [
           "zone_id",
-          "tools",
           "triggers",
           "variables",
           "settings",

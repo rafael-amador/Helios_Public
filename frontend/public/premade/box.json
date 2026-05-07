@@ -228,9 +228,7 @@
             "description": "The access token to revoke."
           }
         },
-        "required": [
-          "grant_type"
-        ]
+        "required": []
       },
       "handler": {
         "method": "POST",

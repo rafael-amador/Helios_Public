@@ -11198,7 +11198,6 @@
           }
         },
         "required": [
-          "droplet_ids",
           "lb_id"
         ]
       },

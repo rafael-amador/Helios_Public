@@ -540,8 +540,18 @@ function sanitizeInputSchemaKeys(
       changed = true;
     }
   }
-  if (!changed) return { properties, required };
-  const renamedRequired = required.map(k => keyAssignment.get(k) ?? sanitizeSchemaKey(k));
+  if (!changed) {
+    // Drop required entries that don't reference an actual property — these
+    // are spec bugs (figma's putWebhook lists `team_id` as required but never
+    // declares it; cloudflare's zero_trust_gateway_proxy_endpoints does the
+    // same with `ips`). Anthropic's tool API rejects schemas where required
+    // references a missing property, so filter here at parse time.
+    const filtered = required.filter(k => properties[k] !== undefined);
+    return { properties, required: filtered };
+  }
+  const renamedRequired = required
+    .map(k => keyAssignment.get(k) ?? sanitizeSchemaKey(k))
+    .filter(k => renamed[k] !== undefined);
   return { properties: renamed, required: renamedRequired, param_name_map: map };
 }
 

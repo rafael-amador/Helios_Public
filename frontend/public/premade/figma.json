@@ -1214,7 +1214,6 @@
         "required": [
           "webhook_id",
           "event_type",
-          "team_id",
           "endpoint",
           "passcode"
         ]

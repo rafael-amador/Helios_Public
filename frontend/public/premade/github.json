@@ -24692,7 +24692,6 @@
         },
         "required": [
           "status",
-          "conclusion",
           "owner",
           "repo"
         ]
@@ -24775,7 +24774,6 @@
           }
         },
         "required": [
-          "conclusion",
           "owner",
           "repo",
           "check_run_id"

@@ -1,25 +1,16 @@
 # Premade Audit Report
 
-Generated: 2026-05-07T03:29:35.969Z
+Generated: 2026-05-07T15:00:08.792Z
 
 ## Summary
 
 - Premades audited: **40**
-- Total errors:     **6**
+- Total errors:     **0**
 - Total warnings:   **21**
 - Failed to download/extract: **0** 
-- Completely clean: **19** (airtable, google_maps, linear, mongodb, newsapi, notion, open_meteo, openweathermap, pagerduty, perplexity, postmark, reddit, sendgrid, slack, tmdb, twilio, twitter, unsplash, wolfram_alpha)
+- Completely clean: **20** (airtable, figma, google_maps, linear, mongodb, newsapi, notion, open_meteo, openweathermap, pagerduty, perplexity, postmark, reddit, sendgrid, slack, tmdb, twilio, twitter, unsplash, wolfram_alpha)
 
 ## Issues grouped by kind (severity-sorted)
-
-### [ERROR] REQUIRED_NOT_IN_PROPS — affects 6 premade(s)
-
-- **box** — **1 occurrence(s)**; samples: `post_oauth2_revoke` (req: grant_type)
-- **cloudflare** — **2 occurrence(s)**; samples: `zero_trust_gateway_proxy_endpoints_create_proxy_endpoint` (req: ips), `put_zones_zone_identifier_zaraz_config` (req: tools)
-- **digitalocean** — **1 occurrence(s)**; samples: `loadBalancers_remove_droplets` (req: droplet_ids)
-- **figma** — **1 occurrence(s)**; samples: `putWebhook` (req: team_id)
-- **github** — **2 occurrence(s)**; samples: `checks_create` (req: conclusion), `checks_update` (req: conclusion)
-- **spotify** — **2 occurrence(s)**; samples: `save_tracks_user` (req: uris), `save_episodes_user` (req: uris)
 
 ### [WARNING] MUTATING_NO_BODY — affects 20 premade(s)
 
@@ -55,13 +46,13 @@ Generated: 2026-05-07T03:29:35.969Z
 | airtable | 15 | (none) | 15 | 0 | 0 | 0 | 0 |
 | algolia | 78 | api_key_header | 0 | 4 | 0 | 0 | 1 |
 | asana | 167 | oauth2_auth_code | 0 | 2 | 0 | 0 | 1 |
-| box | 296 | oauth2_auth_code | 0 | 14 | 0 | 1 | 1 |
+| box | 296 | oauth2_auth_code | 0 | 14 | 0 | 0 | 1 |
 | circleci | 114 | api_key_header | 0 | 4 | 0 | 0 | 1 |
-| cloudflare | 2844 | api_key_header | 0 | 230 | 0 | 1 | 1 |
-| digitalocean | 599 | bearer_token | 0 | 11 | 0 | 1 | 1 |
+| cloudflare | 2844 | api_key_header | 0 | 230 | 0 | 0 | 1 |
+| digitalocean | 599 | bearer_token | 0 | 11 | 0 | 0 | 1 |
 | discord | 230 | api_key_header | 0 | 24 | 0 | 0 | 1 |
-| figma | 47 | api_key_header | 0 | 0 | 0 | 1 | 0 |
-| github | 1112 | (none) | 1112 | 2 | 0 | 1 | 1 |
+| figma | 47 | api_key_header | 0 | 0 | 0 | 0 | 0 |
+| github | 1112 | (none) | 1112 | 2 | 0 | 0 | 1 |
 | gitlab | 1126 | api_key_header | 0 | 86 | 0 | 0 | 1 |
 | gmail | 79 | oauth2_auth_code | 0 | 16 | 0 | 0 | 1 |
 | google_maps | 10 | (none) | 10 | 0 | 0 | 0 | 0 |
@@ -79,7 +70,7 @@ Generated: 2026-05-07T03:29:35.969Z
 | reddit | 17 | (none) | 17 | 0 | 0 | 0 | 0 |
 | sendgrid | 19 | (none) | 19 | 0 | 0 | 0 | 0 |
 | slack | 174 | oauth2_auth_code | 0 | 0 | 0 | 0 | 0 |
-| spotify | 96 | oauth2_auth_code | 0 | 11 | 0 | 1 | 1 |
+| spotify | 96 | oauth2_auth_code | 0 | 11 | 0 | 0 | 1 |
 | stripe | 587 | basic_auth | 0 | 1 | 0 | 0 | 1 |
 | supabase | 161 | bearer_token | 0 | 18 | 0 | 0 | 2 |
 | tmdb | 27 | (none) | 27 | 0 | 0 | 0 | 0 |
