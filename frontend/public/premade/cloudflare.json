@@ -1937,7 +1937,7 @@
       "enabled": true
     },
     {
-      "name": "access_short_lived_certificate_c_as_get_a_short_lived_certificate_ca",
+      "name": "access_short_lived_certificate_c_as_get_a_short_lived_c_9759eb9e",
       "description": "Get a short-lived certificate CA",
       "input_schema": {
         "type": "object",
@@ -1973,7 +1973,7 @@
       "enabled": true
     },
     {
-      "name": "access_short_lived_certificate_c_as_create_a_short_lived_certificate_ca",
+      "name": "access_short_lived_certificate_c_as_create_a_short_live_f59cff6c",
       "description": "Create a short-lived certificate CA",
       "input_schema": {
         "type": "object",
@@ -2009,7 +2009,7 @@
       "enabled": true
     },
     {
-      "name": "access_short_lived_certificate_c_as_delete_a_short_lived_certificate_ca",
+      "name": "access_short_lived_certificate_c_as_delete_a_short_live_dce378af",
       "description": "Delete a short-lived certificate CA",
       "input_schema": {
         "type": "object",
@@ -2459,7 +2459,7 @@
       "enabled": true
     },
     {
-      "name": "access_short_lived_certificate_c_as_list_short_lived_certificate_c_as",
+      "name": "access_short_lived_certificate_c_as_list_short_lived_ce_deee3aa3",
       "description": "List short-lived certificate CAs",
       "input_schema": {
         "type": "object",
@@ -2531,7 +2531,7 @@
       "enabled": true
     },
     {
-      "name": "access_bookmark_applications___deprecated__list_bookmark_applications",
+      "name": "access_bookmark_applications___deprecated__list_bookmar_516782f6",
       "description": "List Bookmark applications",
       "input_schema": {
         "type": "object",
@@ -2561,7 +2561,7 @@
       "enabled": true
     },
     {
-      "name": "access_bookmark_applications___deprecated__get_a_bookmark_application",
+      "name": "access_bookmark_applications___deprecated__get_a_bookma_adafb144",
       "description": "Get a Bookmark application",
       "input_schema": {
         "type": "object",
@@ -2596,7 +2596,7 @@
       "enabled": true
     },
     {
-      "name": "access_bookmark_applications___deprecated__create_a_bookmark_application",
+      "name": "access_bookmark_applications___deprecated__create_a_boo_ab1cd626",
       "description": "Create a Bookmark application",
       "input_schema": {
         "type": "object",
@@ -2631,7 +2631,7 @@
       "enabled": true
     },
     {
-      "name": "access_bookmark_applications___deprecated__update_a_bookmark_application",
+      "name": "access_bookmark_applications___deprecated__update_a_boo_722d411c",
       "description": "Update a Bookmark application",
       "input_schema": {
         "type": "object",
@@ -2666,7 +2666,7 @@
       "enabled": true
     },
     {
-      "name": "access_bookmark_applications___deprecated__delete_a_bookmark_application",
+      "name": "access_bookmark_applications___deprecated__delete_a_boo_46c4b077",
       "description": "Delete a Bookmark application",
       "input_schema": {
         "type": "object",
@@ -2910,7 +2910,7 @@
       "enabled": true
     },
     {
-      "name": "access_mtls_authentication_list_mtls_certificates_hostname_settings",
+      "name": "access_mtls_authentication_list_mtls_certificates_hostn_61c07414",
       "description": "List all mTLS hostname settings",
       "input_schema": {
         "type": "object",
@@ -4720,7 +4720,7 @@
       "enabled": true
     },
     {
-      "name": "zero_trust_organization_get_your_zero_trust_organization_doh_settings",
+      "name": "zero_trust_organization_get_your_zero_trust_organizatio_1c854e5a",
       "description": "Get your Zero Trust organization DoH settings",
       "input_schema": {
         "type": "object",
@@ -4751,7 +4751,7 @@
       "enabled": true
     },
     {
-      "name": "zero_trust_organization_update_your_zero_trust_organization_doh_settings",
+      "name": "zero_trust_organization_update_your_zero_trust_organiza_7d0c18a4",
       "description": "Update your Zero Trust organization DoH settings",
       "input_schema": {
         "type": "object",
@@ -6338,7 +6338,7 @@
       "enabled": true
     },
     {
-      "name": "ip_address_management_address_maps_add_an_account_membership_to_an_address_map",
+      "name": "ip_address_management_address_maps_add_an_account_membe_814e3edb",
       "description": "Add an account membership to an Address Map",
       "input_schema": {
         "type": "object",
@@ -6374,7 +6374,7 @@
       "enabled": true
     },
     {
-      "name": "ip_address_management_address_maps_remove_an_account_membership_from_an_address_map",
+      "name": "ip_address_management_address_maps_remove_an_account_me_28dcedc3",
       "description": "Remove an account membership from an Address Map",
       "input_schema": {
         "type": "object",
@@ -6451,7 +6451,7 @@
       "enabled": true
     },
     {
-      "name": "ip_address_management_address_maps_remove_an_ip_from_an_address_map",
+      "name": "ip_address_management_address_maps_remove_an_ip_from_an_162f2ca6",
       "description": "Remove an IP from an Address Map",
       "input_schema": {
         "type": "object",
@@ -6492,7 +6492,7 @@
       "enabled": true
     },
     {
-      "name": "ip_address_management_address_maps_add_a_zone_membership_to_an_address_map",
+      "name": "ip_address_management_address_maps_add_a_zone_membershi_64a2e025",
       "description": "Add a zone membership to an Address Map",
       "input_schema": {
         "type": "object",
@@ -6533,7 +6533,7 @@
       "enabled": true
     },
     {
-      "name": "ip_address_management_address_maps_remove_a_zone_membership_from_an_address_map",
+      "name": "ip_address_management_address_maps_remove_a_zone_member_a7cefad6",
       "description": "Remove a zone membership from an Address Map",
       "input_schema": {
         "type": "object",
@@ -7090,7 +7090,7 @@
       "enabled": true
     },
     {
-      "name": "ip_address_management_dynamic_advertisement_get_advertisement_status",
+      "name": "ip_address_management_dynamic_advertisement_get_adverti_b9cb4a06",
       "description": "Get Advertisement Status",
       "input_schema": {
         "type": "object",
@@ -7126,7 +7126,7 @@
       "enabled": true
     },
     {
-      "name": "ip_address_management_dynamic_advertisement_update_prefix_dynamic_advertisement_status",
+      "name": "ip_address_management_dynamic_advertisement_update_pref_98acc485",
       "description": "Update Prefix Dynamic Advertisement Status",
       "input_schema": {
         "type": "object",
@@ -23171,7 +23171,7 @@
       "enabled": true
     },
     {
-      "name": "notification_mechanism_eligibility_get_delivery_mechanism_eligibility",
+      "name": "notification_mechanism_eligibility_get_delivery_mechani_1711d8c6",
       "description": "Get delivery mechanism eligibility",
       "input_schema": {
         "type": "object",
@@ -23202,7 +23202,7 @@
       "enabled": true
     },
     {
-      "name": "notification_destinations_with_pager_duty_list_pager_duty_services",
+      "name": "notification_destinations_with_pager_duty_list_pager_du_6fd3a2d7",
       "description": "List PagerDuty services",
       "input_schema": {
         "type": "object",
@@ -23233,7 +23233,7 @@
       "enabled": true
     },
     {
-      "name": "notification_destinations_with_pager_duty_delete_pager_duty_services",
+      "name": "notification_destinations_with_pager_duty_delete_pager__f9a07fde",
       "description": "Delete PagerDuty Services",
       "input_schema": {
         "type": "object",
@@ -23295,7 +23295,7 @@
       "enabled": true
     },
     {
-      "name": "notification_destinations_with_pager_duty_connect_pager_duty_token",
+      "name": "notification_destinations_with_pager_duty_connect_pager_be8161ba",
       "description": "Connect PagerDuty",
       "input_schema": {
         "type": "object",
@@ -25704,7 +25704,7 @@
       "enabled": true
     },
     {
-      "name": "get_accounts_by_account_id_brand_protection_logo_matches_download",
+      "name": "get_accounts_by_account_id_brand_protection_logo_matche_23a2cb28",
       "description": "Download matches for logo queries by ID",
       "input_schema": {
         "type": "object",
@@ -38416,7 +38416,7 @@
       "enabled": true
     },
     {
-      "name": "account_level_custom_nameservers_delete_account_custom_nameserver",
+      "name": "account_level_custom_nameservers_delete_account_custom__387193ce",
       "description": "Delete Account Custom Nameserver",
       "input_schema": {
         "type": "object",
@@ -40534,7 +40534,7 @@
       "enabled": true
     },
     {
-      "name": "devices_get_split_tunnel_exclude_list_for_a_device_settings_policy",
+      "name": "devices_get_split_tunnel_exclude_list_for_a_device_sett_d3da8f47",
       "description": "Get the Split Tunnel exclude list for a device settings profile",
       "input_schema": {
         "type": "object",
@@ -40568,7 +40568,7 @@
       "enabled": true
     },
     {
-      "name": "devices_set_split_tunnel_exclude_list_for_a_device_settings_policy",
+      "name": "devices_set_split_tunnel_exclude_list_for_a_device_sett_67f20c87",
       "description": "Set the Split Tunnel exclude list for a device settings profile",
       "input_schema": {
         "type": "object",
@@ -40602,7 +40602,7 @@
       "enabled": true
     },
     {
-      "name": "devices_get_local_domain_fallback_list_for_a_device_settings_policy",
+      "name": "devices_get_local_domain_fallback_list_for_a_device_set_8c955c1b",
       "description": "Get the Local Domain Fallback list for a device settings profile",
       "input_schema": {
         "type": "object",
@@ -40636,7 +40636,7 @@
       "enabled": true
     },
     {
-      "name": "devices_set_local_domain_fallback_list_for_a_device_settings_policy",
+      "name": "devices_set_local_domain_fallback_list_for_a_device_set_8dc6c2b2",
       "description": "Set the Local Domain Fallback list for a device settings profile",
       "input_schema": {
         "type": "object",
@@ -40670,7 +40670,7 @@
       "enabled": true
     },
     {
-      "name": "devices_get_split_tunnel_include_list_for_a_device_settings_policy",
+      "name": "devices_get_split_tunnel_include_list_for_a_device_sett_6214c03c",
       "description": "Get the Split Tunnel include list for a device settings profile",
       "input_schema": {
         "type": "object",
@@ -40704,7 +40704,7 @@
       "enabled": true
     },
     {
-      "name": "devices_set_split_tunnel_include_list_for_a_device_settings_policy",
+      "name": "devices_set_split_tunnel_include_list_for_a_device_sett_d69b767d",
       "description": "Set the Split Tunnel include list for a device settings profile",
       "input_schema": {
         "type": "object",
@@ -41813,7 +41813,7 @@
       "enabled": true
     },
     {
-      "name": "zero_trust_accounts_update_device_settings_for_the_zero_trust_account",
+      "name": "zero_trust_accounts_update_device_settings_for_the_zero_7aa095e0",
       "description": "Update device settings for a Zero Trust account",
       "input_schema": {
         "type": "object",
@@ -41879,7 +41879,7 @@
       "enabled": true
     },
     {
-      "name": "zero_trust_accounts_patch_device_settings_for_the_zero_trust_account",
+      "name": "zero_trust_accounts_patch_device_settings_for_the_zero__785da76f",
       "description": "Patch device settings for a Zero Trust account",
       "input_schema": {
         "type": "object",
@@ -41945,7 +41945,7 @@
       "enabled": true
     },
     {
-      "name": "zero_trust_accounts_delete_device_settings_for_zero_trust_account",
+      "name": "zero_trust_accounts_delete_device_settings_for_zero_tru_a925ffbf",
       "description": "Reset device settings for a Zero Trust account with defaults. This turns off all proxying.",
       "input_schema": {
         "type": "object",
@@ -51054,7 +51054,7 @@
       "enabled": true
     },
     {
-      "name": "zero_trust_gateway_application_and_application_type_mappings_list_application_and_application_type_mappings",
+      "name": "zero_trust_gateway_application_and_application_type_map_53abeb86",
       "description": "List application and application type mappings",
       "input_schema": {
         "type": "object",
@@ -52789,7 +52789,7 @@
       "enabled": true
     },
     {
-      "name": "zero_trust_accounts_get_logging_settings_for_the_zero_trust_account",
+      "name": "zero_trust_accounts_get_logging_settings_for_the_zero_t_365c8188",
       "description": "Get logging settings for the Zero Trust account",
       "input_schema": {
         "type": "object",
@@ -52819,7 +52819,7 @@
       "enabled": true
     },
     {
-      "name": "zero_trust_accounts_update_logging_settings_for_the_zero_trust_account",
+      "name": "zero_trust_accounts_update_logging_settings_for_the_zer_6132c36b",
       "description": "Update Zero Trust account logging settings",
       "input_schema": {
         "type": "object",
@@ -54244,7 +54244,7 @@
       "enabled": true
     },
     {
-      "name": "zero_trust_gateway_rules_reset_expiration_zero_trust_gateway_rule",
+      "name": "zero_trust_gateway_rules_reset_expiration_zero_trust_ga_d9122b82",
       "description": "Reset the expiration of a Zero Trust Gateway Rule",
       "input_schema": {
         "type": "object",
@@ -58257,7 +58257,7 @@
       "enabled": true
     },
     {
-      "name": "account_load_balancer_monitor_groups_list_monitor_group_references",
+      "name": "account_load_balancer_monitor_groups_list_monitor_group_6139db6c",
       "description": "List Monitor Group References",
       "input_schema": {
         "type": "object",
@@ -66352,7 +66352,7 @@
       "enabled": true
     },
     {
-      "name": "magic_ipsec_tunnels_generate_pre_shared_key___psk__for_ipsec_tunnels",
+      "name": "magic_ipsec_tunnels_generate_pre_shared_key___psk__for__97bbdf55",
       "description": "Generate Pre Shared Key (PSK) for IPsec tunnels",
       "input_schema": {
         "type": "object",
@@ -69160,7 +69160,7 @@
       "enabled": true
     },
     {
-      "name": "magic_network_monitoring_configuration_list_account_configuration",
+      "name": "magic_network_monitoring_configuration_list_account_con_227ba756",
       "description": "List account configuration",
       "input_schema": {
         "type": "object",
@@ -69190,7 +69190,7 @@
       "enabled": true
     },
     {
-      "name": "magic_network_monitoring_configuration_create_account_configuration",
+      "name": "magic_network_monitoring_configuration_create_account_c_6b952d8c",
       "description": "Create account configuration",
       "input_schema": {
         "type": "object",
@@ -69244,7 +69244,7 @@
       "enabled": true
     },
     {
-      "name": "magic_network_monitoring_configuration_update_an_entire_account_configuration",
+      "name": "magic_network_monitoring_configuration_update_an_entire_2fb60929",
       "description": "Update an entire account configuration",
       "input_schema": {
         "type": "object",
@@ -69298,7 +69298,7 @@
       "enabled": true
     },
     {
-      "name": "magic_network_monitoring_configuration_update_account_configuration_fields",
+      "name": "magic_network_monitoring_configuration_update_account_c_2940b8b3",
       "description": "Update account configuration fields",
       "input_schema": {
         "type": "object",
@@ -69350,7 +69350,7 @@
       "enabled": true
     },
     {
-      "name": "magic_network_monitoring_configuration_delete_account_configuration",
+      "name": "magic_network_monitoring_configuration_delete_account_c_c2d782c3",
       "description": "Delete account configuration",
       "input_schema": {
         "type": "object",
@@ -69380,7 +69380,7 @@
       "enabled": true
     },
     {
-      "name": "magic_network_monitoring_configuration_list_rules_and_account_configuration",
+      "name": "magic_network_monitoring_configuration_list_rules_and_a_61478d99",
       "description": "List rules and account configuration",
       "input_schema": {
         "type": "object",
@@ -85660,7 +85660,7 @@
       "enabled": true
     },
     {
-      "name": "stream_subtitles__captions_generate_caption_or_subtitle_for_language",
+      "name": "stream_subtitles__captions_generate_caption_or_subtitle_55d5f229",
       "description": "Generate captions or subtitles for a provided language via AI",
       "input_schema": {
         "type": "object",
@@ -86714,7 +86714,7 @@
       "enabled": true
     },
     {
-      "name": "stream_live_inputs_list_all_outputs_associated_with_a_specified_live_input",
+      "name": "stream_live_inputs_list_all_outputs_associated_with_a_s_a32c2e74",
       "description": "List all outputs associated with a specified live input",
       "input_schema": {
         "type": "object",
@@ -86750,7 +86750,7 @@
       "enabled": true
     },
     {
-      "name": "stream_live_inputs_create_a_new_output__connected_to_a_live_input",
+      "name": "stream_live_inputs_create_a_new_output__connected_to_a__d896688b",
       "description": "Create a new output, connected to a live input",
       "input_schema": {
         "type": "object",
@@ -86957,7 +86957,7 @@
       "enabled": true
     },
     {
-      "name": "stream_watermark_profile_create_watermark_profiles_via_basic_upload",
+      "name": "stream_watermark_profile_create_watermark_profiles_via__43a2ac40",
       "description": "Create watermark profiles via basic upload",
       "input_schema": {
         "type": "object",
@@ -127296,7 +127296,7 @@
       "enabled": true
     },
     {
-      "name": "radar_get_leaked_credential_checks_timeseries_group_by_compromised",
+      "name": "radar_get_leaked_credential_checks_timeseries_group_by__1e007889",
       "description": "Get HTTP authentication requests by compromised credential status time series",
       "input_schema": {
         "type": "object",
@@ -134136,7 +134136,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_short_lived_certificate_c_as_get_a_short_lived_certificate_ca",
+      "name": "zone_level_access_short_lived_certificate_c_as_get_a_sh_8440ed2d",
       "description": "Get a short-lived certificate CA",
       "input_schema": {
         "type": "object",
@@ -134172,7 +134172,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_short_lived_certificate_c_as_create_a_short_lived_certificate_ca",
+      "name": "zone_level_access_short_lived_certificate_c_as_create_a_53214a41",
       "description": "Create a short-lived certificate CA",
       "input_schema": {
         "type": "object",
@@ -134208,7 +134208,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_short_lived_certificate_c_as_delete_a_short_lived_certificate_ca",
+      "name": "zone_level_access_short_lived_certificate_c_as_delete_a_43a8dc30",
       "description": "Delete a short-lived certificate CA",
       "input_schema": {
         "type": "object",
@@ -134599,7 +134599,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_applications_put_update_access_application_settings",
+      "name": "zone_level_access_applications_put_update_access_applic_7512a783",
       "description": "Update application settings",
       "input_schema": {
         "type": "object",
@@ -134643,7 +134643,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_applications_patch_update_access_application_settings",
+      "name": "zone_level_access_applications_patch_update_access_appl_8fda96c4",
       "description": "Update application settings",
       "input_schema": {
         "type": "object",
@@ -134723,7 +134723,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_short_lived_certificate_c_as_list_short_lived_certificate_c_as",
+      "name": "zone_level_access_short_lived_certificate_c_as_list_sho_f9578016",
       "description": "List short-lived certificate CAs",
       "input_schema": {
         "type": "object",
@@ -134953,7 +134953,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_mtls_authentication_list_mtls_certificates_hostname_settings",
+      "name": "zone_level_access_mtls_authentication_list_mtls_certifi_d7fbba89",
       "description": "List all mTLS hostname settings",
       "input_schema": {
         "type": "object",
@@ -134984,7 +134984,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_mtls_authentication_update_an_mtls_certificate_settings",
+      "name": "zone_level_access_mtls_authentication_update_an_mtls_ce_53eab547",
       "description": "Update an mTLS certificate's hostname settings",
       "input_schema": {
         "type": "object",
@@ -135246,7 +135246,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_identity_providers_list_access_identity_providers",
+      "name": "zone_level_access_identity_providers_list_access_identi_e0b4139e",
       "description": "List Access identity providers",
       "input_schema": {
         "type": "object",
@@ -135277,7 +135277,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_identity_providers_add_an_access_identity_provider",
+      "name": "zone_level_access_identity_providers_add_an_access_iden_59711d48",
       "description": "Add an Access identity provider",
       "input_schema": {
         "type": "object",
@@ -135361,7 +135361,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_identity_providers_get_an_access_identity_provider",
+      "name": "zone_level_access_identity_providers_get_an_access_iden_f574d542",
       "description": "Get an Access identity provider",
       "input_schema": {
         "type": "object",
@@ -135397,7 +135397,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_identity_providers_update_an_access_identity_provider",
+      "name": "zone_level_access_identity_providers_update_an_access_i_21e2e11c",
       "description": "Update an Access identity provider",
       "input_schema": {
         "type": "object",
@@ -135486,7 +135486,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_access_identity_providers_delete_an_access_identity_provider",
+      "name": "zone_level_access_identity_providers_delete_an_access_i_a2152045",
       "description": "Delete an Access identity provider",
       "input_schema": {
         "type": "object",
@@ -135522,7 +135522,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_zero_trust_organization_get_your_zero_trust_organization",
+      "name": "zone_level_zero_trust_organization_get_your_zero_trust__8fed6223",
       "description": "Get your Zero Trust organization",
       "input_schema": {
         "type": "object",
@@ -135552,7 +135552,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_zero_trust_organization_create_your_zero_trust_organization",
+      "name": "zone_level_zero_trust_organization_create_your_zero_tru_589cb9b2",
       "description": "Create your Zero Trust organization",
       "input_schema": {
         "type": "object",
@@ -135607,7 +135607,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_zero_trust_organization_update_your_zero_trust_organization",
+      "name": "zone_level_zero_trust_organization_update_your_zero_tru_ee5dda15",
       "description": "Update your Zero Trust organization",
       "input_schema": {
         "type": "object",
@@ -135660,7 +135660,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_zero_trust_organization_revoke_all_access_tokens_for_a_user",
+      "name": "zone_level_zero_trust_organization_revoke_all_access_to_c5167367",
       "description": "Revoke all Access tokens for a user",
       "input_schema": {
         "type": "object",
@@ -136367,7 +136367,7 @@
       "enabled": true
     },
     {
-      "name": "argo_analytics_for_geolocation_argo_analytics_for_a_zone_at_different_po_ps",
+      "name": "argo_analytics_for_geolocation_argo_analytics_for_a_zon_9305942d",
       "description": "Argo Analytics for a zone at different PoPs",
       "input_schema": {
         "type": "object",
@@ -136398,7 +136398,7 @@
       "enabled": true
     },
     {
-      "name": "api_shield_settings_retrieve_information_about_specific_configuration_properties",
+      "name": "api_shield_settings_retrieve_information_about_specific_f069d9c9",
       "description": "Retrieve information about specific configuration properties",
       "input_schema": {
         "type": "object",
@@ -136446,7 +136446,7 @@
       "enabled": true
     },
     {
-      "name": "api_shield_api_discovery_retrieve_discovered_operations_on_a_zone_as_openapi",
+      "name": "api_shield_api_discovery_retrieve_discovered_operations_7d0e247b",
       "description": "Retrieve discovered operations on a zone rendered as OpenAPI schemas",
       "input_schema": {
         "type": "object",
@@ -136470,7 +136470,7 @@
       "enabled": true
     },
     {
-      "name": "api_shield_api_discovery_retrieve_discovered_operations_on_a_zone",
+      "name": "api_shield_api_discovery_retrieve_discovered_operations_b533af05",
       "description": "Retrieve discovered operations on a zone",
       "input_schema": {
         "type": "object",
@@ -136895,7 +136895,7 @@
       "enabled": true
     },
     {
-      "name": "api_shield_endpoint_management_retrieve_information_about_all_operations_on_a_zone",
+      "name": "api_shield_endpoint_management_retrieve_information_abo_55ffcf65",
       "description": "Retrieve information about all operations on a zone",
       "input_schema": {
         "type": "object",
@@ -136977,7 +136977,7 @@
       "enabled": true
     },
     {
-      "name": "api_shield_endpoint_management_retrieve_information_about_an_operation",
+      "name": "api_shield_endpoint_management_retrieve_information_abo_72e5517c",
       "description": "Retrieve information about an operation",
       "input_schema": {
         "type": "object",
@@ -137448,7 +137448,7 @@
       "enabled": true
     },
     {
-      "name": "api_shield_schema_validation_update_multiple_operation_level_settings",
+      "name": "api_shield_schema_validation_update_multiple_operation__abc44373",
       "description": "Update multiple operation-level schema validation settings",
       "input_schema": {
         "type": "object",
@@ -137472,7 +137472,7 @@
       "enabled": true
     },
     {
-      "name": "api_shield_endpoint_management_retrieve_operations_and_features_as_open_api_schemas",
+      "name": "api_shield_endpoint_management_retrieve_operations_and__6c65fa54",
       "description": "Retrieve operations and features as OpenAPI schemas",
       "input_schema": {
         "type": "object",
@@ -137601,7 +137601,7 @@
       "enabled": true
     },
     {
-      "name": "api_shield_schema_validation_retrieve_information_about_all_schemas",
+      "name": "api_shield_schema_validation_retrieve_information_about_ad064f6b",
       "description": "Retrieve information about all schemas on a zone",
       "input_schema": {
         "type": "object",
@@ -137659,7 +137659,7 @@
       "enabled": true
     },
     {
-      "name": "api_shield_schema_validation_retrieve_information_about_specific_schema",
+      "name": "api_shield_schema_validation_retrieve_information_about_a94544fe",
       "description": "Retrieve information about a specific schema on a zone",
       "input_schema": {
         "type": "object",
@@ -138387,7 +138387,7 @@
       "enabled": true
     },
     {
-      "name": "zone_cache_settings_change_origin_post_quantum_encryption_setting",
+      "name": "zone_cache_settings_change_origin_post_quantum_encrypti_4057bb3e",
       "description": "Change Origin Post-Quantum Encryption setting",
       "input_schema": {
         "type": "object",
@@ -140045,7 +140045,7 @@
       "enabled": true
     },
     {
-      "name": "custom_hostname_for_a_zone_delete_custom_hostname___and_any_issued_ssl_certificates_",
+      "name": "custom_hostname_for_a_zone_delete_custom_hostname___and_62bec33b",
       "description": "Delete Custom Hostname (and any issued SSL certificates)",
       "input_schema": {
         "type": "object",
@@ -140081,7 +140081,7 @@
       "enabled": true
     },
     {
-      "name": "custom_hostname_for_a_zone_edit_custom_certificate_custom_hostname",
+      "name": "custom_hostname_for_a_zone_edit_custom_certificate_cust_c08beab8",
       "description": "Replace Custom Certificate and Custom Key In Custom Hostname",
       "input_schema": {
         "type": "object",
@@ -140137,7 +140137,7 @@
       "enabled": true
     },
     {
-      "name": "custom_hostname_for_a_zone_delete_single_certificate_and_key_in_a_custom_hostname",
+      "name": "custom_hostname_for_a_zone_delete_single_certificate_an_d0277a88",
       "description": "Delete Single Certificate And Key For Custom Hostname",
       "input_schema": {
         "type": "object",
@@ -140183,7 +140183,7 @@
       "enabled": true
     },
     {
-      "name": "custom_hostname_fallback_origin_for_a_zone_get_fallback_origin_for_custom_hostnames",
+      "name": "custom_hostname_fallback_origin_for_a_zone_get_fallback_739f68d3",
       "description": "Get Fallback Origin for Custom Hostnames",
       "input_schema": {
         "type": "object",
@@ -140214,7 +140214,7 @@
       "enabled": true
     },
     {
-      "name": "custom_hostname_fallback_origin_for_a_zone_update_fallback_origin_for_custom_hostnames",
+      "name": "custom_hostname_fallback_origin_for_a_zone_update_fallb_a61fde22",
       "description": "Update Fallback Origin for Custom Hostnames",
       "input_schema": {
         "type": "object",
@@ -140250,7 +140250,7 @@
       "enabled": true
     },
     {
-      "name": "custom_hostname_fallback_origin_for_a_zone_delete_fallback_origin_for_custom_hostnames",
+      "name": "custom_hostname_fallback_origin_for_a_zone_delete_fallb_6cac2b23",
       "description": "Delete Fallback Origin for Custom Hostnames",
       "input_schema": {
         "type": "object",
@@ -140281,7 +140281,7 @@
       "enabled": true
     },
     {
-      "name": "account_level_custom_nameservers_usage_for_a_zone_get_account_custom_nameserver_related_zone_metadata",
+      "name": "account_level_custom_nameservers_usage_for_a_zone_get_a_fe198fc4",
       "description": "Get Account Custom Nameserver Related Zone Metadata",
       "input_schema": {
         "type": "object",
@@ -140312,7 +140312,7 @@
       "enabled": true
     },
     {
-      "name": "account_level_custom_nameservers_usage_for_a_zone_set_account_custom_nameserver_related_zone_metadata",
+      "name": "account_level_custom_nameservers_usage_for_a_zone_set_a_0158243a",
       "description": "Set Account Custom Nameserver Related Zone Metadata",
       "input_schema": {
         "type": "object",
@@ -149004,7 +149004,7 @@
       "enabled": true
     },
     {
-      "name": "per_hostname_authenticated_origin_pull_list_hostname_associations",
+      "name": "per_hostname_authenticated_origin_pull_list_hostname_as_b070f62c",
       "description": "List Hostname Associations",
       "input_schema": {
         "type": "object",
@@ -149056,7 +149056,7 @@
       "enabled": true
     },
     {
-      "name": "per_hostname_authenticated_origin_pull_enable_or_disable_a_hostname_for_client_authentication",
+      "name": "per_hostname_authenticated_origin_pull_enable_or_disabl_98d6066f",
       "description": "Enable or Disable a Hostname for Client Authentication",
       "input_schema": {
         "type": "object",
@@ -149094,7 +149094,7 @@
       "enabled": true
     },
     {
-      "name": "per_hostname_authenticated_origin_pull_get_the_hostname_status_for_client_authentication",
+      "name": "per_hostname_authenticated_origin_pull_get_the_hostname_ddb5b92e",
       "description": "Get the Hostname Status for Client Authentication",
       "input_schema": {
         "type": "object",
@@ -149161,7 +149161,7 @@
       "enabled": true
     },
     {
-      "name": "per_hostname_authenticated_origin_pull_upload_a_hostname_client_certificate",
+      "name": "per_hostname_authenticated_origin_pull_upload_a_hostnam_c944d0bf",
       "description": "Upload a Hostname Client Certificate",
       "input_schema": {
         "type": "object",
@@ -149202,7 +149202,7 @@
       "enabled": true
     },
     {
-      "name": "per_hostname_authenticated_origin_pull_get_the_hostname_client_certificate",
+      "name": "per_hostname_authenticated_origin_pull_get_the_hostname_fd0d3074",
       "description": "Get the Hostname Client Certificate",
       "input_schema": {
         "type": "object",
@@ -149238,7 +149238,7 @@
       "enabled": true
     },
     {
-      "name": "per_hostname_authenticated_origin_pull_delete_hostname_client_certificate",
+      "name": "per_hostname_authenticated_origin_pull_delete_hostname__8073f526",
       "description": "Delete Hostname Client Certificate",
       "input_schema": {
         "type": "object",
@@ -149274,7 +149274,7 @@
       "enabled": true
     },
     {
-      "name": "zone_level_authenticated_origin_pulls_get_enablement_setting_for_zone",
+      "name": "zone_level_authenticated_origin_pulls_get_enablement_se_bc500768",
       "description": "Get Enablement Setting for Zone",
       "input_schema": {
         "type": "object",
@@ -151899,7 +151899,7 @@
       "enabled": true
     },
     {
-      "name": "secondary_dns___secondary_zone__secondary_zone_configuration_details",
+      "name": "secondary_dns___secondary_zone__secondary_zone_configur_b9307aa2",
       "description": "Secondary Zone Configuration Details",
       "input_schema": {
         "type": "object",
@@ -151929,7 +151929,7 @@
       "enabled": true
     },
     {
-      "name": "secondary_dns___secondary_zone__create_secondary_zone_configuration",
+      "name": "secondary_dns___secondary_zone__create_secondary_zone_c_2344e597",
       "description": "Create Secondary Zone Configuration",
       "input_schema": {
         "type": "object",
@@ -151983,7 +151983,7 @@
       "enabled": true
     },
     {
-      "name": "secondary_dns___secondary_zone__update_secondary_zone_configuration",
+      "name": "secondary_dns___secondary_zone__update_secondary_zone_c_d47b1837",
       "description": "Update Secondary Zone Configuration",
       "input_schema": {
         "type": "object",
@@ -152037,7 +152037,7 @@
       "enabled": true
     },
     {
-      "name": "secondary_dns___secondary_zone__delete_secondary_zone_configuration",
+      "name": "secondary_dns___secondary_zone__delete_secondary_zone_c_9ee3c4c7",
       "description": "Delete Secondary Zone Configuration",
       "input_schema": {
         "type": "object",
@@ -155390,7 +155390,7 @@
       "enabled": true
     },
     {
-      "name": "spectrum_applications_create_spectrum_application_using_a_name_for_the_origin",
+      "name": "spectrum_applications_create_spectrum_application_using_b4869a33",
       "description": "Create Spectrum application using a name for the origin",
       "input_schema": {
         "type": "object",
@@ -155470,7 +155470,7 @@
       "enabled": true
     },
     {
-      "name": "spectrum_applications_update_spectrum_application_configuration_using_a_name_for_the_origin",
+      "name": "spectrum_applications_update_spectrum_application_confi_4458d8a7",
       "description": "Update Spectrum application configuration using a name for the origin",
       "input_schema": {
         "type": "object",
@@ -156127,7 +156127,7 @@
       "enabled": true
     },
     {
-      "name": "certificate_packs_restart_validation_for_advanced_certificate_manager_certificate_pack",
+      "name": "certificate_packs_restart_validation_for_advanced_certi_ac852ee7",
       "description": "Restart Validation or Update Advanced Certificate Manager Certificate Pack",
       "input_schema": {
         "type": "object",
@@ -156167,7 +156167,7 @@
       "enabled": true
     },
     {
-      "name": "certificate_packs_delete_advanced_certificate_manager_certificate_pack",
+      "name": "certificate_packs_delete_advanced_certificate_manager_c_678684f6",
       "description": "Delete Advanced Certificate Manager Certificate Pack",
       "input_schema": {
         "type": "object",
@@ -156203,7 +156203,7 @@
       "enabled": true
     },
     {
-      "name": "certificate_packs_order_advanced_certificate_manager_certificate_pack",
+      "name": "certificate_packs_order_advanced_certificate_manager_ce_3239d207",
       "description": "Order Advanced Certificate Manager Certificate Pack",
       "input_schema": {
         "type": "object",
@@ -159159,7 +159159,7 @@
       "enabled": true
     },
     {
-      "name": "web3_hostname_list_ipfs_universal_path_gateway_content_list_entries",
+      "name": "web3_hostname_list_ipfs_universal_path_gateway_content__d9bcbbc0",
       "description": "List IPFS Universal Path Gateway Content List Entries",
       "input_schema": {
         "type": "object",
@@ -159195,7 +159195,7 @@
       "enabled": true
     },
     {
-      "name": "web3_hostname_create_ipfs_universal_path_gateway_content_list_entry",
+      "name": "web3_hostname_create_ipfs_universal_path_gateway_conten_a510b5df",
       "description": "Create IPFS Universal Path Gateway Content List Entry",
       "input_schema": {
         "type": "object",
@@ -159245,7 +159245,7 @@
       "enabled": true
     },
     {
-      "name": "web3_hostname_ipfs_universal_path_gateway_content_list_entry_details",
+      "name": "web3_hostname_ipfs_universal_path_gateway_content_list__07c72430",
       "description": "IPFS Universal Path Gateway Content List Entry Details",
       "input_schema": {
         "type": "object",
@@ -159286,7 +159286,7 @@
       "enabled": true
     },
     {
-      "name": "web3_hostname_edit_ipfs_universal_path_gateway_content_list_entry",
+      "name": "web3_hostname_edit_ipfs_universal_path_gateway_content__d159e0a4",
       "description": "Edit IPFS Universal Path Gateway Content List Entry",
       "input_schema": {
         "type": "object",
@@ -159341,7 +159341,7 @@
       "enabled": true
     },
     {
-      "name": "web3_hostname_delete_ipfs_universal_path_gateway_content_list_entry",
+      "name": "web3_hostname_delete_ipfs_universal_path_gateway_conten_2ea81209",
       "description": "Delete IPFS Universal Path Gateway Content List Entry",
       "input_schema": {
         "type": "object",

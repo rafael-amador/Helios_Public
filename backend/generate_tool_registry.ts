@@ -642,6 +642,37 @@ function generateToolName(method: string, path: string): string {
     .replace(/^_+|_+$/g, "");
 }
 
+// Anthropic's tool API rejects any tool name that doesn't match this pattern.
+// Same regex as schema keys but applied to the top-level tool name. Specs in
+// the wild (gitlab Debian package endpoints, GitHub Actions, Cloudflare Access,
+// Box metadata) routinely produce 65–120 char operationIds.
+const ANTHROPIC_TOOL_NAME_RE = /^[a-zA-Z0-9_.-]{1,64}$/;
+
+/**
+ * Deterministic, regex-compliant rewrite of a tool name. Strips disallowed
+ * chars first (so `replace` from generateToolName/operationId already handled
+ * most), then truncates to 64 with an 8-char hash suffix to keep collisions
+ * unique across the registry. Exported so the regen script + per-premade JSON
+ * patcher can reuse the exact same function.
+ */
+export function sanitizeToolName(original: string): string {
+  if (ANTHROPIC_TOOL_NAME_RE.test(original)) return original;
+  // Strip any char outside [a-zA-Z0-9_.-]; same convention as schema keys.
+  let cleaned = original.replace(/[^a-zA-Z0-9_.-]+/g, "_");
+  if (cleaned.length > 64) {
+    // 8-char SHA-1 prefix anchored on the *original* keeps the rewrite 1:1.
+    // Two sibling endpoints whose names share the first 64 chars would otherwise
+    // collide and the second silently overwrites the first in the tool catalog.
+    const tag = createHash("sha1").update(original).digest("hex").slice(0, 8);
+    cleaned = cleaned.slice(0, 55) + "_" + tag; // 55 + 1 + 8 = 64
+  }
+  // Edge: spec produced an empty/all-junk operationId. Fall back to the hash.
+  if (cleaned.length === 0) {
+    cleaned = "tool_" + createHash("sha1").update(original).digest("hex").slice(0, 8);
+  }
+  return cleaned;
+}
+
 // ─── Auth Config Parser ───────────────────────────────────────────────────────
 
 /**
@@ -684,6 +715,11 @@ export function parseAuthConfig(spec: any): AuthConfig[] {
 
 export function parseOpenApiSpec(spec: any): ToolsFile {
   const tools: EndpointDefinition[] = []
+  // Tracks every tool name we've emitted so post-sanitization collisions
+  // (two long operationIds that share the same first 64 chars, or rare
+  // duplicate operationIds) get a stable hash suffix instead of silently
+  // overwriting each other in the catalog.
+  const toolNamesSeen = new Set<string>()
   const paths: Record<string, any> = spec.paths || {}
 
   let baseUrl: string
@@ -829,9 +865,24 @@ export function parseOpenApiSpec(spec: any): ToolsFile {
         parameters, requestBody, spec, fixedParamNames
       )
 
-      const name = operation.operationId
+      const rawName = operation.operationId
         ? operation.operationId.replace(/[^a-zA-Z0-9_]/g, "_")
         : generateToolName(method, path)
+      // Truncate + hash-suffix names that exceed Anthropic's 64-char limit
+      // (gitlab Debian, GitHub Actions enterprise, Cloudflare Access, Box
+      // metadata). Without this, the API rejects the entire tool registration.
+      let name = sanitizeToolName(rawName)
+      // Final-pass collision guard: even after sanitization, two different
+      // operations could share the exact same name (rare duplicate operationIds,
+      // or two long names that converged on the same 64-char prefix BEFORE the
+      // hash suffix was appended). Append a stable hash of method+path so the
+      // second one survives instead of silently overwriting.
+      if (toolNamesSeen.has(name)) {
+        const tag = createHash("sha1").update(`${method}:${path}`).digest("hex").slice(0, 8)
+        const base = name.length > 55 ? name.slice(0, 55) : name
+        name = `${base}_${tag}`
+      }
+      toolNamesSeen.add(name)
 
       tools.push({
         name,

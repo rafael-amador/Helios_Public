@@ -1,11 +1,11 @@
 # Premade Audit Report
 
-Generated: 2026-05-07T02:38:15.196Z
+Generated: 2026-05-07T02:52:33.614Z
 
 ## Summary
 
 - Premades audited: **40**
-- Total errors:     **25**
+- Total errors:     **19**
 - Total warnings:   **21**
 - Failed to download/extract: **0** 
 - Completely clean: **16** (airtable, google_maps, linear, newsapi, open_meteo, openweathermap, perplexity, postmark, reddit, sendgrid, slack, tmdb, twilio, twitter, unsplash, wolfram_alpha)
@@ -28,15 +28,6 @@ Generated: 2026-05-07T02:38:15.196Z
 - **trello** — **139 occurrence(s)**; samples: `get_actions_id`[id], `put_actions_id`[id], `delete_actions_id`[id], `get_actions_idaction_reactions`[idAction], `post_actions_idaction_reactions`[idAction]...
 - **zoom** — **24 occurrence(s)**; samples: `accountBillingInvoices`[accountId], `getAccountBillingInvoice`[accountId], `getAccountBillingInvoice`[invoiceId], `accountPlanAddonCancel`[accountId], `getPlanUsage`[accountId]...
 
-### [ERROR] INVALID_TOOL_NAMES — affects 6 premade(s)
-
-- **box** — **12 occurrence(s)**; names: `get_files_id_metadata_enterprise_securityClassification_6VMVochwUWo`, `post_files_id_metadata_enterprise_securityClassification_6VMVochwUWo`, `put_files_id_metadata_enterprise_securityClassification_6VMVochwUWo`, `delete_files_id_metadata_enterprise_securityClassification_6VMVochwUWo`, `get_folders_id_metadata_enterprise_securityClassification_6VMVochwUWo`...
-- **cloudflare** — **108 occurrence(s)**; names: `access_short_lived_certificate_c_as_get_a_short_lived_certificate_ca`, `access_short_lived_certificate_c_as_create_a_short_lived_certificate_ca`, `access_short_lived_certificate_c_as_delete_a_short_lived_certificate_ca`, `access_short_lived_certificate_c_as_list_short_lived_certificate_c_as`, `access_bookmark_applications___deprecated__list_bookmark_applications`...
-- **github** — **25 occurrence(s)**; names: `actions_get_fork_pr_contributor_approval_permissions_organization`, `actions_set_fork_pr_contributor_approval_permissions_organization`, `actions_list_selected_repositories_enabled_github_actions_organization`, `actions_set_selected_repositories_enabled_github_actions_organization`, `actions_list_selected_repositories_self_hosted_runners_organization`...
-- **gitlab** — **113 occurrence(s)**; names: `getApiV4GroupsIdPackagesDebianDists_distributionComponentDebianInstallerBinaryArchitecturePackages`, `getApiV4GroupsIdPackagesDebianDists_distributionComponentDebianInstallerBinaryArchitectureByHashSha256FileSha256`, `getApiV4GroupsIdPackagesDebianDists_distributionComponentSourceSources`, `getApiV4GroupsIdPackagesDebianDists_distributionComponentSourceByHashSha256FileSha256`, `getApiV4GroupsIdPackagesDebianDists_distributionComponentBinaryArchitecturePackages`...
-- **stripe** — **5 occurrence(s)**; names: `DeleteCustomersCustomerSubscriptionsSubscriptionExposedIdDiscount`, `PostTestHelpersIssuingAuthorizationsAuthorizationFraudChallengesRespond`, `PostTestHelpersIssuingPersonalizationDesignsPersonalizationDesignActivate`, `PostTestHelpersIssuingPersonalizationDesignsPersonalizationDesignDeactivate`, `PostTestHelpersIssuingPersonalizationDesignsPersonalizationDesignReject`
-- **vercel** — **6 occurrence(s)**; names: `createInstallationsByIntegrationConfigurationIdResourcesByResourceIdExperimentationItems`, `updateInstallationsByIntegrationConfigurationIdResourcesByResourceIdExperimentationItemsByItemId`, `deleteInstallationsByIntegrationConfigurationIdResourcesByResourceIdExperimentationItemsByItemId`, `getInstallationsByIntegrationConfigurationIdResourcesByResourceIdExperimentationEdgeConfig`, `replaceInstallationsByIntegrationConfigurationIdResourcesByResourceIdExperimentationEdgeConfig`...
-
 ### [ERROR] REQUIRED_NOT_IN_PROPS — affects 6 premade(s)
 
 - **box** — **1 occurrence(s)**; samples: `post_oauth2_revoke` (req: grant_type)
@@ -50,9 +41,9 @@ Generated: 2026-05-07T02:38:15.196Z
 
 - **algolia** — **4 occurrence(s)**; samples: `replaceSources` (PUT), `deleteObjects` (POST), `partialUpdateObjects` (POST), `partialUpdateObjectsWithTransformation` (POST)
 - **asana** — **2 occurrence(s)**; samples: `createAttachmentForObject` (POST), `updateTag` (PUT)
-- **box** — **14 occurrence(s)**; samples: `put_files_id_metadata_enterprise_securityClassification_6VMVochwUWo` (PUT), `post_files_id_metadata_id_id` (POST), `put_files_id_metadata_id_id` (PUT), `put_files_id_metadata_global_boxSkillsCards` (PUT), `put_folders_id_metadata_enterprise_securityClassification_6VMVochwUWo` (PUT)...
+- **box** — **14 occurrence(s)**; samples: `put_files_id_metadata_enterprise_securityClassification_68f4230f` (PUT), `post_files_id_metadata_id_id` (POST), `put_files_id_metadata_id_id` (PUT), `put_files_id_metadata_global_boxSkillsCards` (PUT), `put_folders_id_metadata_enterprise_securityClassificati_b0c956cb` (PUT)...
 - **circleci** — **4 occurrence(s)**; samples: `cancelJobByJobID` (POST), `cancelJobByJobNumber` (POST), `approvePendingApprovalJobById` (POST), `cancelWorkflow` (POST)
-- **cloudflare** — **230 occurrence(s)**; samples: `mcp_portals_api_sync_server` (POST), `access_short_lived_certificate_c_as_create_a_short_lived_certificate_ca` (POST), `access_policies_convert_reusable` (PUT), `access_applications_revoke_service_tokens` (POST), `access_bookmark_applications___deprecated__create_a_bookmark_application` (POST)...
+- **cloudflare** — **230 occurrence(s)**; samples: `mcp_portals_api_sync_server` (POST), `access_short_lived_certificate_c_as_create_a_short_live_f59cff6c` (POST), `access_policies_convert_reusable` (PUT), `access_applications_revoke_service_tokens` (POST), `access_bookmark_applications___deprecated__create_a_boo_ab1cd626` (POST)...
 - **digitalocean** — **11 occurrence(s)**; samples: `images_create_custom` (POST), `projects_update_default` (PUT), `registries_validate_name` (POST), `security_create_scan` (POST), `genai_regenerate_agent_api_key` (PUT)...
 - **discord** — **24 occurrence(s)**; samples: `upload_application_attachment` (POST), `bulk_set_application_commands` (PUT), `consume_entitlement` (POST), `bulk_set_guild_application_commands` (PUT), `update_application_role_connections_metadata` (PUT)...
 - **github** — **2 occurrence(s)**; samples: `apps_create_from_manifest` (POST), `markdown_render_raw` (POST)
@@ -80,14 +71,14 @@ Generated: 2026-05-07T02:38:15.196Z
 | airtable | 15 | (none) | 15 | 0 | 0 | 0 | 0 |
 | algolia | 78 | api_key_header | 0 | 4 | 48 | 1 | 1 |
 | asana | 167 | oauth2_auth_code | 0 | 2 | 138 | 1 | 1 |
-| box | 296 | oauth2_auth_code | 0 | 14 | 0 | 2 | 1 |
+| box | 296 | oauth2_auth_code | 0 | 14 | 0 | 1 | 1 |
 | circleci | 114 | api_key_header | 0 | 4 | 85 | 1 | 1 |
-| cloudflare | 2844 | api_key_header | 0 | 230 | 338 | 3 | 1 |
+| cloudflare | 2844 | api_key_header | 0 | 230 | 338 | 2 | 1 |
 | digitalocean | 599 | bearer_token | 0 | 11 | 329 | 2 | 1 |
 | discord | 230 | api_key_header | 0 | 24 | 320 | 1 | 1 |
 | figma | 47 | api_key_header | 0 | 0 | 0 | 1 | 0 |
-| github | 1112 | (none) | 1112 | 2 | 2094 | 3 | 1 |
-| gitlab | 1126 | api_key_header | 0 | 86 | 0 | 1 | 1 |
+| github | 1112 | (none) | 1112 | 2 | 2094 | 2 | 1 |
+| gitlab | 1126 | api_key_header | 0 | 86 | 0 | 0 | 1 |
 | gmail | 79 | oauth2_auth_code | 0 | 16 | 0 | 0 | 1 |
 | google_maps | 10 | (none) | 10 | 0 | 0 | 0 | 0 |
 | jira | 487 | oauth2_auth_code | 0 | 30 | 0 | 0 | 1 |
@@ -105,7 +96,7 @@ Generated: 2026-05-07T02:38:15.196Z
 | sendgrid | 19 | (none) | 19 | 0 | 0 | 0 | 0 |
 | slack | 174 | oauth2_auth_code | 0 | 0 | 0 | 0 | 0 |
 | spotify | 96 | oauth2_auth_code | 0 | 11 | 29 | 2 | 1 |
-| stripe | 587 | basic_auth | 0 | 1 | 0 | 1 | 1 |
+| stripe | 587 | basic_auth | 0 | 1 | 0 | 0 | 1 |
 | supabase | 161 | bearer_token | 0 | 18 | 0 | 0 | 2 |
 | tmdb | 27 | (none) | 27 | 0 | 0 | 0 | 0 |
 | todoist | 19 | (none) | 19 | 2 | 0 | 0 | 1 |
@@ -113,7 +104,7 @@ Generated: 2026-05-07T02:38:15.196Z
 | twilio | 197 | basic_auth | 0 | 0 | 0 | 0 | 0 |
 | twitter | 5 | (none) | 5 | 0 | 0 | 0 | 0 |
 | unsplash | 15 | (none) | 15 | 0 | 0 | 0 | 0 |
-| vercel | 322 | bearer_token | 0 | 19 | 0 | 1 | 1 |
+| vercel | 322 | bearer_token | 0 | 19 | 0 | 0 | 1 |
 | wolfram_alpha | 3 | (none) | 3 | 0 | 0 | 0 | 0 |
 | youtube | 76 | oauth2_auth_code | 0 | 12 | 0 | 0 | 1 |
 | zoom | 373 | api_key_header | 0 | 9 | 24 | 1 | 1 |

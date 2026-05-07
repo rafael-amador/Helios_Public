@@ -1661,7 +1661,7 @@
       "enabled": true
     },
     {
-      "name": "get_files_id_metadata_enterprise_securityClassification_6VMVochwUWo",
+      "name": "get_files_id_metadata_enterprise_securityClassification_55704869",
       "description": "Get classification on file",
       "input_schema": {
         "type": "object",
@@ -1693,7 +1693,7 @@
       "enabled": true
     },
     {
-      "name": "post_files_id_metadata_enterprise_securityClassification_6VMVochwUWo",
+      "name": "post_files_id_metadata_enterprise_securityClassificatio_3c4fdb1a",
       "description": "Add classification to file",
       "input_schema": {
         "type": "object",
@@ -1729,7 +1729,7 @@
       "enabled": true
     },
     {
-      "name": "put_files_id_metadata_enterprise_securityClassification_6VMVochwUWo",
+      "name": "put_files_id_metadata_enterprise_securityClassification_68f4230f",
       "description": "Update classification on file",
       "input_schema": {
         "type": "object",
@@ -1761,7 +1761,7 @@
       "enabled": true
     },
     {
-      "name": "delete_files_id_metadata_enterprise_securityClassification_6VMVochwUWo",
+      "name": "delete_files_id_metadata_enterprise_securityClassificat_0ac19660",
       "description": "Remove classification from file",
       "input_schema": {
         "type": "object",
@@ -3107,7 +3107,7 @@
       "enabled": true
     },
     {
-      "name": "get_folders_id_metadata_enterprise_securityClassification_6VMVochwUWo",
+      "name": "get_folders_id_metadata_enterprise_securityClassificati_8a94329c",
       "description": "Get classification on folder",
       "input_schema": {
         "type": "object",
@@ -3139,7 +3139,7 @@
       "enabled": true
     },
     {
-      "name": "post_folders_id_metadata_enterprise_securityClassification_6VMVochwUWo",
+      "name": "post_folders_id_metadata_enterprise_securityClassificat_6fd3ac10",
       "description": "Add classification to folder",
       "input_schema": {
         "type": "object",
@@ -3175,7 +3175,7 @@
       "enabled": true
     },
     {
-      "name": "put_folders_id_metadata_enterprise_securityClassification_6VMVochwUWo",
+      "name": "put_folders_id_metadata_enterprise_securityClassificati_b0c956cb",
       "description": "Update classification on folder",
       "input_schema": {
         "type": "object",
@@ -3207,7 +3207,7 @@
       "enabled": true
     },
     {
-      "name": "delete_folders_id_metadata_enterprise_securityClassification_6VMVochwUWo",
+      "name": "delete_folders_id_metadata_enterprise_securityClassific_81162953",
       "description": "Remove classification from folder",
       "input_schema": {
         "type": "object",
@@ -3748,7 +3748,7 @@
       "enabled": true
     },
     {
-      "name": "get_metadata_templates_enterprise_securityClassification_6VMVochwUWo_schema",
+      "name": "get_metadata_templates_enterprise_securityClassificatio_1a4e63ad",
       "description": "List all classifications",
       "input_schema": {
         "type": "object",
@@ -3773,7 +3773,7 @@
       "enabled": true
     },
     {
-      "name": "put_metadata_templates_enterprise_securityClassification_6VMVochwUWo_schema_add",
+      "name": "put_metadata_templates_enterprise_securityClassificatio_d59933ff",
       "description": "Add classification",
       "input_schema": {
         "type": "object",
@@ -3798,7 +3798,7 @@
       "enabled": true
     },
     {
-      "name": "put_metadata_templates_enterprise_securityClassification_6VMVochwUWo_schema_update",
+      "name": "put_metadata_templates_enterprise_securityClassificatio_a0f86e52",
       "description": "Update classification",
       "input_schema": {
         "type": "object",
@@ -9140,7 +9140,7 @@
       "enabled": true
     },
     {
-      "name": "get_retention_policy_assignments_id_file_versions_under_retention",
+      "name": "get_retention_policy_assignments_id_file_versions_under_9d6afa27",
       "description": "Get file versions under retention",
       "input_schema": {
         "type": "object",

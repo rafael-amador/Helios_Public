@@ -3231,7 +3231,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4GroupsIdPackagesDebianDists_distributionComponentDebianInstallerBinaryArchitecturePackages",
+      "name": "getApiV4GroupsIdPackagesDebianDists_distributionCompone_078a0a4a",
       "description": "The installer (udeb) binary files index",
       "input_schema": {
         "type": "object",
@@ -3279,7 +3279,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4GroupsIdPackagesDebianDists_distributionComponentDebianInstallerBinaryArchitectureByHashSha256FileSha256",
+      "name": "getApiV4GroupsIdPackagesDebianDists_distributionCompone_71c30ce4",
       "description": "The installer (udeb) binary files index by hash",
       "input_schema": {
         "type": "object",
@@ -3331,7 +3331,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4GroupsIdPackagesDebianDists_distributionComponentSourceSources",
+      "name": "getApiV4GroupsIdPackagesDebianDists_distributionCompone_144c682e",
       "description": "The source files index",
       "input_schema": {
         "type": "object",
@@ -3374,7 +3374,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4GroupsIdPackagesDebianDists_distributionComponentSourceByHashSha256FileSha256",
+      "name": "getApiV4GroupsIdPackagesDebianDists_distributionCompone_f8625ccc",
       "description": "The source files index by hash",
       "input_schema": {
         "type": "object",
@@ -3421,7 +3421,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4GroupsIdPackagesDebianDists_distributionComponentBinaryArchitecturePackages",
+      "name": "getApiV4GroupsIdPackagesDebianDists_distributionCompone_794a19b4",
       "description": "The binary files index",
       "input_schema": {
         "type": "object",
@@ -3469,7 +3469,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4GroupsIdPackagesDebianDists_distributionComponentBinaryArchitectureByHashSha256FileSha256",
+      "name": "getApiV4GroupsIdPackagesDebianDists_distributionCompone_52ac97d4",
       "description": "The binary files index by hash",
       "input_schema": {
         "type": "object",
@@ -3521,7 +3521,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4GroupsIdPackagesDebianPoolDistributionProjectIdLetterPackageNamePackageVersionFileName",
+      "name": "getApiV4GroupsIdPackagesDebianPoolDistributionProjectId_053cbb5e",
       "description": "Download Debian package",
       "input_schema": {
         "type": "object",
@@ -8696,7 +8696,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4GroupsIdIntegrationsGoogleCloudPlatformWorkloadIdentityFederation",
+      "name": "putApiV4GroupsIdIntegrationsGoogleCloudPlatformWorkload_cfed0f4e",
       "description": "Create/Edit Google Cloud Platform Workload Identity Federation integration",
       "input_schema": {
         "type": "object",
@@ -11104,7 +11104,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4GroupsIdPackagesNugetSymbolfiles_fileName_signature_sameFileName",
+      "name": "getApiV4GroupsIdPackagesNugetSymbolfiles_fileName_signa_09b98cc2",
       "description": "The NuGet Symbol File Download Endpoint",
       "input_schema": {
         "type": "object",
@@ -12071,7 +12071,7 @@
       "enabled": true
     },
     {
-      "name": "postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesAuthorize",
+      "name": "postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricI_81ab0d3b",
       "description": "Workhorse authorize metric image file upload",
       "input_schema": {
         "type": "object",
@@ -12192,7 +12192,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId",
+      "name": "putApiV4ProjectsIdAlertManagementAlertsAlertIidMetricIm_a344c175",
       "description": "Update a metric image for an alert",
       "input_schema": {
         "type": "object",
@@ -12241,7 +12241,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId",
+      "name": "deleteApiV4ProjectsIdAlertManagementAlertsAlertIidMetri_5cbf8560",
       "description": "Remove a metric image for an alert",
       "input_schema": {
         "type": "object",
@@ -12749,7 +12749,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4ProjectsIdMergeRequestsMergeRequestIidAwardEmojiAwardId",
+      "name": "deleteApiV4ProjectsIdMergeRequestsMergeRequestIidAwardE_8f9b8e53",
       "description": "Delete an emoji reaction",
       "input_schema": {
         "type": "object",
@@ -12788,7 +12788,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdMergeRequestsMergeRequestIidNotesNoteIdAwardEmoji",
+      "name": "getApiV4ProjectsIdMergeRequestsMergeRequestIidNotesNote_7e1330b0",
       "description": "List an awardable's emoji reactions for projects",
       "input_schema": {
         "type": "object",
@@ -12837,7 +12837,7 @@
       "enabled": true
     },
     {
-      "name": "postApiV4ProjectsIdMergeRequestsMergeRequestIidNotesNoteIdAwardEmoji",
+      "name": "postApiV4ProjectsIdMergeRequestsMergeRequestIidNotesNot_e5478ebd",
       "description": "Add a new emoji reaction",
       "input_schema": {
         "type": "object",
@@ -12880,7 +12880,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdMergeRequestsMergeRequestIidNotesNoteIdAwardEmojiAwardId",
+      "name": "getApiV4ProjectsIdMergeRequestsMergeRequestIidNotesNote_13b3997e",
       "description": "Get a single emoji reaction",
       "input_schema": {
         "type": "object",
@@ -12923,7 +12923,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4ProjectsIdMergeRequestsMergeRequestIidNotesNoteIdAwardEmojiAwardId",
+      "name": "deleteApiV4ProjectsIdMergeRequestsMergeRequestIidNotesN_02518c7e",
       "description": "Delete an emoji reaction",
       "input_schema": {
         "type": "object",
@@ -13265,7 +13265,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmojiAwardId",
+      "name": "deleteApiV4ProjectsIdSnippetsSnippetIdNotesNoteIdAwardE_93d04a5d",
       "description": "Delete an emoji reaction",
       "input_schema": {
         "type": "object",
@@ -16070,7 +16070,7 @@
       "enabled": true
     },
     {
-      "name": "postApiV4ProjectsIdPipelineSchedulesPipelineScheduleIdTakeOwnership",
+      "name": "postApiV4ProjectsIdPipelineSchedulesPipelineScheduleIdT_9bb195c4",
       "description": "Take ownership of a pipeline schedule",
       "input_schema": {
         "type": "object",
@@ -16193,7 +16193,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPipelineSchedulesPipelineScheduleIdVariablesKey",
+      "name": "getApiV4ProjectsIdPipelineSchedulesPipelineScheduleIdVa_51c459bb",
       "description": "Get a single pipeline schedule variable",
       "input_schema": {
         "type": "object",
@@ -16234,7 +16234,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPipelineSchedulesPipelineScheduleIdVariablesKey",
+      "name": "putApiV4ProjectsIdPipelineSchedulesPipelineScheduleIdVa_1f22c83a",
       "description": "Edit a pipeline schedule variable",
       "input_schema": {
         "type": "object",
@@ -16284,7 +16284,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4ProjectsIdPipelineSchedulesPipelineScheduleIdVariablesKey",
+      "name": "deleteApiV4ProjectsIdPipelineSchedulesPipelineScheduleI_e601f8d7",
       "description": "Delete a pipeline schedule variable",
       "input_schema": {
         "type": "object",
@@ -18141,7 +18141,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelSearch",
+      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePacka_92fb33ab",
       "description": "Get package references metadata",
       "input_schema": {
         "type": "object",
@@ -18223,7 +18223,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelPackagesConanPackageReference",
+      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePacka_5170da13",
       "description": "Package Snapshot",
       "input_schema": {
         "type": "object",
@@ -18279,7 +18279,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannel",
+      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePacka_e782677d",
       "description": "Recipe Snapshot",
       "input_schema": {
         "type": "object",
@@ -18330,7 +18330,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4ProjectsIdPackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannel",
+      "name": "deleteApiV4ProjectsIdPackagesConanV1ConansPackageNamePa_895f030e",
       "description": "Delete Package",
       "input_schema": {
         "type": "object",
@@ -18381,7 +18381,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelPackagesConanPackageReferenceDigest",
+      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePacka_c10cd404",
       "description": "Package Digest",
       "input_schema": {
         "type": "object",
@@ -18437,7 +18437,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelDigest",
+      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePacka_1fd8204b",
       "description": "Recipe Digest",
       "input_schema": {
         "type": "object",
@@ -18488,7 +18488,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelPackagesConanPackageReferenceDownloadUrls",
+      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePacka_0d3a1202",
       "description": "Package Download Urls",
       "input_schema": {
         "type": "object",
@@ -18544,7 +18544,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelDownloadUrls",
+      "name": "getApiV4ProjectsIdPackagesConanV1ConansPackageNamePacka_f71d1ecd",
       "description": "Recipe Download Urls",
       "input_schema": {
         "type": "object",
@@ -18595,7 +18595,7 @@
       "enabled": true
     },
     {
-      "name": "postApiV4ProjectsIdPackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelPackagesConanPackageReferenceUploadUrls",
+      "name": "postApiV4ProjectsIdPackagesConanV1ConansPackageNamePack_b0e074b9",
       "description": "Package Upload Urls",
       "input_schema": {
         "type": "object",
@@ -18651,7 +18651,7 @@
       "enabled": true
     },
     {
-      "name": "postApiV4ProjectsIdPackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelUploadUrls",
+      "name": "postApiV4ProjectsIdPackagesConanV1ConansPackageNamePack_8e8d7099",
       "description": "Recipe Upload Urls",
       "input_schema": {
         "type": "object",
@@ -18702,7 +18702,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionExportFileName",
+      "name": "getApiV4ProjectsIdPackagesConanV1FilesPackageNamePackag_6e0ff97d",
       "description": "Download recipe files",
       "input_schema": {
         "type": "object",
@@ -18763,7 +18763,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionExportFileName",
+      "name": "putApiV4ProjectsIdPackagesConanV1FilesPackageNamePackag_60f81a0c",
       "description": "Upload recipe package files",
       "input_schema": {
         "type": "object",
@@ -18829,7 +18829,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionExportFileNameAuthorize",
+      "name": "putApiV4ProjectsIdPackagesConanV1FilesPackageNamePackag_41d4d694",
       "description": "Workhorse authorize the conan recipe file",
       "input_schema": {
         "type": "object",
@@ -18890,7 +18890,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionPackageConanPackageReferencePackageRevisionFileName",
+      "name": "getApiV4ProjectsIdPackagesConanV1FilesPackageNamePackag_f9f480f4",
       "description": "Download package files",
       "input_schema": {
         "type": "object",
@@ -18961,7 +18961,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionPackageConanPackageReferencePackageRevisionFileName",
+      "name": "putApiV4ProjectsIdPackagesConanV1FilesPackageNamePackag_b7240af4",
       "description": "Upload package files",
       "input_schema": {
         "type": "object",
@@ -19037,7 +19037,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionPackageConanPackageReferencePackageRevisionFileNameAuthorize",
+      "name": "putApiV4ProjectsIdPackagesConanV1FilesPackageNamePackag_8fafc526",
       "description": "Workhorse authorize the conan package file",
       "input_schema": {
         "type": "object",
@@ -19213,7 +19213,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelSearch",
+      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_afc545ba",
       "description": "Get package references metadata",
       "input_schema": {
         "type": "object",
@@ -19264,7 +19264,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelLatest",
+      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_8ada5b46",
       "description": "Get the latest recipe revision",
       "input_schema": {
         "type": "object",
@@ -19315,7 +19315,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisions",
+      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_d4540875",
       "description": "Get the list of revisions",
       "input_schema": {
         "type": "object",
@@ -19366,7 +19366,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevision",
+      "name": "deleteApiV4ProjectsIdPackagesConanV2ConansPackageNamePa_ff4a603c",
       "description": "Delete recipe revision",
       "input_schema": {
         "type": "object",
@@ -19422,7 +19422,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionFiles",
+      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_e0f52e33",
       "description": "List recipe files",
       "input_schema": {
         "type": "object",
@@ -19478,7 +19478,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionFilesFileName",
+      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_666e428f",
       "description": "Download recipe files",
       "input_schema": {
         "type": "object",
@@ -19539,7 +19539,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionFilesFileName",
+      "name": "putApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_97369af7",
       "description": "Upload recipe package files",
       "input_schema": {
         "type": "object",
@@ -19605,7 +19605,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionFilesFileNameAuthorize",
+      "name": "putApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_4cef9dc1",
       "description": "Workhorse authorize the conan recipe file",
       "input_schema": {
         "type": "object",
@@ -19666,7 +19666,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionSearch",
+      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_b9644e60",
       "description": "Get package references metadata",
       "input_schema": {
         "type": "object",
@@ -19722,7 +19722,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionPackagesConanPackageReferenceLatest",
+      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_af6e53ab",
       "description": "Get the latest package revision",
       "input_schema": {
         "type": "object",
@@ -19783,7 +19783,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionPackagesConanPackageReferenceRevisions",
+      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_3deccbac",
       "description": "Get the list of package revisions",
       "input_schema": {
         "type": "object",
@@ -19844,7 +19844,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionPackagesConanPackageReferenceRevisionsPackageRevision",
+      "name": "deleteApiV4ProjectsIdPackagesConanV2ConansPackageNamePa_7959af9c",
       "description": "Delete package revision",
       "input_schema": {
         "type": "object",
@@ -19910,7 +19910,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionPackagesConanPackageReferenceRevisionsPackageRevisionFiles",
+      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_ae216c25",
       "description": "List package files",
       "input_schema": {
         "type": "object",
@@ -19976,7 +19976,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionPackagesConanPackageReferenceRevisionsPackageRevisionFilesFileName",
+      "name": "getApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_3fe04bf6",
       "description": "Download package files",
       "input_schema": {
         "type": "object",
@@ -20047,7 +20047,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionPackagesConanPackageReferenceRevisionsPackageRevisionFilesFileName",
+      "name": "putApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_c6b389ab",
       "description": "Upload package files",
       "input_schema": {
         "type": "object",
@@ -20123,7 +20123,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesConanV2ConansPackageNamePackageVersionPackageUsernamePackageChannelRevisionsRecipeRevisionPackagesConanPackageReferenceRevisionsPackageRevisionFilesFileNameAuthorize",
+      "name": "putApiV4ProjectsIdPackagesConanV2ConansPackageNamePacka_83977088",
       "description": "Workhorse authorize the conan package file",
       "input_schema": {
         "type": "object",
@@ -20308,7 +20308,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionComponentDebianInstallerBinaryArchitecturePackages",
+      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionCompo_5fc2872d",
       "description": "The installer (udeb) binary files index",
       "input_schema": {
         "type": "object",
@@ -20356,7 +20356,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionComponentDebianInstallerBinaryArchitectureByHashSha256FileSha256",
+      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionCompo_43f57836",
       "description": "The installer (udeb) binary files index by hash",
       "input_schema": {
         "type": "object",
@@ -20408,7 +20408,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionComponentSourceSources",
+      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionCompo_ac7b5696",
       "description": "The source files index",
       "input_schema": {
         "type": "object",
@@ -20451,7 +20451,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionComponentSourceByHashSha256FileSha256",
+      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionCompo_1fd99ce3",
       "description": "The source files index by hash",
       "input_schema": {
         "type": "object",
@@ -20498,7 +20498,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionComponentBinary_ArchitecturePackages",
+      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionCompo_95e63eb1",
       "description": "The binary files index",
       "input_schema": {
         "type": "object",
@@ -20546,7 +20546,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionComponentBinaryArchitectureByHashSha256FileSha256",
+      "name": "getApiV4ProjectsIdPackagesDebianDists_distributionCompo_6f87a955",
       "description": "The binary files index by hash",
       "input_schema": {
         "type": "object",
@@ -20598,7 +20598,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesDebianPoolDistributionLetterPackageNamePackageVersionFileName",
+      "name": "getApiV4ProjectsIdPackagesDebianPoolDistributionLetterP_0abccc7e",
       "description": "Download Debian package",
       "input_schema": {
         "type": "object",
@@ -21919,7 +21919,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdMergeRequestsMergeRequestIidDraftNotesDraftNoteId",
+      "name": "getApiV4ProjectsIdMergeRequestsMergeRequestIidDraftNote_8f4d363f",
       "description": "Get a single draft note",
       "input_schema": {
         "type": "object",
@@ -21960,7 +21960,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdMergeRequestsMergeRequestIidDraftNotesDraftNoteId",
+      "name": "putApiV4ProjectsIdMergeRequestsMergeRequestIidDraftNote_c5df9d8d",
       "description": "Modify an existing draft note",
       "input_schema": {
         "type": "object",
@@ -22109,7 +22109,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4ProjectsIdMergeRequestsMergeRequestIidDraftNotesDraftNoteId",
+      "name": "deleteApiV4ProjectsIdMergeRequestsMergeRequestIidDraftN_6090f377",
       "description": "Delete a draft note",
       "input_schema": {
         "type": "object",
@@ -22150,7 +22150,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdMergeRequestsMergeRequestIidDraftNotesDraftNoteIdPublish",
+      "name": "putApiV4ProjectsIdMergeRequestsMergeRequestIidDraftNote_9b6e117c",
       "description": "Publish a pending draft note",
       "input_schema": {
         "type": "object",
@@ -22191,7 +22191,7 @@
       "enabled": true
     },
     {
-      "name": "postApiV4ProjectsIdMergeRequestsMergeRequestIidDraftNotesBulkPublish",
+      "name": "postApiV4ProjectsIdMergeRequestsMergeRequestIidDraftNot_1b6b51ac",
       "description": "Bulk publish all pending draft notes",
       "input_schema": {
         "type": "object",
@@ -23838,7 +23838,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesGenericPackageName_packageVersion__path_FileNameAuthorize",
+      "name": "putApiV4ProjectsIdPackagesGenericPackageName_packageVer_86b81b84",
       "description": "Workhorse authorize generic package file",
       "input_schema": {
         "type": "object",
@@ -23892,7 +23892,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesGenericPackageName_packageVersion__path_FileName",
+      "name": "getApiV4ProjectsIdPackagesGenericPackageName_packageVer_408b9c6d",
       "description": "Download package file",
       "input_schema": {
         "type": "object",
@@ -23945,7 +23945,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesGenericPackageName_packageVersion__path_FileName",
+      "name": "putApiV4ProjectsIdPackagesGenericPackageName_packageVer_a7317908",
       "description": "Upload package file",
       "input_schema": {
         "type": "object",
@@ -27797,7 +27797,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdServicesGoogleCloudPlatformWorkloadIdentityFederation",
+      "name": "putApiV4ProjectsIdServicesGoogleCloudPlatformWorkloadId_7650746d",
       "description": "Create/Edit Google Cloud Platform Workload Identity Federation integration",
       "input_schema": {
         "type": "object",
@@ -31493,7 +31493,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdIntegrationsGoogleCloudPlatformArtifactRegistry",
+      "name": "putApiV4ProjectsIdIntegrationsGoogleCloudPlatformArtifa_86693b79",
       "description": "Create/Edit Google Cloud Platform Artifact Registry integration",
       "input_schema": {
         "type": "object",
@@ -31542,7 +31542,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdIntegrationsGoogleCloudPlatformWorkloadIdentityFederation",
+      "name": "putApiV4ProjectsIdIntegrationsGoogleCloudPlatformWorklo_084da7e9",
       "description": "Create/Edit Google Cloud Platform Workload Identity Federation integration",
       "input_schema": {
         "type": "object",
@@ -35876,7 +35876,7 @@
       "enabled": true
     },
     {
-      "name": "postApiV4ProjectsIdMergeRequestsMergeRequestIidCancelMergeWhenPipelineSucceeds",
+      "name": "postApiV4ProjectsIdMergeRequestsMergeRequestIidCancelMe_7e9aedf6",
       "description": "Cancel Merge When Pipeline Succeeds",
       "input_schema": {
         "type": "object",
@@ -36361,7 +36361,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesMlModelsModelVersionIdFiles__path_FileNameAuthorize",
+      "name": "putApiV4ProjectsIdPackagesMlModelsModelVersionIdFiles___bdebf4f0",
       "description": "Workhorse authorize model package file",
       "input_schema": {
         "type": "object",
@@ -36410,7 +36410,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesMlModelsModelVersionIdFiles__path_FileName",
+      "name": "getApiV4ProjectsIdPackagesMlModelsModelVersionIdFiles___051730c1",
       "description": "Download an ml_model package file",
       "input_schema": {
         "type": "object",
@@ -36462,7 +36462,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesMlModelsModelVersionIdFiles__path_FileName",
+      "name": "putApiV4ProjectsIdPackagesMlModelsModelVersionIdFiles___11a2d948",
       "description": "Workhorse upload model package file",
       "input_schema": {
         "type": "object",
@@ -36854,7 +36854,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesNugetSymbolfiles_fileName_signature_sameFileName",
+      "name": "getApiV4ProjectsIdPackagesNugetSymbolfiles_fileName_sig_95e2cba1",
       "description": "The NuGet Symbol File Download Endpoint",
       "input_schema": {
         "type": "object",
@@ -37044,7 +37044,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesNugetMetadata_packageName_packageVersion",
+      "name": "getApiV4ProjectsIdPackagesNugetMetadata_packageName_pac_1fdfc2b8",
       "description": "The NuGet Metadata Service - Package name and version level",
       "input_schema": {
         "type": "object",
@@ -37178,7 +37178,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesNugetDownload_packageName_packageVersion_packageFilename",
+      "name": "getApiV4ProjectsIdPackagesNugetDownload_packageName_pac_52064f73",
       "description": "The NuGet Content Service - content request",
       "input_schema": {
         "type": "object",
@@ -37513,7 +37513,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsProjectIdPackagesNugetV2Packages__id___packageName__version___packageVersion___",
+      "name": "getApiV4ProjectsProjectIdPackagesNugetV2Packages__id____28659614",
       "description": "The NuGet V2 Feed Single Package Metadata endpoint",
       "input_schema": {
         "type": "object",
@@ -37655,7 +37655,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesPackageIdPackageFilesPackageFileIdDownload",
+      "name": "getApiV4ProjectsIdPackagesPackageIdPackageFilesPackageF_8bcf1623",
       "description": "Download a package file",
       "input_schema": {
         "type": "object",
@@ -38732,7 +38732,7 @@
       "enabled": true
     },
     {
-      "name": "patchApiV4ProjectsIdRegistryProtectionRepositoryRulesProtectionRuleId",
+      "name": "patchApiV4ProjectsIdRegistryProtectionRepositoryRulesPr_86add3e4",
       "description": "Update a container protection rule for a project",
       "input_schema": {
         "type": "object",
@@ -38780,7 +38780,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4ProjectsIdRegistryProtectionRepositoryRulesProtectionRuleId",
+      "name": "deleteApiV4ProjectsIdRegistryProtectionRepositoryRulesP_6e40fb65",
       "description": "Delete container protection rule",
       "input_schema": {
         "type": "object",
@@ -42495,7 +42495,7 @@
       "enabled": true
     },
     {
-      "name": "patchApiV4ProjectsIdPackagesProtectionRulesPackageProtectionRuleId",
+      "name": "patchApiV4ProjectsIdPackagesProtectionRulesPackageProte_a1cce042",
       "description": "Update a package protection rule for a project",
       "input_schema": {
         "type": "object",
@@ -42547,7 +42547,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4ProjectsIdPackagesProtectionRulesPackageProtectionRuleId",
+      "name": "deleteApiV4ProjectsIdPackagesProtectionRulesPackageProt_5ba76e06",
       "description": "Delete package protection rule",
       "input_schema": {
         "type": "object",
@@ -48356,7 +48356,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdIssuesEventableIdResourceMilestoneEventsEventId",
+      "name": "getApiV4ProjectsIdIssuesEventableIdResourceMilestoneEve_529d5a37",
       "description": "Get single Issue milestone event",
       "input_schema": {
         "type": "object",
@@ -48397,7 +48397,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdMergeRequestsEventableIdResourceMilestoneEvents",
+      "name": "getApiV4ProjectsIdMergeRequestsEventableIdResourceMiles_f35543c5",
       "description": "List project Merge request milestone events",
       "input_schema": {
         "type": "object",
@@ -48444,7 +48444,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdMergeRequestsEventableIdResourceMilestoneEventsEventId",
+      "name": "getApiV4ProjectsIdMergeRequestsEventableIdResourceMiles_ee0b1551",
       "description": "Get single Merge request milestone event",
       "input_schema": {
         "type": "object",
@@ -49323,7 +49323,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4ProjectsIdPackagesTerraformModulesModuleNameModuleSystem_moduleVersion",
+      "name": "getApiV4ProjectsIdPackagesTerraformModulesModuleNameMod_41248fe3",
       "description": "Download a specific version of a module",
       "input_schema": {
         "type": "object",
@@ -49376,7 +49376,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesTerraformModulesModuleNameModuleSystem_moduleVersionFileAuthorize",
+      "name": "putApiV4ProjectsIdPackagesTerraformModulesModuleNameMod_92226e44",
       "description": "Workhorse authorize Terraform Module package file",
       "input_schema": {
         "type": "object",
@@ -49422,7 +49422,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4ProjectsIdPackagesTerraformModulesModuleNameModuleSystem_moduleVersionFile",
+      "name": "putApiV4ProjectsIdPackagesTerraformModulesModuleNameMod_9fa5ce3a",
       "description": "Upload Terraform Module package file",
       "input_schema": {
         "type": "object",
@@ -53000,7 +53000,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelSearch",
+      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionP_aa89a150",
       "description": "Get package references metadata",
       "input_schema": {
         "type": "object",
@@ -53070,7 +53070,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelPackagesConanPackageReference",
+      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionP_7a18103d",
       "description": "Package Snapshot",
       "input_schema": {
         "type": "object",
@@ -53121,7 +53121,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannel",
+      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionP_032d18f0",
       "description": "Recipe Snapshot",
       "input_schema": {
         "type": "object",
@@ -53167,7 +53167,7 @@
       "enabled": true
     },
     {
-      "name": "deleteApiV4PackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannel",
+      "name": "deleteApiV4PackagesConanV1ConansPackageNamePackageVersi_332aadb0",
       "description": "Delete Package",
       "input_schema": {
         "type": "object",
@@ -53213,7 +53213,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelPackagesConanPackageReferenceDigest",
+      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionP_f6cb9de6",
       "description": "Package Digest",
       "input_schema": {
         "type": "object",
@@ -53264,7 +53264,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelDigest",
+      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionP_896d4c99",
       "description": "Recipe Digest",
       "input_schema": {
         "type": "object",
@@ -53310,7 +53310,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelPackagesConanPackageReferenceDownloadUrls",
+      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionP_298a7605",
       "description": "Package Download Urls",
       "input_schema": {
         "type": "object",
@@ -53361,7 +53361,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelDownloadUrls",
+      "name": "getApiV4PackagesConanV1ConansPackageNamePackageVersionP_0864ee32",
       "description": "Recipe Download Urls",
       "input_schema": {
         "type": "object",
@@ -53407,7 +53407,7 @@
       "enabled": true
     },
     {
-      "name": "postApiV4PackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelPackagesConanPackageReferenceUploadUrls",
+      "name": "postApiV4PackagesConanV1ConansPackageNamePackageVersion_32ae94f6",
       "description": "Package Upload Urls",
       "input_schema": {
         "type": "object",
@@ -53458,7 +53458,7 @@
       "enabled": true
     },
     {
-      "name": "postApiV4PackagesConanV1ConansPackageNamePackageVersionPackageUsernamePackageChannelUploadUrls",
+      "name": "postApiV4PackagesConanV1ConansPackageNamePackageVersion_70efa977",
       "description": "Recipe Upload Urls",
       "input_schema": {
         "type": "object",
@@ -53504,7 +53504,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionExportFileName",
+      "name": "getApiV4PackagesConanV1FilesPackageNamePackageVersionPa_0857901d",
       "description": "Download recipe files",
       "input_schema": {
         "type": "object",
@@ -53560,7 +53560,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4PackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionExportFileName",
+      "name": "putApiV4PackagesConanV1FilesPackageNamePackageVersionPa_410aea40",
       "description": "Upload recipe package files",
       "input_schema": {
         "type": "object",
@@ -53621,7 +53621,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4PackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionExportFileNameAuthorize",
+      "name": "putApiV4PackagesConanV1FilesPackageNamePackageVersionPa_a6af1856",
       "description": "Workhorse authorize the conan recipe file",
       "input_schema": {
         "type": "object",
@@ -53677,7 +53677,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionPackageConanPackageReferencePackageRevisionFileName",
+      "name": "getApiV4PackagesConanV1FilesPackageNamePackageVersionPa_1c0b50ff",
       "description": "Download package files",
       "input_schema": {
         "type": "object",
@@ -53743,7 +53743,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4PackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionPackageConanPackageReferencePackageRevisionFileName",
+      "name": "putApiV4PackagesConanV1FilesPackageNamePackageVersionPa_17eda6c1",
       "description": "Upload package files",
       "input_schema": {
         "type": "object",
@@ -53814,7 +53814,7 @@
       "enabled": true
     },
     {
-      "name": "putApiV4PackagesConanV1FilesPackageNamePackageVersionPackageUsernamePackageChannelRecipeRevisionPackageConanPackageReferencePackageRevisionFileNameAuthorize",
+      "name": "putApiV4PackagesConanV1FilesPackageNamePackageVersionPa_47db9b62",
       "description": "Workhorse authorize the conan package file",
       "input_schema": {
         "type": "object",
@@ -54106,7 +54106,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModuleNameModuleSystemVersions",
+      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModule_3b982ca3",
       "description": "List versions for a module",
       "input_schema": {
         "type": "object",
@@ -54147,7 +54147,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModuleNameModuleSystemDownload",
+      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModule_718e7766",
       "description": "Get download location for the latest version of a module",
       "input_schema": {
         "type": "object",
@@ -54188,7 +54188,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModuleNameModuleSystem",
+      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModule_8231285e",
       "description": "Get details about the latest version of a module",
       "input_schema": {
         "type": "object",
@@ -54229,7 +54229,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModuleNameModuleSystem_moduleVersionDownload",
+      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModule_3d035f9d",
       "description": "Get download location for specific version of a module",
       "input_schema": {
         "type": "object",
@@ -54277,7 +54277,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModuleNameModuleSystem_moduleVersionFile",
+      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModule_3b12c931",
       "description": "Download specific version of a module",
       "input_schema": {
         "type": "object",
@@ -54325,7 +54325,7 @@
       "enabled": true
     },
     {
-      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModuleNameModuleSystem_moduleVersion",
+      "name": "getApiV4PackagesTerraformModulesV1ModuleNamespaceModule_662ca11b",
       "description": "Get details about specific version of a module",
       "input_schema": {
         "type": "object",

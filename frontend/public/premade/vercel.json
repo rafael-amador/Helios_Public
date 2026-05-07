@@ -8964,7 +8964,7 @@
       "enabled": true
     },
     {
-      "name": "createInstallationsByIntegrationConfigurationIdResourcesByResourceIdExperimentationItems",
+      "name": "createInstallationsByIntegrationConfigurationIdResource_5c8fd01b",
       "description": "Create one or multiple experimentation items",
       "input_schema": {
         "type": "object",
@@ -9004,7 +9004,7 @@
       "enabled": true
     },
     {
-      "name": "updateInstallationsByIntegrationConfigurationIdResourcesByResourceIdExperimentationItemsByItemId",
+      "name": "updateInstallationsByIntegrationConfigurationIdResource_4660c2e2",
       "description": "Patch an existing experimentation item",
       "input_schema": {
         "type": "object",
@@ -9067,7 +9067,7 @@
       "enabled": true
     },
     {
-      "name": "deleteInstallationsByIntegrationConfigurationIdResourcesByResourceIdExperimentationItemsByItemId",
+      "name": "deleteInstallationsByIntegrationConfigurationIdResource_2bc6da6c",
       "description": "Delete an existing experimentation item",
       "input_schema": {
         "type": "object",
@@ -9104,7 +9104,7 @@
       "enabled": true
     },
     {
-      "name": "getInstallationsByIntegrationConfigurationIdResourcesByResourceIdExperimentationEdgeConfig",
+      "name": "getInstallationsByIntegrationConfigurationIdResourcesBy_8d384860",
       "description": "Get the data of a user-provided Edge Config",
       "input_schema": {
         "type": "object",
@@ -9137,7 +9137,7 @@
       "enabled": true
     },
     {
-      "name": "replaceInstallationsByIntegrationConfigurationIdResourcesByResourceIdExperimentationEdgeConfig",
+      "name": "replaceInstallationsByIntegrationConfigurationIdResourc_5c5e0f81",
       "description": "Push data into a user-provided Edge Config",
       "input_schema": {
         "type": "object",
@@ -9174,7 +9174,7 @@
       "enabled": true
     },
     {
-      "name": "headInstallationsByIntegrationConfigurationIdResourcesByResourceIdExperimentationEdgeConfig",
+      "name": "headInstallationsByIntegrationConfigurationIdResourcesB_c3e6c403",
       "description": "Get the data of a user-provided Edge Config",
       "input_schema": {
         "type": "object",

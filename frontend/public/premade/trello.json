@@ -8386,7 +8386,7 @@
       "enabled": true
     },
     {
-      "name": "put_members_id_notificationChannelSettings_channel_blockedKeys",
+      "name": "put_members_id_notificationChannelSettings_channel_bloc_4a3d1d53",
       "description": "Update blocked notification keys of Member on a channel",
       "input_schema": {
         "type": "object",
@@ -8416,7 +8416,7 @@
       "enabled": true
     },
     {
-      "name": "put_members_id_notificationChannelSettings_channel_blockedKeys",
+      "name": "put_members_id_notificationChannelSettings_channel_bloc_e58d8050",
       "description": "Update blocked notification keys of Member on a channel",
       "input_schema": {
         "type": "object",

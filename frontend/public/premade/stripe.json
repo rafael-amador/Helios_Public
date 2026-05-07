@@ -16871,7 +16871,7 @@
       "enabled": true
     },
     {
-      "name": "DeleteCustomersCustomerSubscriptionsSubscriptionExposedIdDiscount",
+      "name": "DeleteCustomersCustomerSubscriptionsSubscriptionExposed_4ccff3b3",
       "description": "Delete a customer discount",
       "input_schema": {
         "type": "object",
@@ -51731,7 +51731,7 @@
       "enabled": true
     },
     {
-      "name": "PostTestHelpersIssuingAuthorizationsAuthorizationFraudChallengesRespond",
+      "name": "PostTestHelpersIssuingAuthorizationsAuthorizationFraudC_6df87c50",
       "description": "Respond to fraud challenge",
       "input_schema": {
         "type": "object",
@@ -52037,7 +52037,7 @@
       "enabled": true
     },
     {
-      "name": "PostTestHelpersIssuingPersonalizationDesignsPersonalizationDesignActivate",
+      "name": "PostTestHelpersIssuingPersonalizationDesignsPersonaliza_8ac38a22",
       "description": "Activate a testmode personalization design",
       "input_schema": {
         "type": "object",
@@ -52073,7 +52073,7 @@
       "enabled": true
     },
     {
-      "name": "PostTestHelpersIssuingPersonalizationDesignsPersonalizationDesignDeactivate",
+      "name": "PostTestHelpersIssuingPersonalizationDesignsPersonaliza_feaf94a5",
       "description": "Deactivate a testmode personalization design",
       "input_schema": {
         "type": "object",
@@ -52109,7 +52109,7 @@
       "enabled": true
     },
     {
-      "name": "PostTestHelpersIssuingPersonalizationDesignsPersonalizationDesignReject",
+      "name": "PostTestHelpersIssuingPersonalizationDesignsPersonaliza_ad164135",
       "description": "Reject a testmode personalization design",
       "input_schema": {
         "type": "object",

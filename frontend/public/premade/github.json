@@ -5347,7 +5347,7 @@
       "enabled": true
     },
     {
-      "name": "actions_get_fork_pr_contributor_approval_permissions_organization",
+      "name": "actions_get_fork_pr_contributor_approval_permissions_or_341abc04",
       "description": "Get fork PR contributor approval permissions for an organization",
       "input_schema": {
         "type": "object",
@@ -5371,7 +5371,7 @@
       "enabled": true
     },
     {
-      "name": "actions_set_fork_pr_contributor_approval_permissions_organization",
+      "name": "actions_set_fork_pr_contributor_approval_permissions_or_227b6c84",
       "description": "Set fork PR contributor approval permissions for an organization",
       "input_schema": {
         "type": "object",
@@ -5467,7 +5467,7 @@
       "enabled": true
     },
     {
-      "name": "actions_list_selected_repositories_enabled_github_actions_organization",
+      "name": "actions_list_selected_repositories_enabled_github_actio_f7602e79",
       "description": "List selected repositories enabled for GitHub Actions in an organization",
       "input_schema": {
         "type": "object",
@@ -5491,7 +5491,7 @@
       "enabled": true
     },
     {
-      "name": "actions_set_selected_repositories_enabled_github_actions_organization",
+      "name": "actions_set_selected_repositories_enabled_github_action_9529e442",
       "description": "Set selected repositories enabled for GitHub Actions in an organization",
       "input_schema": {
         "type": "object",
@@ -5689,7 +5689,7 @@
       "enabled": true
     },
     {
-      "name": "actions_list_selected_repositories_self_hosted_runners_organization",
+      "name": "actions_list_selected_repositories_self_hosted_runners__00eb60a1",
       "description": "List repositories allowed to use self-hosted runners in an organization",
       "input_schema": {
         "type": "object",
@@ -5713,7 +5713,7 @@
       "enabled": true
     },
     {
-      "name": "actions_set_selected_repositories_self_hosted_runners_organization",
+      "name": "actions_set_selected_repositories_self_hosted_runners_o_22df2664",
       "description": "Set repositories allowed to use self-hosted runners in an organization",
       "input_schema": {
         "type": "object",
@@ -5746,7 +5746,7 @@
       "enabled": true
     },
     {
-      "name": "actions_enable_selected_repository_self_hosted_runners_organization",
+      "name": "actions_enable_selected_repository_self_hosted_runners__0fc2372a",
       "description": "Add a repository to the list of repositories allowed to use self-hosted runners in an organization",
       "input_schema": {
         "type": "object",
@@ -5770,7 +5770,7 @@
       "enabled": true
     },
     {
-      "name": "actions_disable_selected_repository_self_hosted_runners_organization",
+      "name": "actions_disable_selected_repository_self_hosted_runners_1fc015c6",
       "description": "Remove a repository from the list of repositories allowed to use self-hosted runners in an organization",
       "input_schema": {
         "type": "object",
@@ -5794,7 +5794,7 @@
       "enabled": true
     },
     {
-      "name": "actions_get_github_actions_default_workflow_permissions_organization",
+      "name": "actions_get_github_actions_default_workflow_permissions_f9135982",
       "description": "Get default workflow permissions for an organization",
       "input_schema": {
         "type": "object",
@@ -5818,7 +5818,7 @@
       "enabled": true
     },
     {
-      "name": "actions_set_github_actions_default_workflow_permissions_organization",
+      "name": "actions_set_github_actions_default_workflow_permissions_eb8c51c7",
       "description": "Set default workflow permissions for an organization",
       "input_schema": {
         "type": "object",
@@ -9137,7 +9137,7 @@
       "enabled": true
     },
     {
-      "name": "copilot_list_copilot_coding_agent_selected_repositories_for_organization",
+      "name": "copilot_list_copilot_coding_agent_selected_repositories_c4150b6d",
       "description": "List repositories enabled for Copilot coding agent in an organization",
       "input_schema": {
         "type": "object",
@@ -9161,7 +9161,7 @@
       "enabled": true
     },
     {
-      "name": "copilot_set_copilot_coding_agent_selected_repositories_for_organization",
+      "name": "copilot_set_copilot_coding_agent_selected_repositories__d4a09754",
       "description": "Set selected repositories for Copilot coding agent in an organization",
       "input_schema": {
         "type": "object",
@@ -9194,7 +9194,7 @@
       "enabled": true
     },
     {
-      "name": "copilot_enable_copilot_coding_agent_for_repository_in_organization",
+      "name": "copilot_enable_copilot_coding_agent_for_repository_in_o_aef4ec7e",
       "description": "Enable a repository for Copilot coding agent in an organization",
       "input_schema": {
         "type": "object",
@@ -9218,7 +9218,7 @@
       "enabled": true
     },
     {
-      "name": "copilot_disable_copilot_coding_agent_for_repository_in_organization",
+      "name": "copilot_disable_copilot_coding_agent_for_repository_in__94a29b12",
       "description": "Disable a repository for Copilot coding agent in an organization",
       "input_schema": {
         "type": "object",
@@ -9815,7 +9815,7 @@
       "enabled": true
     },
     {
-      "name": "packages_list_docker_migration_conflicting_packages_for_organization",
+      "name": "packages_list_docker_migration_conflicting_packages_for_c11613f1",
       "description": "Get list of conflicting packages during Docker migration for organization",
       "input_schema": {
         "type": "object",
@@ -13075,7 +13075,7 @@
       "enabled": true
     },
     {
-      "name": "orgs_custom_properties_for_repos_create_or_update_organization_definitions",
+      "name": "orgs_custom_properties_for_repos_create_or_update_organ_e844c02e",
       "description": "Create or update custom properties for an organization",
       "input_schema": {
         "type": "object",
@@ -13132,7 +13132,7 @@
       "enabled": true
     },
     {
-      "name": "orgs_custom_properties_for_repos_create_or_update_organization_definition",
+      "name": "orgs_custom_properties_for_repos_create_or_update_organ_00f999b9",
       "description": "Create or update a custom property for an organization",
       "input_schema": {
         "type": "object",
@@ -13242,7 +13242,7 @@
       "enabled": true
     },
     {
-      "name": "orgs_custom_properties_for_repos_create_or_update_organization_values",
+      "name": "orgs_custom_properties_for_repos_create_or_update_organ_462a4267",
       "description": "Create or update custom property values for organization repositories",
       "input_schema": {
         "type": "object",
@@ -16141,7 +16141,7 @@
       "enabled": true
     },
     {
-      "name": "actions_get_github_actions_default_workflow_permissions_repository",
+      "name": "actions_get_github_actions_default_workflow_permissions_eacfdf5f",
       "description": "Get default workflow permissions for a repository",
       "input_schema": {
         "type": "object",
@@ -16165,7 +16165,7 @@
       "enabled": true
     },
     {
-      "name": "actions_set_github_actions_default_workflow_permissions_repository",
+      "name": "actions_set_github_actions_default_workflow_permissions_f70e561f",
       "description": "Set default workflow permissions for a repository",
       "input_schema": {
         "type": "object",
@@ -16485,7 +16485,7 @@
       "enabled": true
     },
     {
-      "name": "actions_remove_all_custom_labels_from_self_hosted_runner_for_repo",
+      "name": "actions_remove_all_custom_labels_from_self_hosted_runne_0a2b7ac4",
       "description": "Remove all custom labels from a self-hosted runner for a repository",
       "input_schema": {
         "type": "object",
@@ -20179,7 +20179,7 @@
       "enabled": true
     },
     {
-      "name": "codespaces_list_devcontainers_in_repository_for_authenticated_user",
+      "name": "codespaces_list_devcontainers_in_repository_for_authent_8dea270e",
       "description": "List devcontainer configurations in a repository for the authenticated user",
       "input_schema": {
         "type": "object",
@@ -26489,7 +26489,7 @@
       "enabled": true
     },
     {
-      "name": "repos_custom_properties_for_repos_create_or_update_repository_values",
+      "name": "repos_custom_properties_for_repos_create_or_update_repo_322a0aed",
       "description": "Create or update custom property values for a repository",
       "input_schema": {
         "type": "object",
@@ -31298,7 +31298,7 @@
       "enabled": true
     },
     {
-      "name": "packages_list_docker_migration_conflicting_packages_for_authenticated_user",
+      "name": "packages_list_docker_migration_conflicting_packages_for_1ba9a2a3",
       "description": "Get list of conflicting packages during Docker migration for authenticated-user",
       "input_schema": {
         "type": "object",
@@ -32448,7 +32448,7 @@
       "enabled": true
     },
     {
-      "name": "packages_get_all_package_versions_for_package_owned_by_authenticated_user",
+      "name": "packages_get_all_package_versions_for_package_owned_by__b540909d",
       "description": "List package versions for a package owned by the authenticated user",
       "input_schema": {
         "type": "object",
