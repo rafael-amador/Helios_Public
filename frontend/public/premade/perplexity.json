@@ -1,6 +1,10 @@
 {
   "baseUrl": "https://api.perplexity.ai",
-  "auth": [{ "type": "bearer_token" }],
+  "auth": [
+    {
+      "type": "bearer_token"
+    }
+  ],
   "tools": [
     {
       "name": "perplexity_chat",
@@ -9,15 +13,45 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "model": { "type": "string", "description": "Model to use: 'sonar' (default), 'sonar-pro', 'sonar-reasoning', 'sonar-reasoning-pro'" },
-          "messages": { "type": "array", "description": "Array of message objects: [{ role: 'user', content: 'What happened in the news today?' }]" },
-          "max_tokens": { "type": "integer", "description": "Max tokens in the response" },
-          "temperature": { "type": "number", "description": "Sampling temperature 0–2" },
-          "search_recency_filter": { "type": "string", "description": "Limit search results by time: 'day', 'week', 'month', or 'year'" }
+          "model": {
+            "type": "string",
+            "description": "Model to use: 'sonar' (default), 'sonar-pro', 'sonar-reasoning', 'sonar-reasoning-pro'"
+          },
+          "messages": {
+            "type": "array",
+            "description": "Array of message objects: [{ role: 'user', content: 'What happened in the news today?' }]"
+          },
+          "max_tokens": {
+            "type": "integer",
+            "description": "Max tokens in the response"
+          },
+          "temperature": {
+            "type": "number",
+            "description": "Sampling temperature 0–2"
+          },
+          "search_recency_filter": {
+            "type": "string",
+            "description": "Limit search results by time: 'day', 'week', 'month', or 'year'"
+          }
         },
-        "required": ["model", "messages"]
+        "required": [
+          "model",
+          "messages"
+        ]
       },
-      "handler": { "method": "POST", "path": "/chat/completions", "headers": {}, "query_params": [], "fixed_query_params": {} }
+      "handler": {
+        "method": "POST",
+        "path": "/chat/completions",
+        "headers": {},
+        "query_params": [],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
+      }
     }
   ]
 }

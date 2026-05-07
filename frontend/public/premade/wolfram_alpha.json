@@ -1,6 +1,12 @@
 {
   "baseUrl": "https://api.wolframalpha.com",
-  "auth": [{ "type": "api_key", "in": "query", "name": "appid" }],
+  "auth": [
+    {
+      "type": "api_key",
+      "in": "query",
+      "name": "appid"
+    }
+  ],
   "tools": [
     {
       "name": "wolfram_short_answer",
@@ -9,11 +15,31 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "i": { "type": "string", "description": "Your question or calculation, e.g. 'integrate x^2' or 'population of Japan'" }
+          "i": {
+            "type": "string",
+            "description": "Your question or calculation, e.g. 'integrate x^2' or 'population of Japan'"
+          }
         },
-        "required": ["i"]
+        "required": [
+          "i"
+        ]
       },
-      "handler": { "method": "GET", "path": "/v1/result", "headers": {}, "query_params": ["i"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/v1/result",
+        "headers": {},
+        "query_params": [
+          "i"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "appid"
+        }
+      }
     },
     {
       "name": "wolfram_spoken_answer",
@@ -22,11 +48,31 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "i": { "type": "string", "description": "Your question, e.g. 'What is the speed of light?'" }
+          "i": {
+            "type": "string",
+            "description": "Your question, e.g. 'What is the speed of light?'"
+          }
         },
-        "required": ["i"]
+        "required": [
+          "i"
+        ]
       },
-      "handler": { "method": "GET", "path": "/v1/spoken", "headers": {}, "query_params": ["i"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/v1/spoken",
+        "headers": {},
+        "query_params": [
+          "i"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "appid"
+        }
+      }
     },
     {
       "name": "wolfram_full_results",
@@ -35,13 +81,43 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "input": { "type": "string", "description": "The query to compute" },
-          "format": { "type": "string", "description": "Output format for pods: 'plaintext', 'image', etc." },
-          "units": { "type": "string", "description": "'metric' or 'imperial'" }
+          "input": {
+            "type": "string",
+            "description": "The query to compute"
+          },
+          "format": {
+            "type": "string",
+            "description": "Output format for pods: 'plaintext', 'image', etc."
+          },
+          "units": {
+            "type": "string",
+            "description": "'metric' or 'imperial'"
+          }
         },
-        "required": ["input"]
+        "required": [
+          "input"
+        ]
       },
-      "handler": { "method": "GET", "path": "/v2/query", "headers": {}, "query_params": ["input", "format", "units"], "fixed_query_params": { "output": "json" } }
+      "handler": {
+        "method": "GET",
+        "path": "/v2/query",
+        "headers": {},
+        "query_params": [
+          "input",
+          "format",
+          "units"
+        ],
+        "fixed_query_params": {
+          "output": "json"
+        }
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "appid"
+        }
+      }
     }
   ]
 }

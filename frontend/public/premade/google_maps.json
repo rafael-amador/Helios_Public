@@ -1,6 +1,12 @@
 {
   "baseUrl": "https://maps.googleapis.com/maps/api",
-  "auth": [{ "type": "api_key", "in": "query", "name": "key" }],
+  "auth": [
+    {
+      "type": "api_key",
+      "in": "query",
+      "name": "key"
+    }
+  ],
   "tools": [
     {
       "name": "maps_geocode",
@@ -9,13 +15,41 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "address": { "type": "string", "description": "Full address to geocode, e.g. '1600 Amphitheatre Parkway, Mountain View, CA'" },
-          "region": { "type": "string", "description": "Region bias using ccTLD (2-letter country code), e.g. 'us'" },
-          "language": { "type": "string", "description": "Language for results, e.g. 'en'" }
+          "address": {
+            "type": "string",
+            "description": "Full address to geocode, e.g. '1600 Amphitheatre Parkway, Mountain View, CA'"
+          },
+          "region": {
+            "type": "string",
+            "description": "Region bias using ccTLD (2-letter country code), e.g. 'us'"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language for results, e.g. 'en'"
+          }
         },
-        "required": ["address"]
+        "required": [
+          "address"
+        ]
       },
-      "handler": { "method": "GET", "path": "/geocode/json", "headers": {}, "query_params": ["address", "region", "language"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/geocode/json",
+        "headers": {},
+        "query_params": [
+          "address",
+          "region",
+          "language"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "key"
+        }
+      }
     },
     {
       "name": "maps_reverse_geocode",
@@ -24,13 +58,41 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "latlng": { "type": "string", "description": "Comma-separated lat,lng, e.g. '37.4224764,-122.0842499'" },
-          "result_type": { "type": "string", "description": "Filter by component type, e.g. 'street_address' or 'locality'" },
-          "language": { "type": "string", "description": "Language for results" }
+          "latlng": {
+            "type": "string",
+            "description": "Comma-separated lat,lng, e.g. '37.4224764,-122.0842499'"
+          },
+          "result_type": {
+            "type": "string",
+            "description": "Filter by component type, e.g. 'street_address' or 'locality'"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language for results"
+          }
         },
-        "required": ["latlng"]
+        "required": [
+          "latlng"
+        ]
       },
-      "handler": { "method": "GET", "path": "/geocode/json", "headers": {}, "query_params": ["latlng", "result_type", "language"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/geocode/json",
+        "headers": {},
+        "query_params": [
+          "latlng",
+          "result_type",
+          "language"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "key"
+        }
+      }
     },
     {
       "name": "maps_directions",
@@ -39,19 +101,72 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "origin": { "type": "string", "description": "Starting point: address or lat,lng or place_id, e.g. 'Times Square, New York'" },
-          "destination": { "type": "string", "description": "Destination: address or lat,lng or place_id" },
-          "mode": { "type": "string", "description": "Travel mode: 'driving' (default), 'walking', 'bicycling', 'transit'" },
-          "waypoints": { "type": "string", "description": "Pipe-separated intermediate stops, e.g. 'via:Philadelphia,PA|via:Baltimore,MD'" },
-          "avoid": { "type": "string", "description": "Features to avoid: 'tolls', 'highways', 'ferries', 'indoor'" },
-          "departure_time": { "type": "string", "description": "Unix timestamp or 'now' for real-time traffic" },
-          "units": { "type": "string", "description": "'metric' or 'imperial'" },
-          "language": { "type": "string", "description": "Language for instructions" },
-          "alternatives": { "type": "boolean", "description": "Return multiple route alternatives" }
+          "origin": {
+            "type": "string",
+            "description": "Starting point: address or lat,lng or place_id, e.g. 'Times Square, New York'"
+          },
+          "destination": {
+            "type": "string",
+            "description": "Destination: address or lat,lng or place_id"
+          },
+          "mode": {
+            "type": "string",
+            "description": "Travel mode: 'driving' (default), 'walking', 'bicycling', 'transit'"
+          },
+          "waypoints": {
+            "type": "string",
+            "description": "Pipe-separated intermediate stops, e.g. 'via:Philadelphia,PA|via:Baltimore,MD'"
+          },
+          "avoid": {
+            "type": "string",
+            "description": "Features to avoid: 'tolls', 'highways', 'ferries', 'indoor'"
+          },
+          "departure_time": {
+            "type": "string",
+            "description": "Unix timestamp or 'now' for real-time traffic"
+          },
+          "units": {
+            "type": "string",
+            "description": "'metric' or 'imperial'"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language for instructions"
+          },
+          "alternatives": {
+            "type": "boolean",
+            "description": "Return multiple route alternatives"
+          }
         },
-        "required": ["origin", "destination"]
+        "required": [
+          "origin",
+          "destination"
+        ]
       },
-      "handler": { "method": "GET", "path": "/directions/json", "headers": {}, "query_params": ["origin", "destination", "mode", "waypoints", "avoid", "departure_time", "units", "language", "alternatives"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/directions/json",
+        "headers": {},
+        "query_params": [
+          "origin",
+          "destination",
+          "mode",
+          "waypoints",
+          "avoid",
+          "departure_time",
+          "units",
+          "language",
+          "alternatives"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "key"
+        }
+      }
     },
     {
       "name": "maps_distance_matrix",
@@ -60,16 +175,57 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "origins": { "type": "string", "description": "Pipe-separated origin addresses, e.g. 'New York, NY|Boston, MA'" },
-          "destinations": { "type": "string", "description": "Pipe-separated destination addresses" },
-          "mode": { "type": "string", "description": "'driving', 'walking', 'bicycling', or 'transit'" },
-          "avoid": { "type": "string", "description": "'tolls', 'highways', 'ferries'" },
-          "units": { "type": "string", "description": "'metric' or 'imperial'" },
-          "departure_time": { "type": "string", "description": "Unix timestamp or 'now' for traffic-aware results" }
+          "origins": {
+            "type": "string",
+            "description": "Pipe-separated origin addresses, e.g. 'New York, NY|Boston, MA'"
+          },
+          "destinations": {
+            "type": "string",
+            "description": "Pipe-separated destination addresses"
+          },
+          "mode": {
+            "type": "string",
+            "description": "'driving', 'walking', 'bicycling', or 'transit'"
+          },
+          "avoid": {
+            "type": "string",
+            "description": "'tolls', 'highways', 'ferries'"
+          },
+          "units": {
+            "type": "string",
+            "description": "'metric' or 'imperial'"
+          },
+          "departure_time": {
+            "type": "string",
+            "description": "Unix timestamp or 'now' for traffic-aware results"
+          }
         },
-        "required": ["origins", "destinations"]
+        "required": [
+          "origins",
+          "destinations"
+        ]
       },
-      "handler": { "method": "GET", "path": "/distancematrix/json", "headers": {}, "query_params": ["origins", "destinations", "mode", "avoid", "units", "departure_time"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/distancematrix/json",
+        "headers": {},
+        "query_params": [
+          "origins",
+          "destinations",
+          "mode",
+          "avoid",
+          "units",
+          "departure_time"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "key"
+        }
+      }
     },
     {
       "name": "maps_places_nearby",
@@ -78,20 +234,76 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "location": { "type": "string", "description": "Center point as lat,lng, e.g. '37.7749,-122.4194'" },
-          "radius": { "type": "integer", "description": "Search radius in meters (max 50000)" },
-          "type": { "type": "string", "description": "Place type: 'restaurant', 'hospital', 'gas_station', 'hotel', 'pharmacy', 'school', 'bank', 'gym', 'park', etc." },
-          "keyword": { "type": "string", "description": "Additional keyword to filter results" },
-          "opennow": { "type": "boolean", "description": "Only return places that are currently open" },
-          "minprice": { "type": "integer", "description": "Minimum price level (0-4)" },
-          "maxprice": { "type": "integer", "description": "Maximum price level (0-4)" },
-          "rankby": { "type": "string", "description": "'prominence' (default) or 'distance' (cannot use radius with distance)" },
-          "language": { "type": "string", "description": "Language for results" },
-          "pagetoken": { "type": "string", "description": "Next page token for pagination" }
+          "location": {
+            "type": "string",
+            "description": "Center point as lat,lng, e.g. '37.7749,-122.4194'"
+          },
+          "radius": {
+            "type": "integer",
+            "description": "Search radius in meters (max 50000)"
+          },
+          "type": {
+            "type": "string",
+            "description": "Place type: 'restaurant', 'hospital', 'gas_station', 'hotel', 'pharmacy', 'school', 'bank', 'gym', 'park', etc."
+          },
+          "keyword": {
+            "type": "string",
+            "description": "Additional keyword to filter results"
+          },
+          "opennow": {
+            "type": "boolean",
+            "description": "Only return places that are currently open"
+          },
+          "minprice": {
+            "type": "integer",
+            "description": "Minimum price level (0-4)"
+          },
+          "maxprice": {
+            "type": "integer",
+            "description": "Maximum price level (0-4)"
+          },
+          "rankby": {
+            "type": "string",
+            "description": "'prominence' (default) or 'distance' (cannot use radius with distance)"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language for results"
+          },
+          "pagetoken": {
+            "type": "string",
+            "description": "Next page token for pagination"
+          }
         },
-        "required": ["location"]
+        "required": [
+          "location"
+        ]
       },
-      "handler": { "method": "GET", "path": "/place/nearbysearch/json", "headers": {}, "query_params": ["location", "radius", "type", "keyword", "opennow", "minprice", "maxprice", "rankby", "language", "pagetoken"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/place/nearbysearch/json",
+        "headers": {},
+        "query_params": [
+          "location",
+          "radius",
+          "type",
+          "keyword",
+          "opennow",
+          "minprice",
+          "maxprice",
+          "rankby",
+          "language",
+          "pagetoken"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "key"
+        }
+      }
     },
     {
       "name": "maps_places_text_search",
@@ -100,18 +312,66 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "query": { "type": "string", "description": "Text search query, e.g. 'best coffee near Central Park'" },
-          "location": { "type": "string", "description": "Bias results toward a location (lat,lng)" },
-          "radius": { "type": "integer", "description": "Search radius in meters for location bias" },
-          "type": { "type": "string", "description": "Filter by place type" },
-          "opennow": { "type": "boolean", "description": "Only open places" },
-          "minprice": { "type": "integer", "description": "Minimum price level (0-4)" },
-          "maxprice": { "type": "integer", "description": "Maximum price level (0-4)" },
-          "language": { "type": "string", "description": "Language for results" }
+          "query": {
+            "type": "string",
+            "description": "Text search query, e.g. 'best coffee near Central Park'"
+          },
+          "location": {
+            "type": "string",
+            "description": "Bias results toward a location (lat,lng)"
+          },
+          "radius": {
+            "type": "integer",
+            "description": "Search radius in meters for location bias"
+          },
+          "type": {
+            "type": "string",
+            "description": "Filter by place type"
+          },
+          "opennow": {
+            "type": "boolean",
+            "description": "Only open places"
+          },
+          "minprice": {
+            "type": "integer",
+            "description": "Minimum price level (0-4)"
+          },
+          "maxprice": {
+            "type": "integer",
+            "description": "Maximum price level (0-4)"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language for results"
+          }
         },
-        "required": ["query"]
+        "required": [
+          "query"
+        ]
       },
-      "handler": { "method": "GET", "path": "/place/textsearch/json", "headers": {}, "query_params": ["query", "location", "radius", "type", "opennow", "minprice", "maxprice", "language"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/place/textsearch/json",
+        "headers": {},
+        "query_params": [
+          "query",
+          "location",
+          "radius",
+          "type",
+          "opennow",
+          "minprice",
+          "maxprice",
+          "language"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "key"
+        }
+      }
     },
     {
       "name": "maps_place_details",
@@ -120,13 +380,41 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "place_id": { "type": "string", "description": "Google Place ID (from a places search result)" },
-          "fields": { "type": "string", "description": "Comma-separated fields: 'name,rating,formatted_address,formatted_phone_number,website,opening_hours,reviews,photos,geometry,price_level'" },
-          "language": { "type": "string", "description": "Language for results" }
+          "place_id": {
+            "type": "string",
+            "description": "Google Place ID (from a places search result)"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Comma-separated fields: 'name,rating,formatted_address,formatted_phone_number,website,opening_hours,reviews,photos,geometry,price_level'"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language for results"
+          }
         },
-        "required": ["place_id"]
+        "required": [
+          "place_id"
+        ]
       },
-      "handler": { "method": "GET", "path": "/place/details/json", "headers": {}, "query_params": ["place_id", "fields", "language"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/place/details/json",
+        "headers": {},
+        "query_params": [
+          "place_id",
+          "fields",
+          "language"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "key"
+        }
+      }
     },
     {
       "name": "maps_place_autocomplete",
@@ -135,16 +423,56 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "input": { "type": "string", "description": "User-typed text to autocomplete, e.g. 'New Yor'" },
-          "types": { "type": "string", "description": "Result types: 'geocode', 'address', 'establishment', '(regions)', '(cities)'" },
-          "location": { "type": "string", "description": "Bias toward a location (lat,lng)" },
-          "radius": { "type": "integer", "description": "Bias radius in meters" },
-          "components": { "type": "string", "description": "Country filter: 'country:us' or 'country:gb'" },
-          "language": { "type": "string", "description": "Language for results" }
+          "input": {
+            "type": "string",
+            "description": "User-typed text to autocomplete, e.g. 'New Yor'"
+          },
+          "types": {
+            "type": "string",
+            "description": "Result types: 'geocode', 'address', 'establishment', '(regions)', '(cities)'"
+          },
+          "location": {
+            "type": "string",
+            "description": "Bias toward a location (lat,lng)"
+          },
+          "radius": {
+            "type": "integer",
+            "description": "Bias radius in meters"
+          },
+          "components": {
+            "type": "string",
+            "description": "Country filter: 'country:us' or 'country:gb'"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language for results"
+          }
         },
-        "required": ["input"]
+        "required": [
+          "input"
+        ]
       },
-      "handler": { "method": "GET", "path": "/place/autocomplete/json", "headers": {}, "query_params": ["input", "types", "location", "radius", "components", "language"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/place/autocomplete/json",
+        "headers": {},
+        "query_params": [
+          "input",
+          "types",
+          "location",
+          "radius",
+          "components",
+          "language"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "key"
+        }
+      }
     },
     {
       "name": "maps_elevation",
@@ -153,13 +481,41 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "locations": { "type": "string", "description": "Pipe-separated lat,lng pairs, e.g. '39.7391,-104.9847|36.4559,-105.0162'" },
-          "path": { "type": "string", "description": "Encoded polyline path for elevation profile" },
-          "samples": { "type": "integer", "description": "Number of sample points along a path" }
+          "locations": {
+            "type": "string",
+            "description": "Pipe-separated lat,lng pairs, e.g. '39.7391,-104.9847|36.4559,-105.0162'"
+          },
+          "path": {
+            "type": "string",
+            "description": "Encoded polyline path for elevation profile"
+          },
+          "samples": {
+            "type": "integer",
+            "description": "Number of sample points along a path"
+          }
         },
-        "required": ["locations"]
+        "required": [
+          "locations"
+        ]
       },
-      "handler": { "method": "GET", "path": "/elevation/json", "headers": {}, "query_params": ["locations", "path", "samples"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/elevation/json",
+        "headers": {},
+        "query_params": [
+          "locations",
+          "path",
+          "samples"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "key"
+        }
+      }
     },
     {
       "name": "maps_timezone",
@@ -168,13 +524,42 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "location": { "type": "string", "description": "lat,lng of the location" },
-          "timestamp": { "type": "integer", "description": "Unix timestamp to get timezone info for (affects DST)" },
-          "language": { "type": "string", "description": "Language for timezone name" }
+          "location": {
+            "type": "string",
+            "description": "lat,lng of the location"
+          },
+          "timestamp": {
+            "type": "integer",
+            "description": "Unix timestamp to get timezone info for (affects DST)"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language for timezone name"
+          }
         },
-        "required": ["location", "timestamp"]
+        "required": [
+          "location",
+          "timestamp"
+        ]
       },
-      "handler": { "method": "GET", "path": "/timezone/json", "headers": {}, "query_params": ["location", "timestamp", "language"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/timezone/json",
+        "headers": {},
+        "query_params": [
+          "location",
+          "timestamp",
+          "language"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_query",
+          "integration_id": "",
+          "param_name": "key"
+        }
+      }
     }
   ]
 }

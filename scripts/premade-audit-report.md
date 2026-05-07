@@ -1,6 +1,6 @@
 # Premade Audit Report
 
-Generated: 2026-05-07T15:00:08.792Z
+Generated: 2026-05-07T15:07:09.631Z
 
 ## Summary
 
@@ -43,7 +43,7 @@ Generated: 2026-05-07T15:00:08.792Z
 
 | Premade | Tools | Auth template(s) | No-auth | Bodyless mut. | Unresolvable path | Errors | Warnings |
 |---|---|---|---|---|---|---|---|
-| airtable | 15 | (none) | 15 | 0 | 0 | 0 | 0 |
+| airtable | 15 | bearer_token | 0 | 0 | 0 | 0 | 0 |
 | algolia | 78 | api_key_header | 0 | 4 | 0 | 0 | 1 |
 | asana | 167 | oauth2_auth_code | 0 | 2 | 0 | 0 | 1 |
 | box | 296 | oauth2_auth_code | 0 | 14 | 0 | 0 | 1 |
@@ -52,34 +52,34 @@ Generated: 2026-05-07T15:00:08.792Z
 | digitalocean | 599 | bearer_token | 0 | 11 | 0 | 0 | 1 |
 | discord | 230 | api_key_header | 0 | 24 | 0 | 0 | 1 |
 | figma | 47 | api_key_header | 0 | 0 | 0 | 0 | 0 |
-| github | 1112 | (none) | 1112 | 2 | 0 | 0 | 1 |
+| github | 1112 | bearer_token | 0 | 2 | 0 | 0 | 1 |
 | gitlab | 1126 | api_key_header | 0 | 86 | 0 | 0 | 1 |
 | gmail | 79 | oauth2_auth_code | 0 | 16 | 0 | 0 | 1 |
-| google_maps | 10 | (none) | 10 | 0 | 0 | 0 | 0 |
+| google_maps | 10 | api_key_query | 0 | 0 | 0 | 0 | 0 |
 | jira | 487 | oauth2_auth_code | 0 | 30 | 0 | 0 | 1 |
-| linear | 5 | (none) | 5 | 0 | 0 | 0 | 0 |
+| linear | 5 | bearer_token | 0 | 0 | 0 | 0 | 0 |
 | mongodb | 468 | oauth2_client_creds | 0 | 0 | 0 | 0 | 0 |
-| newsapi | 3 | (none) | 3 | 0 | 0 | 0 | 0 |
+| newsapi | 3 | api_key_header | 0 | 0 | 0 | 0 | 0 |
 | notion | 13 | (none) | 13 | 0 | 0 | 0 | 0 |
 | open_meteo | 1 | (none) | 1 | 0 | 0 | 0 | 0 |
-| openai | 28 | (none) | 28 | 6 | 0 | 0 | 1 |
-| openweathermap | 9 | (none) | 9 | 0 | 0 | 0 | 0 |
+| openai | 28 | bearer_token | 0 | 6 | 0 | 0 | 1 |
+| openweathermap | 9 | api_key_query | 0 | 0 | 0 | 0 | 0 |
 | pagerduty | 419 | api_key_header | 0 | 0 | 0 | 0 | 0 |
-| perplexity | 1 | (none) | 1 | 0 | 0 | 0 | 0 |
+| perplexity | 1 | bearer_token | 0 | 0 | 0 | 0 | 0 |
 | postmark | 23 | (none) | 23 | 0 | 0 | 0 | 0 |
-| reddit | 17 | (none) | 17 | 0 | 0 | 0 | 0 |
-| sendgrid | 19 | (none) | 19 | 0 | 0 | 0 | 0 |
+| reddit | 17 | bearer_token | 0 | 0 | 0 | 0 | 0 |
+| sendgrid | 19 | bearer_token | 0 | 0 | 0 | 0 | 0 |
 | slack | 174 | oauth2_auth_code | 0 | 0 | 0 | 0 | 0 |
 | spotify | 96 | oauth2_auth_code | 0 | 11 | 0 | 0 | 1 |
 | stripe | 587 | basic_auth | 0 | 1 | 0 | 0 | 1 |
 | supabase | 161 | bearer_token | 0 | 18 | 0 | 0 | 2 |
-| tmdb | 27 | (none) | 27 | 0 | 0 | 0 | 0 |
-| todoist | 19 | (none) | 19 | 2 | 0 | 0 | 1 |
+| tmdb | 27 | bearer_token | 0 | 0 | 0 | 0 | 0 |
+| todoist | 19 | bearer_token | 0 | 2 | 0 | 0 | 1 |
 | trello | 256 | api_key_query | 0 | 85 | 0 | 0 | 1 |
 | twilio | 197 | basic_auth | 0 | 0 | 0 | 0 | 0 |
-| twitter | 5 | (none) | 5 | 0 | 0 | 0 | 0 |
-| unsplash | 15 | (none) | 15 | 0 | 0 | 0 | 0 |
+| twitter | 5 | bearer_token | 0 | 0 | 0 | 0 | 0 |
+| unsplash | 15 | api_key_header | 0 | 0 | 0 | 0 | 0 |
 | vercel | 322 | bearer_token | 0 | 19 | 0 | 0 | 1 |
-| wolfram_alpha | 3 | (none) | 3 | 0 | 0 | 0 | 0 |
+| wolfram_alpha | 3 | api_key_query | 0 | 0 | 0 | 0 | 0 |
 | youtube | 76 | oauth2_auth_code | 0 | 12 | 0 | 0 | 1 |
 | zoom | 373 | api_key_header | 0 | 9 | 0 | 0 | 1 |

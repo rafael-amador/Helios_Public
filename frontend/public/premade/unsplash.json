@@ -1,6 +1,12 @@
 {
   "baseUrl": "https://api.unsplash.com",
-  "auth": [{ "type": "api_key", "in": "header", "name": "Authorization" }],
+  "auth": [
+    {
+      "type": "api_key",
+      "in": "header",
+      "name": "Authorization"
+    }
+  ],
   "tools": [
     {
       "name": "unsplash_search_photos",
@@ -9,17 +15,61 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "query": { "type": "string", "description": "Search keyword, e.g. 'mountain sunset' or 'office minimal'" },
-          "page": { "type": "integer", "description": "Page number" },
-          "per_page": { "type": "integer", "description": "Results per page (1-30)" },
-          "order_by": { "type": "string", "description": "'relevant' (default) or 'latest'" },
-          "orientation": { "type": "string", "description": "'landscape', 'portrait', or 'squarish'" },
-          "color": { "type": "string", "description": "Color filter: 'black_and_white', 'black', 'white', 'yellow', 'orange', 'red', 'purple', 'magenta', 'green', 'teal', 'blue'" },
-          "content_filter": { "type": "string", "description": "'low' (default) or 'high' (strict filtering)" }
+          "query": {
+            "type": "string",
+            "description": "Search keyword, e.g. 'mountain sunset' or 'office minimal'"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "Results per page (1-30)"
+          },
+          "order_by": {
+            "type": "string",
+            "description": "'relevant' (default) or 'latest'"
+          },
+          "orientation": {
+            "type": "string",
+            "description": "'landscape', 'portrait', or 'squarish'"
+          },
+          "color": {
+            "type": "string",
+            "description": "Color filter: 'black_and_white', 'black', 'white', 'yellow', 'orange', 'red', 'purple', 'magenta', 'green', 'teal', 'blue'"
+          },
+          "content_filter": {
+            "type": "string",
+            "description": "'low' (default) or 'high' (strict filtering)"
+          }
         },
-        "required": ["query"]
+        "required": [
+          "query"
+        ]
       },
-      "handler": { "method": "GET", "path": "/search/photos", "headers": {}, "query_params": ["query", "page", "per_page", "order_by", "orientation", "color", "content_filter"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/search/photos",
+        "headers": {},
+        "query_params": [
+          "query",
+          "page",
+          "per_page",
+          "order_by",
+          "orientation",
+          "color",
+          "content_filter"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_list_photos",
@@ -28,13 +78,39 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "page": { "type": "integer", "description": "Page number" },
-          "per_page": { "type": "integer", "description": "Photos per page (1-30)" },
-          "order_by": { "type": "string", "description": "'latest', 'oldest', or 'popular'" }
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "Photos per page (1-30)"
+          },
+          "order_by": {
+            "type": "string",
+            "description": "'latest', 'oldest', or 'popular'"
+          }
         },
         "required": []
       },
-      "handler": { "method": "GET", "path": "/photos", "headers": {}, "query_params": ["page", "per_page", "order_by"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/photos",
+        "headers": {},
+        "query_params": [
+          "page",
+          "per_page",
+          "order_by"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_get_photo",
@@ -42,10 +118,30 @@
       "enabled": true,
       "input_schema": {
         "type": "object",
-        "properties": { "id": { "type": "string", "description": "Unsplash photo ID" } },
-        "required": ["id"]
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unsplash photo ID"
+          }
+        },
+        "required": [
+          "id"
+        ]
       },
-      "handler": { "method": "GET", "path": "/photos/{id}", "headers": {}, "query_params": [], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/photos/{id}",
+        "headers": {},
+        "query_params": [],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_get_random_photo",
@@ -54,17 +150,59 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "query": { "type": "string", "description": "Keyword to filter random photos" },
-          "orientation": { "type": "string", "description": "'landscape', 'portrait', or 'squarish'" },
-          "count": { "type": "integer", "description": "Number of photos to return (1-30; omit for single photo object response)" },
-          "collections": { "type": "string", "description": "Comma-separated collection IDs" },
-          "topics": { "type": "string", "description": "Comma-separated topic IDs or slugs" },
-          "username": { "type": "string", "description": "Limit to photos by a specific photographer" },
-          "content_filter": { "type": "string", "description": "'low' or 'high'" }
+          "query": {
+            "type": "string",
+            "description": "Keyword to filter random photos"
+          },
+          "orientation": {
+            "type": "string",
+            "description": "'landscape', 'portrait', or 'squarish'"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of photos to return (1-30; omit for single photo object response)"
+          },
+          "collections": {
+            "type": "string",
+            "description": "Comma-separated collection IDs"
+          },
+          "topics": {
+            "type": "string",
+            "description": "Comma-separated topic IDs or slugs"
+          },
+          "username": {
+            "type": "string",
+            "description": "Limit to photos by a specific photographer"
+          },
+          "content_filter": {
+            "type": "string",
+            "description": "'low' or 'high'"
+          }
         },
         "required": []
       },
-      "handler": { "method": "GET", "path": "/photos/random", "headers": {}, "query_params": ["query", "orientation", "count", "collections", "topics", "username", "content_filter"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/photos/random",
+        "headers": {},
+        "query_params": [
+          "query",
+          "orientation",
+          "count",
+          "collections",
+          "topics",
+          "username",
+          "content_filter"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_track_download",
@@ -72,10 +210,30 @@
       "enabled": true,
       "input_schema": {
         "type": "object",
-        "properties": { "id": { "type": "string", "description": "Photo ID to track download for" } },
-        "required": ["id"]
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Photo ID to track download for"
+          }
+        },
+        "required": [
+          "id"
+        ]
       },
-      "handler": { "method": "GET", "path": "/photos/{id}/download", "headers": {}, "query_params": [], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/photos/{id}/download",
+        "headers": {},
+        "query_params": [],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_get_photo_statistics",
@@ -84,13 +242,40 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "id": { "type": "string", "description": "Photo ID" },
-          "resolution": { "type": "string", "description": "Time resolution: 'days'" },
-          "quantity": { "type": "integer", "description": "Number of days to aggregate (default 30, max 30)" }
+          "id": {
+            "type": "string",
+            "description": "Photo ID"
+          },
+          "resolution": {
+            "type": "string",
+            "description": "Time resolution: 'days'"
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "Number of days to aggregate (default 30, max 30)"
+          }
         },
-        "required": ["id"]
+        "required": [
+          "id"
+        ]
       },
-      "handler": { "method": "GET", "path": "/photos/{id}/statistics", "headers": {}, "query_params": ["resolution", "quantity"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/photos/{id}/statistics",
+        "headers": {},
+        "query_params": [
+          "resolution",
+          "quantity"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_search_collections",
@@ -99,13 +284,41 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "query": { "type": "string", "description": "Search keyword" },
-          "page": { "type": "integer", "description": "Page number" },
-          "per_page": { "type": "integer", "description": "Results per page (1-30)" }
+          "query": {
+            "type": "string",
+            "description": "Search keyword"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "Results per page (1-30)"
+          }
         },
-        "required": ["query"]
+        "required": [
+          "query"
+        ]
       },
-      "handler": { "method": "GET", "path": "/search/collections", "headers": {}, "query_params": ["query", "page", "per_page"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/search/collections",
+        "headers": {},
+        "query_params": [
+          "query",
+          "page",
+          "per_page"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_list_collections",
@@ -114,12 +327,34 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "page": { "type": "integer", "description": "Page number" },
-          "per_page": { "type": "integer", "description": "Collections per page (1-30)" }
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "Collections per page (1-30)"
+          }
         },
         "required": []
       },
-      "handler": { "method": "GET", "path": "/collections", "headers": {}, "query_params": ["page", "per_page"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/collections",
+        "headers": {},
+        "query_params": [
+          "page",
+          "per_page"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_get_collection",
@@ -127,10 +362,30 @@
       "enabled": true,
       "input_schema": {
         "type": "object",
-        "properties": { "id": { "type": "string", "description": "Collection ID" } },
-        "required": ["id"]
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Collection ID"
+          }
+        },
+        "required": [
+          "id"
+        ]
       },
-      "handler": { "method": "GET", "path": "/collections/{id}", "headers": {}, "query_params": [], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/collections/{id}",
+        "headers": {},
+        "query_params": [],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_get_collection_photos",
@@ -139,14 +394,45 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "id": { "type": "string", "description": "Collection ID" },
-          "page": { "type": "integer", "description": "Page number" },
-          "per_page": { "type": "integer", "description": "Photos per page (1-30)" },
-          "orientation": { "type": "string", "description": "'landscape', 'portrait', or 'squarish'" }
+          "id": {
+            "type": "string",
+            "description": "Collection ID"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "Photos per page (1-30)"
+          },
+          "orientation": {
+            "type": "string",
+            "description": "'landscape', 'portrait', or 'squarish'"
+          }
         },
-        "required": ["id"]
+        "required": [
+          "id"
+        ]
       },
-      "handler": { "method": "GET", "path": "/collections/{id}/photos", "headers": {}, "query_params": ["page", "per_page", "orientation"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/collections/{id}/photos",
+        "headers": {},
+        "query_params": [
+          "page",
+          "per_page",
+          "orientation"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_search_users",
@@ -155,13 +441,41 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "query": { "type": "string", "description": "Photographer name or username" },
-          "page": { "type": "integer", "description": "Page number" },
-          "per_page": { "type": "integer", "description": "Results per page" }
+          "query": {
+            "type": "string",
+            "description": "Photographer name or username"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "Results per page"
+          }
         },
-        "required": ["query"]
+        "required": [
+          "query"
+        ]
       },
-      "handler": { "method": "GET", "path": "/search/users", "headers": {}, "query_params": ["query", "page", "per_page"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/search/users",
+        "headers": {},
+        "query_params": [
+          "query",
+          "page",
+          "per_page"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_get_user",
@@ -169,10 +483,30 @@
       "enabled": true,
       "input_schema": {
         "type": "object",
-        "properties": { "username": { "type": "string", "description": "Unsplash username" } },
-        "required": ["username"]
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "Unsplash username"
+          }
+        },
+        "required": [
+          "username"
+        ]
       },
-      "handler": { "method": "GET", "path": "/users/{username}", "headers": {}, "query_params": [], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/users/{username}",
+        "headers": {},
+        "query_params": [],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_get_user_photos",
@@ -181,15 +515,50 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "username": { "type": "string", "description": "Unsplash username" },
-          "page": { "type": "integer", "description": "Page number" },
-          "per_page": { "type": "integer", "description": "Photos per page (1-30)" },
-          "order_by": { "type": "string", "description": "'latest', 'oldest', or 'popular'" },
-          "orientation": { "type": "string", "description": "'landscape', 'portrait', or 'squarish'" }
+          "username": {
+            "type": "string",
+            "description": "Unsplash username"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "Photos per page (1-30)"
+          },
+          "order_by": {
+            "type": "string",
+            "description": "'latest', 'oldest', or 'popular'"
+          },
+          "orientation": {
+            "type": "string",
+            "description": "'landscape', 'portrait', or 'squarish'"
+          }
         },
-        "required": ["username"]
+        "required": [
+          "username"
+        ]
       },
-      "handler": { "method": "GET", "path": "/users/{username}/photos", "headers": {}, "query_params": ["page", "per_page", "order_by", "orientation"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/users/{username}/photos",
+        "headers": {},
+        "query_params": [
+          "page",
+          "per_page",
+          "order_by",
+          "orientation"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_list_topics",
@@ -198,13 +567,39 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "page": { "type": "integer", "description": "Page number" },
-          "per_page": { "type": "integer", "description": "Topics per page (1-30)" },
-          "order_by": { "type": "string", "description": "'featured', 'latest', 'oldest', 'position'" }
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "Topics per page (1-30)"
+          },
+          "order_by": {
+            "type": "string",
+            "description": "'featured', 'latest', 'oldest', 'position'"
+          }
         },
         "required": []
       },
-      "handler": { "method": "GET", "path": "/topics", "headers": {}, "query_params": ["page", "per_page", "order_by"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/topics",
+        "headers": {},
+        "query_params": [
+          "page",
+          "per_page",
+          "order_by"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     },
     {
       "name": "unsplash_get_topic_photos",
@@ -213,15 +608,50 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "id_or_slug": { "type": "string", "description": "Topic ID or slug, e.g. 'nature', 'architecture', 'travel'" },
-          "page": { "type": "integer", "description": "Page number" },
-          "per_page": { "type": "integer", "description": "Photos per page (1-30)" },
-          "orientation": { "type": "string", "description": "'landscape', 'portrait', or 'squarish'" },
-          "order_by": { "type": "string", "description": "'latest' or 'popular'" }
+          "id_or_slug": {
+            "type": "string",
+            "description": "Topic ID or slug, e.g. 'nature', 'architecture', 'travel'"
+          },
+          "page": {
+            "type": "integer",
+            "description": "Page number"
+          },
+          "per_page": {
+            "type": "integer",
+            "description": "Photos per page (1-30)"
+          },
+          "orientation": {
+            "type": "string",
+            "description": "'landscape', 'portrait', or 'squarish'"
+          },
+          "order_by": {
+            "type": "string",
+            "description": "'latest' or 'popular'"
+          }
         },
-        "required": ["id_or_slug"]
+        "required": [
+          "id_or_slug"
+        ]
       },
-      "handler": { "method": "GET", "path": "/topics/{id_or_slug}/photos", "headers": {}, "query_params": ["page", "per_page", "orientation", "order_by"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/topics/{id_or_slug}/photos",
+        "headers": {},
+        "query_params": [
+          "page",
+          "per_page",
+          "orientation",
+          "order_by"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "api_key_header",
+          "integration_id": "",
+          "header_name": "Authorization"
+        }
+      }
     }
   ]
 }

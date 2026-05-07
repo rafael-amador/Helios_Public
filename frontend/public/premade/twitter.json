@@ -1,6 +1,10 @@
 {
   "baseUrl": "https://api.twitter.com/2",
-  "auth": [{ "type": "bearer_token" }],
+  "auth": [
+    {
+      "type": "bearer_token"
+    }
+  ],
   "tools": [
     {
       "name": "twitter_get_user_by_username",
@@ -9,12 +13,34 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "username": { "type": "string", "description": "Twitter username without @, e.g. 'elonmusk'" },
-          "user.fields": { "type": "string", "description": "Extra fields: 'description,public_metrics,created_at,profile_image_url'" }
+          "username": {
+            "type": "string",
+            "description": "Twitter username without @, e.g. 'elonmusk'"
+          },
+          "user.fields": {
+            "type": "string",
+            "description": "Extra fields: 'description,public_metrics,created_at,profile_image_url'"
+          }
         },
-        "required": ["username"]
+        "required": [
+          "username"
+        ]
       },
-      "handler": { "method": "GET", "path": "/users/by/username/{username}", "headers": {}, "query_params": ["user.fields"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/users/by/username/{username}",
+        "headers": {},
+        "query_params": [
+          "user.fields"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
+      }
     },
     {
       "name": "twitter_get_tweet",
@@ -23,12 +49,34 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "id": { "type": "string", "description": "Tweet ID (the numeric part of the tweet URL)" },
-          "tweet.fields": { "type": "string", "description": "Extra fields: 'public_metrics,created_at,author_id,context_annotations'" }
+          "id": {
+            "type": "string",
+            "description": "Tweet ID (the numeric part of the tweet URL)"
+          },
+          "tweet.fields": {
+            "type": "string",
+            "description": "Extra fields: 'public_metrics,created_at,author_id,context_annotations'"
+          }
         },
-        "required": ["id"]
+        "required": [
+          "id"
+        ]
       },
-      "handler": { "method": "GET", "path": "/tweets/{id}", "headers": {}, "query_params": ["tweet.fields"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/tweets/{id}",
+        "headers": {},
+        "query_params": [
+          "tweet.fields"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
+      }
     },
     {
       "name": "twitter_get_authenticated_user",
@@ -37,11 +85,28 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "user.fields": { "type": "string", "description": "Extra fields: 'description,public_metrics,created_at'" }
+          "user.fields": {
+            "type": "string",
+            "description": "Extra fields: 'description,public_metrics,created_at'"
+          }
         },
         "required": []
       },
-      "handler": { "method": "GET", "path": "/users/me", "headers": {}, "query_params": ["user.fields"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/users/me",
+        "headers": {},
+        "query_params": [
+          "user.fields"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
+      }
     },
     {
       "name": "twitter_search_recent",
@@ -50,13 +115,40 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "query": { "type": "string", "description": "Search query, e.g. '#AI' or 'from:elonmusk' or 'python lang:en'" },
-          "max_results": { "type": "integer", "description": "Tweets to return (10-100)" },
-          "tweet.fields": { "type": "string", "description": "Extra fields: 'public_metrics,created_at,author_id'" }
+          "query": {
+            "type": "string",
+            "description": "Search query, e.g. '#AI' or 'from:elonmusk' or 'python lang:en'"
+          },
+          "max_results": {
+            "type": "integer",
+            "description": "Tweets to return (10-100)"
+          },
+          "tweet.fields": {
+            "type": "string",
+            "description": "Extra fields: 'public_metrics,created_at,author_id'"
+          }
         },
-        "required": ["query"]
+        "required": [
+          "query"
+        ]
       },
-      "handler": { "method": "GET", "path": "/tweets/search/recent", "headers": {}, "query_params": ["query", "max_results", "tweet.fields"], "fixed_query_params": {} }
+      "handler": {
+        "method": "GET",
+        "path": "/tweets/search/recent",
+        "headers": {},
+        "query_params": [
+          "query",
+          "max_results",
+          "tweet.fields"
+        ],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
+      }
     },
     {
       "name": "twitter_create_tweet",
@@ -65,12 +157,32 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "text": { "type": "string", "description": "Tweet text (max 280 characters)" },
-          "reply": { "type": "object", "description": "Reply to a tweet: { in_reply_to_tweet_id: '1234567890' }" }
+          "text": {
+            "type": "string",
+            "description": "Tweet text (max 280 characters)"
+          },
+          "reply": {
+            "type": "object",
+            "description": "Reply to a tweet: { in_reply_to_tweet_id: '1234567890' }"
+          }
         },
-        "required": ["text"]
+        "required": [
+          "text"
+        ]
       },
-      "handler": { "method": "POST", "path": "/tweets", "headers": {}, "query_params": [], "fixed_query_params": {} }
+      "handler": {
+        "method": "POST",
+        "path": "/tweets",
+        "headers": {},
+        "query_params": [],
+        "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
+      }
     }
   ]
 }

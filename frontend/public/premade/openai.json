@@ -2,7 +2,7 @@
   "baseUrl": "https://api.openai.com/v1",
   "auth": [
     {
-      "type": "none"
+      "type": "bearer_token"
     }
   ],
   "tools": [
@@ -123,7 +123,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -143,7 +146,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -163,7 +169,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -255,7 +264,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -357,7 +369,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -471,7 +486,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -529,7 +547,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -565,7 +586,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -585,7 +609,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -612,7 +639,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -670,7 +700,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -690,7 +723,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -710,7 +746,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -737,7 +776,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -764,7 +806,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -791,7 +836,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -811,7 +859,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -895,7 +946,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -922,7 +976,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -949,7 +1006,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -983,7 +1043,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -1003,7 +1066,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -1051,7 +1117,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -1071,7 +1140,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -1091,7 +1163,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -1118,7 +1193,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -1145,7 +1223,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     },
@@ -1177,7 +1258,10 @@
         "fixed_query_params": {}
       },
       "enrichment": {
-        "auth": null
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       },
       "enabled": true
     }

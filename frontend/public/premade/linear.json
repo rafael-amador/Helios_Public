@@ -1,6 +1,10 @@
 {
   "baseUrl": "https://api.linear.app",
-  "auth": [{ "type": "bearer_token" }],
+  "auth": [
+    {
+      "type": "bearer_token"
+    }
+  ],
   "tools": [
     {
       "name": "linear_query",
@@ -9,10 +13,18 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "query": { "type": "string", "description": "GraphQL query string" },
-          "variables": { "type": "object", "description": "GraphQL variables object" }
+          "query": {
+            "type": "string",
+            "description": "GraphQL query string"
+          },
+          "variables": {
+            "type": "object",
+            "description": "GraphQL variables object"
+          }
         },
-        "required": ["query"]
+        "required": [
+          "query"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -20,6 +32,12 @@
         "headers": {},
         "query_params": [],
         "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       }
     },
     {
@@ -29,7 +47,10 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "first": { "type": "integer", "description": "Number of teams to fetch" }
+          "first": {
+            "type": "integer",
+            "description": "Number of teams to fetch"
+          }
         },
         "required": []
       },
@@ -39,6 +60,12 @@
         "headers": {},
         "query_params": [],
         "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       }
     },
     {
@@ -48,8 +75,14 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "first": { "type": "integer", "description": "Number of issues to fetch" },
-          "teamId": { "type": "string", "description": "Optional Linear team ID" }
+          "first": {
+            "type": "integer",
+            "description": "Number of issues to fetch"
+          },
+          "teamId": {
+            "type": "string",
+            "description": "Optional Linear team ID"
+          }
         },
         "required": []
       },
@@ -59,6 +92,12 @@
         "headers": {},
         "query_params": [],
         "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       }
     },
     {
@@ -68,9 +107,14 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "id": { "type": "string", "description": "Issue ID" }
+          "id": {
+            "type": "string",
+            "description": "Issue ID"
+          }
         },
-        "required": ["id"]
+        "required": [
+          "id"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -78,6 +122,12 @@
         "headers": {},
         "query_params": [],
         "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       }
     },
     {
@@ -87,12 +137,27 @@
       "input_schema": {
         "type": "object",
         "properties": {
-          "teamId": { "type": "string", "description": "Team ID" },
-          "title": { "type": "string", "description": "Issue title" },
-          "description": { "type": "string", "description": "Issue description" },
-          "priority": { "type": "integer", "description": "Priority 0-4" }
+          "teamId": {
+            "type": "string",
+            "description": "Team ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "Issue title"
+          },
+          "description": {
+            "type": "string",
+            "description": "Issue description"
+          },
+          "priority": {
+            "type": "integer",
+            "description": "Priority 0-4"
+          }
         },
-        "required": ["teamId", "title"]
+        "required": [
+          "teamId",
+          "title"
+        ]
       },
       "handler": {
         "method": "POST",
@@ -100,6 +165,12 @@
         "headers": {},
         "query_params": [],
         "fixed_query_params": {}
+      },
+      "enrichment": {
+        "auth": {
+          "template": "bearer_token",
+          "integration_id": ""
+        }
       }
     }
   ]
