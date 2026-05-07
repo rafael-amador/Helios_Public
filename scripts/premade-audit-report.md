@@ -2,6 +2,10 @@
 
 Generated: 2026-05-07T15:07:09.631Z
 
+> See `scripts/premade-audit-changelog.md` for the running history of fixes.
+> The audit script overwrites this file on each run, so persistent fix notes
+> live in the changelog instead.
+
 ## Summary
 
 - Premades audited: **40**
