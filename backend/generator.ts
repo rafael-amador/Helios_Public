@@ -570,11 +570,29 @@ ${vars.map(v => `${v.name}=your_value`).join("\n")}
 \`\`\``
     : `3. No credentials needed — this API is public. Skip this step.`
 
-  const oauth2Note = templates.has("oauth2_client_creds")
-    ? `
+  // OAuth notes — different guidance per flow.
+  let oauth2Note = ""
+  if (templates.has("oauth2_client_creds")) {
+    oauth2Note += `
 
 > **OAuth 2.0 Client Credentials note:** This API uses the client_credentials flow. The generated server expects a pre-obtained \`ACCESS_TOKEN\` rather than handling token exchange itself. To obtain one, POST your client_id + client_secret to the API's token endpoint (check the provider's docs) and paste the resulting access token into \`.env\`. Tokens have an expiry — re-run the exchange when you get 401s.`
-    : ""
+  }
+  if (templates.has("oauth2_auth_code")) {
+    // Try to surface a hint about WHERE to start the OAuth flow if the parser
+    // captured an authorization_url anywhere in the registry.
+    const authUrl = registry.tools
+      .map(t => (t as EndpointDefinition).enrichment?.auth?.authorization_url)
+      .find(u => !!u)
+    oauth2Note += `
+
+> **OAuth 2.0 Authorization Code note:** This API uses the authorization_code flow. The generated server expects a pre-obtained user access token in \`ACCESS_TOKEN\`. To get one:
+>  1. Register an OAuth 2.0 application with the provider (Google Cloud Console for Google APIs, the relevant developer portal otherwise) and obtain a \`client_id\` + \`client_secret\`.
+>  2. Have the user visit the provider's authorize URL${authUrl ? ` (\`${authUrl}\`)` : ""} with \`response_type=code\`, your \`client_id\`, the appropriate \`scope\` for this API, and a \`redirect_uri\` you control.
+>  3. Exchange the returned authorization \`code\` at the provider's token endpoint (POST with \`grant_type=authorization_code\`, the \`code\`, \`client_id\`, \`client_secret\`, and \`redirect_uri\`) for an \`access_token\`.
+>  4. Paste the \`access_token\` into \`.env\` as \`ACCESS_TOKEN\`. These tokens typically expire in 1 hour — also save the \`refresh_token\` and re-run step 3 with \`grant_type=refresh_token\` when you get 401s.
+>
+> For Google APIs specifically: enable the API in your Google Cloud project, add yourself as a test user under OAuth consent screen, and use \`https://www.googleapis.com/auth/<scope>\` for the relevant scope (e.g. \`gmail.readonly\`, \`gmail.modify\`, \`calendar\`).`
+  }
 
   const multiAuthNote = templates.size > 1
     ? `
