@@ -52,8 +52,13 @@ function assignStarPosition(name: string, existing: Array<{ starX: number; starY
   const r1 = ((seed * 9301 + 49297) % 233280) / 233280
   const r2 = ((seed * 16807 + 17711) % 233280) / 233280
 
+  // Two side zones only — keeps the centered "Build Your Server" CTA clear
+  // so stars never spawn behind it. Mirrors the base-Helios bounds.
   const side: "left" | "right" = r1 < 0.5 ? "left" : "right"
-  let starX = side === "left" ? 6 + r1 * 60 : 38 + r2 * 56  // spread across the page
+  const r1Local = side === "left" ? r1 * 2 : (r1 - 0.5) * 2
+  let starX = side === "left"
+    ? 3 + r1Local * 34   // 3–37%
+    : 63 + r1Local * 33  // 63–96%
   let starY = 14 + r2 * 46
 
   // Nudge away from any neighbor closer than MIN_DIST
@@ -69,8 +74,13 @@ function assignStarPosition(name: string, existing: Array<{ starX: number; starY
     starY += (attempt % 2 === 0 ? -1 : 1) * (2 + attempt)
   }
 
-  // Keep on screen
-  starX = Math.max(4, Math.min(96, starX))
+  // Clamp back into the assigned side zone so the nudge step can't drift a
+  // star into the center CTA region.
+  if (side === "left") {
+    starX = Math.max(3, Math.min(37, starX))
+  } else {
+    starX = Math.max(63, Math.min(96, starX))
+  }
   starY = Math.max(10, Math.min(60, starY))
 
   return { starX, starY }
